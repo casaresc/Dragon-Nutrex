@@ -109,7 +109,7 @@
             btnGuardar.TabIndex = 6;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
-            btnGuardar.Click += button1_Click;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // btnCancelar
             // 
@@ -190,7 +190,6 @@
             lblTipodeDieta.Size = new Size(76, 15);
             lblTipodeDieta.TabIndex = 14;
             lblTipodeDieta.Text = "Tipo de Dieta";
-            lblTipodeDieta.Click += label1_Click;
             // 
             // button1
             // 
@@ -221,7 +220,6 @@
             label2.Size = new Size(76, 15);
             label2.TabIndex = 14;
             label2.Text = "Tipo de Dieta";
-            label2.Click += label1_Click;
             // 
             // lblTitulo
             // 
@@ -232,7 +230,6 @@
             lblTitulo.TabIndex = 15;
             lblTitulo.Text = "Registro de Usuario";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
-            lblTitulo.Click += label3_Click;
             // 
             // UsuarioForm
             // 
@@ -260,6 +257,7 @@
             Controls.Add(txtNombre);
             Name = "UsuarioForm";
             Text = "UsuarioForm";
+            Load += UsuarioForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

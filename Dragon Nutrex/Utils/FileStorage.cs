@@ -20,7 +20,9 @@ namespace Dragon_Nutrex.Utils
                 return new List<T>();
 
             var json = File.ReadAllText(path);
-            return JsonSerializer.Deserialize<List<T>>(json);
+            // Returns a new list if Deserialize returns null
+            return JsonSerializer.Deserialize<List<T>>(json) ?? new List<T>();
         }
+
     }
 }
