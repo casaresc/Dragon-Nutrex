@@ -114,5 +114,15 @@ namespace Dragon_Nutrex.Views
             cmbActividad.SelectedIndex = -1;
             cmbDieta.SelectedIndex = -1;
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

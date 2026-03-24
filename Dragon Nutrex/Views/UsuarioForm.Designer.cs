@@ -43,7 +43,6 @@
             lblObjetivo = new Label();
             lblNivelDeActividad = new Label();
             lblTipodeDieta = new Label();
-            button1 = new Button();
             label1 = new Label();
             label2 = new Label();
             lblTitulo = new Label();
@@ -120,6 +119,7 @@
             btnCancelar.TabIndex = 7;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnLimpiar
             // 
@@ -130,6 +130,7 @@
             btnLimpiar.TabIndex = 8;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // lblNombre
             // 
@@ -191,16 +192,6 @@
             lblTipodeDieta.TabIndex = 14;
             lblTipodeDieta.Text = "Tipo de Dieta";
             // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            button1.Location = new Point(352, 279);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 7;
-            button1.Text = "Cancelar";
-            button1.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -246,7 +237,6 @@
             Controls.Add(lblPeso);
             Controls.Add(lblNombre);
             Controls.Add(btnLimpiar);
-            Controls.Add(button1);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(cmbDieta);
@@ -279,7 +269,6 @@
         private Label lblObjetivo;
         private Label lblNivelDeActividad;
         private Label lblTipodeDieta;
-        private Button button1;
         private Label label1;
         private Label label2;
         private Label lblTitulo;

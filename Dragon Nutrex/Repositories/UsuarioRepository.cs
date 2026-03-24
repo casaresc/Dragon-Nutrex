@@ -8,7 +8,7 @@ namespace Dragon_Nutrex.Repositories
 {
     public class UsuarioRepository
     {
-        private string path = "Data/usuarios.json";
+        private string path = Path.Combine("Data", "usuarios.json");
 
         public List<Usuario> GetAll()
         {
