@@ -12,9 +12,31 @@ namespace Dragon_Nutrex.Views
 {
     public partial class UsuarioForm : Form
     {
+        private Usuario? _usuarioEditar = null;
+        private UsuarioController _controller = new UsuarioController();
+
         public UsuarioForm()
         {
             InitializeComponent();
+        }
+
+
+        public UsuarioForm(Usuario usuario)
+        {
+            InitializeComponent();
+
+            _usuarioEditar = usuario;
+        }
+
+        private void CargarDatosUsuario()
+        {
+            txtNombre.Text = _usuarioEditar?.Nombre ?? string.Empty;
+            txtPeso.Text = _usuarioEditar?.Peso.ToString() ?? string.Empty;
+            txtAltura.Text = _usuarioEditar?.Altura.ToString() ?? string.Empty;
+
+            cmbObjetivo.SelectedItem = _usuarioEditar?.Objetivo ?? string.Empty;
+            cmbActividad.SelectedItem = _usuarioEditar?.NivelActividad ?? string.Empty;
+            cmbDieta.SelectedItem = _usuarioEditar?.TipoDieta ?? string.Empty;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -26,27 +48,52 @@ namespace Dragon_Nutrex.Views
 
                 Usuario usuario = new Usuario
                 {
+                    Id = _usuarioEditar != null ? _usuarioEditar.Id : Guid.NewGuid(),
                     Nombre = txtNombre.Text,
                     Peso = double.Parse(txtPeso.Text),
                     Altura = double.Parse(txtAltura.Text),
-                    Objetivo = cmbObjetivo.Text,
-                    NivelActividad = cmbActividad.Text,
-                    TipoDieta = cmbDieta.Text
+                    Objetivo = cmbObjetivo.SelectedItem?.ToString() ?? "No seleccionado",
+                    NivelActividad = cmbActividad.SelectedItem?.ToString() ?? "No seleccionado",
+                    TipoDieta = cmbDieta.SelectedItem?.ToString() ?? "No seleccionado"
                 };
 
-                UsuarioController controller = new UsuarioController();
-                controller.CrearUsuario(usuario);
+                if (_usuarioEditar == null)
+                {
+                    _controller.CrearUsuario(usuario);
 
-                MessageBox.Show("Usuario guardado correctamente");
+                    MessageBox.Show(
+                        "Usuario creado correctamente",
+                        "Éxito",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
 
-                LimpiarCampos();
+                    LimpiarCampos();
+                }
+                else
+                {
+                    _controller.ActualizarUsuario(usuario);
+
+                    MessageBox.Show(
+                        "Usuario actualizado correctamente",
+                        "Éxito",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                }
+
+                this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(
+                    ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
         }
-
         private void UsuarioForm_Load(object sender, EventArgs e)
         {
             cmbObjetivo.Items.Add("Mantener");
@@ -61,6 +108,11 @@ namespace Dragon_Nutrex.Views
             cmbDieta.Items.Add("Estándar");
             cmbDieta.Items.Add("Keto");
             cmbDieta.Items.Add("Vegetariano");
+           
+            if (_usuarioEditar != null)
+            {
+                CargarDatosUsuario();
+            }
         }
 
         private bool ValidarCampos()
@@ -101,6 +153,18 @@ namespace Dragon_Nutrex.Views
                 return false;
             }
 
+            if (cmbActividad.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione un nivel de actividad");
+                return false;
+            }
+
+            if (cmbDieta.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione un tipo de dieta");
+                return false;
+            }
+
             return true;
         }
 
@@ -123,6 +187,13 @@ namespace Dragon_Nutrex.Views
         private void btnCancelar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnVerUsuarios_Click(object sender, EventArgs e)
+        {
+            UsuarioListForm lista = new UsuarioListForm();
+
+            lista.ShowDialog();
         }
     }
 }

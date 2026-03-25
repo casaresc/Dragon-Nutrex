@@ -46,6 +46,7 @@
             label1 = new Label();
             label2 = new Label();
             lblTitulo = new Label();
+            btnVerUsuarios = new Button();
             SuspendLayout();
             // 
             // txtNombre
@@ -222,11 +223,22 @@
             lblTitulo.Text = "Registro de Usuario";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // btnVerUsuarios
+            // 
+            btnVerUsuarios.Location = new Point(338, 328);
+            btnVerUsuarios.Name = "btnVerUsuarios";
+            btnVerUsuarios.Size = new Size(99, 23);
+            btnVerUsuarios.TabIndex = 16;
+            btnVerUsuarios.Text = "Ver usuarios";
+            btnVerUsuarios.UseVisualStyleBackColor = true;
+            btnVerUsuarios.Click += btnVerUsuarios_Click;
+            // 
             // UsuarioForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnVerUsuarios);
             Controls.Add(lblTitulo);
             Controls.Add(label2);
             Controls.Add(lblTipodeDieta);
@@ -272,5 +284,6 @@
         private Label label1;
         private Label label2;
         private Label lblTitulo;
+        private Button btnVerUsuarios;
     }
 }

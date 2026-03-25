@@ -6,7 +6,7 @@ namespace Dragon_Nutrex.Models
     public class Usuario
     {
         
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public required string Nombre { get; set; }
         public required double Peso { get; set; }
         public required double Altura { get; set; }
