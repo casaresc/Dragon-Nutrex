@@ -19,5 +19,24 @@ namespace Dragon_Nutrex.Repositories
         {
             FileStorage.Save(path, usuarios);
         }
+
+        public void Update(Usuario usuarioActualizado)
+        {
+            var usuarios = GetAll();
+
+            var usuarioExistente = usuarios.FirstOrDefault(u => u.Id == usuarioActualizado.Id);
+
+            if (usuarioExistente == null)
+                throw new Exception("Usuario no encontrado");
+
+            usuarioExistente.Nombre = usuarioActualizado.Nombre;
+            usuarioExistente.Peso = usuarioActualizado.Peso;
+            usuarioExistente.Altura = usuarioActualizado.Altura;
+            usuarioExistente.Objetivo = usuarioActualizado.Objetivo;
+            usuarioExistente.NivelActividad = usuarioActualizado.NivelActividad;
+            usuarioExistente.TipoDieta = usuarioActualizado.TipoDieta;
+
+            SaveAll(usuarios);
+        }
     }
 }
