@@ -1,18 +1,30 @@
+using System;
+using System.Windows.Forms;
+using Dragon_Nutrex.Common;
 using Dragon_Nutrex.Views;
 
 namespace Dragon_Nutrex
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+
+            // Manejo global de excepciones en UI
+            Application.ThreadException += (sender, args) =>
+            {
+                GlobalExceptionHandler.Handle(args.Exception);
+            };
+
+            // Manejo global de excepciones fuera del hilo UI
+            AppDomain.CurrentDomain.UnhandledException += (sender, args) =>
+            {
+                Exception ex = (Exception)args.ExceptionObject;
+                GlobalExceptionHandler.Handle(ex);
+            };
+
             Application.Run(new UsuarioForm());
         }
     }
