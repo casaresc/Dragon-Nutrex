@@ -1,4 +1,5 @@
-﻿using Dragon_Nutrex.Controllers;
+﻿using Dragon_Nutrex.Common;
+using Dragon_Nutrex.Controllers;
 using Dragon_Nutrex.Models;
 using System;
 using System.Collections.Generic;
@@ -86,12 +87,7 @@ namespace Dragon_Nutrex.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
+                GlobalExceptionHandler.Handle(ex);
             }
         }
         private void UsuarioForm_Load(object sender, EventArgs e)

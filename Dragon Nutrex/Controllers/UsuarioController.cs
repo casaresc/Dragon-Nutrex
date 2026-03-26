@@ -1,4 +1,5 @@
-﻿using Dragon_Nutrex.Models;
+﻿using Dragon_Nutrex.Common;
+using Dragon_Nutrex.Models;
 using Dragon_Nutrex.Services;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace Dragon_Nutrex.Controllers
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al actualizar usuario: " + ex.Message);
+                GlobalExceptionHandler.Handle(ex);
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using Dragon_Nutrex.Models;
+﻿using Dragon_Nutrex.Common;
+using Dragon_Nutrex.Models;
 using Dragon_Nutrex.Repositories;
 using System;
 using System.Collections.Generic;
@@ -62,7 +63,7 @@ namespace Dragon_Nutrex.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                GlobalExceptionHandler.Handle(ex);
             }
         }
     }
