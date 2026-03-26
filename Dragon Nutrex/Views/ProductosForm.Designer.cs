@@ -66,7 +66,7 @@
             dgvProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvProductos.Size = new Size(800, 250);
             dgvProductos.TabIndex = 0;
-            dgvProductos.CellContentClick += dgvProductos_CellClick;
+            dgvProductos.CellClick += dgvProductos_CellClick;
             // 
             // lblNombre
             // 
@@ -218,6 +218,7 @@
             btnEliminar.TabIndex = 19;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnLimpiar
             // 
