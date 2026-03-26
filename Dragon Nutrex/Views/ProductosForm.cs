@@ -21,7 +21,7 @@ namespace Dragon_Nutrex.Views
             InitializeComponent();
             _service = new ProductoService();
             ProductosForm_Load();
-            
+
         }
 
         private void ProductosForm_Load()
@@ -48,6 +48,11 @@ namespace Dragon_Nutrex.Views
         {
             var producto = ObtenerProductoDesdeFormulario();
 
+            if (producto == null)
+            {
+                return;
+            }
+
             _service.CrearProducto(producto);
 
             MessageBox.Show(
@@ -73,55 +78,36 @@ namespace Dragon_Nutrex.Views
             if (e.RowIndex < 0)
                 return;
 
-            var producto =
-                (Producto)dgvProductos.Rows[e.RowIndex].DataBoundItem;
-
-            _productoSeleccionadoId = producto.Id;
-
-            txtNombre.Text = producto.Nombre;
-
-            cmbCategoria.SelectedItem =
-                producto.Categoria;
-
-            nudCalorias.Value =
-                producto.Calorias;
-
-            nudProteina.Value =
-                producto.Proteina;
-
-            nudCarbohidratos.Value =
-                producto.Carbohidratos;
-
-            nudGrasas.Value =
-                producto.Grasas;
-
-            nudPorcion.Value =
-                producto.PorcionGramos;
+            if (dgvProductos.Rows[e.RowIndex].DataBoundItem is Producto producto)
+            {
+                _productoSeleccionadoId = producto.Id;
+                txtNombre.Text = producto.Nombre;
+                cmbCategoria.SelectedItem = producto.Categoria;
+                nudCalorias.Value = producto.Calorias;
+                nudProteina.Value = producto.Proteina;
+                nudCarbohidratos.Value = producto.Carbohidratos;
+                nudGrasas.Value = producto.Grasas;
+                nudPorcion.Value = producto.PorcionGramos;
+            }
         }
 
-        private Producto ObtenerProductoDesdeFormulario()
+        private Producto? ObtenerProductoDesdeFormulario()
         {
+            if (cmbCategoria.SelectedItem == null)
+            {
+                MessageBox.Show("Por favor, seleccione una categoría.");
+                return null;
+            }
+
             return new Producto
             {
                 Nombre = txtNombre.Text.Trim(),
-
-                Categoria =
-                    (CategoriaProducto)cmbCategoria.SelectedItem,
-
-                Calorias =
-                    nudCalorias.Value,
-
-                Proteina =
-                    nudProteina.Value,
-
-                Carbohidratos =
-                    nudCarbohidratos.Value,
-
-                Grasas =
-                    nudGrasas.Value,
-
-                PorcionGramos =
-                    nudPorcion.Value
+                Categoria = (CategoriaProducto)cmbCategoria.SelectedItem,
+                Calorias = nudCalorias.Value,
+                Proteina = nudProteina.Value,
+                Carbohidratos = nudCarbohidratos.Value,
+                Grasas = nudGrasas.Value,
+                PorcionGramos = nudPorcion.Value
             };
         }
 
@@ -140,6 +126,36 @@ namespace Dragon_Nutrex.Views
             _productoSeleccionadoId = Guid.Empty;
 
             dgvProductos.ClearSelection();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (_productoSeleccionadoId == Guid.Empty)
+            {
+                MessageBox.Show(
+                    "Seleccione un producto.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            var confirmacion = MessageBox.Show(
+                "¿Desea eliminar este producto?",
+                "Confirmación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirmacion == DialogResult.Yes)
+            {
+                _service.EliminarProducto(
+                    _productoSeleccionadoId);
+
+                CargarProductos();
+
+                LimpiarFormulario();
+            }
         }
     }
 }
