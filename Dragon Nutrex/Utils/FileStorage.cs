@@ -5,6 +5,7 @@ using System.Text;
 namespace Dragon_Nutrex.Utils
 {
     using System.Text.Json;
+    using System.Text.Json.Serialization;
 
     public static class FileStorage
     {
@@ -22,7 +23,8 @@ namespace Dragon_Nutrex.Utils
 
             var json = JsonSerializer.Serialize(data, new JsonSerializerOptions
             {
-                WriteIndented = true
+                WriteIndented = true,
+                Converters = { new JsonStringEnumConverter() }
             });
 
             File.WriteAllText(path, json);
@@ -39,8 +41,10 @@ namespace Dragon_Nutrex.Utils
             if (string.IsNullOrWhiteSpace(json))
                 return new List<T>();
 
-            // Returns a new list if Deserialize returns null
-            return JsonSerializer.Deserialize<List<T>>(json) ?? new List<T>();
+            return JsonSerializer.Deserialize<List<T>>(json, new JsonSerializerOptions
+            {
+                Converters = { new JsonStringEnumConverter() }
+            }) ?? new List<T>();
         }
 
     }
