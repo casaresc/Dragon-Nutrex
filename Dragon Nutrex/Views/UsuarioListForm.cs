@@ -1,4 +1,5 @@
-﻿using Dragon_Nutrex.Models;
+﻿using Dragon_Nutrex.Common;
+using Dragon_Nutrex.Models;
 using Dragon_Nutrex.Repositories;
 using System;
 using System.Collections.Generic;
@@ -34,14 +35,34 @@ namespace Dragon_Nutrex.Views
             CargarUsuarios();
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (dgvUsuarios.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione un usuario");
+                return;
+            }
 
+            var cellValue = dgvUsuarios.SelectedRows[0].Cells["Id"].Value;
+
+            if (cellValue is Guid id)
+            {
+                var usuarios = repo.GetAll();
+                var usuario = usuarios.FirstOrDefault(u => u.Id == id);
+
+                if (usuario != null)
+                {
+                    usuarios.Remove(usuario);
+                    repo.SaveAll(usuarios);
+                    MessageBox.Show("Usuario eliminado");
+                    CargarUsuarios();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se pudo obtener el ID del usuario.");
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -62,8 +83,13 @@ namespace Dragon_Nutrex.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                GlobalExceptionHandler.Handle(ex);
             }
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
