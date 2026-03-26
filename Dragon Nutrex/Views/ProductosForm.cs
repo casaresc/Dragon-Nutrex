@@ -157,5 +157,34 @@ namespace Dragon_Nutrex.Views
                 LimpiarFormulario();
             }
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (_productoSeleccionadoId == Guid.Empty)
+            {
+                MessageBox.Show(
+                    "Seleccione un producto.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            var producto = ObtenerProductoDesdeFormulario();
+
+            if (producto == null)
+            {
+                return;
+            }
+
+            producto.Id = _productoSeleccionadoId;
+
+            _service.ActualizarProducto(producto);
+
+            CargarProductos();
+
+            LimpiarFormulario();
+        }
     }
 }
