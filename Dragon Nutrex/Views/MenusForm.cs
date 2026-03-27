@@ -152,5 +152,25 @@ namespace Dragon_Nutrex.Views
 
             dgvMenus.ClearSelection();
         }
+
+        private void btnAgregarProductos_Click(
+            object sender,
+            EventArgs e)
+        {
+            if (dgvMenus.SelectedRows.Count == 0)
+                throw new Exception(
+                    "Seleccione un menú.");
+
+            var menu =
+                (MenuDiario)
+                dgvMenus
+                .SelectedRows[0]
+                .DataBoundItem;
+
+            var form =
+                new MenuDetalleForm(menu);
+
+            form.ShowDialog();
+        }
     }
 }
