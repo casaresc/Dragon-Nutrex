@@ -25,7 +25,7 @@ namespace Dragon_Nutrex
                 GlobalExceptionHandler.Handle(ex);
             };
 
-            Application.Run(new IMCForm());
+            Application.Run(new RequerimientosForm());
         }
     }
 }
