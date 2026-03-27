@@ -153,24 +153,23 @@ namespace Dragon_Nutrex.Views
             dgvMenus.ClearSelection();
         }
 
-        private void btnAgregarProductos_Click(
-            object sender,
-            EventArgs e)
+        private void btnAgregarProductos_Click(object? sender, EventArgs e)
         {
+
             if (dgvMenus.SelectedRows.Count == 0)
-                throw new Exception(
-                    "Seleccione un menú.");
+            {
+                MessageBox.Show("Seleccione un menú de la lista.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            var menu =
-                (MenuDiario)
-                dgvMenus
-                .SelectedRows[0]
-                .DataBoundItem;
+            if (dgvMenus.SelectedRows[0].DataBoundItem is MenuDiario menu)
+            {
 
-            var form =
-                new MenuDetalleForm(menu);
+                var form = new MenuDetalleForm(menu);
+                form.ShowDialog();
 
-            form.ShowDialog();
+                CargarMenus();
+            }
         }
     }
 }
