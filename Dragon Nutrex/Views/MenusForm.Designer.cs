@@ -37,6 +37,7 @@
             btnEditar = new Button();
             btnEliminar = new Button();
             btnLimpiar = new Button();
+            btnAgregarProductos = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvMenus).BeginInit();
             SuspendLayout();
             // 
@@ -126,11 +127,22 @@
             btnLimpiar.UseVisualStyleBackColor = true;
             btnLimpiar.Click += btnLimpiar_Click;
             // 
+            // btnAgregarProductos
+            // 
+            btnAgregarProductos.Location = new Point(418, 292);
+            btnAgregarProductos.Name = "btnAgregarProductos";
+            btnAgregarProductos.Size = new Size(127, 23);
+            btnAgregarProductos.TabIndex = 9;
+            btnAgregarProductos.Text = "Agregar Productos";
+            btnAgregarProductos.UseVisualStyleBackColor = true;
+            btnAgregarProductos.Click += btnAgregarProductos_Click;
+            // 
             // MenusForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnAgregarProductos);
             Controls.Add(btnLimpiar);
             Controls.Add(btnEliminar);
             Controls.Add(btnEditar);
@@ -158,5 +170,6 @@
         private Button btnEditar;
         private Button btnEliminar;
         private Button btnLimpiar;
+        private Button btnAgregarProductos;
     }
 }

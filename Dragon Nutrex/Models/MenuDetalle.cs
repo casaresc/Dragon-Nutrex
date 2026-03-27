@@ -8,12 +8,12 @@ namespace Dragon_Nutrex.Models
     {
         public Guid Id { get; set; }
 
+        public Guid MenuId { get; set; }
+
         public Guid ProductoId { get; set; }
 
-        public string? ProductoNombre { get; set; }
+        public decimal Porcion { get; set; }
 
-        public decimal CantidadGramos { get; set; }
-
-        public TipoComida TipoComida { get; set; }
+        public bool Activo { get; set; } = true;
     }
 }
