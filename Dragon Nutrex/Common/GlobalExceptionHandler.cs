@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Windows.Forms;
 
 namespace Dragon_Nutrex.Common
 {
@@ -8,9 +7,13 @@ namespace Dragon_Nutrex.Common
     {
         public static void Handle(Exception ex)
         {
-            // Mensaje amigable para el usuario
+            // Registrar error
+            Logger.Log(ex);
+
+            // Mostrar mensaje amigable
             MessageBox.Show(
-                $"Ocurrió un error:\n\n{ex.Message}",
+                "Ocurrió un error inesperado.\n" +
+                "Por favor intente nuevamente.",
                 "Error",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error
