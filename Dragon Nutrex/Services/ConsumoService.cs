@@ -60,4 +60,65 @@ public class ConsumoService
             TieneRegistros = tieneRegistros
         };
     }
+
+    public ResumenRango
+    ObtenerResumenPorRango(
+        DateTime fechaInicio,
+        DateTime fechaFin)
+    {
+        if (fechaInicio > fechaFin)
+            throw new ArgumentException(
+                "La fecha inicio no puede ser mayor que la fecha fin");
+
+        var registros =
+            _repository
+            .ObtenerPorRango(
+                fechaInicio,
+                fechaFin);
+
+        if (registros == null
+            || registros.Count == 0)
+        {
+            return new ResumenRango();
+        }
+
+        var totalCalorias =
+            registros.Sum(r =>
+                r.CaloriasConsumidas);
+
+        var totalCarbohidratos =
+            registros.Sum(r =>
+                r.CarbohidratosConsumidos);
+
+        var dias =
+            registros
+            .Select(r =>
+                r.Fecha.Date)
+            .Distinct()
+            .Count();
+
+        var promedioCalorias =
+            totalCalorias / dias;
+
+        var promedioCarbohidratos =
+            totalCarbohidratos / dias;
+
+        return new ResumenRango
+        {
+            TotalCalorias =
+                totalCalorias,
+
+            TotalCarbohidratos =
+                totalCarbohidratos,
+
+            PromedioCalorias =
+                promedioCalorias,
+
+            PromedioCarbohidratos =
+                promedioCarbohidratos,
+
+            DiasConRegistros =
+                dias
+        };
+    }
 }
