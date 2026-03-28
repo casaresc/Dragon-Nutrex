@@ -73,5 +73,25 @@ namespace Dragon_Nutrex.Repositories
                     _filePath,
                     registros);
         }
+
+        public List<ConsumoDiario>
+    ObtenerPorRango(
+        DateTime fechaInicio,
+        DateTime fechaFin)
+        {
+            var registros =
+                FileStorage
+                .Load<ConsumoDiario>(
+                    _filePath);
+
+            return registros
+                .Where(r =>
+                    r.Activo &&
+                    r.Fecha.Date >=
+                        fechaInicio.Date &&
+                    r.Fecha.Date <=
+                        fechaFin.Date)
+                .ToList();
+        }
     }
 }
