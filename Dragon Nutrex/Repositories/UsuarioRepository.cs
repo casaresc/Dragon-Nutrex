@@ -6,9 +6,38 @@ using System.Text;
 
 namespace Dragon_Nutrex.Repositories
 {
-    public class UsuarioRepository
+    public class UsuarioRepository : IRepository<Usuario>
     {
         private string path = Path.Combine("Data", "usuarios.json");
+
+        public Usuario? GetById(Guid id)
+        {
+            var usuarios = GetAll();
+
+            return usuarios.FirstOrDefault(u => u.Id == id);
+        }
+
+        public void Delete(Guid id)
+        {
+            var usuarios = GetAll();
+
+            var usuario = usuarios.FirstOrDefault(u => u.Id == id);
+
+            if (usuario == null)
+                throw new Exception("Usuario no encontrado");
+
+            usuarios.Remove(usuario);
+
+            SaveAll(usuarios);
+        }
+        public void Create(Usuario usuario)
+        {
+            var usuarios = GetAll();
+
+            usuarios.Add(usuario);
+
+            SaveAll(usuarios);
+        }
 
         public List<Usuario> GetAll()
         {
