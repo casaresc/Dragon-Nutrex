@@ -7,7 +7,7 @@ namespace Dragon_Nutrex.Models
     public class MenuDiario
     {
         public Guid Id { get; set; }
-
+        public Guid UsuarioId { get; set; }
         public DateTime Fecha { get; set; }
 
         public string? Nombre { get; set; }

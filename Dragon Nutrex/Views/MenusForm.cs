@@ -1,175 +1,124 @@
-﻿using Dragon_Nutrex.Models;
-using Dragon_Nutrex.Services;
+﻿using Dragon_Nutrex.Controllers;
+using Dragon_Nutrex.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Dragon_Nutrex.Views
 {
     public partial class MenusForm : Form
     {
-        private readonly MenuDiarioService _service;
-
-        private Guid _menuSeleccionadoId = Guid.Empty;
+        private readonly MenuController? _controller = new MenuController();
+        private MenuDiario? _menuSeleccionado = null;
 
         public MenusForm()
         {
             InitializeComponent();
-
-            _service = new MenuDiarioService();
-            MenusForm_Load();
+            ConfigurarGrid();
+            this.Load += MenusForm_Load;
         }
 
-        private void MenusForm_Load()
+        private void MenusForm_Load(object? sender, EventArgs e) => CargarMenus();
+
+        private void ConfigurarGrid()
         {
-            CargarMenus();
+            dgvMenus.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvMenus.MultiSelect = false;
+            dgvMenus.ReadOnly = true;
         }
 
         private void CargarMenus()
         {
+            this.ControlBox = false;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.Dock = DockStyle.Fill;
             dgvMenus.DataSource = null;
-
-            dgvMenus.DataSource =
-                _service.ObtenerMenus();
+            dgvMenus.DataSource = _controller?.ObtenerTodosLosMenus();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            var menu = ObtenerMenuDesdeFormulario();
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                MessageBox.Show("El nombre del menú es requerido.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            _service.CrearMenu(menu);
+            var nuevoMenu = new MenuDiario
+            {
+                Id = Guid.NewGuid(),
+                Nombre = txtNombre.Text.Trim(),
+                Fecha = dtpFecha.Value.Date
+            };
 
-
-            MessageBox.Show(
-                "Menu creado correctamente",
-                "Éxito",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
-
+            _controller?.GuardarNuevoMenu(nuevoMenu);
             CargarMenus();
-
-
             LimpiarFormulario();
+            MessageBox.Show("Menú creado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (_menuSeleccionadoId == Guid.Empty)
+            if (_menuSeleccionado == null)
             {
-                MessageBox.Show(
-                    "Seleccione un menú.",
-                    "Aviso",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
+                MessageBox.Show("Seleccione un menú de la lista para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            var menu = ObtenerMenuDesdeFormulario();
+            _menuSeleccionado.Nombre = txtNombre.Text.Trim();
+            _menuSeleccionado.Fecha = dtpFecha.Value.Date;
 
-            menu.Id = _menuSeleccionadoId;
-
-            _service.ActualizarMenu(menu);
-
+            _controller?.ModificarMenu(_menuSeleccionado);
             CargarMenus();
-
             LimpiarFormulario();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (_menuSeleccionadoId == Guid.Empty)
+            if (_menuSeleccionado == null) return;
+
+            var confirm = MessageBox.Show("¿Desea eliminar este menú y todos sus productos?", "Confirmación",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.Yes)
             {
-                MessageBox.Show(
-                    "Seleccione un menú.",
-                    "Aviso",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return;
-            }
-
-            var confirmacion = MessageBox.Show(
-                "¿Desea eliminar este menú?",
-                "Confirmación",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (confirmacion == DialogResult.Yes)
-            {
-                _service.EliminarMenu(
-                    _menuSeleccionadoId);
-
+                _controller?.BorrarMenu(_menuSeleccionado.Id);
                 CargarMenus();
-
                 LimpiarFormulario();
             }
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
+        private void dgvMenus_SelectionChanged(object sender, EventArgs e)
         {
-            LimpiarFormulario();
-        }
-
-        private void dgvMenus_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0) return;
-
-            if (dgvMenus.Rows[e.RowIndex].DataBoundItem is MenuDiario menu)
+            if (dgvMenus.CurrentRow?.DataBoundItem is MenuDiario menu)
             {
-                _menuSeleccionadoId = menu.Id;
+                _menuSeleccionado = menu;
                 txtNombre.Text = menu.Nombre;
                 dtpFecha.Value = menu.Fecha;
             }
         }
 
-        private MenuDiario ObtenerMenuDesdeFormulario()
+        private void btnAgregarProductos_Click(object sender, EventArgs e)
         {
-            return new MenuDiario
+            if (_menuSeleccionado == null)
             {
-                Nombre =
-                    txtNombre.Text.Trim(),
+                MessageBox.Show("Seleccione un menú para gestionar sus alimentos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-                Fecha =
-                    dtpFecha.Value.Date
-            };
+            var formDetalle = new MenuDetalleForm(_menuSeleccionado);
+            formDetalle.ShowDialog();
+            CargarMenus();
         }
 
         private void LimpiarFormulario()
         {
             txtNombre.Clear();
-
-            dtpFecha.Value =
-                DateTime.Now;
-
-            _menuSeleccionadoId =
-                Guid.Empty;
-
+            dtpFecha.Value = DateTime.Now;
+            _menuSeleccionado = null;
             dgvMenus.ClearSelection();
         }
 
-        private void btnAgregarProductos_Click(object? sender, EventArgs e)
-        {
-
-            if (dgvMenus.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Seleccione un menú de la lista.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (dgvMenus.SelectedRows[0].DataBoundItem is MenuDiario menu)
-            {
-
-                var form = new MenuDetalleForm(menu);
-                form.ShowDialog();
-
-                CargarMenus();
-            }
-        }
+        private void btnLimpiar_Click(object sender, EventArgs e) => LimpiarFormulario();
     }
 }

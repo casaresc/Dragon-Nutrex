@@ -35,12 +35,13 @@
             lblResultado = new Label();
             lblIMC = new Label();
             btnCalcular = new Button();
+            lblCategoria = new Label();
             SuspendLayout();
             // 
             // lblPeso
             // 
             lblPeso.AutoSize = true;
-            lblPeso.Location = new Point(337, 152);
+            lblPeso.Location = new Point(337, 95);
             lblPeso.Name = "lblPeso";
             lblPeso.Size = new Size(56, 15);
             lblPeso.TabIndex = 0;
@@ -48,7 +49,7 @@
             // 
             // txtPeso
             // 
-            txtPeso.Location = new Point(337, 170);
+            txtPeso.Location = new Point(337, 113);
             txtPeso.Name = "txtPeso";
             txtPeso.Size = new Size(100, 23);
             txtPeso.TabIndex = 1;
@@ -56,7 +57,7 @@
             // lblAltura
             // 
             lblAltura.AutoSize = true;
-            lblAltura.Location = new Point(337, 206);
+            lblAltura.Location = new Point(337, 149);
             lblAltura.Name = "lblAltura";
             lblAltura.Size = new Size(61, 15);
             lblAltura.TabIndex = 2;
@@ -64,7 +65,7 @@
             // 
             // txtAltura
             // 
-            txtAltura.Location = new Point(337, 224);
+            txtAltura.Location = new Point(337, 167);
             txtAltura.Name = "txtAltura";
             txtAltura.Size = new Size(100, 23);
             txtAltura.TabIndex = 3;
@@ -72,7 +73,7 @@
             // lblResultado
             // 
             lblResultado.AutoSize = true;
-            lblResultado.Location = new Point(337, 260);
+            lblResultado.Location = new Point(337, 230);
             lblResultado.Name = "lblResultado";
             lblResultado.Size = new Size(59, 15);
             lblResultado.TabIndex = 4;
@@ -81,7 +82,7 @@
             // lblIMC
             // 
             lblIMC.AutoSize = true;
-            lblIMC.Location = new Point(337, 289);
+            lblIMC.Location = new Point(337, 259);
             lblIMC.Name = "lblIMC";
             lblIMC.Size = new Size(29, 15);
             lblIMC.TabIndex = 5;
@@ -96,13 +97,24 @@
             btnCalcular.TabIndex = 6;
             btnCalcular.Text = "Calcular";
             btnCalcular.UseVisualStyleBackColor = true;
+            btnCalcular.Visible = false;
             btnCalcular.Click += btnCalcular_Click;
+            // 
+            // lblCategoria
+            // 
+            lblCategoria.AutoSize = true;
+            lblCategoria.Location = new Point(337, 285);
+            lblCategoria.Name = "lblCategoria";
+            lblCategoria.Size = new Size(58, 15);
+            lblCategoria.TabIndex = 7;
+            lblCategoria.Text = "Categoria";
             // 
             // IMCForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblCategoria);
             Controls.Add(btnCalcular);
             Controls.Add(lblIMC);
             Controls.Add(lblResultado);
@@ -125,5 +137,6 @@
         private Label lblResultado;
         private Label lblIMC;
         private Button btnCalcular;
+        private Label lblCategoria;
     }
 }

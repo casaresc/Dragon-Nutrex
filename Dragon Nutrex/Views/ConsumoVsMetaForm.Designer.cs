@@ -54,9 +54,8 @@
             lblCaloriasConsumidas.AutoSize = true;
             lblCaloriasConsumidas.Location = new Point(275, 215);
             lblCaloriasConsumidas.Name = "lblCaloriasConsumidas";
-            lblCaloriasConsumidas.Size = new Size(128, 15);
+            lblCaloriasConsumidas.Size = new Size(0, 15);
             lblCaloriasConsumidas.TabIndex = 1;
-            lblCaloriasConsumidas.Text = "lblCaloriasConsumidas";
             // 
             // label2
             // 
@@ -81,18 +80,16 @@
             lblCarbosConsumidos.AutoSize = true;
             lblCarbosConsumidos.Location = new Point(456, 215);
             lblCarbosConsumidos.Name = "lblCarbosConsumidos";
-            lblCarbosConsumidos.Size = new Size(124, 15);
+            lblCarbosConsumidos.Size = new Size(0, 15);
             lblCarbosConsumidos.TabIndex = 4;
-            lblCarbosConsumidos.Text = "lblCarbosConsumidos";
             // 
             // lblMetaCalorias
             // 
             lblMetaCalorias.AutoSize = true;
             lblMetaCalorias.Location = new Point(275, 271);
             lblMetaCalorias.Name = "lblMetaCalorias";
-            lblMetaCalorias.Size = new Size(89, 15);
+            lblMetaCalorias.Size = new Size(0, 15);
             lblMetaCalorias.TabIndex = 6;
-            lblMetaCalorias.Text = "lblMetaCalorias";
             // 
             // label6
             // 
@@ -108,9 +105,8 @@
             lblDiferencia.AutoSize = true;
             lblDiferencia.Location = new Point(456, 271);
             lblDiferencia.Name = "lblDiferencia";
-            lblDiferencia.Size = new Size(73, 15);
+            lblDiferencia.Size = new Size(0, 15);
             lblDiferencia.TabIndex = 8;
-            lblDiferencia.Text = "lblDiferencia";
             // 
             // label8
             // 
@@ -138,6 +134,7 @@
             btnActualizar.TabIndex = 10;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.Visible = false;
             btnActualizar.Click += btnActualizar_Click;
             // 
             // ConsumoVsMetaForm

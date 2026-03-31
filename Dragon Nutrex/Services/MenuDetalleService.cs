@@ -2,55 +2,58 @@
 using Dragon_Nutrex.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Dragon_Nutrex.Services
 {
     public class MenuDetalleService
     {
-        private readonly MenuDetalleRepository _repository;
+        private readonly IRepository<MenuDetalle> _detalleRepository;
 
         public MenuDetalleService()
         {
-            _repository =
-                new MenuDetalleRepository();
+            _detalleRepository = new MenuDetalleRepository();
         }
 
-        public List<MenuDetalle> ObtenerPorMenu(
-            Guid menuId)
-        {
-            return _repository
-                .ObtenerPorMenu(menuId);
-        }
-
-        public void AgregarProducto(
-            MenuDetalle detalle)
+        public void GuardarDetalle(MenuDetalle detalle)
         {
             ValidarDetalle(detalle);
-
-            _repository.Agregar(detalle);
+            _detalleRepository.Create(detalle);
         }
 
-        public void EliminarProducto(
-            Guid id)
+        public List<MenuDetalle> ObtenerPorMenu(Guid menuId)
         {
-            _repository.Eliminar(id);
+            if (menuId == Guid.Empty)
+                return new List<MenuDetalle>();
+
+            var repoConcreto = (MenuDetalleRepository)_detalleRepository;
+            return repoConcreto.GetByMenuId(menuId);
         }
 
-        private void ValidarDetalle(
-            MenuDetalle detalle)
+        public void EliminarDetalle(Guid id)
         {
-            if (detalle.MenuId == Guid.Empty)
-                throw new ArgumentException(
-                    "Menú inválido.");
+            _detalleRepository.Delete(id);
+        }
+
+        private static void ValidarDetalle(MenuDetalle detalle)
+        {
+            if (detalle == null)
+                throw new ArgumentNullException(nameof(detalle));
 
             if (detalle.ProductoId == Guid.Empty)
-                throw new ArgumentException(
-                    "Producto inválido.");
+                throw new ArgumentException("El detalle debe estar asociado a un producto válido.", nameof(detalle));
 
             if (detalle.Porcion <= 0)
-                throw new ArgumentException(
-                    "La porción debe ser mayor a cero.");
+                throw new ArgumentException("La cantidad del alimento debe ser mayor a cero.", nameof(detalle));
+        }
+
+        public void AgregarProducto(MenuDetalle detalle)
+        {
+            GuardarDetalle(detalle);
+        }
+
+        public void EliminarProducto(Guid id)
+        {
+            EliminarDetalle(id);
         }
     }
 }

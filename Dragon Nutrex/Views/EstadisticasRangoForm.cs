@@ -1,70 +1,63 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+﻿using Dragon_Nutrex.Controllers;
+using Dragon_Nutrex.Models;
+using System;
 using System.Windows.Forms;
 
 namespace Dragon_Nutrex.Views
 {
-    public partial class EstadisticasRangoForm : Form
+    public partial class EstadisticasRangoForm : Form, IEstadisticaFiltrable
     {
-
-        private readonly ConsumoService _consumoService;
+        private readonly ConsumoController _controller = new ConsumoController();
+        private Guid? _usuarioIdActual;
 
         public EstadisticasRangoForm()
         {
             InitializeComponent();
-
-            _consumoService =
-                new ConsumoService();
         }
 
-        private void btnCalcular_Click(
-    object sender,
-    EventArgs e)
+        public void FiltrarPorUsuario(Guid usuarioId)
         {
-            var inicio =
-                dtpFechaInicio.Value.Date;
+            _usuarioIdActual = usuarioId;
 
-            var fin =
-                dtpFechaFin.Value.Date;
+            // Opcional: Si quieres que se limpie el formulario al cambiar de usuario
+            LimpiarPantalla();
+            EjecutarCalculo();
+        }
+        private void LimpiarPantalla()
+        {
+            lblTotalCalorias.Text = "0 kcal";
+            lblTotalCarbos.Text = "0 g";
+            lblPromedioCalorias.Text = "0 kcal/día";
+            lblPromedioCarbos.Text = "0 g/día";
+            lblDias.Text = "0";
+        }
+        private void EjecutarCalculo()
+        {
+            if (!_usuarioIdActual.HasValue) return;
 
-            if (inicio > fin)
-            {
-                MessageBox.Show(
-                    "La fecha inicio no puede ser mayor que la fecha fin");
+            var inicio = dtpFechaInicio.Value.Date;
+            var fin = dtpFechaFin.Value.Date;
 
-                return;
-            }
+            // Validación básica
+            if (inicio > fin) return;
 
-            var resumen =
-                _consumoService
-                .ObtenerResumenPorRango(
-                    inicio,
-                    fin);
+            var resumen = _controller.ObtenerEstadisticasRangoPorUsuario(_usuarioIdActual.Value, inicio, fin);
 
-            lblTotalCalorias.Text =
-                resumen.TotalCalorias
-                .ToString();
-
-            lblTotalCarbos.Text =
-                resumen.TotalCarbohidratos
-                .ToString();
-
-            lblPromedioCalorias.Text =
-                resumen.PromedioCalorias
-                .ToString("F2");
-
-            lblPromedioCarbos.Text =
-                resumen.PromedioCarbohidratos
-                .ToString("F2");
-
-            lblDias.Text =
-                resumen.DiasConRegistros
-                .ToString();
+            // Actualizar la interfaz
+            lblTotalCalorias.Text = $"{resumen.TotalCalorias:N0} kcal";
+            lblTotalCarbos.Text = $"{resumen.TotalCarbohidratos:N0} g";
+            lblPromedioCalorias.Text = $"{resumen.PromedioCalorias:F2} kcal/día";
+            lblPromedioCarbos.Text = $"{resumen.PromedioCarbohidratos:F2} g/día";
+            lblDias.Text = resumen.DiasConRegistros.ToString();
+        }
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            EjecutarCalculo();
         }
 
+        private void EstadisticasRangoForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

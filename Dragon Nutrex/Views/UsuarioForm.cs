@@ -31,15 +31,17 @@ namespace Dragon_Nutrex.Views
 
         private void CargarDatosUsuario()
         {
-            txtNombre.Text = _usuarioEditar?.Nombre ?? string.Empty;
-            txtPeso.Text = _usuarioEditar?.Peso.ToString() ?? string.Empty;
-            txtAltura.Text = _usuarioEditar?.Altura.ToString() ?? string.Empty;
+            if (_usuarioEditar == null) return;
 
-            cmbObjetivo.SelectedItem = _usuarioEditar?.Objetivo ?? string.Empty;
-            cmbActividad.SelectedItem = _usuarioEditar?.NivelActividad ?? string.Empty;
-            cmbDieta.SelectedItem = _usuarioEditar?.TipoDieta ?? string.Empty;
+            txtNombre.Text = _usuarioEditar.Nombre;
+            txtPeso.Text = _usuarioEditar.Peso.ToString();
+            txtAltura.Text = _usuarioEditar.Altura.ToString();
+            txtEdad.Text = _usuarioEditar.Edad.ToString();
+
+            cmbObjetivo.SelectedItem = _usuarioEditar.Objetivo.ToString();
+            cmbActividad.SelectedItem = _usuarioEditar.NivelActividad.ToString();
+            cmbDieta.SelectedItem = _usuarioEditar.TipoDieta.ToString();
         }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -51,11 +53,13 @@ namespace Dragon_Nutrex.Views
                 {
                     Id = _usuarioEditar != null ? _usuarioEditar.Id : Guid.NewGuid(),
                     Nombre = txtNombre.Text,
-                    Peso = double.Parse(txtPeso.Text),
-                    Altura = double.Parse(txtAltura.Text),
-                    Objetivo = cmbObjetivo.SelectedItem?.ToString() ?? "No seleccionado",
-                    NivelActividad = cmbActividad.SelectedItem?.ToString() ?? "No seleccionado",
-                    TipoDieta = cmbDieta.SelectedItem?.ToString() ?? "No seleccionado"
+                    Peso = decimal.Parse(txtPeso.Text),
+                    Altura = decimal.Parse(txtAltura.Text),
+                    Edad = int.Parse(txtEdad.Text),
+                    Objetivo = (ObjetivoNutricional)(cmbObjetivo.SelectedItem ?? ObjetivoNutricional.MantenerPeso),
+                    NivelActividad = (NivelActividad)(cmbActividad.SelectedItem ?? NivelActividad.Moderado),
+                    TipoDieta = (TipoDieta)(cmbDieta.SelectedItem ?? TipoDieta.Balanceada),
+                    Activo = true // Aseguramos que el nuevo usuario esté activo
                 };
 
                 if (_usuarioEditar == null)
@@ -92,25 +96,15 @@ namespace Dragon_Nutrex.Views
         }
         private void UsuarioForm_Load(object sender, EventArgs e)
         {
-            cmbObjetivo.Items.Add("Mantener");
-            cmbObjetivo.Items.Add("Perder grasa");
-            cmbObjetivo.Items.Add("Ganar masa");
+            cmbObjetivo.Items.AddRange(Enum.GetNames(typeof(ObjetivoNutricional)));
+            cmbActividad.Items.AddRange(Enum.GetNames(typeof(NivelActividad)));
+            cmbDieta.Items.AddRange(Enum.GetNames(typeof(TipoDieta)));
 
-            cmbActividad.Items.Add("Sedentario");
-            cmbActividad.Items.Add("Ligero");
-            cmbActividad.Items.Add("Moderado");
-            cmbActividad.Items.Add("Intenso");
-
-            cmbDieta.Items.Add("Estándar");
-            cmbDieta.Items.Add("Keto");
-            cmbDieta.Items.Add("Vegetariano");
-           
             if (_usuarioEditar != null)
             {
                 CargarDatosUsuario();
             }
         }
-
         private bool ValidarCampos()
         {
             if (txtNombre.Text == "")
@@ -119,7 +113,7 @@ namespace Dragon_Nutrex.Views
                 return false;
             }
 
-            if (!double.TryParse(txtPeso.Text, out double peso))
+            if (!decimal.TryParse(txtPeso.Text, out decimal peso))
             {
                 MessageBox.Show("Peso inválido");
                 return false;
@@ -131,7 +125,7 @@ namespace Dragon_Nutrex.Views
                 return false;
             }
 
-            if (!double.TryParse(txtAltura.Text, out double altura))
+            if (!decimal.TryParse(txtAltura.Text, out decimal altura))
             {
                 MessageBox.Show("Altura inválida");
                 return false;
@@ -182,7 +176,7 @@ namespace Dragon_Nutrex.Views
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void btnVerUsuarios_Click(object sender, EventArgs e)

@@ -1,190 +1,153 @@
-﻿using Dragon_Nutrex.Models;
-using Dragon_Nutrex.Services;
+﻿using Dragon_Nutrex.Controllers;
+using Dragon_Nutrex.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Dragon_Nutrex.Views
 {
     public partial class ProductosForm : Form
     {
-        private readonly ProductoService _service;
-
-        private Guid _productoSeleccionadoId = Guid.Empty;
+        private readonly ProductoController _controller = new ProductoController();
+        private Producto? _productoSeleccionado = null;
 
         public ProductosForm()
         {
             InitializeComponent();
-            _service = new ProductoService();
-            ProductosForm_Load();
-
+            ConfigurarGrid();
+            this.Load += ProductosForm_Load;
         }
 
-        private void ProductosForm_Load()
+        private void ProductosForm_Load(object? sender, EventArgs e)
         {
+            this.ControlBox = false;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.Dock = DockStyle.Fill;
             CargarCategorias();
             CargarProductos();
         }
 
+        private void ConfigurarGrid()
+        {
+
+            dgvProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvProductos.MultiSelect = false;
+            dgvProductos.ReadOnly = true;
+        }
+
         private void CargarCategorias()
         {
-            cmbCategoria.DataSource =
-                Enum.GetValues(typeof(CategoriaProducto));
+            cmbCategoria.DataSource = Enum.GetValues(typeof(CategoriaProducto));
+            cmbCategoria.SelectedIndex = -1;
         }
 
         private void CargarProductos()
         {
             dgvProductos.DataSource = null;
-
-            dgvProductos.DataSource =
-                _service.ObtenerProductos();
+            dgvProductos.DataSource = _controller.ObtenerTodos();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            var producto = ObtenerProductoDesdeFormulario();
+            var producto = ValidarYObtenerDeFormulario();
+            if (producto == null) return;
 
-            if (producto == null)
-            {
-                return;
-            }
+            _controller.Crear(producto);
+            MessageBox.Show("Producto guardado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            _service.CrearProducto(producto);
-
-            MessageBox.Show(
-                "Producto creado correctamente",
-                "Éxito",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
             CargarProductos();
-
             LimpiarFormulario();
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
         {
-            LimpiarFormulario();
-        }
-
-        private void dgvProductos_CellClick(
-            object sender,
-            DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0)
-                return;
-
-            if (dgvProductos.Rows[e.RowIndex].DataBoundItem is Producto producto)
+            if (_productoSeleccionado == null)
             {
-                _productoSeleccionadoId = producto.Id;
-                txtNombre.Text = producto.Nombre;
-                cmbCategoria.SelectedItem = producto.Categoria;
-                nudCalorias.Value = producto.Calorias;
-                nudProteina.Value = producto.Proteina;
-                nudCarbohidratos.Value = producto.Carbohidratos;
-                nudGrasas.Value = producto.Grasas;
-                nudPorcion.Value = producto.PorcionGramos;
+                MessageBox.Show("Seleccione un producto de la lista.");
+                return;
+            }
+
+            var editado = ValidarYObtenerDeFormulario();
+            if (editado == null) return;
+
+            editado.Id = _productoSeleccionado.Id; // Mantenemos el ID original
+            _controller.Actualizar(editado);
+
+            CargarProductos();
+            LimpiarFormulario();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (_productoSeleccionado == null) return;
+
+            var confirm = MessageBox.Show($"¿Desea eliminar {_productoSeleccionado.Nombre}?", "Confirmar",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.Yes)
+            {
+                _controller.Eliminar(_productoSeleccionado.Id);
+                CargarProductos();
+                LimpiarFormulario();
             }
         }
 
-        private Producto? ObtenerProductoDesdeFormulario()
+        private void dgvProductos_SelectionChanged(object sender, EventArgs e)
         {
-            if (cmbCategoria.SelectedItem == null)
+            if (dgvProductos.CurrentRow?.DataBoundItem is Producto p)
             {
-                MessageBox.Show("Por favor, seleccione una categoría.");
+                _productoSeleccionado = p;
+                txtNombre.Text = p.Nombre;
+                cmbCategoria.SelectedItem = p.Categoria;
+                nudCalorias.Value = p.Calorias;
+                nudProteina.Value = p.Proteina;
+                nudCarbohidratos.Value = p.Carbohidratos;
+                nudGrasas.Value = p.Grasas;
+                nudPorcion.Value = p.PorcionGramos;
+            }
+        }
+
+        private Producto? ValidarYObtenerDeFormulario()
+        {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                MessageBox.Show("El nombre es obligatorio.");
+                return null;
+            }
+
+            if (cmbCategoria.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione una categoría.");
                 return null;
             }
 
             return new Producto
             {
+                Id = Guid.NewGuid(),
                 Nombre = txtNombre.Text.Trim(),
-                Categoria = (CategoriaProducto)cmbCategoria.SelectedItem,
+                Categoria = (CategoriaProducto)(cmbCategoria.SelectedItem ?? CategoriaProducto.Proteina),
                 Calorias = nudCalorias.Value,
                 Proteina = nudProteina.Value,
                 Carbohidratos = nudCarbohidratos.Value,
                 Grasas = nudGrasas.Value,
-                PorcionGramos = nudPorcion.Value
+                PorcionGramos = nudPorcion.Value,
+                Activo = true
             };
         }
 
         private void LimpiarFormulario()
         {
             txtNombre.Clear();
-
-            cmbCategoria.SelectedIndex = 0;
-
+            cmbCategoria.SelectedIndex = -1;
             nudCalorias.Value = 0;
             nudProteina.Value = 0;
             nudCarbohidratos.Value = 0;
             nudGrasas.Value = 0;
             nudPorcion.Value = 0;
-
-            _productoSeleccionadoId = Guid.Empty;
-
+            _productoSeleccionado = null;
             dgvProductos.ClearSelection();
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            if (_productoSeleccionadoId == Guid.Empty)
-            {
-                MessageBox.Show(
-                    "Seleccione un producto.",
-                    "Aviso",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return;
-            }
-
-            var confirmacion = MessageBox.Show(
-                "¿Desea eliminar este producto?",
-                "Confirmación",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (confirmacion == DialogResult.Yes)
-            {
-                _service.EliminarProducto(
-                    _productoSeleccionadoId);
-
-                CargarProductos();
-
-                LimpiarFormulario();
-            }
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            if (_productoSeleccionadoId == Guid.Empty)
-            {
-                MessageBox.Show(
-                    "Seleccione un producto.",
-                    "Aviso",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return;
-            }
-
-            var producto = ObtenerProductoDesdeFormulario();
-
-            if (producto == null)
-            {
-                return;
-            }
-
-            producto.Id = _productoSeleccionadoId;
-
-            _service.ActualizarProducto(producto);
-
-            CargarProductos();
-
-            LimpiarFormulario();
-        }
+        private void btnLimpiar_Click(object sender, EventArgs e) => LimpiarFormulario();
     }
 }

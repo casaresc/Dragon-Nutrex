@@ -2,96 +2,72 @@
 using Dragon_Nutrex.Utils;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.IO;
+using System.Linq;
 
 namespace Dragon_Nutrex.Repositories
 {
-    public class ConsumoDiarioRepository
+    public class ConsumoDiarioRepository : IRepository<ConsumoDiario>
     {
-        private readonly string _filePath =
-            Path.Combine(
-                "Data",
-                "consumo_diario.json");
+        private readonly string _filePath = Path.Combine("Data", "consumo_diario.json");
 
-        public List<ConsumoDiario>
-            ObtenerPorFecha(DateTime fecha)
+        public List<ConsumoDiario> GetAll()
         {
-            var registros =
-                FileStorage
-                .Load<ConsumoDiario>(
-                    _filePath);
-
-            return registros
-                .Where(r =>
-                    r.Activo &&
-                    r.Fecha.Date ==
-                    fecha.Date)
-                .ToList();
+            return FileStorage.Load<ConsumoDiario>(_filePath)
+                              .Where(r => r.Activo)
+                              .ToList();
         }
 
-        public List<DateTime>
-        ObtenerFechasConRegistros()
+        public ConsumoDiario? GetById(Guid id)
         {
-            var registros =
-                FileStorage
-                .Load<ConsumoDiario>(
-                    _filePath);
-
-            return registros
-                .Where(r => r.Activo)
-                .Select(r => r.Fecha.Date)
-                .Distinct()
-                .OrderBy(f => f)
-                .ToList();
+            return GetAll().FirstOrDefault(r => r.Id == id);
         }
 
-        public void CrearRegistroPrueba()
+        public void Create(ConsumoDiario entity)
         {
-            var registros =
-                FileStorage
-                .Load<ConsumoDiario>(
-                    _filePath);
+            var registros = FileStorage.Load<ConsumoDiario>(_filePath);
 
-            registros.Add(
-                new ConsumoDiario
-                {
-                    Fecha =
-                        DateTime.Today,
+            if (entity.Id == Guid.Empty) entity.Id = Guid.NewGuid();
+            entity.Activo = true;
 
-                    CaloriasConsumidas =
-                        2100,
-
-                    CarbohidratosConsumidos =
-                        250,
-
-                    Activo =
-                        true
-                });
-
-            FileStorage
-                .Save(
-                    _filePath,
-                    registros);
+            registros.Add(entity);
+            FileStorage.Save(_filePath, registros);
         }
 
-        public List<ConsumoDiario>
-    ObtenerPorRango(
-        DateTime fechaInicio,
-        DateTime fechaFin)
+        public void Update(ConsumoDiario entity)
         {
-            var registros =
-                FileStorage
-                .Load<ConsumoDiario>(
-                    _filePath);
-
-            return registros
-                .Where(r =>
-                    r.Activo &&
-                    r.Fecha.Date >=
-                        fechaInicio.Date &&
-                    r.Fecha.Date <=
-                        fechaFin.Date)
-                .ToList();
+            var registros = FileStorage.Load<ConsumoDiario>(_filePath);
+            var index = registros.FindIndex(r => r.Id == entity.Id);
+            if (index != -1)
+            {
+                registros[index] = entity;
+                FileStorage.Save(_filePath, registros);
+            }
         }
+
+        public void Delete(Guid id)
+        {
+            var registros = FileStorage.Load<ConsumoDiario>(_filePath);
+            var registro = registros.FirstOrDefault(r => r.Id == id);
+            if (registro != null)
+            {
+                registro.Activo = false;
+                FileStorage.Save(_filePath, registros);
+            }
+        }
+
+        public List<ConsumoDiario> GetByRange(DateTime startDate, DateTime endDate)
+        {
+            return GetAll()
+                   .Where(r => r.Fecha.Date >= startDate.Date && r.Fecha.Date <= endDate.Date)
+                   .ToList();
+        }
+        public List<ConsumoDiario> GetByDate(DateTime date)
+        {
+            return GetAll()
+                   .Where(r => r.Fecha.Date == date.Date)
+                   .ToList();
+        }
+
     }
 }

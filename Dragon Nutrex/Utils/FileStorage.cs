@@ -1,35 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.IO;
 
 namespace Dragon_Nutrex.Utils
 {
-    using System.Text.Json;
-    using System.Text.Json.Serialization;
-
     public static class FileStorage
     {
+        private static readonly JsonSerializerOptions _options = new JsonSerializerOptions
+        {
+            WriteIndented = true,
+            Converters = { new JsonStringEnumConverter() },
+            NumberHandling = JsonNumberHandling.AllowReadingFromString
+        };
+
         public static void Save<T>(string path, List<T> data)
         {
             string? directory = Path.GetDirectoryName(path);
 
-            if (!string.IsNullOrEmpty(directory))
+            if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
             {
-                if (!Directory.Exists(directory))
-                {
-                    Directory.CreateDirectory(directory);
-                }
+                Directory.CreateDirectory(directory);
             }
 
-            var json = JsonSerializer.Serialize(data, new JsonSerializerOptions
-            {
-                WriteIndented = true,
-                Converters = { new JsonStringEnumConverter() }
-            });
-
+            var json = JsonSerializer.Serialize(data, _options);
             File.WriteAllText(path, json);
         }
-
 
         public static List<T> Load<T>(string path)
         {
@@ -41,11 +36,14 @@ namespace Dragon_Nutrex.Utils
             if (string.IsNullOrWhiteSpace(json))
                 return new List<T>();
 
-            return JsonSerializer.Deserialize<List<T>>(json, new JsonSerializerOptions
+            try
             {
-                Converters = { new JsonStringEnumConverter() }
-            }) ?? new List<T>();
+                return JsonSerializer.Deserialize<List<T>>(json, _options) ?? new List<T>();
+            }
+            catch (JsonException)
+            {
+                return new List<T>();
+            }
         }
-
     }
 }

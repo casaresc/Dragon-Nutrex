@@ -1,124 +1,156 @@
 ﻿using Dragon_Nutrex.Models;
 using Dragon_Nutrex.Repositories;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
-public class ConsumoService
+namespace Dragon_Nutrex.Services
 {
-    private ConsumoDiarioRepository _repository;
-
-    public ConsumoService()
+    public class ConsumoService
     {
-        _repository =
-            new ConsumoDiarioRepository();
-    }
+        private readonly IRepository<ConsumoDiario> _repository;
 
-    public ResumenDiario ObtenerResumenDiario(
-        DateTime fecha,
-        decimal metaCalorias)
-    {
-        var registros =
-            _repository
-            .ObtenerPorFecha(fecha);
-
-        if (registros == null
-            || registros.Count == 0)
+        public ConsumoService()
         {
+            _repository = new ConsumoDiarioRepository();
+        }
+
+        public void RegistrarConsumosMasivos(List<ConsumoDiario> lista)
+        {
+            foreach (var item in lista)
+            {
+                _repository.Create(item);
+            }
+        }
+        public void RegistrarConsumo(ConsumoDiario consumo)
+        {
+            if (consumo.CaloriasConsumidas < 0)
+                throw new ArgumentException("Las calorías consumidas no pueden ser valores negativos.", nameof(consumo));
+
+            _repository.Create(consumo);
+        }
+
+        public void EliminarConsumo(Guid id)
+        {
+            _repository.Delete(id);
+        }
+
+        public ResumenDiario ObtenerResumenDiario(DateTime fecha, decimal metaCalorias)
+        {
+            var repoConcreto = (ConsumoDiarioRepository)_repository;
+            var registros = repoConcreto.GetByDate(fecha);
+
+            if (registros == null || !registros.Any())
+            {
+                return new ResumenDiario
+                {
+                    CaloriasConsumidas = 0,
+                    CarbohidratosConsumidos = 0,
+                    DiferenciaCalorias = metaCalorias,
+                    TieneRegistros = false
+                };
+            }
+
+            var calorias = registros.Sum(r => r.CaloriasConsumidas);
+            var carbohidratos = registros.Sum(r => r.CarbohidratosConsumidos);
+
             return new ResumenDiario
             {
-                CaloriasConsumidas = 0,
-                CarbohidratosConsumidos = 0,
-                DiferenciaCalorias = metaCalorias
+                CaloriasConsumidas = calorias,
+                CarbohidratosConsumidos = carbohidratos,
+                DiferenciaCalorias = metaCalorias - calorias,
+                TieneRegistros = true
             };
         }
 
-        var calorias =
-            registros.Sum(r =>
-                r.CaloriasConsumidas);
-
-        var carbohidratos =
-            registros.Sum(r =>
-                r.CarbohidratosConsumidos);
-
-        var diferencia =
-            metaCalorias - calorias;
-
-        var tieneRegistros =
-            registros.Count > 0;
-
-        return new ResumenDiario
+        public ResumenDiario ObtenerResumenDiario(Guid usuarioId, DateTime fecha, decimal metaCalorias)
         {
-            CaloriasConsumidas =
-                calorias,
+            var registros = _repository.GetAll()
+                .Where(r => r.UsuarioId == usuarioId && r.Fecha.Date == fecha.Date)
+                .ToList();
 
-            CarbohidratosConsumidos =
-                carbohidratos,
+            if (!registros.Any())
+            {
+                return new ResumenDiario
+                {
+                    MetaCalorias = metaCalorias,
+                    CaloriasConsumidas = 0,
+                    CarbohidratosConsumidos = 0,
+                    DiferenciaCalorias = metaCalorias,
+                    TieneRegistros = false
+                };
+            }
 
-            DiferenciaCalorias =
-                diferencia,
+            var calorias = registros.Sum(r => r.CaloriasConsumidas);
+            var carbohidratos = registros.Sum(r => r.CarbohidratosConsumidos);
+            var proteinas = registros.Sum(r => r.ProteinasConsumidas);
+            var grasas = registros.Sum(r => r.GrasasConsumidas);
 
-            TieneRegistros = tieneRegistros
-        };
-    }
-
-    public ResumenRango
-    ObtenerResumenPorRango(
-        DateTime fechaInicio,
-        DateTime fechaFin)
-    {
-        if (fechaInicio > fechaFin)
-            throw new ArgumentException(
-                "La fecha inicio no puede ser mayor que la fecha fin");
-
-        var registros =
-            _repository
-            .ObtenerPorRango(
-                fechaInicio,
-                fechaFin);
-
-        if (registros == null
-            || registros.Count == 0)
-        {
-            return new ResumenRango();
+            return new ResumenDiario
+            {
+                MetaCalorias = metaCalorias,
+                CaloriasConsumidas = calorias,
+                CarbohidratosConsumidos = carbohidratos,
+                ProteinasConsumidas = proteinas,
+                GrasasConsumidas = grasas,
+                DiferenciaCalorias = metaCalorias - calorias,
+                TieneRegistros = true
+            };
         }
 
-        var totalCalorias =
-            registros.Sum(r =>
-                r.CaloriasConsumidas);
-
-        var totalCarbohidratos =
-            registros.Sum(r =>
-                r.CarbohidratosConsumidos);
-
-        var dias =
-            registros
-            .Select(r =>
-                r.Fecha.Date)
-            .Distinct()
-            .Count();
-
-        var promedioCalorias =
-            totalCalorias / dias;
-
-        var promedioCarbohidratos =
-            totalCarbohidratos / dias;
-
-        return new ResumenRango
+        public ResumenRango ObtenerResumenPorRango(Guid usuarioId, DateTime fechaInicio, DateTime fechaFin)
         {
-            TotalCalorias =
-                totalCalorias,
+            if (fechaInicio > fechaFin)
+                throw new ArgumentException("La fecha inicio no puede ser mayor que la fecha fin");
 
-            TotalCarbohidratos =
-                totalCarbohidratos,
+            var registros = _repository.GetAll()
+                .Where(r => r.UsuarioId == usuarioId && r.Fecha.Date >= fechaInicio.Date && r.Fecha.Date <= fechaFin.Date)
+                .ToList();
 
-            PromedioCalorias =
-                promedioCalorias,
+            if (!registros.Any())
+                return new ResumenRango();
 
-            PromedioCarbohidratos =
-                promedioCarbohidratos,
+            var totalCalorias = registros.Sum(r => r.CaloriasConsumidas);
+            var totalCarbohidratos = registros.Sum(r => r.CarbohidratosConsumidos);
+            var dias = registros.Select(r => r.Fecha.Date).Distinct().Count();
 
-            DiasConRegistros =
-                dias
-        };
+            return new ResumenRango
+            {
+                TotalCalorias = totalCalorias,
+                TotalCarbohidratos = totalCarbohidratos,
+                PromedioCalorias = totalCalorias / (dias == 0 ? 1 : dias),
+                PromedioCarbohidratos = totalCarbohidratos / (dias == 0 ? 1 : dias),
+                DiasConRegistros = dias
+            };
+        }
+        public ResumenRango ObtenerResumenPorRango(DateTime fechaInicio, DateTime fechaFin)
+        {
+            if (fechaInicio > fechaFin)
+                throw new ArgumentException("La fecha inicio no puede ser mayor que la fecha fin");
+
+            var repoConcreto = (ConsumoDiarioRepository)_repository;
+            var registros = repoConcreto.GetByRange(fechaInicio, fechaFin);
+
+            if (registros == null || !registros.Any())
+                return new ResumenRango();
+
+            var totalCalorias = registros.Sum(r => r.CaloriasConsumidas);
+            var totalCarbohidratos = registros.Sum(r => r.CarbohidratosConsumidos);
+            var dias = registros.Select(r => r.Fecha.Date).Distinct().Count();
+
+            return new ResumenRango
+            {
+                TotalCalorias = totalCalorias,
+                TotalCarbohidratos = totalCarbohidratos,
+                PromedioCalorias = totalCalorias / dias,
+                PromedioCarbohidratos = totalCarbohidratos / dias,
+                DiasConRegistros = dias
+            };
+        }
+
+        public List<ConsumoDiario> ObtenerTodos()
+        {
+            return _repository.GetAll().ToList();
+        }
     }
 }

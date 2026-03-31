@@ -67,6 +67,7 @@
             btnCalcular.TabIndex = 2;
             btnCalcular.Text = "Calcular";
             btnCalcular.UseVisualStyleBackColor = true;
+            btnCalcular.Visible = false;
             btnCalcular.Click += btnCalcular_Click;
             // 
             // label1
@@ -74,108 +75,103 @@
             label1.AutoSize = true;
             label1.Location = new Point(109, 287);
             label1.Name = "label1";
-            label1.Size = new Size(38, 15);
+            label1.Size = new Size(77, 15);
             label1.TabIndex = 4;
-            label1.Text = "label1";
+            label1.Text = "Total Calorias";
             // 
             // lblTotalCalorias
             // 
             lblTotalCalorias.AutoSize = true;
             lblTotalCalorias.Location = new Point(109, 312);
             lblTotalCalorias.Name = "lblTotalCalorias";
-            lblTotalCalorias.Size = new Size(87, 15);
+            lblTotalCalorias.Size = new Size(0, 15);
             lblTotalCalorias.TabIndex = 5;
-            lblTotalCalorias.Text = "lblTotalCalorias";
             // 
             // lblTotalCarbos
             // 
             lblTotalCarbos.AutoSize = true;
             lblTotalCarbos.Location = new Point(233, 312);
             lblTotalCarbos.Name = "lblTotalCarbos";
-            lblTotalCarbos.Size = new Size(82, 15);
+            lblTotalCarbos.Size = new Size(0, 15);
             lblTotalCarbos.TabIndex = 7;
-            lblTotalCarbos.Text = "lblTotalCarbos";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Location = new Point(233, 287);
             label3.Name = "label3";
-            label3.Size = new Size(38, 15);
+            label3.Size = new Size(72, 15);
             label3.TabIndex = 6;
-            label3.Text = "label3";
+            label3.Text = "Total Carbos";
             // 
             // lblPromedioCalorias
             // 
             lblPromedioCalorias.AutoSize = true;
             lblPromedioCalorias.Location = new Point(352, 312);
             lblPromedioCalorias.Name = "lblPromedioCalorias";
-            lblPromedioCalorias.Size = new Size(114, 15);
+            lblPromedioCalorias.Size = new Size(0, 15);
             lblPromedioCalorias.TabIndex = 9;
-            lblPromedioCalorias.Text = "lblPromedioCalorias";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Location = new Point(352, 287);
             label5.Name = "label5";
-            label5.Size = new Size(38, 15);
+            label5.Size = new Size(104, 15);
             label5.TabIndex = 8;
-            label5.Text = "label5";
+            label5.Text = "Promedio Calorías";
             // 
             // lblPromedioCarbos
             // 
             lblPromedioCarbos.AutoSize = true;
             lblPromedioCarbos.Location = new Point(499, 312);
             lblPromedioCarbos.Name = "lblPromedioCarbos";
-            lblPromedioCarbos.Size = new Size(109, 15);
+            lblPromedioCarbos.Size = new Size(0, 15);
             lblPromedioCarbos.TabIndex = 11;
-            lblPromedioCarbos.Text = "lblPromedioCarbos";
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Location = new Point(499, 287);
             label7.Name = "label7";
-            label7.Size = new Size(38, 15);
+            label7.Size = new Size(99, 15);
             label7.TabIndex = 10;
-            label7.Text = "label7";
+            label7.Text = "Promedio Carbos";
             // 
             // lblDias
             // 
             lblDias.AutoSize = true;
             lblDias.Location = new Point(625, 312);
             lblDias.Name = "lblDias";
-            lblDias.Size = new Size(42, 15);
+            lblDias.Size = new Size(0, 15);
             lblDias.TabIndex = 13;
-            lblDias.Text = "lblDias";
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Location = new Point(625, 287);
             label9.Name = "label9";
-            label9.Size = new Size(38, 15);
+            label9.Size = new Size(29, 15);
             label9.TabIndex = 12;
-            label9.Text = "label9";
+            label9.Text = "Dias";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(164, 127);
             label2.Name = "label2";
-            label2.Size = new Size(38, 15);
+            label2.Size = new Size(70, 15);
             label2.TabIndex = 14;
-            label2.Text = "label2";
+            label2.Text = "Fecha Inicio";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Location = new Point(441, 127);
             label4.Name = "label4";
-            label4.Size = new Size(38, 15);
+            label4.Size = new Size(57, 15);
             label4.TabIndex = 15;
-            label4.Text = "label4";
+            label4.Text = "Fecha Fin";
             // 
             // EstadisticasRangoForm
             // 
@@ -199,6 +195,7 @@
             Controls.Add(dtpFechaInicio);
             Name = "EstadisticasRangoForm";
             Text = "EstadisticasRangoForm";
+            Load += EstadisticasRangoForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

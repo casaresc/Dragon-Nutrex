@@ -52,7 +52,7 @@
             dgvMenus.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMenus.Size = new Size(800, 250);
             dgvMenus.TabIndex = 0;
-            dgvMenus.CellClick += dgvMenus_CellClick;
+            dgvMenus.SelectionChanged += dgvMenus_SelectionChanged;
             // 
             // txtNombre
             // 

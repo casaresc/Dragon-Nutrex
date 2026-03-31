@@ -1,95 +1,66 @@
 ﻿using Dragon_Nutrex.Models;
 using Dragon_Nutrex.Utils;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace Dragon_Nutrex.Repositories
 {
-    public class MenuDiarioRepository
+    public class MenuDiarioRepository : IRepository<MenuDiario>
     {
-        private readonly string _filePath =
-            "Data/menus.json";
+        private readonly string _filePath = Path.Combine("Data", "menus.json");
 
-        public List<MenuDiario> ObtenerTodos(
-            bool soloActivos = true)
+        public List<MenuDiario> GetAll()
         {
-            var menus =
-                FileStorage.Load<MenuDiario>(_filePath);
-
-            if (soloActivos)
-            {
-                return menus
-                    .Where(m => m.Activo)
-                    .OrderBy(m => m.Fecha)
-                    .ToList();
-            }
-
-            return menus;
+            return FileStorage.Load<MenuDiario>(_filePath)
+                              .Where(m => m.Activo)
+                              .OrderBy(m => m.Fecha)
+                              .ToList();
         }
 
-        public MenuDiario? ObtenerPorId(Guid id)
+        public MenuDiario? GetById(Guid id)
         {
-            var menus =
-                FileStorage.Load<MenuDiario>(_filePath);
-
-            return menus
-                .FirstOrDefault(m => m.Id == id);
+            return GetAll().FirstOrDefault(m => m.Id == id);
         }
 
-        public void Agregar(MenuDiario menu)
-        {
-            var menus =
-                FileStorage.Load<MenuDiario>(_filePath);
-
-            menu.Id = Guid.NewGuid();
-            menu.FechaCreacion = DateTime.Now;
-            menu.Activo = true;
-
-            menus.Add(menu);
-
-            FileStorage.Save(_filePath, menus);
-        }
-
-        public void Actualizar(MenuDiario menuActualizado)
-        {
-            var menus =
-                FileStorage.Load<MenuDiario>(_filePath);
-
-            var menu = menus
-                .FirstOrDefault(m =>
-                    m.Id == menuActualizado.Id);
-
-            if (menu == null)
-                return;
-
-            menu.Nombre = menuActualizado.Nombre;
-            menu.Fecha = menuActualizado.Fecha;
-
-            menu.Detalles = menuActualizado.Detalles;
-
-            FileStorage.Save(_filePath, menus);
-        }
-
-        public void Eliminar(Guid id)
-        {
-            var menus =
-                FileStorage.Load<MenuDiario>(_filePath);
-
-            var menu = menus
-                .FirstOrDefault(m => m.Id == id);
-
-            if (menu == null)
-                return;
-
-            menu.Activo = false;
-
-            FileStorage.Save(_filePath, menus);
-        }
-        public bool ExisteMenuParaFecha(DateTime fecha)
+        public void Create(MenuDiario entity)
         {
             var menus = FileStorage.Load<MenuDiario>(_filePath);
 
-            return menus.Any(m =>
-                m.Activo &&
-                m.Fecha.Date == fecha.Date);
+            entity.Id = Guid.NewGuid();
+            entity.FechaCreacion = DateTime.Now;
+            entity.Activo = true;
+
+            menus.Add(entity);
+            FileStorage.Save(_filePath, menus);
+        }
+
+        public void Update(MenuDiario entity)
+        {
+            var menus = FileStorage.Load<MenuDiario>(_filePath);
+            var index = menus.FindIndex(m => m.Id == entity.Id);
+            if (index != -1)
+            {
+                menus[index] = entity;
+                FileStorage.Save(_filePath, menus);
+            }
+        }
+
+        public void Delete(Guid id)
+        {
+            var menus = FileStorage.Load<MenuDiario>(_filePath);
+            var menu = menus.FirstOrDefault(m => m.Id == id);
+            if (menu != null)
+            {
+                menu.Activo = false;
+                FileStorage.Save(_filePath, menus);
+            }
+        }
+
+        public bool ExistsByDate(DateTime date)
+        {
+            return GetAll().Any(m => m.Fecha.Date == date.Date);
         }
     }
 }
