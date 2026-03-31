@@ -33,6 +33,7 @@
             btnEliminar = new Button();
             btnCerrar = new Button();
             btnEditar = new Button();
+            btnAgregar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             SuspendLayout();
             // 
@@ -75,6 +76,7 @@
             btnCerrar.TabIndex = 3;
             btnCerrar.Text = "Cerrar";
             btnCerrar.UseVisualStyleBackColor = true;
+            btnCerrar.Visible = false;
             btnCerrar.Click += btnCerrar_Click;
             // 
             // btnEditar
@@ -87,11 +89,22 @@
             btnEditar.UseVisualStyleBackColor = true;
             btnEditar.Click += btnEditar_Click;
             // 
+            // btnAgregar
+            // 
+            btnAgregar.Location = new Point(247, 307);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(75, 23);
+            btnAgregar.TabIndex = 5;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
+            // 
             // UsuarioListForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnAgregar);
             Controls.Add(btnEditar);
             Controls.Add(btnCerrar);
             Controls.Add(btnEliminar);
@@ -110,5 +123,6 @@
         private Button btnEliminar;
         private Button btnCerrar;
         private Button btnEditar;
+        private Button btnAgregar;
     }
 }

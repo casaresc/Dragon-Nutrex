@@ -10,6 +10,10 @@ namespace Dragon_Nutrex.Models
 
         public decimal CarbohidratosConsumidos { get; set; }
 
+        public decimal ProteinasConsumidas { get; set; }
+
+        public decimal GrasasConsumidas { get; set; }
+
         public decimal MetaCalorias { get; set; }
 
         public decimal DiferenciaCalorias { get; set; }

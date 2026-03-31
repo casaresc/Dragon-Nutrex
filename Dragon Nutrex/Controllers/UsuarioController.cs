@@ -3,19 +3,48 @@ using Dragon_Nutrex.Models;
 using Dragon_Nutrex.Services;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Dragon_Nutrex.Controllers
 {
     public class UsuarioController
     {
-        private UsuarioService _usuarioService = new UsuarioService();
+        private readonly UsuarioService _usuarioService = new UsuarioService();
 
+        public List<Usuario> GetUsuarios()
+        {
+            try
+            {
+                return _usuarioService.ObtenerTodos();
+            }
+            catch (Exception ex)
+            {
+                GlobalExceptionHandler.Handle(ex);
+                return new List<Usuario>();
+            }
+        }
+        public Usuario? ObtenerPorId(Guid id)
+        {
+            try
+            {
+                return _usuarioService.ObtenerPorId(id);
+            }
+            catch (Exception ex)
+            {
+                GlobalExceptionHandler.Handle(ex);
+                return null;
+            }
+        }
         public void CrearUsuario(Usuario usuario)
         {
-            _usuarioService.CrearUsuario(usuario);
+            try
+            {
+                _usuarioService.CrearUsuario(usuario);
+            }
+            catch (Exception ex)
+            {
+                GlobalExceptionHandler.Handle(ex);
+            }
         }
-
         public void ActualizarUsuario(Usuario usuario)
         {
             try
@@ -27,7 +56,21 @@ namespace Dragon_Nutrex.Controllers
                 GlobalExceptionHandler.Handle(ex);
             }
         }
+        public void EliminarUsuario(Guid id)
+        {
+            try
+            {
+                _usuarioService.EliminarUsuario(id);
+            }
+            catch (Exception ex)
+            {
+                GlobalExceptionHandler.Handle(ex);
+            }
+        }
+        public List<Usuario> ObtenerUsuariosActivos()
+        {
+            try { return _usuarioService.ObtenerTodos(); }
+            catch (Exception ex) { GlobalExceptionHandler.Handle(ex); return new List<Usuario>(); }
+        }
     }
-
-
 }

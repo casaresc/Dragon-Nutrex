@@ -47,6 +47,8 @@
             label2 = new Label();
             lblTitulo = new Label();
             btnVerUsuarios = new Button();
+            lblEdad = new Label();
+            txtEdad = new TextBox();
             SuspendLayout();
             // 
             // txtNombre
@@ -231,13 +233,34 @@
             btnVerUsuarios.TabIndex = 16;
             btnVerUsuarios.Text = "Ver usuarios";
             btnVerUsuarios.UseVisualStyleBackColor = true;
+            btnVerUsuarios.Visible = false;
             btnVerUsuarios.Click += btnVerUsuarios_Click;
+            // 
+            // lblEdad
+            // 
+            lblEdad.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblEdad.AutoSize = true;
+            lblEdad.Location = new Point(258, 232);
+            lblEdad.Name = "lblEdad";
+            lblEdad.Size = new Size(33, 15);
+            lblEdad.TabIndex = 18;
+            lblEdad.Text = "Edad";
+            // 
+            // txtEdad
+            // 
+            txtEdad.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtEdad.Location = new Point(258, 250);
+            txtEdad.Name = "txtEdad";
+            txtEdad.Size = new Size(100, 23);
+            txtEdad.TabIndex = 17;
             // 
             // UsuarioForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblEdad);
+            Controls.Add(txtEdad);
             Controls.Add(btnVerUsuarios);
             Controls.Add(lblTitulo);
             Controls.Add(label2);
@@ -285,5 +308,7 @@
         private Label label2;
         private Label lblTitulo;
         private Button btnVerUsuarios;
+        private Label lblEdad;
+        private TextBox txtEdad;
     }
 }

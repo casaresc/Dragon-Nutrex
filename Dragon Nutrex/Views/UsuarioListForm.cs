@@ -1,95 +1,84 @@
-﻿using Dragon_Nutrex.Common;
+﻿using Dragon_Nutrex.Controllers;
 using Dragon_Nutrex.Models;
-using Dragon_Nutrex.Repositories;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Dragon_Nutrex.Views
 {
     public partial class UsuarioListForm : Form
     {
-        private UsuarioRepository repo = new UsuarioRepository();
+        private readonly UsuarioController _controller = new UsuarioController();
 
         public UsuarioListForm()
         {
             InitializeComponent();
-
+            this.Load += UsuarioListForm_Load;
+        }
+        private void UsuarioListForm_Load(object? sender, EventArgs e)
+        {
+            this.ControlBox = false;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.Dock = DockStyle.Fill;
+            ConfigurarGrid();
             CargarUsuarios();
+        }
+        private void ConfigurarGrid()
+        {
+            dgvUsuarios.AutoGenerateColumns = true;
+            dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvUsuarios.MultiSelect = false;
+            dgvUsuarios.ReadOnly = true;
         }
 
         private void CargarUsuarios()
         {
-            var usuarios = repo.GetAll();
-
             dgvUsuarios.DataSource = null;
-            dgvUsuarios.DataSource = usuarios;
-        }
+            dgvUsuarios.DataSource = _controller.ObtenerUsuariosActivos();
 
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
-            CargarUsuarios();
+            if (dgvUsuarios.Columns["Id"] != null) dgvUsuarios.Columns["Id"]?.Visible = false;
+            if (dgvUsuarios.Columns["Activo"] != null) dgvUsuarios.Columns["Activo"]?.Visible = false;
         }
-
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgvUsuarios.SelectedRows.Count == 0)
+            if (dgvUsuarios.CurrentRow?.DataBoundItem is Usuario usuario)
             {
-                MessageBox.Show("Seleccione un usuario");
-                return;
-            }
+                var confirm = MessageBox.Show($"¿Está seguro de eliminar a {usuario.Nombre}?",
+                    "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            var cellValue = dgvUsuarios.SelectedRows[0].Cells["Id"].Value;
-
-            if (cellValue is Guid id)
-            {
-                var usuarios = repo.GetAll();
-                var usuario = usuarios.FirstOrDefault(u => u.Id == id);
-
-                if (usuario != null)
+                if (confirm == DialogResult.Yes)
                 {
-                    usuarios.Remove(usuario);
-                    repo.SaveAll(usuarios);
-                    MessageBox.Show("Usuario eliminado");
+                    _controller.EliminarUsuario(usuario.Id);
                     CargarUsuarios();
+                    MessageBox.Show("Usuario eliminado correctamente.");
                 }
             }
             else
             {
-                MessageBox.Show("No se pudo obtener el ID del usuario.");
+                MessageBox.Show("Seleccione un usuario de la lista.");
             }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            try
+            if (dgvUsuarios.CurrentRow?.DataBoundItem is Usuario usuarioSeleccionado)
             {
-                if (dgvUsuarios.CurrentRow?.DataBoundItem is Usuario usuarioSeleccionado)
-                {
-                    UsuarioForm formEditar = new UsuarioForm(usuarioSeleccionado);
-                    formEditar.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("Por favor, seleccione un usuario de la lista.");
-                }
-
+                UsuarioForm formEditar = new UsuarioForm(usuarioSeleccionado);
+                formEditar.ShowDialog();
                 CargarUsuarios();
-            }
-            catch (Exception ex)
-            {
-                GlobalExceptionHandler.Handle(ex);
             }
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void btnActualizar_Click(object sender, EventArgs e) => CargarUsuarios();
+        private void btnCerrar_Click(object sender, EventArgs e) => this.Close();
+
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            using (var formAgregar = new UsuarioForm())
+            {
+                formAgregar.ShowDialog();
+                CargarUsuarios();
+            }
         }
     }
 }

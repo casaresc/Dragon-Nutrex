@@ -5,16 +5,16 @@ namespace Dragon_Nutrex.Services
 {
     public class ProductoService
     {
-        private readonly ProductoRepository _repository;
+        private readonly IRepository<Producto> _repository;
 
         public ProductoService()
         {
             _repository = new ProductoRepository();
         }
 
-        public List<Producto> ObtenerProductos(bool soloActivos = true)
+        public List<Producto> ObtenerProductos()
         {
-            return _repository.ObtenerTodos(soloActivos);
+            return _repository.GetAll();
         }
 
         public Producto? ObtenerPorId(Guid id)
@@ -22,14 +22,14 @@ namespace Dragon_Nutrex.Services
             if (id == Guid.Empty)
                 throw new ArgumentException("El Id del producto no es válido.");
 
-            return _repository.ObtenerPorId(id);
+            return _repository.GetById(id);
         }
 
         public void CrearProducto(Producto producto)
         {
             ValidarProducto(producto);
 
-            _repository.Agregar(producto);
+            _repository.Create(producto);
         }
 
         public void ActualizarProducto(Producto producto)
@@ -39,7 +39,7 @@ namespace Dragon_Nutrex.Services
 
             ValidarProducto(producto);
 
-            _repository.Actualizar(producto);
+            _repository.Update(producto);
         }
 
         public void EliminarProducto(Guid id)
@@ -47,10 +47,10 @@ namespace Dragon_Nutrex.Services
             if (id == Guid.Empty)
                 throw new ArgumentException("El Id del producto no es válido.");
 
-            _repository.Eliminar(id);
+            _repository.Delete(id);
         }
 
-        private void ValidarProducto(Producto producto)
+        private static void ValidarProducto(Producto producto)
         {
             if (producto == null)
                 throw new ArgumentNullException(nameof(producto));
@@ -72,6 +72,11 @@ namespace Dragon_Nutrex.Services
 
             if (producto.Grasas < 0)
                 throw new ArgumentException("Las grasas no pueden ser negativas.");
+        }
+
+        public List<Producto> ObtenerTodos()
+        {
+            return _repository.GetAll();
         }
     }
 }

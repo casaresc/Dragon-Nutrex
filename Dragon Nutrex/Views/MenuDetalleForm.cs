@@ -1,100 +1,93 @@
-﻿using Dragon_Nutrex.Models;
-using Dragon_Nutrex.Services;
+﻿using Dragon_Nutrex.Controllers;
+using Dragon_Nutrex.Models;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Dragon_Nutrex.Views
 {
     public partial class MenuDetalleForm : Form
     {
         private readonly MenuDiario _menu;
-        private readonly MenuDetalleService _detalleService;
-        private readonly ProductoService _productoService;
+        private readonly MenuController _controller = new MenuController();
 
         public MenuDetalleForm(MenuDiario menu)
         {
             InitializeComponent();
-
-            _menu = menu ?? throw new ArgumentNullException(nameof(menu), "El menú no puede ser null.");
-
-            _detalleService = new MenuDetalleService();
-            _productoService = new ProductoService();
-
-
-            this.Load += MenuDetalleForm_Load;
+            _menu = menu ?? throw new ArgumentNullException(nameof(menu));
         }
 
-        private void MenuDetalleForm_Load(object? sender, EventArgs e)
+        private void MenuDetalleForm_Load(object sender, EventArgs e)
         {
-            lblMenuNombre.Text = $"Menú: {_menu.Nombre}";
-            CargarProductos();
-            CargarDetalles();
+            lblMenuNombre.Text = $"Editando: {_menu.Nombre}";
+            ConfigurarGrid();
+            CargarCatalogos();
+            CargarDetallesActuales();
         }
 
-        private void CargarProductos()
+        private void ConfigurarGrid()
         {
-            var productos = _productoService.ObtenerProductos();
-            cmbProductos.DataSource = productos;
+            dgvProductosMenu.AutoGenerateColumns = true;
+            dgvProductosMenu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvProductosMenu.ReadOnly = true;
+        }
+
+        private void CargarCatalogos()
+        {
+            cmbProductos.DataSource = _controller.ObtenerCatalogoProductos();
             cmbProductos.DisplayMember = "Nombre";
             cmbProductos.ValueMember = "Id";
+            cmbProductos.SelectedIndex = -1;
         }
 
-        private void CargarDetalles()
+        private void CargarDetallesActuales()
         {
-            var detalles = _detalleService.ObtenerPorMenu(_menu.Id);
-            dgvProductosMenu.DataSource = detalles;
+            dgvProductosMenu.DataSource = null;
+            dgvProductosMenu.DataSource = _controller.ObtenerDetallesDelMenu(_menu.Id);
         }
 
-        private void btnAgregarProducto_Click(object? sender, EventArgs e)
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            if (cmbProductos.SelectedItem == null)
+            if (cmbProductos.SelectedValue == null)
             {
-                MessageBox.Show("Seleccione un producto.");
+                MessageBox.Show("Seleccione un alimento de la lista.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (!decimal.TryParse(txtPorcion.Text, out decimal porcion))
+            if (!decimal.TryParse(txtPorcion.Text, out decimal porcion) || porcion <= 0)
             {
-                MessageBox.Show("Porción inválida.");
+                MessageBox.Show("Ingrese una cantidad/porción válida mayor a cero.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (cmbProductos.SelectedValue is Guid productoId)
+            var nuevoDetalle = new MenuDetalle
             {
-                var detalle = new MenuDetalle
-                {
-                    MenuId = _menu.Id,
-                    ProductoId = productoId,
-                    Porcion = porcion
-                };
+                Id = Guid.NewGuid(),
+                MenuId = _menu.Id,
+                ProductoId = (Guid)cmbProductos.SelectedValue,
+                Porcion = porcion 
+            };
 
-                _detalleService.AgregarProducto(detalle);
-                CargarDetalles();
-                txtPorcion.Clear();
-            }
+            _controller.AgregarAlimentoAlMenu(nuevoDetalle);
+            CargarDetallesActuales();
+            txtPorcion.Clear();
         }
 
-        private void btnEliminarProducto_Click(object? sender, EventArgs e)
+        private void btnEliminarProducto_Click(object sender, EventArgs e)
         {
-            if (dgvProductosMenu.SelectedRows.Count == 0) return;
-
-            if (dgvProductosMenu.SelectedRows[0].DataBoundItem is MenuDetalle detalle)
+            if (dgvProductosMenu.CurrentRow?.DataBoundItem is MenuDetalle detalle)
             {
-                var confirmacion = MessageBox.Show(
-                    "¿Eliminar producto del menú?",
-                    "Confirmar",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+                var confirm = MessageBox.Show("¿Quitar este alimento del menú?", "Confirmar",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                if (confirmacion == DialogResult.Yes)
+                if (confirm == DialogResult.Yes)
                 {
-                    _detalleService.EliminarProducto(detalle.Id);
-                    CargarDetalles();
+                    _controller.QuitarAlimentoDelMenu(detalle.Id);
+                    CargarDetallesActuales();
                 }
             }
         }
 
-        private void btnCerrar_Click(object? sender, EventArgs e)
-        {
-            this.Close();
-        }
+        private void btnCerrar_Click(object sender, EventArgs e) => this.Close();
     }
 }

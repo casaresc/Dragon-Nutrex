@@ -2,57 +2,64 @@
 using Dragon_Nutrex.Utils;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.IO;
+using System.Linq;
 
 namespace Dragon_Nutrex.Repositories
 {
-    public class MenuDetalleRepository
+    public class MenuDetalleRepository : IRepository<MenuDetalle>
     {
-        private readonly string _filePath =
-            Path.Combine("Data", "menu_detalles.json");
+        private readonly string _filePath = Path.Combine("Data", "menu_detalles.json");
 
-        public List<MenuDetalle> ObtenerPorMenu(Guid menuId)
+        public List<MenuDetalle> GetAll()
         {
-            var detalles = FileStorage
-                .Load<MenuDetalle>(_filePath);
-
-            return detalles
-                .Where(d =>
-                    d.MenuId == menuId &&
-                    d.Activo)
-                .ToList();
+            return FileStorage.Load<MenuDetalle>(_filePath)
+                              .Where(d => d.Activo)
+                              .ToList();
         }
 
-        public void Agregar(MenuDetalle detalle)
+        public MenuDetalle? GetById(Guid id)
         {
-            var detalles = FileStorage
-                .Load<MenuDetalle>(_filePath);
-
-            detalle.Id = Guid.NewGuid();
-
-            detalles.Add(detalle);
-
-            FileStorage.Save(
-                _filePath,
-                detalles);
+            return GetAll().FirstOrDefault(d => d.Id == id);
         }
 
-        public void Eliminar(Guid id)
+        public void Create(MenuDetalle entity)
         {
-            var detalles = FileStorage
-                .Load<MenuDetalle>(_filePath);
+            var detalles = FileStorage.Load<MenuDetalle>(_filePath);
 
-            var detalle = detalles
-                .FirstOrDefault(d => d.Id == id);
+            entity.Id = Guid.NewGuid();
+            entity.Activo = true;
 
+            detalles.Add(entity);
+            FileStorage.Save(_filePath, detalles);
+        }
+
+        public void Update(MenuDetalle entity)
+        {
+            var detalles = FileStorage.Load<MenuDetalle>(_filePath);
+            var index = detalles.FindIndex(d => d.Id == entity.Id);
+            if (index != -1)
+            {
+                detalles[index] = entity;
+                FileStorage.Save(_filePath, detalles);
+            }
+        }
+
+        public void Delete(Guid id)
+        {
+            var detalles = FileStorage.Load<MenuDetalle>(_filePath);
+            var detalle = detalles.FirstOrDefault(d => d.Id == id);
             if (detalle != null)
             {
                 detalle.Activo = false;
-
-                FileStorage.Save(
-                    _filePath,
-                    detalles);
+                FileStorage.Save(_filePath, detalles);
             }
         }
+
+        public List<MenuDetalle> GetByMenuId(Guid menuId)
+        {
+            return GetAll().Where(d => d.MenuId == menuId).ToList();
+        }
+
     }
 }

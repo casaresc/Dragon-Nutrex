@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Dragon_Nutrex.Models
 {
-    internal class RegistroComida
+    public interface IEstadisticaFiltrable
     {
+        void FiltrarPorUsuario(Guid usuarioId);
     }
 }

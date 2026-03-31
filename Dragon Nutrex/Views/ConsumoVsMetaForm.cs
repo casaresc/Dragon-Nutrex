@@ -1,76 +1,68 @@
-﻿using Dragon_Nutrex.Models;
-using Dragon_Nutrex.Repositories;
+﻿using Dragon_Nutrex.Controllers;
+using Dragon_Nutrex.Models;
 using Dragon_Nutrex.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 
 namespace Dragon_Nutrex.Views
 {
-    public partial class ConsumoVsMetaForm : Form
+    public partial class ConsumoVsMetaForm : Form, IEstadisticaFiltrable
     {
-        private readonly ConsumoService
-            _consumoService;
+        private readonly ConsumoController _controller = new ConsumoController();
+        private readonly ConsumoService _consumoService = new ConsumoService();
+        private Guid? _usuarioIdActual; 
 
         public ConsumoVsMetaForm()
         {
-            var repo =
-    new ConsumoDiarioRepository();
-
-            repo.CrearRegistroPrueba();
             InitializeComponent();
 
-            _consumoService = new ConsumoService();
 
-            dtpFecha.ValueChanged += (_, __) => ActualizarResumen();
+            dtpFecha.ValueChanged += (s, e) => ActualizarResumen();
+        }
+
+        public void FiltrarPorUsuario(Guid usuarioId)
+        {
+            _usuarioIdActual = usuarioId;
+            ActualizarResumen();
+        }
+        public List<Guid> ObtenerUsuariosConRegistros()
+        {
+            var consumos = _consumoService.ObtenerTodos();
+            return consumos.Select(c => c.UsuarioId).Distinct().ToList();
         }
 
         private void ActualizarResumen()
         {
-            var fecha =
-                dtpFecha.Value.Date;
+            if (!_usuarioIdActual.HasValue) return;
+            var resumen = _controller.ObtenerResumenParaUsuarioYFecha(_usuarioIdActual.Value, dtpFecha.Value);
 
-            var meta =
-                ObtenerMetaUsuario();
-
-            var resumen =
-                _consumoService
-                .ObtenerResumenDiario(
-                    fecha,
-                    meta);
-
-            if (!resumen.TieneRegistros)
+            if (resumen != null)
             {
-                lblCaloriasConsumidas.Text =
-                    "0 kcal";
+                lblMetaCalorias.Text = $"{resumen.MetaCalorias} kcal";
+                lblCaloriasConsumidas.Text = $"{resumen.CaloriasConsumidas} kcal";
+                lblCarbosConsumidos.Text = $"{resumen.CarbohidratosConsumidos} g";
 
-                lblCarbosConsumidos.Text =
-                    "0 g";
-
-                lblDiferencia.Text =
-                    $"{meta} kcal restantes";
-
-                lblMetaCalorias.Text =
-                    $"0 kcal";
-
-                return;
+                if (resumen.DiferenciaCalorias >= 0)
+                {
+                    lblDiferencia.Text = $"{resumen.DiferenciaCalorias} kcal restantes";
+                    lblDiferencia.ForeColor = Color.Green;
+                }
+                else
+                {
+                    lblDiferencia.Text = $"{Math.Abs(resumen.DiferenciaCalorias)} kcal de exceso";
+                    lblDiferencia.ForeColor = Color.Red;
+                }
             }
+            else
+            {
+                LimpiarPantalla();
+            }
+        }
 
-            lblCaloriasConsumidas.Text =
-                $"{resumen.CaloriasConsumidas} kcal";
-
-            lblCarbosConsumidos.Text =
-                $"{resumen.CarbohidratosConsumidos} g";
-
-            lblMetaCalorias.Text =
-                $"{resumen.MetaCalorias} kcal";
-
-            lblDiferencia.Text =
-                $"{resumen.DiferenciaCalorias} kcal";
+        private void LimpiarPantalla()
+        {
+            lblMetaCalorias.Text = "0 kcal";
+            lblCaloriasConsumidas.Text = "0 kcal";
+            lblDiferencia.Text = "Sin registros para esta fecha";
+            lblDiferencia.ForeColor = Color.Gray;
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -78,38 +70,9 @@ namespace Dragon_Nutrex.Views
             ActualizarResumen();
         }
 
-        private decimal ObtenerMetaUsuario()
+        private void ConsumoVsMetaForm_Load(object sender, EventArgs e)
         {
-            var nutricionService =
-                new NutricionService();
-
-            // Valores de ejemplo
-            // Luego leerlos desde Usuario activo
-
-            decimal peso = 70;
-            decimal altura = 1.75m;
-            int edad = 30;
-
-            var actividad =
-                NivelActividad.Moderado;
-
-            var objetivo =
-                ObjetivoNutricional.MantenerPeso;
-
-            var dieta =
-                TipoDieta.Balanceada;
-
-            var resultado =
-                nutricionService
-                .CalcularRequerimiento(
-                    peso,
-                    altura,
-                    edad,
-                    actividad,
-                    objetivo,
-                    dieta);
-
-            return resultado.CaloriasObjetivo;
+            ActualizarResumen();
         }
     }
 }
