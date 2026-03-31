@@ -7,13 +7,11 @@ namespace Dragon_Nutrex.Common
     {
         public static void Handle(Exception ex)
         {
-            // Registrar error
             Logger.Log(ex);
 
-            // Mostrar mensaje amigable
             MessageBox.Show(
                 "Ocurrió un error inesperado.\n" +
-                "Por favor intente nuevamente.",
+                "Por favor intente nuevamente y revise los logs para ver más detalles.",
                 "Error",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error

@@ -70,11 +70,18 @@ namespace Dragon_Nutrex.Views
             var editado = ValidarYObtenerDeFormulario();
             if (editado == null) return;
 
-            editado.Id = _productoSeleccionado.Id; // Mantenemos el ID original
+            editado.Id = _productoSeleccionado.Id;
             _controller.Actualizar(editado);
 
             CargarProductos();
             LimpiarFormulario();
+
+            MessageBox.Show(
+                "Producto Editado correctamente",
+                "Éxito",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

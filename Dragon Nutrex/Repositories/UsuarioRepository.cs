@@ -9,8 +9,7 @@ namespace Dragon_Nutrex.Repositories
 {
     public class UsuarioRepository : IRepository<Usuario>
     {
-        private readonly string _path = Path.Combine("Data", "usuarios.json");
-
+        private readonly string _path = Dragon_Nutrex.Common.DataConfig.GetStoragePath("usuarios.json");
         public Usuario? GetById(Guid id)
         {
             return GetAll().FirstOrDefault(u => u.Id == id);

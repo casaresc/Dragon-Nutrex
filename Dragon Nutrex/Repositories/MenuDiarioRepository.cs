@@ -9,8 +9,7 @@ namespace Dragon_Nutrex.Repositories
 {
     public class MenuDiarioRepository : IRepository<MenuDiario>
     {
-        private readonly string _filePath = Path.Combine("Data", "menus.json");
-
+        private readonly string _filePath = Dragon_Nutrex.Common.DataConfig.GetStoragePath("menus.json");
         public List<MenuDiario> GetAll()
         {
             return FileStorage.Load<MenuDiario>(_filePath)

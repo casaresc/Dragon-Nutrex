@@ -1,0 +1,3485 @@
+[
+  {
+    "Id": "7bb6a4cd-81a0-47c0-96ff-10e3c6347a4a",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 1 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:10.4543772-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "f77fd858-0f12-4518-a205-786ec061bd4e",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 1 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:10.4872197-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "72fb6945-f54c-4fd4-8e6a-d207eb56dc1d",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 1 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:10.524087-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "b6d04c8a-dc84-4f68-bcdf-92043a38a3c1",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 1 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:10.5604064-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "49a80f02-c6c5-4485-a35e-56d023d19bf3",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 1 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:10.589814-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "17ea818f-2f8c-44d6-ad1d-105d1b219cd9",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 1 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:10.6143207-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "81b7d969-d470-451e-9a45-c82a832a0f26",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 1 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:10.639115-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "4ad794da-8598-4006-a3cb-9c4e8f99a78a",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 1 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:10.6583387-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "8d220023-f74c-4aec-8ab4-bea6ee079223",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 1 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:10.6963208-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "62792a84-1cff-435e-b881-b710e8bf587c",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 1 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:10.7157745-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "10c28475-7724-46d6-aa3f-2ace64a94f88",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 1 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:10.7403856-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c8e93551-f596-42a0-8c15-becdb7b3ae21",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 1 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:10.7718609-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "f64699eb-7490-43db-b27c-0e0f0912febb",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 1 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:10.7973543-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "0ae80091-1865-4c2b-ad93-47cce0b5034e",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 1 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:10.8167556-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "30b54c95-e747-4886-a33b-2d297d633a34",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 1 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:10.8378231-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "848dbd56-af69-48bf-a44c-0064517ec59f",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 2 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:10.913053-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "0fd2c650-6d55-4414-95f1-f9d3ca314bd7",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 2 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:10.9395561-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c8ab41b3-daae-4252-96e3-5e7ee135dc5b",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 2 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:10.9727818-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "d3825960-2b49-4835-805e-2e03ee202e2f",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 2 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.0098745-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "1732860b-f847-4430-a6dd-1c918bc7c08e",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 2 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.0401101-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "82f88902-2df7-498d-b489-b48f079e3c81",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 2 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.075884-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "eb1daa63-c841-4780-ba4b-b7e5f50f00a4",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 2 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.1014325-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "9503e0c5-f6e8-46d2-bcc3-a5046da6830d",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 2 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.136737-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "ec03b345-3c07-441b-8e19-4ca4b028536e",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 2 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.156574-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "ee50c7e5-adc8-4c1b-854c-ba6fde524eb8",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 2 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.1834624-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "94f0ce49-0998-4e1f-ad57-96081cd56de4",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 2 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.2200525-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "f18036da-885f-48e3-a75e-acc38214d8bc",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 2 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.2470934-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "25f18a42-8476-4aa8-bde3-b27a8751e904",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 2 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.2687921-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "2b6f0d29-941c-4136-b30c-104d5479b42b",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 2 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.2884989-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "7aeacd4b-10a7-41e0-8eb5-42bc7eac2f83",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 2 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.310739-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "987d35c1-1c58-4798-b862-7d85919d7cc3",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 3 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.3462313-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "ab25aaa1-e81b-4259-9d1e-1886478bdd4a",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 3 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.3801116-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "a4afd83f-3fba-4ee3-9792-5affb7e935f8",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 3 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.4009015-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "715a20be-ef71-4e31-928b-de6c9cee2b7a",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 3 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.4214403-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "2d8b085a-0dd1-41eb-a2a4-66a2085c43b9",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 3 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.4415726-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "d2d9f835-e409-411f-b109-491c96fc33ab",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 3 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.4698968-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "3091917f-8f5e-4947-bcb1-5c568e0f14fa",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 3 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.4894562-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c4426576-bdc0-4b76-b53c-1ee13864e48a",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 3 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.5145936-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "90e9e579-c84b-40e4-828b-a11d1765aef9",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 3 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.5473006-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "2ccbd634-c844-4720-bf40-a96a89267d48",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 3 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.5685405-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "8503af51-7105-46fc-a199-333d02cdba08",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 3 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.5892419-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "2451110d-b490-40cf-9eed-c07cb5bbd5d9",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 3 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.621236-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "4c2e0569-cef6-4861-a713-ce1e1cbc5219",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 3 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.643644-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "a2d7ce37-54b2-410e-b2ed-b950fd539014",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 3 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.6721931-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "85301cbb-222f-4c93-99d6-7e3013624a4f",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 3 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.7099667-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "1d8707af-4b8f-4bf1-92ed-c8ae7a3f3a40",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 4 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.7309221-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "bc2cb5a1-ebeb-46dd-96e0-4df3af702121",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 4 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.7565471-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "cc12b409-5cf9-42d7-9225-d56140c509b9",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 4 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.7783347-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "f3c117b3-76f1-4e14-ba49-92484de01681",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 4 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.8056767-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "299404c7-9b1f-4902-94c3-0786a4da477b",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 4 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.8398267-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "ab9de367-0a4b-4d53-997b-b02030ab9ccc",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 4 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.8613006-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "e30fd4ab-6dd8-4008-86bb-9f53cbeb7468",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 4 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.8963539-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "03cc4658-fc31-4d57-92f9-2b601e6af089",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 4 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.9246728-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "6158f287-a00a-4dae-915d-f114b5442ddf",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 4 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.9532039-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "d69a01fd-676e-474a-a969-3d3bb2b27b68",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 4 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.9746505-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "1aa02b51-a7d2-4783-843f-66740a85d20b",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 4 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:11.9965712-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "749bccdb-0af0-4c12-9277-b0197a30b5ac",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 4 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.0269442-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "be9c5391-a886-404e-82fc-abc812527ddd",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 4 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.057713-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c21e2f4c-938e-442e-b9e0-9236aed601ac",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 4 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.1027266-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "6aa07a04-a10d-4a24-8287-5b8acb7ec99a",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 4 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.1424141-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "20f89465-86bc-41f0-a0b9-2c8eabe917bd",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 5 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.1733857-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "e03e562e-3c5d-4db1-a345-95d3355d3541",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 5 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.1958724-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "4d4c757c-88ad-40f9-828f-c7dd01acd641",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 5 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.2339661-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "5977a2d2-bbdc-4c25-a48e-bbcf3ef508c4",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 5 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.2709497-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "6dc148a2-0f00-4de2-af1a-3f02c49a949b",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 5 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.3009822-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "a081a599-3336-49fe-8b84-d023c64ae561",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 5 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.329503-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "62367df7-00c4-41fa-8235-521bd0b9c1be",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 5 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.3533132-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "16c4cee7-a3fc-4e4b-a389-d52992956de6",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 5 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.389554-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "63106301-2515-4b23-85d7-d750d6b90bf2",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 5 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.4181014-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "4965ef67-4830-4b41-821c-ad783427846f",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 5 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.4572703-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "daf331e4-3dc1-4d89-b0e1-996ef5b06757",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 5 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.4860177-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "27a7acee-fb5d-450d-96bf-80793914f12b",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 5 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.5172087-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "22566b57-f8ae-4190-82ad-88e66d4cb492",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 5 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.5473828-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "ef6a75ab-c757-434b-b007-cee0fc4bacad",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 5 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.5878403-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "5f376c1c-e86d-4c80-855f-da2af9ccbfd5",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 5 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.6094396-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "ff081f6f-618b-47b5-9463-ad0789e88f7a",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 6 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.6307374-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "59afa8c4-e196-458f-9677-31ba5eb25325",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 6 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.6675143-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "88a9e46b-4b91-4068-b4f4-9c47edcb1b8c",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 6 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.6973831-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "1601f24d-9a8b-4833-9521-9ea586e991c7",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 6 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.7201551-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c8de49e7-3d43-474c-8568-83af76b76939",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 6 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.7572829-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "70eea08b-489f-4bd2-a10c-9c118f3ca3e8",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 6 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.7900072-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "a80bd22c-bf14-4708-960e-24449dc698a0",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 6 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.8225727-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "27ad2eb8-08b5-4906-b1b9-9f6660ecd84e",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 6 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.859505-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "13cf7ac6-c887-4c04-ac49-db598bce5568",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 6 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.8809478-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c95c55b7-84df-4a6f-8b8c-8816354e56e9",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 6 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.9028271-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c0ab1268-8b57-481b-8c40-4b039b76896b",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 6 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.9264921-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "09efcaf9-3929-4126-8ee9-faf31102f43d",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 6 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.9509706-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "1e012d3a-ec33-4408-ad02-df5735e69654",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 6 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:12.991623-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "1dfa5be3-30a3-4ed3-a425-3ae9a4e6e06c",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 6 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.0188735-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "1846b216-f29e-4b69-be50-681f58af95e6",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 6 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.0573094-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "a0fdd17c-0511-4fb4-a003-08f6089e14f9",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 7 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.0884578-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "32add87a-2ef8-490c-96c7-b69a59865e70",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 7 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.1308861-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "a0785e8d-5f61-43f3-9ae7-725f6e282108",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 7 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.1704085-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "55feda38-616d-4b57-b937-ed853d86b372",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 7 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.2128706-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "d3734c91-b8c4-4805-8308-9505f0065d8c",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 7 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.2381169-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "ee50cd52-6453-459f-a095-5da82fd87e62",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 7 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.2835545-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "dd8ff6f9-bd65-4fb2-8551-a38804a49465",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 7 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.3187911-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "72fa2c2d-9088-4b29-ad37-5d6971025b89",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 7 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.365675-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "900838d3-fba6-44d5-948a-42e5aeb6e777",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 7 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.3916536-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "84b97091-7675-427f-ba8a-986f24922b8c",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 7 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.4366114-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "34653291-b1fa-4edf-ae6b-da89b08f2db8",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 7 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.4634444-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "81765d99-d7e6-423a-82a4-02c74b16d05f",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 7 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.5082975-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "a454088b-432a-48c6-8ff0-f1db39ccf46d",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 7 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.5362824-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "24727e9b-dab7-4fdf-b38c-8dffcbac9f1d",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 7 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.5615692-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "4ca21c38-d050-4955-97d1-2031a0ad9b0e",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 7 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.6041042-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "8051dc7b-265e-4af3-a583-3c06c4db50e4",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 8 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.6472486-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c6cef6f2-645f-41bc-980b-9b90c6abf2aa",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 8 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.6709344-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "fe40d61c-71ae-4a46-b81e-8380725b59c6",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 8 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.7107322-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "bb021446-9f58-4e67-ad4e-0461ed4ddaa8",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 8 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.7480347-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "d916c7f2-62f1-4eed-b420-b4197becfa6d",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 8 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.7721474-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "27120ba5-c2f9-4b0b-9861-a72bf2f5095b",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 8 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.7942652-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "30f4d8b2-8cca-43f2-b577-c8fc894c0ca8",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 8 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.8294963-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "ac0b567e-2dc8-4359-b590-6e538b87c62d",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 8 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.8534778-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "7bb2b973-4d7a-425d-b65d-1d894147734c",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 8 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.8893593-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "8f363c73-de54-405c-8d76-deed7c1680d0",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 8 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.9172285-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "bfe3df17-82b6-46f5-a9ad-ba8deae4205f",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 8 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.9544245-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "e0f83fcf-646d-4a90-9006-75d48670f10f",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 8 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:13.9814243-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "1f601280-a45b-4905-a966-58449d517b59",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 8 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.0023043-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "b598a1c4-5d0a-4408-a054-1411926bd9ed",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 8 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.0291358-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "fc99b326-74ab-437b-9de4-af042d9af208",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 8 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.0496045-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "0a0d2068-4b9d-4dce-a82f-da72c84fa802",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 9 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.0834063-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "59665bf6-2ede-4184-b287-0bc01a5c2fed",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 9 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.1031525-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "5d6cc4a4-425d-4c5f-a929-d2ac99cf1a52",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 9 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.1317711-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "857d3508-cff7-4f9f-8994-4b14dfa16654",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 9 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.1591754-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "b1ed8f0b-ab03-41df-bffb-a5708ce26347",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 9 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.180004-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "1c4aa5f2-8954-41ef-8197-da39698975da",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 9 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.2239577-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "6579e340-5124-4605-8018-3cac68698dde",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 9 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.2605223-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "88757a6f-231b-488e-bf44-2a41a1854c87",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 9 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.2972213-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "7a73e7ef-5c18-408e-9040-0dc6b882b8c6",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 9 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.3304816-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "bf34e2d6-542f-47f5-8a78-f70024d2827d",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 9 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.3581977-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "e6893429-12a5-45b8-9a50-334c3145aa21",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 9 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.3912566-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "648e0bde-d499-4454-8d41-d3c9d42d24d0",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 9 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.4183003-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "bfd9a1a3-a81c-4b77-bdec-21e6a1f17e18",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 9 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.4520409-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "7366c718-6945-4779-9d2b-08a89780b03a",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 9 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.4811242-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c922b970-1367-4a14-818c-2e9dca98f49a",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 9 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.5099007-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "a6559e6c-3031-450b-a794-cac44a6baccf",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 10 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.5440126-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "d6feecdc-0cda-4908-827a-3a9809f6d343",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 10 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.5714428-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "7449a3e7-b06e-4439-9512-21bf68b88d83",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 10 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.6086544-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "16cc6bf1-a864-4c2e-b142-89e1016c9aec",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 10 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.6348178-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "531cc684-7a80-4ac2-8083-f27615626e2d",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 10 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.6592952-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "066183e7-1248-4684-bede-8d32bf18ffdb",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 10 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.6894219-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "28ff7a1b-2283-45a9-8252-3dd8178fa152",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 10 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.7119419-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "a43b21d6-7990-4a32-9bad-6eb95cf793cb",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 10 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.7439464-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "eee76b84-6822-470e-9de2-776f4b7a88e0",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 10 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.7646313-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "924a9fa4-6343-42e8-a958-7d5c38eed72e",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 10 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.7863213-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "7dd21913-c872-4c74-b930-99aa8d31ed96",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 10 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.8068534-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "5aaba548-ece2-427f-8caa-d36f0225cb95",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 10 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.835398-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "814e5593-e6cb-4e1f-91a9-a642851a846b",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 10 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.8632417-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "46cb885c-1d6d-481a-957e-4e9c9df3700e",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 10 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.8910173-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c487d360-84a5-4c5e-bba9-13037273fc28",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 10 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.922797-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "ca778acf-c0e0-4f4e-8498-214c2e60c0a8",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 11 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.9566944-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "617f85d0-bc00-4383-a8cc-69c6c8830064",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 11 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:14.9775862-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "98adecfe-8afd-4e1a-9e5f-424d9436aae7",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 11 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.0149179-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "62a720a6-455d-41c1-afe7-2a130963b149",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 11 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.0437663-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "89a16ae8-5be2-42b7-a0b4-6d3119658045",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 11 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.0644522-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "006db22d-99e3-4b2b-8988-75d9b826563d",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 11 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.0992027-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "823ec1ef-ce25-4acc-92af-6fc39ca9ea21",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 11 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.1289914-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "11c7d2e4-fcd7-44b8-828a-4114fecf1e86",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 11 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.1576959-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "4727fe67-70af-4aab-b86d-a866bf9a715c",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 11 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.1778564-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "f2f45c91-ad25-46be-b4c6-ee2a671ec6fa",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 11 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.2137724-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "aee83bb7-5e3d-4c1b-9ba2-fb5ff6635b36",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 11 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.2428915-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "0e99e7fd-f033-4490-89b1-84d26224840d",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 11 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.2720726-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "9ddb4189-94e7-41a9-99fa-476977e5a4be",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 11 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.3076038-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "08e0d02e-3884-4615-b8c8-30a42b045d41",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 11 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.3391995-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "ae8f53ae-7951-41e1-81c6-ab19e2f01200",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 11 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.3770522-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "d0ef4232-b43c-4375-bf82-b18441737e90",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 12 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.4126294-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "0f980c3e-d1c6-4325-ae9e-620b44f43cb4",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 12 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.4412642-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "d475d0af-dbd0-4911-9c54-e2cafa9942f1",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 12 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.4782571-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "11f1fc5f-0290-4d4f-ab20-ce3c4604df3e",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 12 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.5066258-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "a163f536-b076-4490-96c7-b0523695c329",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 12 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.5417745-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "90010620-9c10-412f-b598-2f24090fb4cd",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 12 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.5659191-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "38dbd08d-87f6-4da6-a8f8-d405eac66641",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 12 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.6036011-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "fac814e4-25f3-4123-a99f-ab22d0925676",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 12 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.6279978-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "3ab22ac3-b919-433b-a570-ee8f97b192ee",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 12 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.6709736-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "68d16443-1d7b-4548-bb6e-edfde96b8fe1",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 12 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.7106791-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "48078ead-1859-40de-853f-323c85f6c549",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 12 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.7511946-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "2638e06e-7629-4e2c-9d56-adb71333ccc5",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 12 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.793542-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "da6e54a0-38e9-4343-8148-90b20a7421a6",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 12 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.8332486-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "5cba7263-d57b-45df-a39b-ba0f5bf52509",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 12 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.8587141-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "d8749028-dd8d-4212-bdb5-b606bff3bd30",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 12 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.9001026-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "e9773eff-a41c-4698-adb6-e1ce2208bed5",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 13 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.9308247-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "109a0a15-170f-418e-8bab-8e6460d9cb0c",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 13 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.9734056-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "afebca81-d961-493f-8eaf-a1c7f9708807",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 13 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:15.9980178-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c9863597-5aac-4ca1-877b-4eb31225d6f8",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 13 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.0262177-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "5acbbbf0-7655-4185-a25c-6fa1b6432685",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 13 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.0503751-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "6e6c59bc-5704-43a7-9243-1d5db6608db8",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 13 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.0909999-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "b9ae7ff0-8327-40af-8308-aeb0c0a1bbe6",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 13 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.1224387-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "312d4421-0e96-4bff-950a-0ba53cce82ef",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 13 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.1624227-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "2d89f336-7323-459f-bc3a-ca6f26066304",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 13 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.1866834-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "682f39a9-ba4b-49e2-ac4e-e790a8ec8b35",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 13 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.2246325-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "3042a348-0bbc-4cdc-9b09-687af7e81cf6",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 13 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.2537106-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "4ad5f4c9-94fb-4504-a279-e2551be35447",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 13 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.2775833-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "d8eb1077-ee77-499f-81cb-39f602145ac5",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 13 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.305722-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "e3b5c0c8-7c25-4c1d-866c-e33ae4df4dd9",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 13 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.3415107-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "5a6e3a4e-ed93-4f6e-945b-6a92574998ba",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 13 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.3641155-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "70bedc86-2b65-4f45-9d18-f682475a79a8",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 14 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.3961934-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "92ea0ee9-70d7-49ed-b97d-0ac35af0b871",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 14 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.419464-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c4785278-6090-43a2-9708-12adf698772e",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 14 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.4435006-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "b2e6ea52-e065-4458-82a3-753023de2525",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 14 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.4715131-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "a42c7e5a-5491-4c3e-b255-33b63eaaf9e7",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 14 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.4927751-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "6e2a6cd2-1464-45c1-b822-e4ab5fe295b8",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 14 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.5280291-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "b5ea219c-de94-489d-947f-fb3702fd2399",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 14 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.5590212-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "3e8070f6-22f3-4553-915f-de4af25bb0f0",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 14 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.5881679-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "43015bce-9eb7-4281-ab36-03a431b270c5",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 14 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.6256236-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "1fc8c2fc-c1ee-4540-b7c0-9fe7d356b171",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 14 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.6637824-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "623722d2-8ecc-47b3-9a9b-6bb3379fb1ea",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 14 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.6949423-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "a1361e7b-4ec5-4e37-a541-50499d4fa857",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 14 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.7245181-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "994c01a1-186c-4c7e-87b3-a1bbb8732067",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 14 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.7629581-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "7cb0048e-7149-42a7-b31c-1f25a09fd643",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 14 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.7853788-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "abcd35bd-2ee1-4e2d-b69b-e2cd8bd09ba5",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 14 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.8146101-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "1786613d-b064-4467-9173-fa0e6fb6bd6c",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 15 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.8368365-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "3503f2d1-602f-4edb-98ce-13b1f5c2d07e",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 15 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.8667199-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "d650651a-dce7-4bf1-8322-8b123e573a62",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 15 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.9031189-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "f97717c7-48c4-48f3-9432-106d048565ad",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 15 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.9255296-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "515e4c0e-8ed2-4c5e-b8c6-1f9ae1b9439e",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 15 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.9608149-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "034ab560-3c2c-4d70-aa5d-03afd4d36438",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 15 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:16.9827898-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "31bf7f17-c85e-43a3-846d-859294b49b00",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 15 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.0128247-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c711bb99-4944-4cc2-95ef-f68ac9a33946",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 15 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.0421879-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "892f1b84-d0c4-4056-80f1-de8b3e912d6e",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 15 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.065687-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "9ccaf919-7b19-4465-8738-53cc57ab2a2a",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 15 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.0979007-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "a8c04316-4bb4-4901-95d0-e0402cc02808",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 15 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.12784-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "ff208175-5a4e-40fe-9dfa-757a71c4e3b9",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 15 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.1681885-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "b87fbc4a-b834-426c-85ae-09ed6b7a6336",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 15 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.2095814-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "428c22e3-705f-4892-8bee-8dcb4a140a0f",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 15 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.2336288-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "0d4b6bdc-62e2-4adc-99fa-b16300ea4320",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 15 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.2644063-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "bbe56cc8-82ba-4ce3-b22c-3918597aa7e3",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 16 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.3012522-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "ae3d7608-f4c8-4780-9d24-55deecb693b5",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 16 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.3370283-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "1e190796-b263-4fe9-9ad4-6e067c308cbf",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 16 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.3725716-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "24671610-59fb-4624-9169-c0f5bfbf9355",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 16 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.3942931-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c18d4075-cd78-4aa6-9258-d6760d121366",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 16 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.4156779-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "9d2cfaf8-c1eb-441a-9e07-0defd9f62d83",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 16 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.4472155-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "e89c4702-0b09-4d10-9f42-3b1260144211",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 16 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.4794453-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "0c99c279-329b-4dee-b777-bbc0722f9289",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 16 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.5105801-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "70ed198f-7846-482c-a2a5-a1915af8fa58",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 16 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.5318347-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c9702132-3b73-47fd-88f5-fbde9b3ce655",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 16 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.5611784-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "f9ebe5d5-7a5f-4ce7-aab0-2e280e1bf2bf",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 16 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.5905924-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "4bede4c7-d8a7-4761-b1e6-09842132ece4",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 16 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.6139345-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "ba7618a7-55d7-45ce-a070-50d2b4ffd528",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 16 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.648144-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "61af7a3a-e09f-4c29-9c40-5821d80a111d",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 16 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.6937569-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "38c7c531-1d12-41aa-bd91-e353f694224f",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 16 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.7257508-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "f761db58-d5da-4356-8c9f-bf5a0e99df93",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 17 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.7636525-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "a8174f45-c622-43fc-859f-9b75d8ee7bbc",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 17 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.789082-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "8967f9d7-c0a8-4965-b441-82e299bbee91",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 17 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.8124141-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "1ff3b95d-f25b-407c-9e95-b61e315d14c6",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 17 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.8426253-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "b390234c-8747-45c1-9a2f-c3cdf2db7dbc",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 17 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.8803367-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "804225c2-0ee4-4120-bc22-2cf7e84ad1fd",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 17 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.9169403-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "d6e0973e-307d-4a9b-af91-3fc806cf32ea",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 17 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.9409851-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "490d3c38-6ec3-4b38-89d5-5355164b9150",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 17 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:17.9767166-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "7e506855-73e5-4438-b081-31d26307bed5",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 17 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.0149601-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "f18b9144-80ea-4a1c-8466-479fc4227020",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 17 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.0449322-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "179cd077-ca4f-42e7-81ee-0141efe1353a",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 17 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.0749795-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c2339dd1-5f67-494b-b29b-bae796d7f60a",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 17 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.1072928-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "1c2d7257-3a78-44b1-9c9e-cddec0f5f5a8",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 17 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.1386217-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "56cfeac9-b0df-4386-8261-69e1141966b6",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 17 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.176049-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "246fecc8-adc4-4f98-a8cc-ec3c29d698a8",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 17 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.2066829-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "231ee156-f060-4a58-919b-59b976f3dd10",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 18 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.2292879-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "82b67e65-d3ff-4615-852a-37858af625c1",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 18 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.2517685-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "6fe98057-919a-484c-b493-ffe8badf653e",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 18 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.2765376-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "bdadfc62-bbaf-4444-a848-e1e239005812",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 18 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.3135347-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "b930423d-f32e-43fd-9187-c301b5c2faad",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 18 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.3466896-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "d9f1ea16-526e-4ff6-a53d-73b1685ce925",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 18 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.3697505-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "47bb92ce-816f-416c-88ba-62bfb4ed4c5b",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 18 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.3997647-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "a7a90910-948f-4a64-a5fc-ca6b25d4f658",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 18 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.4364804-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "ef90d10a-7f69-45d6-af06-b29b9ba575d2",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 18 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.474014-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "462f1ea6-25c9-427f-8e2b-38394b72ef22",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 18 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.5037863-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "6b60c969-050e-4df7-accd-4ed797ec2b38",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 18 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.5420319-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "77e0ad36-469c-4053-8fab-709d68416343",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 18 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.5817539-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "49e4f4d6-e0d0-4d1f-96d6-4a5d4ee284dc",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 18 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.6192237-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "a1184b55-1906-47ea-b548-8b2ba7f92b68",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 18 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.6603312-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "bfd9acb9-c36d-4b0f-a938-f26568d53744",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 18 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.6987626-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "2ebd6ca5-2af7-42c2-a39e-be445d5ae7b1",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 19 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.7213275-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "ff509fde-88a6-45f4-85d6-864892327b1c",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 19 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.7582463-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "9ae9a9c1-8471-441a-a496-b893fe269a3a",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 19 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.7903611-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "afe870a5-202d-417e-8bf4-e3abc7e98109",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 19 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.8133657-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c8d307c4-b800-45fd-a7b2-08685b4be88a",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 19 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.851023-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "6ebb310b-21b9-4ce5-a27c-097f3f309fb9",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 19 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.8882395-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "f2c94132-b304-489e-83eb-71c2858f9432",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 19 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.9256072-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "933bc39c-8b57-43e6-b0f8-4018e351f8f3",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 19 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.9478771-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "ee6b0ae2-c54a-47b5-a0c4-91544d95d7da",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 19 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.9705733-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "a0a32ec0-3913-423f-a463-af53700596e7",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 19 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:18.9950527-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "aa8220ad-6703-4a2b-b8d3-2845867204ca",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 19 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.0175894-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "b4b49ae2-602e-4879-bbd8-50ce3062b639",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 19 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.0497942-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "6b80d981-8219-42a0-ac3f-2769e07324dc",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 19 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.0799663-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "6ab4d39f-c242-4075-97d3-003699aa2112",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 19 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.1107526-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "8c4e2461-3aea-478b-b3f4-c56c906f9134",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 19 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.1403741-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "3ee6162e-9eac-4eb8-878a-18874f675c53",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 20 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.1786304-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "0d929121-2379-436c-9f6f-4b9d54ba9505",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 20 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.2060114-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "e2fd12a5-60fc-4c55-ad81-dcbab6686dce",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 20 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.2314992-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "d0b1d22a-8e8a-4668-a991-b8188ec845db",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 20 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.2697191-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "1a2c7d2d-44fc-4e7d-98c9-3d64d48caa5f",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 20 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.2923749-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "bcb9c9d0-1ff5-429b-a3f5-0ec934a5e1c5",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 20 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.3225184-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "485e7fd6-e0a4-45c0-bc70-09afb9a71c9c",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 20 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.359848-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "0c35142c-7f82-4bf7-976e-191005f3689d",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 20 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.4012795-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "41e99c56-7439-4324-8545-3c0e37fbc1e4",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 20 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.4287619-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "1fb8b25b-7512-4dbf-930c-e2a7ec964179",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 20 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.4601556-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "d0eba3f9-5f06-4a92-8141-4a2b3445438f",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 20 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.4908138-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "85da0801-cf40-4aaf-a88c-48388ca38e06",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 20 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.5210631-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "403e3ded-644c-4de5-95fd-1e26656483dd",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 20 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.5448089-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "0ae5b3bc-566b-42c9-8f00-763064ecb3fb",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 20 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.5763768-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "ea2df562-0530-4af5-bcbb-edff5f4a791c",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 20 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.6003164-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "0af8e8e0-b9e6-4b28-864f-42ee66642f2d",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 21 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.6250229-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "9e3969a4-3add-4376-9211-608ad5a9bf8b",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 21 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.6647668-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "0c62ebfd-3b2c-4700-8c58-f8e72e98cff0",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 21 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.6888539-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "0bbe1b44-1380-4c9b-bdb2-a15efc797c6a",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 21 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.7134553-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "afd2bee8-7017-465c-82cd-c75e5d86b367",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 21 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.7569444-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "a05ada05-1caf-4b4f-a917-98212c06aa6c",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 21 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.7884226-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "285c2d14-5ad2-4f72-8299-8a35e2eef71e",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 21 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.8125727-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "f303b865-4d02-49d3-823b-b1c8492ccc7e",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 21 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.8368604-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "5e9fbb07-163f-4e30-9f8c-3864d9f90ae4",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 21 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.86276-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "0387a2d7-17a4-4b32-861e-8cf7ec202b8e",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 21 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.8869709-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "8e320cbe-831a-4135-b8d4-eef9249c0b05",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 21 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:19.9279532-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "cbaf2eb4-2a96-4aed-8976-4191a6b08098",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 21 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.0035075-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c7a06dcb-11d0-4874-9f91-191b7afe2d71",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 21 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.0372029-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "55eba4cd-d823-4b3b-8a75-1b97c7dcbbca",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 21 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.0718199-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "dc81bc91-8bcd-44e8-890d-c39419945001",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 21 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.1149488-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "1b4a456b-45b5-4a31-8e00-b72053d923ab",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 22 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.1480517-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "782e413a-408d-4e04-9a0e-44f0c6c603ed",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 22 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.1885272-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "d3d5551d-4013-4ee4-acb1-9c61ff20113b",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 22 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.2281404-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "b40228bc-db33-4604-8cac-27f77f1ac3d8",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 22 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.2647495-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "f3c9164f-cbb3-4edf-a737-ff2b9b1a4f59",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 22 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.3044522-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "8d9abaa0-5221-478b-b0b2-c0d40e8ff808",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 22 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.337523-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "eab52ee2-2ddc-44c8-963f-0cb58cde2f91",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 22 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.3615602-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "63a1080a-c13b-410e-9fa7-a813b6ecd286",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 22 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.3858039-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "b72b117a-5393-4bd6-80b6-ec3b69eab53a",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 22 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.4102899-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "4ec83f86-50ad-4f3d-8362-ffcaeaa46923",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 22 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.444463-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "e0944100-d2bd-42fa-9097-b80e67d5d25e",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 22 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.4706975-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "e5ad3ed1-4cf9-41ec-852a-c10f711213fa",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 22 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.5121992-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "6052bfe9-8ea8-4b4f-b386-3c28834d7877",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 22 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.5544137-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "95c97818-ad5d-4812-86df-cbea985c2727",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 22 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.5880528-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "11d81876-1c6d-4014-9f06-b0732f9a1c0a",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 22 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.6209793-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "9d445435-1c28-40a4-9744-1a7c8d11bbbb",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 23 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.6737146-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "7f0b87e4-84c7-461d-8ede-4146ed784b31",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 23 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.707932-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "179983c9-f3e8-45fa-8945-8d59267a975c",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 23 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.73267-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "57d993b7-f7c9-4153-aac5-d851775600ca",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 23 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.7597617-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "e7e8dd1e-944e-4aec-a58a-147e027fdef7",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 23 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.785055-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "6b495493-b809-43d1-a77e-968f6438f3b4",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 23 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.8187738-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "bf2c9df3-b386-49b3-8de5-e166cf324398",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 23 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.851678-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "10ced2a7-d57a-406f-b850-01e01cb48638",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 23 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.894399-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "3fc45d5b-6b1d-49a9-9246-5a5557d42c55",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 23 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.9304879-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "8e0fe7a3-b6bd-4769-9a90-55814c36931d",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 23 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.9578006-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "62faf1eb-202d-41e9-ab42-6cf4b7bd42b2",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 23 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:20.9837162-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "f8b05ead-3fd8-41b5-b26d-984678c48402",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 23 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.0244652-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "40ec8184-85c7-424f-9d07-2fafd0491cc5",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 23 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.0659375-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "f13bb5c8-7004-43b9-bdf2-9704ac134a29",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 23 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.1092694-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c6ffdf6d-18ec-429a-95e7-6bece64a2abf",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 23 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.1517518-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "31761713-509e-4634-aa0c-f6a50b2cff4d",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 24 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.1841073-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "702c054b-741f-4a21-b8ef-b122aa56a7f2",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 24 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.225794-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "60f5cc65-3b32-436a-bad2-9d35ff7e2f48",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 24 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.2611949-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "fb8551cc-e6db-4aab-84bd-1ee56d3f22b7",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 24 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.2973458-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "3708fa23-cadb-4a72-af27-f79265d25144",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 24 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.3242983-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "1eace2ee-c254-412f-a4d6-7fb1bf29a9eb",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 24 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.3488653-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "5453ca4b-7fa4-47b5-8281-9f48576d093e",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 24 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.3818491-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "db912d0e-265b-4f7c-b652-dff61747926f",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 24 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.4251442-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "b5ab758c-85d0-454d-a122-98330c9c57e4",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 24 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.4578725-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "357be3e1-68f7-44c3-9953-78128b6fe144",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 24 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.4911024-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "cea74e7d-865b-4250-b93c-48682768ac73",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 24 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.5268308-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "83b5b9ab-eac7-474c-803a-acb27a559bdc",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 24 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.5602959-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "45e3971d-20e3-4f0f-a64a-74049b5041ca",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 24 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.5933088-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "6de3df65-218c-43ad-996e-4e26a020cd9c",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 24 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.6173226-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "4e5bc7b2-a5f3-4dbc-bc19-65b66041dbc8",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 24 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.6513749-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "461c48dd-38b0-409f-8ce8-58b3a082d236",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 25 - D\u00EDa 0",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.6903372-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "69417f85-f78c-433f-9d2e-79571d2d2a9c",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 25 - D\u00EDa 1",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.7317902-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "452325a0-c82f-4d4f-b737-68f016df06cb",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 25 - D\u00EDa 2",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.7573235-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "a42cda36-b7e1-4197-ab33-e57abfaaa957",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 25 - D\u00EDa 3",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.7925057-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "9c863006-c777-45d0-9008-c8a34d26482a",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 25 - D\u00EDa 4",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.8338729-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "fd9a0604-ad9a-4036-aa9f-5135b54ef5c0",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 25 - D\u00EDa 5",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.8591783-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c240e490-7dc7-476b-bf2a-80ecba881d93",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 25 - D\u00EDa 6",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.8858098-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "0fadeb5d-aa0e-4eea-a7cd-8e4b644ef909",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 25 - D\u00EDa 7",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.9273263-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "4ac5e34b-ace8-41b4-8bf5-f7ba7f7d4388",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 25 - D\u00EDa 8",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.973319-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "e8f8ab61-5cda-4bf7-9e2e-e588477a3170",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 25 - D\u00EDa 9",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:21.9988727-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "45079dab-ef50-49ab-a984-e2ec3432f9a4",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 25 - D\u00EDa 10",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:22.0406154-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "63a75e72-2d11-49f6-95de-df057a2bafce",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 25 - D\u00EDa 11",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:22.0815605-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "7cf95194-1580-48b5-ad7a-b559c6471a7d",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 25 - D\u00EDa 12",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:22.1068278-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "8c15c475-ace2-4c71-ac0e-28d3ca8c0b85",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 25 - D\u00EDa 13",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:22.1491804-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "c5a53e3b-23d7-470a-b6ff-f1855c0e57c4",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "Nombre": "Plan de Usuario Ejemplo 25 - D\u00EDa 14",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:22.1820988-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "340aa192-fc72-4490-b6ab-6b756a1a32eb",
+    "UsuarioId": "fd1137a0-e532-4ed4-8aca-45ac28147a8a",
+    "Fecha": "2026-03-31T14:51:32.8170244-06:00",
+    "Nombre": null,
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:32.8448184-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "11601933-9033-4207-b8cf-e37aa9f3dd59",
+    "UsuarioId": "a9b4bd6d-4094-4760-8c61-3ef17dc0a062",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": null,
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:32.8709121-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "f4773955-f1cf-418b-9a79-0a6460c78d04",
+    "UsuarioId": "b9041b99-dd48-49b2-a2a6-f0d1571da4e7",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": null,
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:32.8886121-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "bee1df37-0720-4c37-a7fa-aee3d9a76982",
+    "UsuarioId": "e4b0dc4e-2b2a-4d5a-b72d-8cf937d80bc2",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Men\u00FA Vac\u00EDo de Prueba",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:51:32.9118003-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "48f713aa-49dc-4583-807c-8f45335b4c2b",
+    "UsuarioId": "43660008-dd0d-4be4-85b1-3ef81985c36b",
+    "Fecha": "2026-03-31T14:59:08.3233212-06:00",
+    "Nombre": null,
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:59:08.3592612-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "d368f3f8-5afa-4f52-9e00-ceb3e5d66966",
+    "UsuarioId": "27eb21cb-8d81-4c4d-b844-9b94777d8a9e",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": null,
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:59:08.3778743-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "98918c4a-e5ab-4270-ba79-5e0deeb4845b",
+    "UsuarioId": "1deec856-23ee-4c65-b46e-1f3c4508778c",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": null,
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:59:08.396605-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "97cdf310-5d4f-4d94-b167-7ae7a144bef7",
+    "UsuarioId": "aaf20df9-6d93-41fb-ac62-f1d73cb99ec5",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Men\u00FA Vac\u00EDo de Prueba",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T14:59:08.4192438-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "3be8b8cd-8621-4a7c-b4e2-5f9c4ef7a72f",
+    "UsuarioId": "53f68037-b886-4a38-a01f-4927f432b98d",
+    "Fecha": "2026-03-31T15:32:06.109259-06:00",
+    "Nombre": null,
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T15:32:06.1483593-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "7030d1eb-caa7-409b-8c4b-8734ddbdc668",
+    "UsuarioId": "47581d73-7ea9-4179-b818-b4f28f13c4b6",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": null,
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T15:32:06.1667871-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "37b3280c-bb01-4df1-a188-56cdac94cdb7",
+    "UsuarioId": "19964dca-ea69-4362-a340-11af71dfddc0",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": null,
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T15:32:06.1849585-06:00",
+    "Activo": true
+  },
+  {
+    "Id": "2636edae-9822-4073-b2c5-14a92a89423a",
+    "UsuarioId": "354de90b-f4b7-47f5-aced-692c02d3c680",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "Nombre": "Men\u00FA Vac\u00EDo de Prueba",
+    "Detalles": [],
+    "FechaCreacion": "2026-03-31T15:32:06.2092451-06:00",
+    "Activo": true
+  }
+]

@@ -38,6 +38,8 @@
             btnEliminar = new Button();
             btnLimpiar = new Button();
             btnAgregarProductos = new Button();
+            label1 = new Label();
+            cmbUsuarios = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvMenus).BeginInit();
             SuspendLayout();
             // 
@@ -56,15 +58,15 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(12, 293);
+            txtNombre.Location = new Point(242, 293);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(100, 23);
+            txtNombre.Size = new Size(200, 23);
             txtNombre.TabIndex = 1;
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(12, 275);
+            lblNombre.Location = new Point(242, 275);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(51, 15);
             lblNombre.TabIndex = 2;
@@ -73,7 +75,7 @@
             // dtpFecha
             // 
             dtpFecha.Format = DateTimePickerFormat.Short;
-            dtpFecha.Location = new Point(146, 293);
+            dtpFecha.Location = new Point(12, 349);
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(200, 23);
             dtpFecha.TabIndex = 3;
@@ -81,7 +83,7 @@
             // lblFecha
             // 
             lblFecha.AutoSize = true;
-            lblFecha.Location = new Point(146, 275);
+            lblFecha.Location = new Point(12, 331);
             lblFecha.Name = "lblFecha";
             lblFecha.Size = new Size(38, 15);
             lblFecha.TabIndex = 4;
@@ -129,7 +131,7 @@
             // 
             // btnAgregarProductos
             // 
-            btnAgregarProductos.Location = new Point(418, 292);
+            btnAgregarProductos.Location = new Point(242, 349);
             btnAgregarProductos.Name = "btnAgregarProductos";
             btnAgregarProductos.Size = new Size(127, 23);
             btnAgregarProductos.TabIndex = 9;
@@ -137,11 +139,31 @@
             btnAgregarProductos.UseVisualStyleBackColor = true;
             btnAgregarProductos.Click += btnAgregarProductos_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 275);
+            label1.Name = "label1";
+            label1.Size = new Size(52, 15);
+            label1.TabIndex = 11;
+            label1.Text = "Usuarios";
+            // 
+            // cmbUsuarios
+            // 
+            cmbUsuarios.FormattingEnabled = true;
+            cmbUsuarios.Location = new Point(12, 293);
+            cmbUsuarios.Name = "cmbUsuarios";
+            cmbUsuarios.Size = new Size(213, 23);
+            cmbUsuarios.TabIndex = 10;
+            cmbUsuarios.SelectedIndexChanged += cmbUsuarios_SelectedIndexChanged;
+            // 
             // MenusForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label1);
+            Controls.Add(cmbUsuarios);
             Controls.Add(btnAgregarProductos);
             Controls.Add(btnLimpiar);
             Controls.Add(btnEliminar);
@@ -171,5 +193,7 @@
         private Button btnEliminar;
         private Button btnLimpiar;
         private Button btnAgregarProductos;
+        private Label label1;
+        private ComboBox cmbUsuarios;
     }
 }

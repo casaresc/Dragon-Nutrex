@@ -23,9 +23,6 @@ namespace Dragon_Nutrex.Services
 
         public void CrearMenu(MenuDiario menu, List<MenuDetalle> detalles)
         {
-            if (detalles == null || detalles.Count == 0)
-                throw new ArgumentException("No se puede crear un menú sin alimentos.", nameof(detalles));
-
             var menusExistentes = _menuRepository.GetAll();
             bool yaExisteParaEsteUsuario = menusExistentes.Any(m =>
                 m.Fecha.Date == menu.Fecha.Date &&
@@ -38,10 +35,13 @@ namespace Dragon_Nutrex.Services
 
             _menuRepository.Create(menu);
 
-            foreach (var detalle in detalles)
+            if (detalles != null && detalles.Count > 0)
             {
-                detalle.MenuId = menu.Id;
-                _detalleService.GuardarDetalle(detalle);
+                foreach (var detalle in detalles)
+                {
+                    detalle.MenuId = menu.Id;
+                    _detalleService.GuardarDetalle(detalle);
+                }
             }
         }
 
@@ -66,6 +66,16 @@ namespace Dragon_Nutrex.Services
         }
         public void ActualizarMenu(MenuDiario menu)
         {
+            var existeDuplicado = _menuRepository.GetAll().Any(m =>
+                m.Id != menu.Id &&
+                m.UsuarioId == menu.UsuarioId &&
+                m.Fecha.Date == menu.Fecha.Date);
+
+            if (existeDuplicado)
+            {
+                throw new InvalidOperationException($"No se puede cambiar a esta fecha porque el usuario ya tiene un plan nutricional para el {menu.Fecha.ToShortDateString()}.");
+            }
+
             _menuRepository.Update(menu);
         }
     }

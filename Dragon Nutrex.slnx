@@ -1,4 +1,6 @@
 <Solution>
   <Project Path="Dragon Nutrex/Dragon Nutrex.csproj" />
-  <Project Path="Dragon_Nutrex.Tests/Dragon_Nutrex.Tests.csproj" Id="eb9130b9-2810-4337-a6a9-12823db722ee" />
+  <Project Path="Dragon_Nutrex.Tests/Dragon_Nutrex.Tests.csproj" Id="eb9130b9-2810-4337-a6a9-12823db722ee">
+    <Build Solution="Debug|*" Project="false" />
+  </Project>
 </Solution>
