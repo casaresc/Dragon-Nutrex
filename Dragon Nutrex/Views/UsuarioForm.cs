@@ -59,7 +59,7 @@ namespace Dragon_Nutrex.Views
                     Objetivo = (ObjetivoNutricional)(cmbObjetivo.SelectedItem ?? ObjetivoNutricional.MantenerPeso),
                     NivelActividad = (NivelActividad)(cmbActividad.SelectedItem ?? NivelActividad.Moderado),
                     TipoDieta = (TipoDieta)(cmbDieta.SelectedItem ?? TipoDieta.Balanceada),
-                    Activo = true // Aseguramos que el nuevo usuario esté activo
+                    Activo = true
                 };
 
                 if (_usuarioEditar == null)
@@ -96,9 +96,9 @@ namespace Dragon_Nutrex.Views
         }
         private void UsuarioForm_Load(object sender, EventArgs e)
         {
-            cmbObjetivo.Items.AddRange(Enum.GetNames(typeof(ObjetivoNutricional)));
-            cmbActividad.Items.AddRange(Enum.GetNames(typeof(NivelActividad)));
-            cmbDieta.Items.AddRange(Enum.GetNames(typeof(TipoDieta)));
+            cmbObjetivo.DataSource = Enum.GetValues(typeof(ObjetivoNutricional));
+            cmbActividad.DataSource = Enum.GetValues(typeof(NivelActividad));
+            cmbDieta.DataSource = Enum.GetValues(typeof(TipoDieta));
 
             if (_usuarioEditar != null)
             {

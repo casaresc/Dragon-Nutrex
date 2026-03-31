@@ -68,16 +68,32 @@ namespace Dragon_Nutrex.Controllers
             catch (Exception ex) { GlobalExceptionHandler.Handle(ex); return new List<MenuDiario>(); }
         }
 
-        public void GuardarNuevoMenu(MenuDiario menu)
+        public bool GuardarNuevoMenu(MenuDiario menu)
         {
-            try { _menuDiarioService.CrearMenu(menu); }
-            catch (Exception ex) { GlobalExceptionHandler.Handle(ex); }
+            try
+            {
+                _menuDiarioService.CrearMenu(menu);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                GlobalExceptionHandler.Handle(ex);
+                return false;
+            }
         }
 
-        public void ModificarMenu(MenuDiario menu)
+        public bool ModificarMenu(MenuDiario menu)
         {
-            try { _menuDiarioService.ActualizarMenu(menu); }
-            catch (Exception ex) { GlobalExceptionHandler.Handle(ex); }
+            try
+            {
+                _menuDiarioService.ActualizarMenu(menu);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                GlobalExceptionHandler.Handle(ex);
+                return false;
+            }
         }
 
         public void BorrarMenu(Guid id)

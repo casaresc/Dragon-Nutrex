@@ -9,8 +9,7 @@ namespace Dragon_Nutrex.Repositories
 {
     public class ProductoRepository : IRepository<Producto>
     {
-        private readonly string _filePath = Path.Combine("Data", "productos.json");
-
+        private readonly string _filePath = Dragon_Nutrex.Common.DataConfig.GetStoragePath("productos.json");
         public List<Producto> GetAll()
         {
             return FileStorage.Load<Producto>(_filePath)
@@ -25,13 +24,26 @@ namespace Dragon_Nutrex.Repositories
 
         public void Create(Producto entity)
         {
-            var productos = FileStorage.Load<Producto>(_filePath);
-            entity.Id = Guid.NewGuid();
-            entity.FechaCreacion = DateTime.Now;
-            entity.Activo = true;
+            // Cargamos los productos existentes
+            var registros = FileStorage.Load<Producto>(_filePath) ?? new List<Producto>();
 
-            productos.Add(entity);
-            FileStorage.Save(_filePath, productos);
+            // 1. Forzamos la validación del ID de forma explícita
+            if (entity.Id == Guid.Empty)
+            {
+                entity.Id = Guid.NewGuid();
+            }
+
+            // 2. IMPORTANTE: Antes de guardar, asegúrate de que no haya un duplicado 
+            // con el mismo ID (por si el test se corrió dos veces)
+            registros.RemoveAll(p => p.Id == entity.Id);
+
+            entity.Activo = true;
+            entity.FechaCreacion = DateTime.Now;
+
+            registros.Add(entity);
+
+            // Guardamos
+            FileStorage.Save(_filePath, registros);
         }
 
         public void Update(Producto entity)
