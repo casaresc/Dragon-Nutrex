@@ -18,8 +18,6 @@ namespace Dragon_Nutrex.Views
         public void FiltrarPorUsuario(Guid usuarioId)
         {
             _usuarioIdActual = usuarioId;
-
-            // Opcional: Si quieres que se limpie el formulario al cambiar de usuario
             LimpiarPantalla();
             EjecutarCalculo();
         }
