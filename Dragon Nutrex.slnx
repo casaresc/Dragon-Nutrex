@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="Dragon Nutrex Web/Dragon Nutrex Web.csproj" Id="10fc60d8-9c4b-4c58-8a36-c7cd81381f98" />
   <Project Path="Dragon Nutrex/Dragon Nutrex.csproj" />
   <Project Path="Dragon_Nutrex.Tests/Dragon_Nutrex.Tests.csproj" Id="eb9130b9-2810-4337-a6a9-12823db722ee">
     <Build Solution="Debug|*" Project="false" />
