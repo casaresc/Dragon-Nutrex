@@ -1,0 +1,47 @@
+﻿@page "/imc"
+@rendermode InteractiveServer
+@using Dragon_Nutrex_Web.Core.Services
+@using Dragon_Nutrex_Web.Presentation.Components.Nutricion
+
+<PageTitle>IMC</PageTitle>
+
+<section class="page-header">
+    <h1>Cálculo de IMC</h1>
+    <p>Consulta el índice de masa corporal a partir del peso y la altura.</p>
+</section>
+
+<section class="nutricion-container">
+    <div class="nutricion-panel">
+        <IMCFormComponent OnCalcular="HandleCalcularImc"
+                          ResultadoImc="resultadoImc"
+                          Clasificacion="@clasificacion" />
+    </div>
+</section>
+
+@code {
+    private decimal resultadoImc;
+    private string clasificacion = "Sin cálculo";
+
+    private Task HandleCalcularImc(ConsultaImc consulta)
+    {
+        resultadoImc = SaludService.CalcularIMC(consulta.Peso, consulta.Altura);
+        clasificacion = ObtenerClasificacionImc(resultadoImc);
+
+        return Task.CompletedTask;
+    }
+
+    private static string ObtenerClasificacionImc(decimal imc)
+    {
+        if (imc <= 0) return "Sin cálculo";
+        if (imc < 18.5m) return "Bajo peso";
+        if (imc < 25m) return "Peso normal";
+        if (imc < 30m) return "Sobrepeso";
+        return "Obesidad";
+    }
+
+    public class ConsultaImc
+    {
+        public decimal Peso { get; set; }
+        public decimal Altura { get; set; }
+    }
+}

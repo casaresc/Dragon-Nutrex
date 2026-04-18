@@ -1,0 +1,156 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using Dragon_Nutrex_Web.Core.Enums
+@using Dragon_Nutrex_Web.Core.Models
+
+<EditForm Model="usuarioModel" OnValidSubmit="HandleSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="card-panel">
+        <div class="card-header">
+            <h2>@tituloFormulario</h2>
+        </div>
+
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="txtNombre">Nombre</label>
+                <InputText id="txtNombre" class="form-control" @bind-Value="usuarioModel.Nombre" />
+            </div>
+
+            <div class="form-group">
+                <label for="txtPeso">Peso (kg)</label>
+                <InputNumber id="txtPeso" class="form-control" @bind-Value="usuarioModel.Peso" />
+            </div>
+
+            <div class="form-group">
+                <label for="txtAltura">Altura (m)</label>
+                <InputNumber id="txtAltura" class="form-control" @bind-Value="usuarioModel.Altura" />
+            </div>
+
+            <div class="form-group">
+                <label for="txtEdad">Edad</label>
+                <InputNumber id="txtEdad" class="form-control" @bind-Value="usuarioModel.Edad" />
+            </div>
+
+            <div class="form-group">
+                <label for="cmbNivelActividad">Nivel de actividad</label>
+                <InputSelect id="cmbNivelActividad" class="form-control" @bind-Value="usuarioModel.NivelActividad">
+                    @foreach (var actividad in Enum.GetValues<NivelActividad>())
+                    {
+                        <option value="@actividad">@actividad</option>
+                    }
+                </InputSelect>
+            </div>
+
+            <div class="form-group">
+                <label for="cmbObjetivo">Objetivo</label>
+                <InputSelect id="cmbObjetivo" class="form-control" @bind-Value="usuarioModel.Objetivo">
+                    @foreach (var objetivo in Enum.GetValues<ObjetivoNutricional>())
+                    {
+                        <option value="@objetivo">@objetivo</option>
+                    }
+                </InputSelect>
+            </div>
+
+            <div class="form-group">
+                <label for="cmbTipoDieta">Tipo de dieta</label>
+                <InputSelect id="cmbTipoDieta" class="form-control" @bind-Value="usuarioModel.TipoDieta">
+                    @foreach (var tipoDieta in Enum.GetValues<TipoDieta>())
+                    {
+                        <option value="@tipoDieta">@tipoDieta</option>
+                    }
+                </InputSelect>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label>
+                    <InputCheckbox @bind-Value="usuarioModel.Activo" />
+                    Usuario activo
+                </label>
+            </div>
+        </div>
+
+        <div class="button-row">
+            <button type="submit" class="btn btn-primary">@textoBotonPrincipal</button>
+            <button type="button" class="btn btn-secondary" @onclick="HandleCancelar">Cancelar</button>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    [Parameter]
+    public Usuario? UsuarioEditando { get; set; }
+
+    [Parameter]
+    public EventCallback<Usuario> OnGuardar { get; set; }
+
+    [Parameter]
+    public EventCallback OnCancelar { get; set; }
+
+    private Usuario usuarioModel = CrearUsuarioVacio();
+
+    private string tituloFormulario => usuarioModel.Id == Guid.Empty ? "Registrar Usuario" : "Editar Usuario";
+
+    private string textoBotonPrincipal => usuarioModel.Id == Guid.Empty ? "Guardar" : "Actualizar";
+
+    /// <summary>
+    /// Copia el usuario recibido en un modelo local editable.
+    /// </summary>
+    protected override void OnParametersSet()
+    {
+        if (UsuarioEditando is null)
+        {
+            usuarioModel = CrearUsuarioVacio();
+            return;
+        }
+
+        usuarioModel = new Usuario
+        {
+            Id = UsuarioEditando.Id,
+            Nombre = UsuarioEditando.Nombre,
+            Peso = UsuarioEditando.Peso,
+            Altura = UsuarioEditando.Altura,
+            Edad = UsuarioEditando.Edad,
+            NivelActividad = UsuarioEditando.NivelActividad,
+            Objetivo = UsuarioEditando.Objetivo,
+            TipoDieta = UsuarioEditando.TipoDieta,
+            Activo = UsuarioEditando.Activo
+        };
+    }
+
+    /// <summary>
+    /// Envía la información validada al componente padre.
+    /// </summary>
+    private async Task HandleSubmit()
+    {
+        await OnGuardar.InvokeAsync(usuarioModel);
+        usuarioModel = CrearUsuarioVacio();
+    }
+
+    /// <summary>
+    /// Cancela la edición y reinicia el formulario.
+    /// </summary>
+    private async Task HandleCancelar()
+    {
+        usuarioModel = CrearUsuarioVacio();
+        await OnCancelar.InvokeAsync();
+    }
+
+    /// <summary>
+    /// Crea una instancia vacía del modelo usuario.
+    /// </summary>
+    /// <returns>Usuario inicializado con valores por defecto.</returns>
+    private static Usuario CrearUsuarioVacio() =>
+        new()
+        {
+            Id = Guid.Empty,
+            Nombre = string.Empty,
+            Peso = 0,
+            Altura = 0,
+            Edad = 0,
+            NivelActividad = NivelActividad.Sedentario,
+            Objetivo = ObjetivoNutricional.MantenerPeso,
+            TipoDieta = TipoDieta.Balanceada,
+            Activo = true
+        };
+}

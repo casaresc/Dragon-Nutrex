@@ -1,3 +1,6 @@
+using Dragon_Nutrex_Web.Core.Controllers;
+using Dragon_Nutrex_Web.Core.Services;
+using Dragon_Nutrex_Web.Infrastructure.Repositories;
 using Dragon_Nutrex_Web.Presentation.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,6 +8,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddScoped<UsuarioService>();
+builder.Services.AddScoped<UsuarioRepository>();
+builder.Services.AddScoped<ProductoRepository>();
+builder.Services.AddScoped<ProductoService>();
+builder.Services.AddScoped<MenuDiarioService>();
+builder.Services.AddScoped<ProductoService>();
+builder.Services.AddScoped<MenuDetalleService>();
+builder.Services.AddScoped<ConsumoController>();
+builder.Services.AddScoped<ConsumoService>();
+builder.Services.AddScoped<NutricionService>();
 
 var app = builder.Build();
 

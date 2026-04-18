@@ -1,0 +1,145 @@
+﻿@using Dragon_Nutrex_Web.Core.Enums
+@using Dragon_Nutrex_Web.Core.Models
+
+<EditForm Model="productoModel" OnValidSubmit="HandleSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="card-panel">
+        <div class="card-header">
+            <h2>@tituloFormulario</h2>
+        </div>
+
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="txtNombre">Nombre</label>
+                <InputText id="txtNombre" class="form-control" @bind-Value="productoModel.Nombre" />
+            </div>
+
+            <div class="form-group">
+                <label for="cmbCategoria">Categoría</label>
+                <InputSelect id="cmbCategoria" class="form-control" @bind-Value="productoModel.Categoria">
+                    @foreach (var categoria in Enum.GetValues<CategoriaProducto>())
+                    {
+                        <option value="@categoria">@categoria</option>
+                    }
+                </InputSelect>
+            </div>
+
+            <div class="form-group">
+                <label for="txtProteina">Proteína (g)</label>
+                <InputNumber id="txtProteina" class="form-control" @bind-Value="productoModel.Proteina" />
+            </div>
+
+            <div class="form-group">
+                <label for="txtCarbohidratos">Carbohidratos (g)</label>
+                <InputNumber id="txtCarbohidratos" class="form-control" @bind-Value="productoModel.Carbohidratos" />
+            </div>
+
+            <div class="form-group">
+                <label for="txtGrasas">Grasas (g)</label>
+                <InputNumber id="txtGrasas" class="form-control" @bind-Value="productoModel.Grasas" />
+            </div>
+
+            <div class="form-group">
+                <label for="txtPorcionGramos">Porción (g)</label>
+                <InputNumber id="txtPorcionGramos" class="form-control" @bind-Value="productoModel.PorcionGramos" />
+            </div>
+
+            <div class="form-group">
+                <label for="txtCalorias">Calorías</label>
+                <InputNumber id="txtCalorias" class="form-control" @bind-Value="productoModel.Calorias" disabled />
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label>
+                    <InputCheckbox @bind-Value="productoModel.Activo" />
+                    Producto activo
+                </label>
+            </div>
+        </div>
+
+        <div class="button-row">
+            <button type="submit" class="btn btn-primary">@textoBotonPrincipal</button>
+            <button type="button" class="btn btn-secondary" @onclick="HandleCancelar">Cancelar</button>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    [Parameter]
+    public Producto? ProductoEditando { get; set; }
+
+    [Parameter]
+    public EventCallback<Producto> OnGuardar { get; set; }
+
+    [Parameter]
+    public EventCallback OnCancelar { get; set; }
+
+    private Producto productoModel = CrearProductoVacio();
+
+    private string tituloFormulario => productoModel.Id == Guid.Empty ? "Registrar Producto" : "Editar Producto";
+
+    private string textoBotonPrincipal => productoModel.Id == Guid.Empty ? "Guardar" : "Actualizar";
+
+    /// <summary>
+    /// Copia el producto recibido en un modelo local editable.
+    /// </summary>
+    protected override void OnParametersSet()
+    {
+        if (ProductoEditando is null)
+        {
+            productoModel = CrearProductoVacio();
+            return;
+        }
+
+        productoModel = new Producto
+        {
+            Id = ProductoEditando.Id,
+            Nombre = ProductoEditando.Nombre,
+            Categoria = ProductoEditando.Categoria,
+            Proteina = ProductoEditando.Proteina,
+            Carbohidratos = ProductoEditando.Carbohidratos,
+            Grasas = ProductoEditando.Grasas,
+            PorcionGramos = ProductoEditando.PorcionGramos,
+            Calorias = ProductoEditando.Calorias,
+            Activo = ProductoEditando.Activo
+        };
+    }
+
+    /// <summary>
+    /// Envía la información validada al componente padre.
+    /// </summary>
+    private async Task HandleSubmit()
+    {
+        await OnGuardar.InvokeAsync(productoModel);
+        productoModel = CrearProductoVacio();
+    }
+
+    /// <summary>
+    /// Cancela la edición y reinicia el formulario.
+    /// </summary>
+    private async Task HandleCancelar()
+    {
+        productoModel = CrearProductoVacio();
+        await OnCancelar.InvokeAsync();
+    }
+
+    /// <summary>
+    /// Crea una instancia vacía del producto con valores por defecto.
+    /// </summary>
+    /// <returns>Producto inicializado.</returns>
+    private static Producto CrearProductoVacio() =>
+        new()
+        {
+            Id = Guid.Empty,
+            Nombre = string.Empty,
+            Categoria = CategoriaProducto.Otro,
+            Proteina = 0,
+            Carbohidratos = 0,
+            Grasas = 0,
+            PorcionGramos = 100,
+            Calorias = 0,
+            Activo = true
+        };
+}

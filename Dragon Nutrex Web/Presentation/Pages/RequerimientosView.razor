@@ -1,0 +1,56 @@
+﻿@page "/requerimientos"
+@rendermode InteractiveServer
+@using Dragon_Nutrex_Web.Core.Controllers
+@using Dragon_Nutrex_Web.Core.Enums
+@using Dragon_Nutrex_Web.Core.Models
+@using Dragon_Nutrex_Web.Core.Services
+@using Dragon_Nutrex_Web.Presentation.Components.Nutricion
+@inject NutricionService nutricionService
+
+<PageTitle>Requerimientos Nutricionales</PageTitle>
+
+<section class="page-header">
+    <h1>Plan Nutricional</h1>
+    <p>Calcula calorías objetivo y distribución de macronutrientes.</p>
+</section>
+
+<section class="nutricion-container">
+    <div class="nutricion-panel">
+        <RequerimientosFormComponent OnCalcular="HandleCalcularRequerimientos"
+                                     Resultado="resultado" />
+    </div>
+</section>
+
+@code {
+    private RequerimientoNutricional? resultado;
+
+    /// <summary>
+    /// Calcula requerimientos nutricionales a partir de los datos ingresados.
+    /// </summary>
+    /// <param name="consulta">Parámetros de cálculo.</param>
+    private Task HandleCalcularRequerimientos(ConsultaRequerimientos consulta)
+    {
+        resultado = nutricionService.CalcularRequerimiento(
+            consulta.Peso,
+            consulta.Altura,
+            consulta.Edad,
+            consulta.NivelActividad,
+            consulta.Objetivo,
+            consulta.TipoDieta);
+
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Modelo de apoyo para cálculo nutricional.
+    /// </summary>
+    public class ConsultaRequerimientos
+    {
+        public decimal Peso { get; set; }
+        public decimal Altura { get; set; }
+        public int Edad { get; set; }
+        public NivelActividad NivelActividad { get; set; }
+        public ObjetivoNutricional Objetivo { get; set; }
+        public TipoDieta TipoDieta { get; set; }
+    }
+}

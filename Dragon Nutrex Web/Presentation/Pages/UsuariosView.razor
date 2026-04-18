@@ -1,0 +1,138 @@
+﻿@page "/usuarios"
+@rendermode InteractiveServer
+@using Dragon_Nutrex_Web.Core.Enums
+@using Dragon_Nutrex_Web.Core.Models
+@using Dragon_Nutrex_Web.Presentation.Components.Usuarios
+@using Microsoft.AspNetCore.Components.Web
+@using Dragon_Nutrex_Web.Core.Services
+@inject UsuarioService usuarioService
+
+<PageTitle>Usuarios</PageTitle>
+
+<section class="page-header">
+    <h1>Gestión de Usuarios</h1>
+    <p>Administra la información personal y nutricional de los usuarios.</p>
+</section>
+
+<section class="usuarios-container">
+    <div class="usuarios-form-panel">
+        <UsuarioFormComponent UsuarioEditando="usuarioSeleccionado"
+                              OnGuardar="HandleGuardarUsuario"
+                              OnCancelar="HandleCancelarEdicion" />
+    </div>
+
+    <div class="usuarios-table-panel">
+        <UsuarioTableComponent Usuarios="usuarios"
+                               OnEditar="HandleEditarUsuario"
+                               OnEliminar="HandleEliminarUsuario" />
+    </div>
+</section>
+
+@if (!string.IsNullOrEmpty(errorMensaje))
+{
+    <div class="error-box">
+        @errorMensaje
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(exitoMensaje))
+{
+    <div class="success-box">
+        @exitoMensaje
+    </div>
+}
+
+@code {
+    private List<Usuario> usuarios = new();
+    private Usuario? usuarioSeleccionado;
+    private string? errorMensaje;
+    private string? exitoMensaje;
+
+    /// <summary>
+    /// Inicializa la vista cargando los usuarios desde el servicio.
+    /// </summary>
+    protected override void OnInitialized()
+    {
+        CargarUsuarios();
+    }
+
+    /// <summary>
+    /// Obtiene los usuarios desde la capa de servicios.
+    /// </summary>
+    private void CargarUsuarios()
+    {
+        usuarios = usuarioService.ObtenerTodos();
+    }
+
+    /// <summary>
+    /// Guarda un usuario nuevo o actualiza uno existente.
+    /// </summary>
+    /// <param name="usuario">Usuario recibido desde el formulario.</param>
+    private async Task HandleGuardarUsuario(Usuario usuario)
+    {
+        try
+        {
+            if (usuario.Id == Guid.Empty)
+                usuarioService.CrearUsuario(usuario);
+            else
+                usuarioService.ActualizarUsuario(usuario);
+
+            CargarUsuarios();
+            usuarioSeleccionado = null;
+            errorMensaje = null;
+            exitoMensaje = "Usuario guardado exitosamente.";
+        }
+        catch (Exception ex)
+        {
+            errorMensaje = ex.Message;
+            exitoMensaje = null;
+        }
+    }
+
+    /// <summary>
+    /// Selecciona un usuario para edición.
+    /// </summary>
+    /// <param name="usuario">Usuario seleccionado en la tabla.</param>
+    private Task HandleEditarUsuario(Usuario usuario)
+    {
+        usuarioSeleccionado = new Usuario
+        {
+            Id = usuario.Id,
+            Nombre = usuario.Nombre,
+            Peso = usuario.Peso,
+            Altura = usuario.Altura,
+            Edad = usuario.Edad,
+            NivelActividad = usuario.NivelActividad,
+            Objetivo = usuario.Objetivo,
+            TipoDieta = usuario.TipoDieta,
+            Activo = usuario.Activo
+        };
+
+        return Task.CompletedTask;
+    }
+    /// <summary>
+    /// Elimina un usuario del sistema.
+    /// </summary>
+    /// <param name="usuarioId">Identificador del usuario a eliminar.</param>
+    private Task HandleEliminarUsuario(Guid usuarioId)
+    {
+        usuarioService.EliminarUsuario(usuarioId);
+
+        CargarUsuarios();
+
+        if (usuarioSeleccionado?.Id == usuarioId)
+        {
+            usuarioSeleccionado = null;
+        }
+
+        return Task.CompletedTask;
+    }
+    /// <summary>
+    /// Cancela la edición actual.
+    /// </summary>
+    private Task HandleCancelarEdicion()
+    {
+        usuarioSeleccionado = null;
+        return Task.CompletedTask;
+    }
+}

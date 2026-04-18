@@ -1,0 +1,66 @@
+﻿@using static Dragon_Nutrex_Web.Presentation.Pages.IMCView
+
+<div class="card-panel">
+    <div class="card-header">
+        <h2>Calcular IMC</h2>
+    </div>
+
+    <div class="form-grid">
+        <div class="form-group">
+            <label for="txtPeso">Peso (kg)</label>
+            <InputNumber id="txtPeso" class="form-control" @bind-Value="consulta.Peso" />
+        </div>
+
+        <div class="form-group">
+            <label for="txtAltura">Altura (m)</label>
+            <InputNumber id="txtAltura" class="form-control" @bind-Value="consulta.Altura" />
+        </div>
+    </div>
+
+    <div class="button-row">
+        <button type="button" class="btn btn-primary" @onclick="HandleCalcular">
+            Calcular IMC
+        </button>
+    </div>
+
+    <hr />
+
+    <div class="stats-grid">
+        <div class="stat-box">
+            <h3>IMC</h3>
+            <p>@(ResultadoImc > 0 ? ResultadoImc.ToString("0.00") : "0.00")</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>Clasificación</h3>
+            <p>@Clasificacion</p>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public EventCallback<ConsultaImc> OnCalcular { get; set; }
+
+    [Parameter]
+    public decimal ResultadoImc { get; set; }
+
+    [Parameter]
+    public string Clasificacion { get; set; } = "Sin cálculo";
+
+    private ConsultaImc consulta = new();
+
+    /// <summary>
+    /// Ejecuta la consulta del IMC.
+    /// </summary>
+    private async Task HandleCalcular()
+    {
+        if (consulta.Peso <= 0 || consulta.Altura <= 0)
+        {
+            return;
+        }
+
+        await OnCalcular.InvokeAsync(consulta);
+        await InvokeAsync(StateHasChanged);
+    }
+}

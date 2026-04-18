@@ -1,0 +1,82 @@
+﻿@using Dragon_Nutrex_Web.Core.Models
+
+<div class="card-panel">
+    <div class="card-header">
+        <h2>Listado de Productos</h2>
+    </div>
+
+    @if (Productos is null || Productos.Count == 0)
+    {
+        <p>No hay productos registrados.</p>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="app-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Proteína</th>
+                        <th>Carbohidratos</th>
+                        <th>Grasas</th>
+                        <th>Porción (g)</th>
+                        <th>Calorías</th>
+                        <th>Activo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var producto in Productos)
+                    {
+                        <tr>
+                            <td>@producto.Nombre</td>
+                            <td>@producto.Categoria</td>
+                            <td>@producto.Proteina</td>
+                            <td>@producto.Carbohidratos</td>
+                            <td>@producto.Grasas</td>
+                            <td>@producto.PorcionGramos</td>
+                            <td>@producto.Calorias</td>
+                            <td>@(producto.Activo ? "Sí" : "No")</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-warning" @onclick="() => HandleEditar(producto)">Editar</button>
+                                    <button class="btn btn-danger" @onclick="() => HandleEliminar(producto.Id)">Eliminar</button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public List<Producto> Productos { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<Producto> OnEditar { get; set; }
+
+    [Parameter]
+    public EventCallback<Guid> OnEliminar { get; set; }
+
+    /// <summary>
+    /// Notifica al padre que un producto debe editarse.
+    /// </summary>
+    /// <param name="producto">Producto seleccionado.</param>
+    private async Task HandleEditar(Producto producto)
+    {
+        await OnEditar.InvokeAsync(producto);
+    }
+
+    /// <summary>
+    /// Notifica al padre que un producto debe eliminarse.
+    /// </summary>
+    /// <param name="productoId">Identificador del producto.</param>
+    private async Task HandleEliminar(Guid productoId)
+    {
+        await OnEliminar.InvokeAsync(productoId);
+    }
+}

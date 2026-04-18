@@ -10,13 +10,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Core\Models\" />
-    <Folder Include="Core\Enums\" />
-    <Folder Include="Core\Interfaces\" />
-    <Folder Include="Core\Services\" />
-    <Folder Include="Common\" />
-    <Folder Include="Infrastructure\Data\" />
-    <Folder Include="Infrastructure\Repositories\" />
+    <Content Remove="Infrastructure\Data\consumo_diario.json" />
+    <Content Remove="Infrastructure\Data\menus.json" />
+    <Content Remove="Infrastructure\Data\menu_detalles.json" />
+    <Content Remove="Infrastructure\Data\productos.json" />
+    <Content Remove="Infrastructure\Data\usuarios.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Infrastructure\Data\consumo_diario.json" />
+    <None Include="Infrastructure\Data\menus.json" />
+    <None Include="Infrastructure\Data\menu_detalles.json" />
+    <None Include="Infrastructure\Data\productos.json" />
+    <None Include="Infrastructure\Data\usuarios.json" />
   </ItemGroup>
 
 </Project>

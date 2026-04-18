@@ -1,0 +1,121 @@
+﻿@using Dragon_Nutrex_Web.Core.Enums
+@using Dragon_Nutrex_Web.Core.Models
+@using static Dragon_Nutrex_Web.Presentation.Pages.RequerimientosView
+
+<div class="card-panel">
+    <div class="card-header">
+        <h2>Calcular Requerimientos</h2>
+    </div>
+
+    <div class="form-grid">
+        <div class="form-group">
+            <label for="txtPeso">Peso (kg)</label>
+            <InputNumber id="txtPeso" class="form-control" @bind-Value="consulta.Peso" />
+        </div>
+
+        <div class="form-group">
+            <label for="txtAltura">Altura (m)</label>
+            <InputNumber id="txtAltura" class="form-control" @bind-Value="consulta.Altura" />
+        </div>
+
+        <div class="form-group">
+            <label for="txtEdad">Edad</label>
+            <InputNumber id="txtEdad" class="form-control" @bind-Value="consulta.Edad" />
+        </div>
+
+        <div class="form-group">
+            <label for="cmbActividad">Nivel de actividad</label>
+            <InputSelect id="cmbActividad" class="form-control" @bind-Value="consulta.NivelActividad">
+                @foreach (var actividad in Enum.GetValues<NivelActividad>())
+                {
+                    <option value="@actividad">@actividad</option>
+                }
+            </InputSelect>
+        </div>
+
+        <div class="form-group">
+            <label for="cmbObjetivo">Objetivo</label>
+            <InputSelect id="cmbObjetivo" class="form-control" @bind-Value="consulta.Objetivo">
+                @foreach (var objetivo in Enum.GetValues<ObjetivoNutricional>())
+                {
+                    <option value="@objetivo">@objetivo</option>
+                }
+            </InputSelect>
+        </div>
+
+        <div class="form-group">
+            <label for="cmbTipoDieta">Tipo de dieta</label>
+            <InputSelect id="cmbTipoDieta" class="form-control" @bind-Value="consulta.TipoDieta">
+                @foreach (var dieta in Enum.GetValues<TipoDieta>())
+                {
+                    <option value="@dieta">@dieta</option>
+                }
+            </InputSelect>
+        </div>
+    </div>
+
+    <div class="button-row">
+        <button type="button" class="btn btn-primary" @onclick="HandleCalcular">
+            Calcular
+        </button>
+    </div>
+
+    <hr />
+
+    @if (Resultado is null)
+    {
+        <p>No hay cálculo disponible.</p>
+    }
+    else
+    {
+        <div class="stats-grid">
+            <div class="stat-box">
+                <h3>Calorías objetivo</h3>
+                <p>@Resultado.CaloriasObjetivo</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Proteínas</h3>
+                <p>@Resultado.ProteinasGramos g</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Carbohidratos</h3>
+                <p>@Resultado.CarbohidratosGramos g</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Grasas</h3>
+                <p>@Resultado.GrasasGramos g</p>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public EventCallback<ConsultaRequerimientos> OnCalcular { get; set; }
+
+    [Parameter]
+    public RequerimientoNutricional? Resultado { get; set; }
+
+    private ConsultaRequerimientos consulta = new()
+    {
+        NivelActividad = NivelActividad.Sedentario,
+        Objetivo = ObjetivoNutricional.MantenerPeso,
+        TipoDieta = TipoDieta.Balanceada
+    };
+
+    /// <summary>
+    /// Ejecuta el cálculo nutricional.
+    /// </summary>
+    private async Task HandleCalcular()
+    {
+        if (consulta.Peso <= 0 || consulta.Altura <= 0 || consulta.Edad <= 0)
+        {
+            return;
+        }
+
+        await OnCalcular.InvokeAsync(consulta);
+    }
+}
