@@ -25,11 +25,23 @@
                                 OnEliminar="HandleEliminarProducto" />
     </div>
 </section>
-
+@if (!string.IsNullOrEmpty(errorMensaje))
+{
+    <div class="error-box">
+        @errorMensaje
+    </div>
+}
+@if (!string.IsNullOrEmpty(exitoMensaje))
+{
+    <div class="success-box">
+        @exitoMensaje
+    </div>
+}
 @code {
     private List<Producto> productos = new();
     private Producto? productoSeleccionado;
-
+    private string? errorMensaje;
+    private string? exitoMensaje;
     /// <summary>
     /// Inicializa la vista cargando los productos desde el servicio.
     /// </summary>
@@ -50,21 +62,27 @@
     /// Guarda un producto nuevo o actualiza uno existente.
     /// </summary>
     /// <param name="producto">Producto recibido desde el formulario.</param>
-    private Task HandleGuardarProducto(Producto producto)
+    private async Task HandleGuardarProducto(Producto producto)
     {
-        if (producto.Id == Guid.Empty)
+        try
         {
-            productoService.CrearProducto(producto);
+            if (producto.Id == Guid.Empty)
+                productoService.CrearProducto(producto);
+            else
+                productoService.ActualizarProducto(producto);
+
+
+            CargarProductos();
+            productoSeleccionado = null;
+            errorMensaje = null;
+            exitoMensaje = "Producto guardado exitosamente.";
         }
-        else
+        catch (Exception ex)
         {
-            productoService.ActualizarProducto(producto);
+            errorMensaje = ex.Message;
+            exitoMensaje = null;
         }
 
-        CargarProductos();
-        productoSeleccionado = null;
-
-        return Task.CompletedTask;
     }
 
     /// <summary>

@@ -267,7 +267,7 @@
     "Nombre": "Plan de Usuario Ejemplo 2 - D\u00EDa 14",
     "Detalles": [],
     "FechaCreacion": "2026-04-18T03:23:52.0657195-06:00",
-    "Activo": true
+    "Activo": false
   },
   {
     "Id": "8afe68ae-e7b7-46fb-933f-53f366127340",
@@ -401,8 +401,8 @@
     "Fecha": "2026-04-04T00:00:00-06:00",
     "Nombre": "Plan de Usuario Ejemplo 3 - D\u00EDa 14",
     "Detalles": [],
-    "FechaCreacion": "2026-04-18T03:23:52.4489196-06:00",
-    "Activo": true
+    "FechaCreacion": "0001-01-01T00:00:00",
+    "Activo": false
   },
   {
     "Id": "33489a23-b6f3-4b07-837c-dcb59a043e4d",

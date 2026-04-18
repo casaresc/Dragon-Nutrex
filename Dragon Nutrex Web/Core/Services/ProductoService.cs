@@ -43,6 +43,7 @@ namespace Dragon_Nutrex_Web.Core.Services
         /// <param name="producto">Producto a crear.</param>
         public void CrearProducto(Producto producto)
         {
+            ValidarProducto(producto);
             CalcularCalorias(producto);
             productoRepository.Create(producto);
         }
@@ -53,6 +54,7 @@ namespace Dragon_Nutrex_Web.Core.Services
         /// <param name="producto">Producto a actualizar.</param>
         public void ActualizarProducto(Producto producto)
         {
+            ValidarProducto(producto);
             CalcularCalorias(producto);
             productoRepository.Update(producto);
         }
@@ -75,6 +77,18 @@ namespace Dragon_Nutrex_Web.Core.Services
             producto.Calorias = (producto.Proteina * 4) +
                                 (producto.Carbohidratos * 4) +
                                 (producto.Grasas * 9);
+        }
+
+        private static void ValidarProducto(Producto producto)
+        {
+            if (string.IsNullOrWhiteSpace(producto.Nombre))
+                throw new Exception("El nombre del producto es obligatorio");
+
+            if (producto.Proteina < 0 || producto.Carbohidratos < 0 || producto.Grasas < 0)
+                throw new Exception("Los macronutrientes no pueden ser negativos");
+
+            if (producto.PorcionGramos <= 0)
+                throw new Exception("La porción debe ser mayor a 0");
         }
     }
 }

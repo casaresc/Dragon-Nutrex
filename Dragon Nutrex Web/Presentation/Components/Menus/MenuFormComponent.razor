@@ -12,7 +12,9 @@
         <div class="form-grid">
             <div class="form-group">
                 <label for="cmbUsuario">Usuario</label>
-                <InputSelect id="cmbUsuario" class="form-control" @bind-Value="menuModel.UsuarioId">
+                <InputSelect id="cmbUsuario" class="form-control"
+                             @bind-Value="menuModel.UsuarioId"
+                             @bind-Value:after="HandleCambioMenuBase">
                     <option value="@Guid.Empty">Seleccione un usuario</option>
                     @foreach (var usuario in Usuarios)
                     {
@@ -28,7 +30,7 @@
 
             <div class="form-group">
                 <label for="txtFecha">Fecha</label>
-                <InputDate id="txtFecha" class="form-control" @bind-Value="menuModel.Fecha" />
+                <InputDate id="txtFecha" class="form-control" @bind-Value="menuModel.Fecha" @bind-Value:after="HandleCambioMenuBase" />
             </div>
         </div>
 
@@ -51,6 +53,9 @@
 
     [Parameter]
     public EventCallback OnCancelar { get; set; }
+
+    [Parameter]
+    public EventCallback<MenuDiario> OnCambioMenuBase { get; set; }
 
     private MenuDiario menuModel = CrearMenuVacio();
 
@@ -104,4 +109,12 @@
             Nombre = string.Empty,
             Fecha = DateTime.Today
         };
+
+    /// <summary>
+    /// Notifica cambios en usuario o fecha para consultar si el menú ya existe.
+    /// </summary>
+    private async Task HandleCambioMenuBase()
+    {
+        await OnCambioMenuBase.InvokeAsync(menuModel);
+    }
 }

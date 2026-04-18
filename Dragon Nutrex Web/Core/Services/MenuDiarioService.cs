@@ -88,5 +88,19 @@ namespace Dragon_Nutrex_Web.Core.Services
                 .Where(d => d.MenuId == menuId)
                 .ToList();
         }
+
+        /// <summary>
+        /// Busca un menú por usuario y fecha.
+        /// </summary>
+        /// <param name="usuarioId">Identificador del usuario.</param>
+        /// <param name="fecha">Fecha del menú.</param>
+        /// <returns>Menú encontrado o null.</returns>
+        public MenuDiario? ObtenerPorUsuarioYFecha(Guid usuarioId, DateTime fecha)
+        {
+            return _menuRepository.GetAll()
+                .FirstOrDefault(menu =>
+                    menu.UsuarioId == usuarioId &&
+                    menu.Fecha.Date == fecha.Date);
+        }
     }
 }

@@ -248,3 +248,36 @@ h1:focus {
         font-weight: 600;
         margin: 0;
     }
+
+.nutricion-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.nutricion-panel {
+    display: block;
+}
+
+.error-box {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.info-box {
+    background: #dbeafe;
+    color: #1e3a8a;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.success-box {
+    background: #dcfce7;
+    color: #166534;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}

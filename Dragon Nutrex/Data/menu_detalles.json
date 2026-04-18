@@ -844,35 +844,35 @@
     "MenuId": "84cb6833-9be6-46b8-80d9-9161f193e1d8",
     "ProductoId": "37a2af86-4714-4b8b-ae96-02bdc20e3537",
     "Porcion": 300,
-    "Activo": true
+    "Activo": false
   },
   {
     "Id": "70480b0b-2d1f-44d7-ad8d-0ebb82d01e29",
     "MenuId": "84cb6833-9be6-46b8-80d9-9161f193e1d8",
     "ProductoId": "69efb2f5-d77c-47f4-9514-d7129eca7369",
     "Porcion": 300,
-    "Activo": true
+    "Activo": false
   },
   {
     "Id": "53302918-8660-40e0-be90-147b83ff3ebc",
     "MenuId": "84cb6833-9be6-46b8-80d9-9161f193e1d8",
     "ProductoId": "726befd5-0b18-41aa-b038-4cf1384d237a",
     "Porcion": 300,
-    "Activo": true
+    "Activo": false
   },
   {
     "Id": "82937f0a-b308-43ec-997f-53b98ce352ac",
     "MenuId": "84cb6833-9be6-46b8-80d9-9161f193e1d8",
     "ProductoId": "8aae1b76-22ac-4c0d-a2ee-7e257e70dbba",
     "Porcion": 100,
-    "Activo": true
+    "Activo": false
   },
   {
     "Id": "5fbd495d-a338-4c53-b8b6-c968a3cd4266",
     "MenuId": "84cb6833-9be6-46b8-80d9-9161f193e1d8",
     "ProductoId": "cefa9689-460b-4878-b482-a1b69df78682",
     "Porcion": 200,
-    "Activo": true
+    "Activo": false
   },
   {
     "Id": "13794d38-e423-4070-bfee-031af7cfd09f",
@@ -1257,28 +1257,28 @@
     "MenuId": "038ffb54-31c1-4187-b1cd-1e86263e40b1",
     "ProductoId": "83ac55ca-86e8-4a53-824d-ed3df99bb83f",
     "Porcion": 300,
-    "Activo": true
+    "Activo": false
   },
   {
     "Id": "17456197-7133-4ba6-bace-8bf6c42ccef1",
     "MenuId": "038ffb54-31c1-4187-b1cd-1e86263e40b1",
     "ProductoId": "83ac55ca-86e8-4a53-824d-ed3df99bb83f",
     "Porcion": 100,
-    "Activo": true
+    "Activo": false
   },
   {
     "Id": "80886ecf-9953-4183-bcf2-0436db7c5d59",
     "MenuId": "038ffb54-31c1-4187-b1cd-1e86263e40b1",
     "ProductoId": "10819472-ae74-4288-9321-5afffaff8df0",
     "Porcion": 100,
-    "Activo": true
+    "Activo": false
   },
   {
     "Id": "288f2e2e-1559-421e-a23c-cf155473c14b",
     "MenuId": "038ffb54-31c1-4187-b1cd-1e86263e40b1",
     "ProductoId": "1dabb54e-bef9-40ce-9415-244f556aeeb2",
     "Porcion": 100,
-    "Activo": true
+    "Activo": false
   },
   {
     "Id": "e1342a6b-783c-4acc-a540-76a952feb8b1",
@@ -10503,6 +10503,34 @@
     "Id": "6bdaa828-0c93-4900-af56-91dde89a857c",
     "MenuId": "600d4e20-09db-49b1-be4e-525ea9014fab",
     "ProductoId": "8e439d39-871e-446e-9c5d-2cf9ad344699",
+    "Porcion": 100,
+    "Activo": true
+  },
+  {
+    "Id": "39bff6bd-5366-4a2e-9c94-d74fc9196beb",
+    "MenuId": "038ffb54-31c1-4187-b1cd-1e86263e40b1",
+    "ProductoId": "83ac55ca-86e8-4a53-824d-ed3df99bb83f",
+    "Porcion": 300,
+    "Activo": true
+  },
+  {
+    "Id": "256fc6bf-c381-4fe9-9aa2-3a2315aac64a",
+    "MenuId": "038ffb54-31c1-4187-b1cd-1e86263e40b1",
+    "ProductoId": "83ac55ca-86e8-4a53-824d-ed3df99bb83f",
+    "Porcion": 100,
+    "Activo": true
+  },
+  {
+    "Id": "c18ecb6f-bd9b-41aa-8953-8e0f193b036b",
+    "MenuId": "038ffb54-31c1-4187-b1cd-1e86263e40b1",
+    "ProductoId": "10819472-ae74-4288-9321-5afffaff8df0",
+    "Porcion": 100,
+    "Activo": true
+  },
+  {
+    "Id": "17dfd13e-86ab-43e6-ab24-b0571813b717",
+    "MenuId": "038ffb54-31c1-4187-b1cd-1e86263e40b1",
+    "ProductoId": "1dabb54e-bef9-40ce-9415-244f556aeeb2",
     "Porcion": 100,
     "Activo": true
   }

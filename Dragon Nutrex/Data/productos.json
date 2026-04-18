@@ -598,5 +598,53 @@
     "PorcionGramos": 100,
     "FechaCreacion": "2026-04-18T03:23:51.3194283-06:00",
     "Activo": true
+  },
+  {
+    "Id": "1712a931-653d-475b-8ba6-ff9d3224be40",
+    "Nombre": "",
+    "Categoria": "Otro",
+    "Calorias": 0,
+    "Proteina": 0,
+    "Carbohidratos": 0,
+    "Grasas": 0,
+    "PorcionGramos": 100,
+    "FechaCreacion": "2026-04-18T13:58:39.6869027-06:00",
+    "Activo": false
+  },
+  {
+    "Id": "7bd6c121-4911-45ad-9733-5c6b0c83f2a0",
+    "Nombre": "",
+    "Categoria": "Proteina",
+    "Calorias": -51,
+    "Proteina": -3,
+    "Carbohidratos": -3,
+    "Grasas": -3,
+    "PorcionGramos": -5,
+    "FechaCreacion": "2026-04-18T13:58:54.8383052-06:00",
+    "Activo": false
+  },
+  {
+    "Id": "c467ea02-dafc-4e7e-a14e-44e77b1c6200",
+    "Nombre": "",
+    "Categoria": "Proteina",
+    "Calorias": -55,
+    "Proteina": -4,
+    "Carbohidratos": -3,
+    "Grasas": -3,
+    "PorcionGramos": -15,
+    "FechaCreacion": "2026-04-18T13:59:07.8367333-06:00",
+    "Activo": false
+  },
+  {
+    "Id": "91079347-ab84-47a5-b564-f46fefd21387",
+    "Nombre": "svvsd",
+    "Categoria": "Otro",
+    "Calorias": 0,
+    "Proteina": 0,
+    "Carbohidratos": 0,
+    "Grasas": 0,
+    "PorcionGramos": 100,
+    "FechaCreacion": "2026-04-18T15:12:14.8998761-06:00",
+    "Activo": true
   }
 ]

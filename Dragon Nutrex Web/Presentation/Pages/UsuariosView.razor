@@ -28,9 +28,25 @@
     </div>
 </section>
 
+@if (!string.IsNullOrEmpty(errorMensaje))
+{
+    <div class="error-box">
+        @errorMensaje
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(exitoMensaje))
+{
+    <div class="success-box">
+        @exitoMensaje
+    </div>
+}
+
 @code {
     private List<Usuario> usuarios = new();
     private Usuario? usuarioSeleccionado;
+    private string? errorMensaje;
+    private string? exitoMensaje;
 
     /// <summary>
     /// Inicializa la vista cargando los usuarios desde el servicio.
@@ -52,22 +68,25 @@
     /// Guarda un usuario nuevo o actualiza uno existente.
     /// </summary>
     /// <param name="usuario">Usuario recibido desde el formulario.</param>
-    private Task HandleGuardarUsuario(Usuario usuario)
+    private async Task HandleGuardarUsuario(Usuario usuario)
     {
-        if (usuario.Id == Guid.Empty)
+        try
         {
-            usuario.Id = Guid.NewGuid();
-            usuarioService.CrearUsuario(usuario);
+            if (usuario.Id == Guid.Empty)
+                usuarioService.CrearUsuario(usuario);
+            else
+                usuarioService.ActualizarUsuario(usuario);
+
+            CargarUsuarios();
+            usuarioSeleccionado = null;
+            errorMensaje = null;
+            exitoMensaje = "Usuario guardado exitosamente.";
         }
-        else
+        catch (Exception ex)
         {
-            usuarioService.ActualizarUsuario(usuario);
+            errorMensaje = ex.Message;
+            exitoMensaje = null;
         }
-
-        CargarUsuarios();
-        usuarioSeleccionado = null;
-
-        return Task.CompletedTask;
     }
 
     /// <summary>
@@ -116,5 +135,4 @@
         usuarioSeleccionado = null;
         return Task.CompletedTask;
     }
-}
 }

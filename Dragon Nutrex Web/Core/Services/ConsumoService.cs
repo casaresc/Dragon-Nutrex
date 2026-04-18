@@ -44,6 +44,8 @@ namespace Dragon_Nutrex_Web.Core.Services
                 {
                     CaloriasConsumidas = 0,
                     CarbohidratosConsumidos = 0,
+                    GrasasConsumidas = 0,
+                    ProteinasConsumidas = 0,
                     DiferenciaCalorias = metaCalorias,
                     TieneRegistros = false
                 };
@@ -51,11 +53,14 @@ namespace Dragon_Nutrex_Web.Core.Services
 
             var calorias = registros.Sum(r => r.CaloriasConsumidas);
             var carbohidratos = registros.Sum(r => r.CarbohidratosConsumidos);
-
+            var proteinas = registros.Sum(r => r.ProteinasConsumidas);
+            var grasas = registros.Sum(r => r.GrasasConsumidas);
             return new ResumenDiario
             {
                 CaloriasConsumidas = calorias,
                 CarbohidratosConsumidos = carbohidratos,
+                GrasasConsumidas = grasas,
+                ProteinasConsumidas = proteinas,
                 DiferenciaCalorias = metaCalorias - calorias,
                 TieneRegistros = true
             };
@@ -110,14 +115,20 @@ namespace Dragon_Nutrex_Web.Core.Services
 
             var totalCalorias = registros.Sum(r => r.CaloriasConsumidas);
             var totalCarbohidratos = registros.Sum(r => r.CarbohidratosConsumidos);
+            var totalGrasas = registros.Sum(r => r.GrasasConsumidas);
+            var totalProteinas = registros.Sum(r => r.ProteinasConsumidas);
             var dias = registros.Select(r => r.Fecha.Date).Distinct().Count();
 
             return new ResumenRango
             {
                 TotalCalorias = totalCalorias,
                 TotalCarbohidratos = totalCarbohidratos,
+                TotalGrasas = totalGrasas,
+                TotalProteinas = totalProteinas,
                 PromedioCalorias = totalCalorias / (dias == 0 ? 1 : dias),
                 PromedioCarbohidratos = totalCarbohidratos / (dias == 0 ? 1 : dias),
+                PromedioGrasas = totalGrasas / (dias == 0 ? 1 : dias),
+                PromedioProteinas = totalProteinas / (dias == 0 ? 1 : dias),
                 DiasConRegistros = dias
             };
         }

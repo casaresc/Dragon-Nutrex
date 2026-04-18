@@ -22,12 +22,19 @@
         <MenuFormComponent MenuEditando="menuActual"
                            Usuarios="usuarios"
                            OnGuardar="HandleGuardarMenu"
-                           OnCancelar="HandleCancelarMenu" />
+                           OnCancelar="HandleCancelarMenu"
+                           OnCambioMenuBase="HandleCambioMenuBase" />
 
         <ProductoSelectorComponent Productos="productos"
                                    OnAgregarProducto="HandleAgregarProducto" />
-
-        <MenuDetalleTableComponent Detalles="detallesTemporales"
+        @if (!string.IsNullOrWhiteSpace(estadoMenu))
+        {
+            <div class="info-box">
+                @estadoMenu
+            </div>
+        }
+        <MenuDetalleTableComponent @key="menuActual.Id"
+                                   Detalles="detallesTemporales"
                                    Productos="productos"
                                    OnEliminarDetalle="HandleEliminarDetalle" />
     </div>
@@ -38,6 +45,18 @@
                              OnVerDetalle="HandleVerDetalleMenu"
                              OnEliminarMenu="HandleEliminarMenu" />
     </div>
+    @if (!string.IsNullOrEmpty(errorMensaje))
+    {
+        <div class="error-box">
+            @errorMensaje
+        </div>
+    }
+    @if (!string.IsNullOrEmpty(exitoMensaje))
+    {
+        <div class="success-box">
+            @exitoMensaje
+        </div>
+    }
 </section>
 
 @code {
@@ -45,10 +64,11 @@
     private List<Producto> productos = new();
     private List<MenuDiario> menus = new();
     private List<MenuDetalle> detallesTemporales = new();
-
+    private string estadoMenu = "Nuevo menú";
     private MenuDiario menuActual = CrearMenuVacio();
     private bool modoEdicion;
-
+    private string? errorMensaje;
+    private string? exitoMensaje;
     /// <summary>
     /// Carga datos persistidos al iniciar la vista.
     /// </summary>
@@ -73,11 +93,23 @@
     /// <param name="detalle">Detalle recibido desde el selector.</param>
     private Task HandleAgregarProducto(MenuDetalle detalle)
     {
-        detalle.Id = Guid.NewGuid();
-        detalle.MenuId = menuActual.Id == Guid.Empty ? Guid.NewGuid() : menuActual.Id;
+        try
+        {
+            detalle.Id = Guid.NewGuid();
+            detalle.MenuId = menuActual.Id == Guid.Empty ? Guid.NewGuid() : menuActual.Id;
 
-        detallesTemporales.Add(detalle);
-        return Task.CompletedTask;
+            detallesTemporales.Add(detalle);
+            exitoMensaje = "Producto agregado al menú temporalmente.";
+            errorMensaje = null;
+            return Task.CompletedTask;
+        }
+        catch (Exception ex)
+        {
+            errorMensaje = $"Error al agregar producto: {ex.Message}";
+            exitoMensaje = null;
+            return Task.CompletedTask;
+        }
+
     }
 
     /// <summary>
@@ -226,4 +258,79 @@
             Nombre = string.Empty,
             Fecha = DateTime.Today
         };
+
+    /// <summary>
+    /// Revisa si ya existe un menú para el usuario y la fecha seleccionados.
+    /// Si existe, carga el menú y sus detalles.
+    /// Si no existe, prepara un menú nuevo.
+    /// </summary>
+    /// <param name="menuBase">Menú base con usuario y fecha.</param>
+    private Task HandleCambioMenuBase(MenuDiario menuBase)
+    {
+        if (menuBase.UsuarioId == Guid.Empty)
+        {
+            detallesTemporales = new List<MenuDetalle>();
+            menuActual = new MenuDiario
+            {
+                Id = Guid.Empty,
+                UsuarioId = Guid.Empty,
+                Nombre = string.Empty,
+                Fecha = menuBase.Fecha
+            };
+            modoEdicion = false;
+            estadoMenu = "Seleccione un usuario";
+            StateHasChanged();
+            return Task.CompletedTask;
+        }
+
+        detallesTemporales = new List<MenuDetalle>();
+        modoEdicion = false;
+
+        var menuExistente = menuDiarioService.ObtenerPorUsuarioYFecha(
+            menuBase.UsuarioId,
+            menuBase.Fecha);
+
+        if (menuExistente is not null)
+        {
+            menuActual = new MenuDiario
+            {
+                Id = menuExistente.Id,
+                UsuarioId = menuExistente.UsuarioId,
+                Nombre = menuExistente.Nombre,
+                Fecha = menuExistente.Fecha
+            };
+
+            detallesTemporales = menuDetalleService.ObtenerPorMenu(menuExistente.Id)
+                .Select(detalle => new MenuDetalle
+                {
+                    Id = detalle.Id,
+                    MenuId = detalle.MenuId,
+                    ProductoId = detalle.ProductoId,
+                    Porcion = detalle.Porcion
+                })
+                .ToList();
+
+            modoEdicion = true;
+            estadoMenu = "Menú existente cargado";
+        }
+        else
+        {
+            menuActual = new MenuDiario
+            {
+                Id = Guid.Empty,
+                UsuarioId = menuBase.UsuarioId,
+                Nombre = string.IsNullOrWhiteSpace(menuBase.Nombre)
+                    ? $"Menú {menuBase.Fecha:dd/MM/yyyy}"
+                    : menuBase.Nombre,
+                Fecha = menuBase.Fecha
+            };
+
+            detallesTemporales = new List<MenuDetalle>();
+            modoEdicion = false;
+            estadoMenu = "No existe menú para esa fecha. Se creará uno nuevo";
+        }
+
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
 }
