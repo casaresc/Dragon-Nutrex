@@ -1,0 +1,3782 @@
+[
+  {
+    "Id": "5804231f-5905-4ecc-94d6-1d72958bb946",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 1019,
+    "CarbohidratosConsumidos": 186,
+    "ProteinasConsumidas": 44,
+    "GrasasConsumidas": 11,
+    "Activo": true
+  },
+  {
+    "Id": "acb6c1dc-f51c-4caa-acce-4ed83a4546a0",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 834,
+    "CarbohidratosConsumidos": 72,
+    "ProteinasConsumidas": 105,
+    "GrasasConsumidas": 14,
+    "Activo": true
+  },
+  {
+    "Id": "5afee4c4-2487-4860-8330-763eddaa8d19",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 840,
+    "CarbohidratosConsumidos": 134,
+    "ProteinasConsumidas": 58,
+    "GrasasConsumidas": 8,
+    "Activo": true
+  },
+  {
+    "Id": "ca66c831-1982-44e4-8747-1c8b785e3bf6",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 764,
+    "CarbohidratosConsumidos": 100,
+    "ProteinasConsumidas": 73,
+    "GrasasConsumidas": 8,
+    "Activo": true
+  },
+  {
+    "Id": "39e8daca-010b-4a5d-900a-0299aa6fdbe5",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 1357,
+    "CarbohidratosConsumidos": 156,
+    "ProteinasConsumidas": 55,
+    "GrasasConsumidas": 57,
+    "Activo": true
+  },
+  {
+    "Id": "7418bb83-fa1a-4bd9-9bfa-6b9c67094221",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 662,
+    "CarbohidratosConsumidos": 105,
+    "ProteinasConsumidas": 38,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "9c483461-7447-4dce-ab8c-6ff76f8b6d24",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 550,
+    "CarbohidratosConsumidos": 18,
+    "ProteinasConsumidas": 88,
+    "GrasasConsumidas": 14,
+    "Activo": true
+  },
+  {
+    "Id": "8c185684-79ed-41c0-a8f6-1455d121f2a8",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 618,
+    "CarbohidratosConsumidos": 78,
+    "ProteinasConsumidas": 36,
+    "GrasasConsumidas": 18,
+    "Activo": true
+  },
+  {
+    "Id": "0592d0b6-63f4-4924-b913-e2509b30d943",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 501,
+    "CarbohidratosConsumidos": 9,
+    "ProteinasConsumidas": 6,
+    "GrasasConsumidas": 49,
+    "Activo": true
+  },
+  {
+    "Id": "cfc182b3-d509-497d-ac30-09b1eb3ae772",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 789,
+    "CarbohidratosConsumidos": 72,
+    "ProteinasConsumidas": 69,
+    "GrasasConsumidas": 25,
+    "Activo": true
+  },
+  {
+    "Id": "384b21ee-6e23-48cd-8f13-6837cbd977de",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 375,
+    "CarbohidratosConsumidos": 31,
+    "ProteinasConsumidas": 29,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "5ae7ad77-462e-44b3-92b6-bed2ffef16b5",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 664,
+    "CarbohidratosConsumidos": 42,
+    "ProteinasConsumidas": 79,
+    "GrasasConsumidas": 20,
+    "Activo": true
+  },
+  {
+    "Id": "8726860e-fcc5-4731-baa7-967f982b76a2",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 581,
+    "CarbohidratosConsumidos": 23,
+    "ProteinasConsumidas": 93,
+    "GrasasConsumidas": 13,
+    "Activo": true
+  },
+  {
+    "Id": "d757e55a-c8eb-4a56-acfc-dfcb5358fed4",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 623,
+    "CarbohidratosConsumidos": 15,
+    "ProteinasConsumidas": 53,
+    "GrasasConsumidas": 39,
+    "Activo": true
+  },
+  {
+    "Id": "f151c285-cd43-45ef-92ec-1c79772a8f6a",
+    "UsuarioId": "257d1375-3815-4008-8401-c6ed4dc71c17",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 642,
+    "CarbohidratosConsumidos": 61,
+    "ProteinasConsumidas": 50,
+    "GrasasConsumidas": 22,
+    "Activo": true
+  },
+  {
+    "Id": "75195914-0916-47ec-85fe-d69b450a4ef9",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 925,
+    "CarbohidratosConsumidos": 68,
+    "ProteinasConsumidas": 116,
+    "GrasasConsumidas": 21,
+    "Activo": true
+  },
+  {
+    "Id": "a6b05ae2-bb1d-42ef-a296-0024e81753d4",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 774,
+    "CarbohidratosConsumidos": 22,
+    "ProteinasConsumidas": 122,
+    "GrasasConsumidas": 22,
+    "Activo": true
+  },
+  {
+    "Id": "70ed5773-c2a1-4f46-9164-3ed058a2e6c2",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 941,
+    "CarbohidratosConsumidos": 139,
+    "ProteinasConsumidas": 58,
+    "GrasasConsumidas": 17,
+    "Activo": true
+  },
+  {
+    "Id": "5dec66d9-b4bf-48ee-aee5-f7b90b44c021",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 1089,
+    "CarbohidratosConsumidos": 46,
+    "ProteinasConsumidas": 80,
+    "GrasasConsumidas": 65,
+    "Activo": true
+  },
+  {
+    "Id": "df30b6c7-8c91-46e1-abaa-5c01bd8783c6",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 392,
+    "CarbohidratosConsumidos": 37,
+    "ProteinasConsumidas": 25,
+    "GrasasConsumidas": 16,
+    "Activo": true
+  },
+  {
+    "Id": "2d1fdef3-4feb-4df7-858c-06086578d746",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 859,
+    "CarbohidratosConsumidos": 47,
+    "ProteinasConsumidas": 80,
+    "GrasasConsumidas": 39,
+    "Activo": true
+  },
+  {
+    "Id": "d9807bc9-9086-4b0a-8e58-b40824183f02",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 889,
+    "CarbohidratosConsumidos": 23,
+    "ProteinasConsumidas": 71,
+    "GrasasConsumidas": 57,
+    "Activo": true
+  },
+  {
+    "Id": "b2b48a69-c70b-42cf-9fe2-171491b8eaf7",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 616,
+    "CarbohidratosConsumidos": 0,
+    "ProteinasConsumidas": 118,
+    "GrasasConsumidas": 16,
+    "Activo": true
+  },
+  {
+    "Id": "f30f9a57-a7e4-4c6d-ae7f-11ce997b6d46",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 467,
+    "CarbohidratosConsumidos": 38,
+    "ProteinasConsumidas": 45,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "74b05462-420d-4590-90e5-31d836a92958",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 708,
+    "CarbohidratosConsumidos": 57,
+    "ProteinasConsumidas": 75,
+    "GrasasConsumidas": 20,
+    "Activo": true
+  },
+  {
+    "Id": "82aa5632-615e-478f-b77a-4fc20dfd7392",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 1404,
+    "CarbohidratosConsumidos": 249,
+    "ProteinasConsumidas": 57,
+    "GrasasConsumidas": 20,
+    "Activo": true
+  },
+  {
+    "Id": "ca652306-0aee-4173-8241-63f6515ced0d",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 286,
+    "CarbohidratosConsumidos": 35,
+    "ProteinasConsumidas": 14,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "7393c56e-b215-451f-ab0c-0ad6f4fe6739",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 892,
+    "CarbohidratosConsumidos": 38,
+    "ProteinasConsumidas": 131,
+    "GrasasConsumidas": 24,
+    "Activo": true
+  },
+  {
+    "Id": "1b1c2e65-1076-4136-8dd8-cd985501d0a8",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 191,
+    "CarbohidratosConsumidos": 26,
+    "ProteinasConsumidas": 6,
+    "GrasasConsumidas": 7,
+    "Activo": true
+  },
+  {
+    "Id": "7a31784c-85ca-40a3-9f1c-331e8c37df20",
+    "UsuarioId": "7d251ec0-1cd1-4e9e-9503-49ac33887f55",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 1539,
+    "CarbohidratosConsumidos": 195,
+    "ProteinasConsumidas": 129,
+    "GrasasConsumidas": 27,
+    "Activo": true
+  },
+  {
+    "Id": "7a5a7d1f-cef2-4c30-8378-222c8bd1b302",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 1250,
+    "CarbohidratosConsumidos": 164,
+    "ProteinasConsumidas": 72,
+    "GrasasConsumidas": 34,
+    "Activo": true
+  },
+  {
+    "Id": "7f9f4133-f8a8-4e42-93e2-3c2bd4ea43ba",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 247,
+    "CarbohidratosConsumidos": 17,
+    "ProteinasConsumidas": 20,
+    "GrasasConsumidas": 11,
+    "Activo": true
+  },
+  {
+    "Id": "b6d2f29d-545e-4110-b739-f790a7f560a8",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 237,
+    "CarbohidratosConsumidos": 38,
+    "ProteinasConsumidas": 10,
+    "GrasasConsumidas": 5,
+    "Activo": true
+  },
+  {
+    "Id": "728cdcf5-50c4-426a-a957-3c77b1b8b793",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 632,
+    "CarbohidratosConsumidos": 41,
+    "ProteinasConsumidas": 81,
+    "GrasasConsumidas": 16,
+    "Activo": true
+  },
+  {
+    "Id": "55a11744-6a2b-43a3-b3f5-58a3780ff5dd",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 808,
+    "CarbohidratosConsumidos": 79,
+    "ProteinasConsumidas": 15,
+    "GrasasConsumidas": 48,
+    "Activo": true
+  },
+  {
+    "Id": "5810ad63-5e1b-424d-83b3-0e439f7a5c74",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 162,
+    "CarbohidratosConsumidos": 9,
+    "ProteinasConsumidas": 18,
+    "GrasasConsumidas": 6,
+    "Activo": true
+  },
+  {
+    "Id": "95103b3d-62b8-41b1-87a2-29f4941b58ed",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 254,
+    "CarbohidratosConsumidos": 26,
+    "ProteinasConsumidas": 24,
+    "GrasasConsumidas": 6,
+    "Activo": true
+  },
+  {
+    "Id": "619a335b-f640-4acc-b9a6-34a9db52dcec",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 682,
+    "CarbohidratosConsumidos": 7,
+    "ProteinasConsumidas": 87,
+    "GrasasConsumidas": 34,
+    "Activo": true
+  },
+  {
+    "Id": "e3797fc9-b113-434b-a9d2-3b4cfbf01c0a",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 424,
+    "CarbohidratosConsumidos": 40,
+    "ProteinasConsumidas": 30,
+    "GrasasConsumidas": 16,
+    "Activo": true
+  },
+  {
+    "Id": "fc97934f-533f-4d02-941d-2a1bf1712fe1",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 289,
+    "CarbohidratosConsumidos": 16,
+    "ProteinasConsumidas": 36,
+    "GrasasConsumidas": 9,
+    "Activo": true
+  },
+  {
+    "Id": "c34fac9f-ff29-4d51-875f-d13eb79281a6",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 458,
+    "CarbohidratosConsumidos": 20,
+    "ProteinasConsumidas": 36,
+    "GrasasConsumidas": 26,
+    "Activo": true
+  },
+  {
+    "Id": "1f3794c5-9d10-4100-985d-1ad06e559037",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 421,
+    "CarbohidratosConsumidos": 14,
+    "ProteinasConsumidas": 62,
+    "GrasasConsumidas": 13,
+    "Activo": true
+  },
+  {
+    "Id": "5b7d048a-ecf4-414a-b1fe-d18fcfb13f1c",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 795,
+    "CarbohidratosConsumidos": 133,
+    "ProteinasConsumidas": 32,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "ad6205c6-1b44-43d4-82e5-de2d7c2e6060",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 652,
+    "CarbohidratosConsumidos": 76,
+    "ProteinasConsumidas": 42,
+    "GrasasConsumidas": 20,
+    "Activo": true
+  },
+  {
+    "Id": "5b80a585-73b3-4661-908c-0eb57b55a405",
+    "UsuarioId": "bf85cdb1-0b9e-4ae1-a985-be859e48de1f",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 398,
+    "CarbohidratosConsumidos": 31,
+    "ProteinasConsumidas": 37,
+    "GrasasConsumidas": 14,
+    "Activo": true
+  },
+  {
+    "Id": "ecb8f397-5d16-4dca-9a21-34842d9a8749",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 406,
+    "CarbohidratosConsumidos": 66,
+    "ProteinasConsumidas": 13,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "d9b5bf56-96ef-4885-b470-7ae65eaadc85",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 524,
+    "CarbohidratosConsumidos": 22,
+    "ProteinasConsumidas": 37,
+    "GrasasConsumidas": 32,
+    "Activo": true
+  },
+  {
+    "Id": "16d31496-8e38-42e1-87c6-7dcd962e0937",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 325,
+    "CarbohidratosConsumidos": 8,
+    "ProteinasConsumidas": 53,
+    "GrasasConsumidas": 9,
+    "Activo": true
+  },
+  {
+    "Id": "8b4eed67-6664-4c63-a6f3-72802078ce4e",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 673,
+    "CarbohidratosConsumidos": 81,
+    "ProteinasConsumidas": 40,
+    "GrasasConsumidas": 21,
+    "Activo": true
+  },
+  {
+    "Id": "a674921f-2679-40b0-924f-bbc907ff5f4d",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 386,
+    "CarbohidratosConsumidos": 34,
+    "ProteinasConsumidas": 49,
+    "GrasasConsumidas": 6,
+    "Activo": true
+  },
+  {
+    "Id": "4e8bee6b-bae2-4a0c-9eb4-14bcb3cb8ef5",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 294,
+    "CarbohidratosConsumidos": 4,
+    "ProteinasConsumidas": 47,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "271c2aa9-0505-4c9b-a547-78b354ffc858",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 667,
+    "CarbohidratosConsumidos": 42,
+    "ProteinasConsumidas": 37,
+    "GrasasConsumidas": 39,
+    "Activo": true
+  },
+  {
+    "Id": "c8c7f422-d87a-46b8-aeff-9c5f8fb5a933",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 312,
+    "CarbohidratosConsumidos": 25,
+    "ProteinasConsumidas": 26,
+    "GrasasConsumidas": 12,
+    "Activo": true
+  },
+  {
+    "Id": "a575c931-587a-4abc-a218-58ae8996a7da",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 792,
+    "CarbohidratosConsumidos": 6,
+    "ProteinasConsumidas": 156,
+    "GrasasConsumidas": 16,
+    "Activo": true
+  },
+  {
+    "Id": "c4264aee-0015-4fe7-a410-e8376790f4ef",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 555,
+    "CarbohidratosConsumidos": 65,
+    "ProteinasConsumidas": 31,
+    "GrasasConsumidas": 19,
+    "Activo": true
+  },
+  {
+    "Id": "06f2d458-4f53-4746-996a-36ff932af53d",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 562,
+    "CarbohidratosConsumidos": 52,
+    "ProteinasConsumidas": 30,
+    "GrasasConsumidas": 26,
+    "Activo": true
+  },
+  {
+    "Id": "ce3dbf84-b431-42d0-877d-d4ea43322b2d",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 191,
+    "CarbohidratosConsumidos": 3,
+    "ProteinasConsumidas": 29,
+    "GrasasConsumidas": 7,
+    "Activo": true
+  },
+  {
+    "Id": "16aec889-9f44-44f9-8793-e2f52cf62c9b",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 779,
+    "CarbohidratosConsumidos": 44,
+    "ProteinasConsumidas": 108,
+    "GrasasConsumidas": 19,
+    "Activo": true
+  },
+  {
+    "Id": "fc7dd384-daee-451b-95e4-f8c68afcd34c",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 1028,
+    "CarbohidratosConsumidos": 71,
+    "ProteinasConsumidas": 87,
+    "GrasasConsumidas": 44,
+    "Activo": true
+  },
+  {
+    "Id": "e9838136-243e-4ddc-8253-604821f561e9",
+    "UsuarioId": "dc9fa5a6-fb62-439f-bd9c-6c5e5c99b8a8",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 821,
+    "CarbohidratosConsumidos": 157,
+    "ProteinasConsumidas": 28,
+    "GrasasConsumidas": 9,
+    "Activo": true
+  },
+  {
+    "Id": "2d0ef38a-8e9e-4f90-a17a-857ce338de2e",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 257,
+    "CarbohidratosConsumidos": 16,
+    "ProteinasConsumidas": 37,
+    "GrasasConsumidas": 5,
+    "Activo": true
+  },
+  {
+    "Id": "a1728131-0e55-4e48-b063-b362141e6863",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 823,
+    "CarbohidratosConsumidos": 26,
+    "ProteinasConsumidas": 83,
+    "GrasasConsumidas": 43,
+    "Activo": true
+  },
+  {
+    "Id": "cfac8c4f-1e62-48b2-a4b0-c1e272a01bfc",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 1190,
+    "CarbohidratosConsumidos": 99,
+    "ProteinasConsumidas": 32,
+    "GrasasConsumidas": 74,
+    "Activo": true
+  },
+  {
+    "Id": "3071430d-3bac-49cc-bc6d-d1fc76608339",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 711,
+    "CarbohidratosConsumidos": 115,
+    "ProteinasConsumidas": 20,
+    "GrasasConsumidas": 19,
+    "Activo": true
+  },
+  {
+    "Id": "4732a531-9518-454d-9684-a39d1db385cc",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 479,
+    "CarbohidratosConsumidos": 37,
+    "ProteinasConsumidas": 49,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "fc1d5084-a1c6-41c5-aa18-9e47dc843d2d",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 1068,
+    "CarbohidratosConsumidos": 173,
+    "ProteinasConsumidas": 40,
+    "GrasasConsumidas": 24,
+    "Activo": true
+  },
+  {
+    "Id": "844aa386-7042-436c-bf54-29c9d498b52e",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 516,
+    "CarbohidratosConsumidos": 36,
+    "ProteinasConsumidas": 66,
+    "GrasasConsumidas": 12,
+    "Activo": true
+  },
+  {
+    "Id": "5217a51a-26c2-45a1-a127-350525a2f9c3",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 970,
+    "CarbohidratosConsumidos": 42,
+    "ProteinasConsumidas": 160,
+    "GrasasConsumidas": 18,
+    "Activo": true
+  },
+  {
+    "Id": "780653e5-ad6f-4698-b6e3-e4f529bdeeff",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 718,
+    "CarbohidratosConsumidos": 3,
+    "ProteinasConsumidas": 127,
+    "GrasasConsumidas": 22,
+    "Activo": true
+  },
+  {
+    "Id": "8dc32a9d-7826-4564-9855-26f783b7411b",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 1046,
+    "CarbohidratosConsumidos": 34,
+    "ProteinasConsumidas": 160,
+    "GrasasConsumidas": 30,
+    "Activo": true
+  },
+  {
+    "Id": "1c93f828-b150-4408-a07e-1b0882015f94",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 183,
+    "CarbohidratosConsumidos": 15,
+    "ProteinasConsumidas": 15,
+    "GrasasConsumidas": 7,
+    "Activo": true
+  },
+  {
+    "Id": "78c1cfb4-c4c1-4d0e-8d7d-2dbd6c93788b",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 548,
+    "CarbohidratosConsumidos": 39,
+    "ProteinasConsumidas": 62,
+    "GrasasConsumidas": 16,
+    "Activo": true
+  },
+  {
+    "Id": "265851ae-fce2-4d03-91d3-f2bebc93fb29",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 1246,
+    "CarbohidratosConsumidos": 237,
+    "ProteinasConsumidas": 43,
+    "GrasasConsumidas": 14,
+    "Activo": true
+  },
+  {
+    "Id": "1f2e5030-1565-4e94-9d64-320d0562dfaf",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 822,
+    "CarbohidratosConsumidos": 10,
+    "ProteinasConsumidas": 74,
+    "GrasasConsumidas": 54,
+    "Activo": true
+  },
+  {
+    "Id": "bde68bd8-6bbe-4c44-b37f-f4653866020d",
+    "UsuarioId": "ea543667-aa4b-4b94-a398-dfe01e218589",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 490,
+    "CarbohidratosConsumidos": 21,
+    "ProteinasConsumidas": 25,
+    "GrasasConsumidas": 34,
+    "Activo": true
+  },
+  {
+    "Id": "86024f80-ed70-4157-8c89-6a864f39da68",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 898,
+    "CarbohidratosConsumidos": 47,
+    "ProteinasConsumidas": 137,
+    "GrasasConsumidas": 18,
+    "Activo": true
+  },
+  {
+    "Id": "414f0add-c176-4715-8ebb-7c949bd823d6",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 263,
+    "CarbohidratosConsumidos": 13,
+    "ProteinasConsumidas": 19,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "b71c59c1-177f-48da-9fbc-ad50d813f6c1",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 745,
+    "CarbohidratosConsumidos": 39,
+    "ProteinasConsumidas": 91,
+    "GrasasConsumidas": 25,
+    "Activo": true
+  },
+  {
+    "Id": "a94457dd-093e-4185-b9a0-a653c39f0c06",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 950,
+    "CarbohidratosConsumidos": 160,
+    "ProteinasConsumidas": 37,
+    "GrasasConsumidas": 18,
+    "Activo": true
+  },
+  {
+    "Id": "2e52a19f-d0d5-421b-a4ea-e8625c37f22f",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 574,
+    "CarbohidratosConsumidos": 34,
+    "ProteinasConsumidas": 60,
+    "GrasasConsumidas": 22,
+    "Activo": true
+  },
+  {
+    "Id": "a41b7182-047b-4304-9756-a2c9df02831d",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 1414,
+    "CarbohidratosConsumidos": 179,
+    "ProteinasConsumidas": 53,
+    "GrasasConsumidas": 54,
+    "Activo": true
+  },
+  {
+    "Id": "81d958fc-5b76-42cb-8207-cb1d1a560160",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 1144,
+    "CarbohidratosConsumidos": 52,
+    "ProteinasConsumidas": 180,
+    "GrasasConsumidas": 24,
+    "Activo": true
+  },
+  {
+    "Id": "ec097cc1-4f06-4acd-bcc0-492b6816cf51",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 406,
+    "CarbohidratosConsumidos": 13,
+    "ProteinasConsumidas": 48,
+    "GrasasConsumidas": 18,
+    "Activo": true
+  },
+  {
+    "Id": "095b8dd7-8147-4172-9ff3-5e15dbc3772e",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 396,
+    "CarbohidratosConsumidos": 15,
+    "ProteinasConsumidas": 57,
+    "GrasasConsumidas": 12,
+    "Activo": true
+  },
+  {
+    "Id": "0175ef0a-0395-4fcb-a9e3-41457320620e",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 410,
+    "CarbohidratosConsumidos": 58,
+    "ProteinasConsumidas": 13,
+    "GrasasConsumidas": 14,
+    "Activo": true
+  },
+  {
+    "Id": "53c11edd-f0d7-4e37-8773-7208e3b9ee44",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 424,
+    "CarbohidratosConsumidos": 16,
+    "ProteinasConsumidas": 36,
+    "GrasasConsumidas": 24,
+    "Activo": true
+  },
+  {
+    "Id": "46bc085e-0c10-4a4c-8434-728ffd8e96d8",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 330,
+    "CarbohidratosConsumidos": 18,
+    "ProteinasConsumidas": 33,
+    "GrasasConsumidas": 14,
+    "Activo": true
+  },
+  {
+    "Id": "17b40492-fae8-4548-9e52-078ecd5447e1",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 492,
+    "CarbohidratosConsumidos": 52,
+    "ProteinasConsumidas": 35,
+    "GrasasConsumidas": 16,
+    "Activo": true
+  },
+  {
+    "Id": "d0cd1278-2d2c-427c-bc9e-5f622e9758b1",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 1635,
+    "CarbohidratosConsumidos": 129,
+    "ProteinasConsumidas": 210,
+    "GrasasConsumidas": 31,
+    "Activo": true
+  },
+  {
+    "Id": "8e45412f-b4e1-4a7b-8d10-91f47f4cc9bf",
+    "UsuarioId": "a0fd3a01-5cf0-4f46-afb4-9a99a4a267e9",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 500,
+    "CarbohidratosConsumidos": 11,
+    "ProteinasConsumidas": 60,
+    "GrasasConsumidas": 24,
+    "Activo": true
+  },
+  {
+    "Id": "378fcdeb-625c-480b-918b-88805602a578",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 1756,
+    "CarbohidratosConsumidos": 161,
+    "ProteinasConsumidas": 80,
+    "GrasasConsumidas": 88,
+    "Activo": true
+  },
+  {
+    "Id": "f994984c-9728-4fbf-a4b7-2fdb4a2cd735",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 664,
+    "CarbohidratosConsumidos": 51,
+    "ProteinasConsumidas": 70,
+    "GrasasConsumidas": 20,
+    "Activo": true
+  },
+  {
+    "Id": "96b816ba-9b02-47f2-b3b7-4c79a330adc4",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 666,
+    "CarbohidratosConsumidos": 34,
+    "ProteinasConsumidas": 83,
+    "GrasasConsumidas": 22,
+    "Activo": true
+  },
+  {
+    "Id": "3e73b05f-7c97-4d66-bd87-df2cde1441d6",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 511,
+    "CarbohidratosConsumidos": 28,
+    "ProteinasConsumidas": 75,
+    "GrasasConsumidas": 11,
+    "Activo": true
+  },
+  {
+    "Id": "24542a4d-45e5-4125-902d-520695b53a86",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 607,
+    "CarbohidratosConsumidos": 35,
+    "ProteinasConsumidas": 74,
+    "GrasasConsumidas": 19,
+    "Activo": true
+  },
+  {
+    "Id": "d67125da-a4e3-4cbd-9aee-687661865131",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 227,
+    "CarbohidratosConsumidos": 26,
+    "ProteinasConsumidas": 15,
+    "GrasasConsumidas": 7,
+    "Activo": true
+  },
+  {
+    "Id": "ba315cfd-fbe7-4b04-b590-ae3a5264ef9d",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 644,
+    "CarbohidratosConsumidos": 38,
+    "ProteinasConsumidas": 96,
+    "GrasasConsumidas": 12,
+    "Activo": true
+  },
+  {
+    "Id": "22edaf77-5ddb-4a53-bd37-a83b65e464b6",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 651,
+    "CarbohidratosConsumidos": 14,
+    "ProteinasConsumidas": 115,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "81308d72-04a9-40b0-9576-42ede6cff920",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 1212,
+    "CarbohidratosConsumidos": 76,
+    "ProteinasConsumidas": 137,
+    "GrasasConsumidas": 40,
+    "Activo": true
+  },
+  {
+    "Id": "67567358-5494-498c-a2e4-d9c90065070f",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 731,
+    "CarbohidratosConsumidos": 132,
+    "ProteinasConsumidas": 35,
+    "GrasasConsumidas": 7,
+    "Activo": true
+  },
+  {
+    "Id": "79d8d65c-e815-4c22-b64a-42f01fcd3b2c",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 719,
+    "CarbohidratosConsumidos": 58,
+    "ProteinasConsumidas": 79,
+    "GrasasConsumidas": 19,
+    "Activo": true
+  },
+  {
+    "Id": "b369270a-69d7-479e-abc5-4769d2c5356f",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 252,
+    "CarbohidratosConsumidos": 20,
+    "ProteinasConsumidas": 25,
+    "GrasasConsumidas": 8,
+    "Activo": true
+  },
+  {
+    "Id": "f486076b-55da-4a70-adce-630b39e9f9fd",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 614,
+    "CarbohidratosConsumidos": 29,
+    "ProteinasConsumidas": 93,
+    "GrasasConsumidas": 14,
+    "Activo": true
+  },
+  {
+    "Id": "19780eb1-d9b6-48d6-9e72-b9d13de5b179",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 1242,
+    "CarbohidratosConsumidos": 66,
+    "ProteinasConsumidas": 132,
+    "GrasasConsumidas": 50,
+    "Activo": true
+  },
+  {
+    "Id": "2cdf1685-ff0b-437b-baf8-1133514699f8",
+    "UsuarioId": "2ff8bf7d-f582-4ed8-977f-76d31c67ad10",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 786,
+    "CarbohidratosConsumidos": 25,
+    "ProteinasConsumidas": 59,
+    "GrasasConsumidas": 50,
+    "Activo": true
+  },
+  {
+    "Id": "517c84fc-6292-49df-8e90-04215ca8dd74",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 602,
+    "CarbohidratosConsumidos": 8,
+    "ProteinasConsumidas": 48,
+    "GrasasConsumidas": 42,
+    "Activo": true
+  },
+  {
+    "Id": "1301a1e5-73af-461a-835b-c90b6a0d7790",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 1621,
+    "CarbohidratosConsumidos": 270,
+    "ProteinasConsumidas": 70,
+    "GrasasConsumidas": 29,
+    "Activo": true
+  },
+  {
+    "Id": "5f680e53-8a96-425f-97c5-3151d0f499a6",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 864,
+    "CarbohidratosConsumidos": 54,
+    "ProteinasConsumidas": 135,
+    "GrasasConsumidas": 12,
+    "Activo": true
+  },
+  {
+    "Id": "38ae5bf3-c648-47f5-8929-1c60a7652c9a",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 885,
+    "CarbohidratosConsumidos": 24,
+    "ProteinasConsumidas": 150,
+    "GrasasConsumidas": 21,
+    "Activo": true
+  },
+  {
+    "Id": "85c52ae7-cdb4-4033-9037-b5e68fd31155",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 187,
+    "CarbohidratosConsumidos": 11,
+    "ProteinasConsumidas": 29,
+    "GrasasConsumidas": 3,
+    "Activo": true
+  },
+  {
+    "Id": "b26f4e62-57ed-42c5-8967-2ae274897bf0",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 869,
+    "CarbohidratosConsumidos": 66,
+    "ProteinasConsumidas": 104,
+    "GrasasConsumidas": 21,
+    "Activo": true
+  },
+  {
+    "Id": "4ce50d48-83c6-4527-8626-a63fb208258b",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 356,
+    "CarbohidratosConsumidos": 26,
+    "ProteinasConsumidas": 36,
+    "GrasasConsumidas": 12,
+    "Activo": true
+  },
+  {
+    "Id": "c51dcdc8-28dc-45d2-babb-b9f8bd16a4b2",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 408,
+    "CarbohidratosConsumidos": 20,
+    "ProteinasConsumidas": 37,
+    "GrasasConsumidas": 20,
+    "Activo": true
+  },
+  {
+    "Id": "e25bf798-948e-4fae-bb20-1eda09ba6cf2",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 906,
+    "CarbohidratosConsumidos": 76,
+    "ProteinasConsumidas": 92,
+    "GrasasConsumidas": 26,
+    "Activo": true
+  },
+  {
+    "Id": "e6855eb2-ae52-4c20-acf1-ecd2c2788857",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 758,
+    "CarbohidratosConsumidos": 70,
+    "ProteinasConsumidas": 88,
+    "GrasasConsumidas": 14,
+    "Activo": true
+  },
+  {
+    "Id": "eaa902d1-72d6-4b0b-99db-3e9967397eb1",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 671,
+    "CarbohidratosConsumidos": 39,
+    "ProteinasConsumidas": 86,
+    "GrasasConsumidas": 19,
+    "Activo": true
+  },
+  {
+    "Id": "5ae16a0c-05a9-4178-96e8-82f26f165697",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 710,
+    "CarbohidratosConsumidos": 22,
+    "ProteinasConsumidas": 43,
+    "GrasasConsumidas": 50,
+    "Activo": true
+  },
+  {
+    "Id": "58fd1138-fbb8-4b67-a321-f731fed8c48f",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 1117,
+    "CarbohidratosConsumidos": 174,
+    "ProteinasConsumidas": 49,
+    "GrasasConsumidas": 25,
+    "Activo": true
+  },
+  {
+    "Id": "a091188e-2642-4bb6-a66e-881739665028",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 251,
+    "CarbohidratosConsumidos": 46,
+    "ProteinasConsumidas": 10,
+    "GrasasConsumidas": 3,
+    "Activo": true
+  },
+  {
+    "Id": "ebdfad03-cf4a-412d-954c-5f6d69881ee2",
+    "UsuarioId": "ffd234e0-7b56-4e5d-96a3-3d2b7307827c",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 561,
+    "CarbohidratosConsumidos": 86,
+    "ProteinasConsumidas": 16,
+    "GrasasConsumidas": 17,
+    "Activo": true
+  },
+  {
+    "Id": "396a24c1-7e31-4564-a4a0-cb9becf400cf",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 348,
+    "CarbohidratosConsumidos": 9,
+    "ProteinasConsumidas": 60,
+    "GrasasConsumidas": 8,
+    "Activo": true
+  },
+  {
+    "Id": "5f3fa22b-d9f1-41d5-8beb-ce343cfa9d72",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 482,
+    "CarbohidratosConsumidos": 29,
+    "ProteinasConsumidas": 51,
+    "GrasasConsumidas": 18,
+    "Activo": true
+  },
+  {
+    "Id": "60f9fbe0-d00b-4462-abc5-fbe96628e511",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 586,
+    "CarbohidratosConsumidos": 11,
+    "ProteinasConsumidas": 86,
+    "GrasasConsumidas": 22,
+    "Activo": true
+  },
+  {
+    "Id": "94b9a488-da81-45eb-8c69-205ceb517a1f",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 604,
+    "CarbohidratosConsumidos": 49,
+    "ProteinasConsumidas": 66,
+    "GrasasConsumidas": 16,
+    "Activo": true
+  },
+  {
+    "Id": "3d6877e3-f30c-4a5f-afbc-2047fa75cdc3",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 1380,
+    "CarbohidratosConsumidos": 148,
+    "ProteinasConsumidas": 116,
+    "GrasasConsumidas": 36,
+    "Activo": true
+  },
+  {
+    "Id": "6b35149f-97ee-4897-8c19-ba1cc033d9f3",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 744,
+    "CarbohidratosConsumidos": 23,
+    "ProteinasConsumidas": 109,
+    "GrasasConsumidas": 24,
+    "Activo": true
+  },
+  {
+    "Id": "eea27913-1a93-471a-b917-56e810deb5ad",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 914,
+    "CarbohidratosConsumidos": 62,
+    "ProteinasConsumidas": 126,
+    "GrasasConsumidas": 18,
+    "Activo": true
+  },
+  {
+    "Id": "db004f47-57cb-4fb9-86fb-00b30b05ac08",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 701,
+    "CarbohidratosConsumidos": 31,
+    "ProteinasConsumidas": 97,
+    "GrasasConsumidas": 21,
+    "Activo": true
+  },
+  {
+    "Id": "aca19162-c410-4f79-bdd7-624761d80f81",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 1025,
+    "CarbohidratosConsumidos": 33,
+    "ProteinasConsumidas": 167,
+    "GrasasConsumidas": 25,
+    "Activo": true
+  },
+  {
+    "Id": "7c1e5ee1-0ef1-491c-920f-2750e075bf09",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 610,
+    "CarbohidratosConsumidos": 39,
+    "ProteinasConsumidas": 91,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "f2e8610b-f1b0-402c-a26e-f121b42b2953",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 687,
+    "CarbohidratosConsumidos": 85,
+    "ProteinasConsumidas": 53,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "79933552-0339-4ec6-b78e-701e828981fe",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 788,
+    "CarbohidratosConsumidos": 31,
+    "ProteinasConsumidas": 67,
+    "GrasasConsumidas": 44,
+    "Activo": true
+  },
+  {
+    "Id": "0ed65986-728e-4800-9539-bda13352db1c",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 459,
+    "CarbohidratosConsumidos": 23,
+    "ProteinasConsumidas": 49,
+    "GrasasConsumidas": 19,
+    "Activo": true
+  },
+  {
+    "Id": "3600dcfd-9b5b-4ae5-87f9-840b8b28442c",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 603,
+    "CarbohidratosConsumidos": 10,
+    "ProteinasConsumidas": 35,
+    "GrasasConsumidas": 47,
+    "Activo": true
+  },
+  {
+    "Id": "a8440a17-0a9c-4b50-be44-88cb2fb68df5",
+    "UsuarioId": "d81daebf-70aa-44b2-89ad-f43f0653785a",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 804,
+    "CarbohidratosConsumidos": 97,
+    "ProteinasConsumidas": 59,
+    "GrasasConsumidas": 20,
+    "Activo": true
+  },
+  {
+    "Id": "d5975be3-af58-48bf-a698-e2599432ebac",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 559,
+    "CarbohidratosConsumidos": 36,
+    "ProteinasConsumidas": 70,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "6b4401bf-a504-4dd0-8b6b-7470f903ce88",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 619,
+    "CarbohidratosConsumidos": 41,
+    "ProteinasConsumidas": 35,
+    "GrasasConsumidas": 35,
+    "Activo": true
+  },
+  {
+    "Id": "97134e50-b600-4201-8389-9986c7ce3025",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 412,
+    "CarbohidratosConsumidos": 59,
+    "ProteinasConsumidas": 26,
+    "GrasasConsumidas": 8,
+    "Activo": true
+  },
+  {
+    "Id": "560db75a-6440-466a-a184-477045303523",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 652,
+    "CarbohidratosConsumidos": 65,
+    "ProteinasConsumidas": 71,
+    "GrasasConsumidas": 12,
+    "Activo": true
+  },
+  {
+    "Id": "4f30888c-4155-4eea-8914-5b58bfa24cea",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 430,
+    "CarbohidratosConsumidos": 63,
+    "ProteinasConsumidas": 22,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "859b87c3-db73-45cd-b51a-3c16964ea9a5",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 1072,
+    "CarbohidratosConsumidos": 212,
+    "ProteinasConsumidas": 20,
+    "GrasasConsumidas": 16,
+    "Activo": true
+  },
+  {
+    "Id": "7d9103ba-e294-400c-be5f-ee302b66f8a9",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 575,
+    "CarbohidratosConsumidos": 40,
+    "ProteinasConsumidas": 61,
+    "GrasasConsumidas": 19,
+    "Activo": true
+  },
+  {
+    "Id": "efbce50f-3b65-477d-bec0-fc8ee3722d08",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 522,
+    "CarbohidratosConsumidos": 48,
+    "ProteinasConsumidas": 42,
+    "GrasasConsumidas": 18,
+    "Activo": true
+  },
+  {
+    "Id": "de85684d-5e04-451d-ae98-c8f5f1b411d5",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 340,
+    "CarbohidratosConsumidos": 46,
+    "ProteinasConsumidas": 12,
+    "GrasasConsumidas": 12,
+    "Activo": true
+  },
+  {
+    "Id": "9c0ebc7d-1645-499c-a1fb-a532496416f2",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 335,
+    "CarbohidratosConsumidos": 27,
+    "ProteinasConsumidas": 23,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "75a94370-d642-445d-a159-e548f4b5ebae",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 1036,
+    "CarbohidratosConsumidos": 52,
+    "ProteinasConsumidas": 72,
+    "GrasasConsumidas": 60,
+    "Activo": true
+  },
+  {
+    "Id": "105b07ff-8082-4c8b-87b4-7bfe2202a206",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 794,
+    "CarbohidratosConsumidos": 137,
+    "ProteinasConsumidas": 39,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "399898be-2ce9-4102-b472-4acc06197579",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 410,
+    "CarbohidratosConsumidos": 54,
+    "ProteinasConsumidas": 17,
+    "GrasasConsumidas": 14,
+    "Activo": true
+  },
+  {
+    "Id": "26c1b7f7-95ad-4ec1-b920-e7db5d069c41",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 690,
+    "CarbohidratosConsumidos": 41,
+    "ProteinasConsumidas": 82,
+    "GrasasConsumidas": 22,
+    "Activo": true
+  },
+  {
+    "Id": "957c505c-fc79-45a1-a33b-e87918b1f64c",
+    "UsuarioId": "265167d5-946a-4e71-b263-75b17734bd82",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 852,
+    "CarbohidratosConsumidos": 145,
+    "ProteinasConsumidas": 50,
+    "GrasasConsumidas": 8,
+    "Activo": true
+  },
+  {
+    "Id": "0fe8818f-b924-4921-8485-e7c5dcd8e903",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 887,
+    "CarbohidratosConsumidos": 168,
+    "ProteinasConsumidas": 20,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "f397f643-9fea-4f40-85b4-d276cb306f1e",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 1281,
+    "CarbohidratosConsumidos": 167,
+    "ProteinasConsumidas": 97,
+    "GrasasConsumidas": 25,
+    "Activo": true
+  },
+  {
+    "Id": "31d171f3-bece-4cf7-bbd8-f43b14c9a12d",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 563,
+    "CarbohidratosConsumidos": 30,
+    "ProteinasConsumidas": 68,
+    "GrasasConsumidas": 19,
+    "Activo": true
+  },
+  {
+    "Id": "ef55000c-92e2-4608-9590-63deaba891da",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 307,
+    "CarbohidratosConsumidos": 29,
+    "ProteinasConsumidas": 32,
+    "GrasasConsumidas": 7,
+    "Activo": true
+  },
+  {
+    "Id": "7354c078-7974-4f15-aa3d-ada796deb648",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 473,
+    "CarbohidratosConsumidos": 31,
+    "ProteinasConsumidas": 31,
+    "GrasasConsumidas": 25,
+    "Activo": true
+  },
+  {
+    "Id": "c6009b4c-97cb-4e3b-ab73-97e73c7d04fe",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 254,
+    "CarbohidratosConsumidos": 19,
+    "ProteinasConsumidas": 31,
+    "GrasasConsumidas": 6,
+    "Activo": true
+  },
+  {
+    "Id": "e6e48e7e-8d78-4b32-9c9d-c5b144905371",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 920,
+    "CarbohidratosConsumidos": 6,
+    "ProteinasConsumidas": 170,
+    "GrasasConsumidas": 24,
+    "Activo": true
+  },
+  {
+    "Id": "2dd05ce1-e1d4-4927-aa46-798ed2d8840c",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 451,
+    "CarbohidratosConsumidos": 35,
+    "ProteinasConsumidas": 53,
+    "GrasasConsumidas": 11,
+    "Activo": true
+  },
+  {
+    "Id": "725d80bf-4ed7-4244-b2b1-c43543b75cb6",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 693,
+    "CarbohidratosConsumidos": 51,
+    "ProteinasConsumidas": 66,
+    "GrasasConsumidas": 25,
+    "Activo": true
+  },
+  {
+    "Id": "2641680b-2c7e-48ca-9549-e79955608e23",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 526,
+    "CarbohidratosConsumidos": 53,
+    "ProteinasConsumidas": 38,
+    "GrasasConsumidas": 18,
+    "Activo": true
+  },
+  {
+    "Id": "6a8bac6a-6356-48be-a530-2b4ed4cac6d8",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 315,
+    "CarbohidratosConsumidos": 7,
+    "ProteinasConsumidas": 47,
+    "GrasasConsumidas": 11,
+    "Activo": true
+  },
+  {
+    "Id": "2b3b6c8b-0f6a-4e26-9e04-5a3370d9abab",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 317,
+    "CarbohidratosConsumidos": 30,
+    "ProteinasConsumidas": 29,
+    "GrasasConsumidas": 9,
+    "Activo": true
+  },
+  {
+    "Id": "93719b55-bbfd-417e-a715-be1b9e28b7d0",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 560,
+    "CarbohidratosConsumidos": 47,
+    "ProteinasConsumidas": 48,
+    "GrasasConsumidas": 20,
+    "Activo": true
+  },
+  {
+    "Id": "ddfc1641-c2ab-466c-b197-05ff3290487b",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 1419,
+    "CarbohidratosConsumidos": 202,
+    "ProteinasConsumidas": 110,
+    "GrasasConsumidas": 19,
+    "Activo": true
+  },
+  {
+    "Id": "b908c9cf-1d6c-46b0-b4d2-d6dda9caf2d4",
+    "UsuarioId": "9c1aafb5-eba4-4ab6-b90e-4aeb82d3e4c9",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 1315,
+    "CarbohidratosConsumidos": 203,
+    "ProteinasConsumidas": 65,
+    "GrasasConsumidas": 27,
+    "Activo": true
+  },
+  {
+    "Id": "5bf2ac54-4dd5-4da3-892f-130fdd2443de",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 343,
+    "CarbohidratosConsumidos": 42,
+    "ProteinasConsumidas": 28,
+    "GrasasConsumidas": 7,
+    "Activo": true
+  },
+  {
+    "Id": "9394ec36-192c-4c10-ba2e-6f1635b06a75",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 1470,
+    "CarbohidratosConsumidos": 26,
+    "ProteinasConsumidas": 103,
+    "GrasasConsumidas": 106,
+    "Activo": true
+  },
+  {
+    "Id": "1a227ef0-d1d4-47d7-87af-b2bc63f9df59",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 503,
+    "CarbohidratosConsumidos": 50,
+    "ProteinasConsumidas": 51,
+    "GrasasConsumidas": 11,
+    "Activo": true
+  },
+  {
+    "Id": "e90bda38-2881-46cc-ac2c-8e6f0a915e3b",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 692,
+    "CarbohidratosConsumidos": 20,
+    "ProteinasConsumidas": 27,
+    "GrasasConsumidas": 56,
+    "Activo": true
+  },
+  {
+    "Id": "68b220e5-57d8-4444-926e-ea6523ed4624",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 374,
+    "CarbohidratosConsumidos": 12,
+    "ProteinasConsumidas": 50,
+    "GrasasConsumidas": 14,
+    "Activo": true
+  },
+  {
+    "Id": "5fd35008-ee67-455c-b5dd-226beedc38ef",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 749,
+    "CarbohidratosConsumidos": 18,
+    "ProteinasConsumidas": 113,
+    "GrasasConsumidas": 25,
+    "Activo": true
+  },
+  {
+    "Id": "9f25a38b-a729-493b-ab6d-5678356a8f0f",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 503,
+    "CarbohidratosConsumidos": 39,
+    "ProteinasConsumidas": 53,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "4a5a9c0f-e32a-4f47-977b-81d64dfb1775",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 739,
+    "CarbohidratosConsumidos": 55,
+    "ProteinasConsumidas": 96,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "3f38492a-ea99-40bc-abc8-1b247aacc071",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 845,
+    "CarbohidratosConsumidos": 67,
+    "ProteinasConsumidas": 115,
+    "GrasasConsumidas": 13,
+    "Activo": true
+  },
+  {
+    "Id": "343e43d8-5649-409a-aa04-574d6e1d65ca",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 1098,
+    "CarbohidratosConsumidos": 32,
+    "ProteinasConsumidas": 67,
+    "GrasasConsumidas": 78,
+    "Activo": true
+  },
+  {
+    "Id": "c34bec70-c951-4d14-9277-50d825cfaf42",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 942,
+    "CarbohidratosConsumidos": 35,
+    "ProteinasConsumidas": 160,
+    "GrasasConsumidas": 18,
+    "Activo": true
+  },
+  {
+    "Id": "4352cc18-1261-4bbf-9510-9b54ec369e2d",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 569,
+    "CarbohidratosConsumidos": 67,
+    "ProteinasConsumidas": 46,
+    "GrasasConsumidas": 13,
+    "Activo": true
+  },
+  {
+    "Id": "a784517b-3929-41c9-a169-9b2aa4b02b48",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 428,
+    "CarbohidratosConsumidos": 76,
+    "ProteinasConsumidas": 22,
+    "GrasasConsumidas": 4,
+    "Activo": true
+  },
+  {
+    "Id": "0eb710b7-094d-453c-b641-d9573ffe119c",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 1640,
+    "CarbohidratosConsumidos": 171,
+    "ProteinasConsumidas": 149,
+    "GrasasConsumidas": 40,
+    "Activo": true
+  },
+  {
+    "Id": "f7a36ba9-dfef-412f-a035-a942ad8557b5",
+    "UsuarioId": "20d40df1-d7f1-46a9-959c-bb22fc75fc1a",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 304,
+    "CarbohidratosConsumidos": 33,
+    "ProteinasConsumidas": 34,
+    "GrasasConsumidas": 4,
+    "Activo": true
+  },
+  {
+    "Id": "2319ea07-75a1-411b-bf0c-fa06722a39a8",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 569,
+    "CarbohidratosConsumidos": 71,
+    "ProteinasConsumidas": 42,
+    "GrasasConsumidas": 13,
+    "Activo": true
+  },
+  {
+    "Id": "d529f607-4a10-4664-afa5-0abe6fe63ba1",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 734,
+    "CarbohidratosConsumidos": 107,
+    "ProteinasConsumidas": 36,
+    "GrasasConsumidas": 18,
+    "Activo": true
+  },
+  {
+    "Id": "f913220b-228d-4282-ae26-e6c2d9684e1f",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 895,
+    "CarbohidratosConsumidos": 146,
+    "ProteinasConsumidas": 44,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "7761831c-e12c-4361-8f9e-202cd19d80b0",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 897,
+    "CarbohidratosConsumidos": 147,
+    "ProteinasConsumidas": 48,
+    "GrasasConsumidas": 13,
+    "Activo": true
+  },
+  {
+    "Id": "26eac505-d753-49ee-a079-f2d1170918e1",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 705,
+    "CarbohidratosConsumidos": 63,
+    "ProteinasConsumidas": 84,
+    "GrasasConsumidas": 13,
+    "Activo": true
+  },
+  {
+    "Id": "195c713e-bab2-4ed5-ac29-d83a1b4c35d3",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 671,
+    "CarbohidratosConsumidos": 112,
+    "ProteinasConsumidas": 49,
+    "GrasasConsumidas": 3,
+    "Activo": true
+  },
+  {
+    "Id": "694e167e-2a12-46be-9ec5-763ecffe4afd",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 774,
+    "CarbohidratosConsumidos": 108,
+    "ProteinasConsumidas": 36,
+    "GrasasConsumidas": 22,
+    "Activo": true
+  },
+  {
+    "Id": "70e8161d-c3c7-40ba-80d5-cd63de6df5d6",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 378,
+    "CarbohidratosConsumidos": 28,
+    "ProteinasConsumidas": 44,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "dc2d5f5f-0db5-4e27-8968-33a332e4b55f",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 383,
+    "CarbohidratosConsumidos": 34,
+    "ProteinasConsumidas": 28,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "b7b9b044-89d6-4a61-a2f0-c9a8fc574dcd",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 1181,
+    "CarbohidratosConsumidos": 184,
+    "ProteinasConsumidas": 82,
+    "GrasasConsumidas": 13,
+    "Activo": true
+  },
+  {
+    "Id": "efd40ac6-5f39-4a54-bbfe-291d95cbc9f9",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 425,
+    "CarbohidratosConsumidos": 40,
+    "ProteinasConsumidas": 28,
+    "GrasasConsumidas": 17,
+    "Activo": true
+  },
+  {
+    "Id": "8bfb8b68-cbd1-4da6-be28-272d783f9054",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 857,
+    "CarbohidratosConsumidos": 52,
+    "ProteinasConsumidas": 43,
+    "GrasasConsumidas": 53,
+    "Activo": true
+  },
+  {
+    "Id": "ac6b93b2-f208-4c93-b5ef-0e27e99987b5",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 1739,
+    "CarbohidratosConsumidos": 204,
+    "ProteinasConsumidas": 179,
+    "GrasasConsumidas": 23,
+    "Activo": true
+  },
+  {
+    "Id": "0dc4427e-e059-4c2f-88fe-cbc454f6649d",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 420,
+    "CarbohidratosConsumidos": 55,
+    "ProteinasConsumidas": 32,
+    "GrasasConsumidas": 8,
+    "Activo": true
+  },
+  {
+    "Id": "c71d56a8-998d-4a30-b9db-7fd545c23227",
+    "UsuarioId": "68d61f09-5982-46fb-beb4-15504e39d87e",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 467,
+    "CarbohidratosConsumidos": 48,
+    "ProteinasConsumidas": 35,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "6f9916e4-6ff0-41c4-ada4-9a185379e725",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 142,
+    "CarbohidratosConsumidos": 0,
+    "ProteinasConsumidas": 22,
+    "GrasasConsumidas": 6,
+    "Activo": true
+  },
+  {
+    "Id": "e6242860-4620-4f04-bd17-9c7f73dca641",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 486,
+    "CarbohidratosConsumidos": 44,
+    "ProteinasConsumidas": 28,
+    "GrasasConsumidas": 22,
+    "Activo": true
+  },
+  {
+    "Id": "b53224fd-884f-4eb1-b412-5b13177f1f68",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 222,
+    "CarbohidratosConsumidos": 7,
+    "ProteinasConsumidas": 26,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "8390889d-279c-48e0-92db-55e70f1df735",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 226,
+    "CarbohidratosConsumidos": 2,
+    "ProteinasConsumidas": 32,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "0e3169a4-e0ba-4649-8fcc-00cf7696ff8f",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 1097,
+    "CarbohidratosConsumidos": 43,
+    "ProteinasConsumidas": 130,
+    "GrasasConsumidas": 45,
+    "Activo": true
+  },
+  {
+    "Id": "bb8cafab-a3d5-4166-86f1-366fad58448f",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 777,
+    "CarbohidratosConsumidos": 130,
+    "ProteinasConsumidas": 35,
+    "GrasasConsumidas": 13,
+    "Activo": true
+  },
+  {
+    "Id": "387bfef7-6cb6-4d08-aa6e-a57ec5cefebf",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 406,
+    "CarbohidratosConsumidos": 42,
+    "ProteinasConsumidas": 19,
+    "GrasasConsumidas": 18,
+    "Activo": true
+  },
+  {
+    "Id": "26384bae-a185-4698-9d2e-6a2f6ac742f9",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 1053,
+    "CarbohidratosConsumidos": 57,
+    "ProteinasConsumidas": 150,
+    "GrasasConsumidas": 25,
+    "Activo": true
+  },
+  {
+    "Id": "7d6c79eb-c57c-46df-8d21-83e8f1643741",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 632,
+    "CarbohidratosConsumidos": 15,
+    "ProteinasConsumidas": 107,
+    "GrasasConsumidas": 16,
+    "Activo": true
+  },
+  {
+    "Id": "3d850598-4a81-47cb-bf20-1619caada5c0",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 978,
+    "CarbohidratosConsumidos": 51,
+    "ProteinasConsumidas": 153,
+    "GrasasConsumidas": 18,
+    "Activo": true
+  },
+  {
+    "Id": "fb8839f9-cecb-46c5-953b-4dfc6e3b325e",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 586,
+    "CarbohidratosConsumidos": 67,
+    "ProteinasConsumidas": 57,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "e16d0028-f1f4-4b09-8bc1-572fb680655b",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 541,
+    "CarbohidratosConsumidos": 8,
+    "ProteinasConsumidas": 53,
+    "GrasasConsumidas": 33,
+    "Activo": true
+  },
+  {
+    "Id": "3f9ac204-ed62-4377-b62f-c6f9c3274ee4",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 356,
+    "CarbohidratosConsumidos": 58,
+    "ProteinasConsumidas": 13,
+    "GrasasConsumidas": 8,
+    "Activo": true
+  },
+  {
+    "Id": "8dae0b14-90ce-4805-9fde-200b3e83a611",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 417,
+    "CarbohidratosConsumidos": 19,
+    "ProteinasConsumidas": 38,
+    "GrasasConsumidas": 21,
+    "Activo": true
+  },
+  {
+    "Id": "1437cd9e-5511-4792-9c26-ef1563a89545",
+    "UsuarioId": "bca0e8e4-3958-4225-9399-89ea88e19e96",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 311,
+    "CarbohidratosConsumidos": 21,
+    "ProteinasConsumidas": 32,
+    "GrasasConsumidas": 11,
+    "Activo": true
+  },
+  {
+    "Id": "6c05e518-80e1-4683-9eb8-a64d3c77c06b",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 764,
+    "CarbohidratosConsumidos": 134,
+    "ProteinasConsumidas": 39,
+    "GrasasConsumidas": 8,
+    "Activo": true
+  },
+  {
+    "Id": "5d700fa4-4702-479e-a6bf-3d5c2597ad33",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 982,
+    "CarbohidratosConsumidos": 86,
+    "ProteinasConsumidas": 110,
+    "GrasasConsumidas": 22,
+    "Activo": true
+  },
+  {
+    "Id": "3e25470e-5751-4cbf-9b38-bcd4e1d31f4d",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 546,
+    "CarbohidratosConsumidos": 9,
+    "ProteinasConsumidas": 96,
+    "GrasasConsumidas": 14,
+    "Activo": true
+  },
+  {
+    "Id": "d64939cf-3505-4093-bb3c-e89364ac8d63",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 467,
+    "CarbohidratosConsumidos": 60,
+    "ProteinasConsumidas": 41,
+    "GrasasConsumidas": 7,
+    "Activo": true
+  },
+  {
+    "Id": "928d32bd-5fbb-4f62-bd66-360ed31be5a7",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 170,
+    "CarbohidratosConsumidos": 6,
+    "ProteinasConsumidas": 23,
+    "GrasasConsumidas": 6,
+    "Activo": true
+  },
+  {
+    "Id": "39d2c810-3b73-40d7-8534-c7f27c17bbfb",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 631,
+    "CarbohidratosConsumidos": 48,
+    "ProteinasConsumidas": 85,
+    "GrasasConsumidas": 11,
+    "Activo": true
+  },
+  {
+    "Id": "f2540412-4da3-41ce-aa73-a79709603d65",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 422,
+    "CarbohidratosConsumidos": 44,
+    "ProteinasConsumidas": 39,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "947993fe-9088-4642-8ee7-c6bc4760bcc7",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 258,
+    "CarbohidratosConsumidos": 15,
+    "ProteinasConsumidas": 27,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "0b45a9ec-8d31-4dfd-b700-9f268e21cce7",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 1069,
+    "CarbohidratosConsumidos": 142,
+    "ProteinasConsumidas": 69,
+    "GrasasConsumidas": 25,
+    "Activo": true
+  },
+  {
+    "Id": "93128ee9-dc1f-4134-ac34-16e537341ca1",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 686,
+    "CarbohidratosConsumidos": 61,
+    "ProteinasConsumidas": 70,
+    "GrasasConsumidas": 18,
+    "Activo": true
+  },
+  {
+    "Id": "9d3e7c35-0e7c-4e62-bd8b-279d9fcf5f1d",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 645,
+    "CarbohidratosConsumidos": 37,
+    "ProteinasConsumidas": 86,
+    "GrasasConsumidas": 17,
+    "Activo": true
+  },
+  {
+    "Id": "62743375-fa72-42c7-8f62-8a9e94c0d036",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 1358,
+    "CarbohidratosConsumidos": 91,
+    "ProteinasConsumidas": 154,
+    "GrasasConsumidas": 42,
+    "Activo": true
+  },
+  {
+    "Id": "c9170d6c-d70f-4b65-9ef2-4ecdbb49f7ea",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 369,
+    "CarbohidratosConsumidos": 41,
+    "ProteinasConsumidas": 31,
+    "GrasasConsumidas": 9,
+    "Activo": true
+  },
+  {
+    "Id": "89c80e03-77ff-4007-a94c-ced13798fdc1",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 345,
+    "CarbohidratosConsumidos": 42,
+    "ProteinasConsumidas": 15,
+    "GrasasConsumidas": 13,
+    "Activo": true
+  },
+  {
+    "Id": "db2f536a-a244-4c68-a4c8-e91c9dbed82d",
+    "UsuarioId": "f4d33076-44f7-4198-936a-6bc62a91e457",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 471,
+    "CarbohidratosConsumidos": 39,
+    "ProteinasConsumidas": 36,
+    "GrasasConsumidas": 19,
+    "Activo": true
+  },
+  {
+    "Id": "5eb92f62-131f-4faa-89e8-1f53b0ba9360",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 427,
+    "CarbohidratosConsumidos": 34,
+    "ProteinasConsumidas": 30,
+    "GrasasConsumidas": 19,
+    "Activo": true
+  },
+  {
+    "Id": "a07ff4cc-f950-4865-ada1-ab028ee8cca8",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 1103,
+    "CarbohidratosConsumidos": 49,
+    "ProteinasConsumidas": 94,
+    "GrasasConsumidas": 59,
+    "Activo": true
+  },
+  {
+    "Id": "2c69b5f9-31a0-4729-8363-47c56184b56b",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 592,
+    "CarbohidratosConsumidos": 59,
+    "ProteinasConsumidas": 35,
+    "GrasasConsumidas": 24,
+    "Activo": true
+  },
+  {
+    "Id": "a652ca28-8500-4ade-a40d-13c474fef9f3",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 425,
+    "CarbohidratosConsumidos": 48,
+    "ProteinasConsumidas": 29,
+    "GrasasConsumidas": 13,
+    "Activo": true
+  },
+  {
+    "Id": "da6b0767-90ab-49a1-91b4-626df21a7d91",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 769,
+    "CarbohidratosConsumidos": 67,
+    "ProteinasConsumidas": 69,
+    "GrasasConsumidas": 25,
+    "Activo": true
+  },
+  {
+    "Id": "54b6b6c2-eb52-4a35-a1db-47ddf8a20dfa",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 658,
+    "CarbohidratosConsumidos": 36,
+    "ProteinasConsumidas": 106,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "d3fe54b5-911c-487e-8695-95f681c8287d",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 843,
+    "CarbohidratosConsumidos": 14,
+    "ProteinasConsumidas": 73,
+    "GrasasConsumidas": 55,
+    "Activo": true
+  },
+  {
+    "Id": "04c4be23-b493-48a2-a924-92fddb7e7e32",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 604,
+    "CarbohidratosConsumidos": 60,
+    "ProteinasConsumidas": 28,
+    "GrasasConsumidas": 28,
+    "Activo": true
+  },
+  {
+    "Id": "6ce126c0-1c9c-43a1-a1a9-c2faeb355651",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 715,
+    "CarbohidratosConsumidos": 38,
+    "ProteinasConsumidas": 80,
+    "GrasasConsumidas": 27,
+    "Activo": true
+  },
+  {
+    "Id": "ae7a9715-57c1-4a2f-a2fc-13dedfea4d0c",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 783,
+    "CarbohidratosConsumidos": 88,
+    "ProteinasConsumidas": 65,
+    "GrasasConsumidas": 19,
+    "Activo": true
+  },
+  {
+    "Id": "a47ba72e-cd37-4612-9d1c-bb5e1bf7fe00",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 745,
+    "CarbohidratosConsumidos": 91,
+    "ProteinasConsumidas": 39,
+    "GrasasConsumidas": 25,
+    "Activo": true
+  },
+  {
+    "Id": "612589e6-8834-4231-baba-07af49304189",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 720,
+    "CarbohidratosConsumidos": 62,
+    "ProteinasConsumidas": 64,
+    "GrasasConsumidas": 24,
+    "Activo": true
+  },
+  {
+    "Id": "87e9b53e-e6a2-4a1f-8ea3-1fdb450b9668",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 700,
+    "CarbohidratosConsumidos": 99,
+    "ProteinasConsumidas": 40,
+    "GrasasConsumidas": 16,
+    "Activo": true
+  },
+  {
+    "Id": "7d3cb754-e698-4635-badf-22a38d88e0bd",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 624,
+    "CarbohidratosConsumidos": 36,
+    "ProteinasConsumidas": 66,
+    "GrasasConsumidas": 24,
+    "Activo": true
+  },
+  {
+    "Id": "80717471-515a-44b0-ba60-61c50ae5eefd",
+    "UsuarioId": "421e5f20-9ef6-415c-9561-6ab95450f5f5",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 1136,
+    "CarbohidratosConsumidos": 17,
+    "ProteinasConsumidas": 114,
+    "GrasasConsumidas": 68,
+    "Activo": true
+  },
+  {
+    "Id": "f30a6fc2-461e-4335-ba60-c82add76236e",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 586,
+    "CarbohidratosConsumidos": 76,
+    "ProteinasConsumidas": 30,
+    "GrasasConsumidas": 18,
+    "Activo": true
+  },
+  {
+    "Id": "5da0aec6-39b5-42a0-8eda-6791e81b4c30",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 643,
+    "CarbohidratosConsumidos": 104,
+    "ProteinasConsumidas": 23,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "4430fb81-4dfb-4869-b642-f89ff3e3f86d",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 533,
+    "CarbohidratosConsumidos": 51,
+    "ProteinasConsumidas": 44,
+    "GrasasConsumidas": 17,
+    "Activo": true
+  },
+  {
+    "Id": "5f00d482-d65f-4e2f-855d-f22bc5d74a6e",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 692,
+    "CarbohidratosConsumidos": 67,
+    "ProteinasConsumidas": 34,
+    "GrasasConsumidas": 32,
+    "Activo": true
+  },
+  {
+    "Id": "41a4b1a8-d5bc-46a3-aba8-364e28805ba1",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 720,
+    "CarbohidratosConsumidos": 46,
+    "ProteinasConsumidas": 98,
+    "GrasasConsumidas": 16,
+    "Activo": true
+  },
+  {
+    "Id": "4beaf2f6-7f31-4c9f-ab3c-26f123ee3a4f",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 339,
+    "CarbohidratosConsumidos": 13,
+    "ProteinasConsumidas": 47,
+    "GrasasConsumidas": 11,
+    "Activo": true
+  },
+  {
+    "Id": "1a3f23e7-f086-4b9f-a652-37a0d8605095",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 597,
+    "CarbohidratosConsumidos": 13,
+    "ProteinasConsumidas": 98,
+    "GrasasConsumidas": 17,
+    "Activo": true
+  },
+  {
+    "Id": "ea8ed5ff-a6ba-4ddf-bbdc-917054207de4",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 1250,
+    "CarbohidratosConsumidos": 170,
+    "ProteinasConsumidas": 102,
+    "GrasasConsumidas": 18,
+    "Activo": true
+  },
+  {
+    "Id": "1f8a214d-793a-40fb-8981-58314791f700",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 437,
+    "CarbohidratosConsumidos": 25,
+    "ProteinasConsumidas": 46,
+    "GrasasConsumidas": 17,
+    "Activo": true
+  },
+  {
+    "Id": "c0268d2f-b413-4167-8dac-a13f5337812b",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 873,
+    "CarbohidratosConsumidos": 87,
+    "ProteinasConsumidas": 57,
+    "GrasasConsumidas": 33,
+    "Activo": true
+  },
+  {
+    "Id": "3cd58877-d337-4922-aca1-c3b368064947",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 691,
+    "CarbohidratosConsumidos": 83,
+    "ProteinasConsumidas": 38,
+    "GrasasConsumidas": 23,
+    "Activo": true
+  },
+  {
+    "Id": "408b10c7-515a-435a-9ac2-8f9f19518497",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 587,
+    "CarbohidratosConsumidos": 31,
+    "ProteinasConsumidas": 73,
+    "GrasasConsumidas": 19,
+    "Activo": true
+  },
+  {
+    "Id": "2645bc38-e61c-4420-8d19-383d167b6024",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 783,
+    "CarbohidratosConsumidos": 77,
+    "ProteinasConsumidas": 85,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "97b54331-5548-4784-9903-61b415661ba2",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 551,
+    "CarbohidratosConsumidos": 23,
+    "ProteinasConsumidas": 90,
+    "GrasasConsumidas": 11,
+    "Activo": true
+  },
+  {
+    "Id": "91c42b71-a897-44a9-91ae-1c86036f28f1",
+    "UsuarioId": "6bf7867b-a48f-4158-b223-3aac5b5ecbb2",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 334,
+    "CarbohidratosConsumidos": 19,
+    "ProteinasConsumidas": 24,
+    "GrasasConsumidas": 18,
+    "Activo": true
+  },
+  {
+    "Id": "183dfb1f-6f50-4f50-9b50-621c73db5bfd",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 316,
+    "CarbohidratosConsumidos": 14,
+    "ProteinasConsumidas": 11,
+    "GrasasConsumidas": 24,
+    "Activo": true
+  },
+  {
+    "Id": "35a2cd3c-6b1e-4f17-a752-f0378d41112e",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 494,
+    "CarbohidratosConsumidos": 34,
+    "ProteinasConsumidas": 76,
+    "GrasasConsumidas": 6,
+    "Activo": true
+  },
+  {
+    "Id": "f8f46494-c8cf-4c4f-aabf-12f51691fc37",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 409,
+    "CarbohidratosConsumidos": 35,
+    "ProteinasConsumidas": 38,
+    "GrasasConsumidas": 13,
+    "Activo": true
+  },
+  {
+    "Id": "5b72ab0f-31f9-468a-8c20-0adc1c04ee76",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 491,
+    "CarbohidratosConsumidos": 83,
+    "ProteinasConsumidas": 15,
+    "GrasasConsumidas": 11,
+    "Activo": true
+  },
+  {
+    "Id": "5c885fa7-41a8-4bf7-9854-1795ebcc1c84",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 625,
+    "CarbohidratosConsumidos": 49,
+    "ProteinasConsumidas": 96,
+    "GrasasConsumidas": 5,
+    "Activo": true
+  },
+  {
+    "Id": "6b8093b1-9072-4be9-aac1-626270ce9ab2",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 361,
+    "CarbohidratosConsumidos": 44,
+    "ProteinasConsumidas": 17,
+    "GrasasConsumidas": 13,
+    "Activo": true
+  },
+  {
+    "Id": "c0a780a4-00c5-4738-a174-fa5f4d0a19dc",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 1168,
+    "CarbohidratosConsumidos": 67,
+    "ProteinasConsumidas": 72,
+    "GrasasConsumidas": 68,
+    "Activo": true
+  },
+  {
+    "Id": "61a856e5-2ca3-45b7-b9a2-6c405d1b9708",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 730,
+    "CarbohidratosConsumidos": 44,
+    "ProteinasConsumidas": 89,
+    "GrasasConsumidas": 22,
+    "Activo": true
+  },
+  {
+    "Id": "8e8e1699-5de7-4ee2-aefa-65f812027723",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 629,
+    "CarbohidratosConsumidos": 13,
+    "ProteinasConsumidas": 97,
+    "GrasasConsumidas": 21,
+    "Activo": true
+  },
+  {
+    "Id": "8ef33337-4f5d-4945-bfe3-e612293bd31a",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 304,
+    "CarbohidratosConsumidos": 17,
+    "ProteinasConsumidas": 32,
+    "GrasasConsumidas": 12,
+    "Activo": true
+  },
+  {
+    "Id": "485a0f73-4292-40c0-b146-6bdda65dab3d",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 383,
+    "CarbohidratosConsumidos": 12,
+    "ProteinasConsumidas": 41,
+    "GrasasConsumidas": 19,
+    "Activo": true
+  },
+  {
+    "Id": "398c32f4-62d3-4b8e-86b1-9abcfbfceb26",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 709,
+    "CarbohidratosConsumidos": 52,
+    "ProteinasConsumidas": 69,
+    "GrasasConsumidas": 25,
+    "Activo": true
+  },
+  {
+    "Id": "31dccd62-cc7a-4785-b07b-23ae2a2f5cd5",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 985,
+    "CarbohidratosConsumidos": 55,
+    "ProteinasConsumidas": 162,
+    "GrasasConsumidas": 13,
+    "Activo": true
+  },
+  {
+    "Id": "c5405ab4-3c71-4d6c-93c1-953b571d1b5e",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 761,
+    "CarbohidratosConsumidos": 51,
+    "ProteinasConsumidas": 92,
+    "GrasasConsumidas": 21,
+    "Activo": true
+  },
+  {
+    "Id": "369699d8-2f86-49ee-9b8c-b03fa16913db",
+    "UsuarioId": "e625e5f9-6392-47e4-89ca-9385837bb1a6",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 848,
+    "CarbohidratosConsumidos": 110,
+    "ProteinasConsumidas": 84,
+    "GrasasConsumidas": 8,
+    "Activo": true
+  },
+  {
+    "Id": "c10e914b-dbdd-4b10-802c-a0c8bd051036",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 303,
+    "CarbohidratosConsumidos": 33,
+    "ProteinasConsumidas": 36,
+    "GrasasConsumidas": 3,
+    "Activo": true
+  },
+  {
+    "Id": "4632df78-5427-4959-819a-b11229c71023",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 959,
+    "CarbohidratosConsumidos": 9,
+    "ProteinasConsumidas": 179,
+    "GrasasConsumidas": 23,
+    "Activo": true
+  },
+  {
+    "Id": "8c6cbd9b-958d-4f31-a5f9-a183fd7b5d4c",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 944,
+    "CarbohidratosConsumidos": 74,
+    "ProteinasConsumidas": 126,
+    "GrasasConsumidas": 16,
+    "Activo": true
+  },
+  {
+    "Id": "7c59efda-0d92-4919-b399-e1ba4173bd76",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 599,
+    "CarbohidratosConsumidos": 18,
+    "ProteinasConsumidas": 80,
+    "GrasasConsumidas": 23,
+    "Activo": true
+  },
+  {
+    "Id": "edbe4d60-d205-4b91-9977-5502d34d0759",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 478,
+    "CarbohidratosConsumidos": 20,
+    "ProteinasConsumidas": 68,
+    "GrasasConsumidas": 14,
+    "Activo": true
+  },
+  {
+    "Id": "f3686438-837e-476d-bf46-fcfeffb5e924",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 700,
+    "CarbohidratosConsumidos": 22,
+    "ProteinasConsumidas": 108,
+    "GrasasConsumidas": 20,
+    "Activo": true
+  },
+  {
+    "Id": "d6e7a72e-cf05-47e4-a877-34d26080c3c0",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 212,
+    "CarbohidratosConsumidos": 10,
+    "ProteinasConsumidas": 16,
+    "GrasasConsumidas": 12,
+    "Activo": true
+  },
+  {
+    "Id": "1467e5a1-0165-48f7-ae4e-09c7c2b6a7da",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 268,
+    "CarbohidratosConsumidos": 19,
+    "ProteinasConsumidas": 21,
+    "GrasasConsumidas": 12,
+    "Activo": true
+  },
+  {
+    "Id": "02380979-9432-4ac9-bde6-3bc7530731e1",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 187,
+    "CarbohidratosConsumidos": 0,
+    "ProteinasConsumidas": 31,
+    "GrasasConsumidas": 7,
+    "Activo": true
+  },
+  {
+    "Id": "b40fda8d-726c-49a6-bb15-5bcb8ee050b4",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 430,
+    "CarbohidratosConsumidos": 46,
+    "ProteinasConsumidas": 30,
+    "GrasasConsumidas": 14,
+    "Activo": true
+  },
+  {
+    "Id": "a836519d-3011-48fa-875c-119542f95fa8",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 961,
+    "CarbohidratosConsumidos": 150,
+    "ProteinasConsumidas": 52,
+    "GrasasConsumidas": 17,
+    "Activo": true
+  },
+  {
+    "Id": "578fc0f8-ea54-4912-84d1-8254440fc093",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 942,
+    "CarbohidratosConsumidos": 24,
+    "ProteinasConsumidas": 54,
+    "GrasasConsumidas": 70,
+    "Activo": true
+  },
+  {
+    "Id": "ed519b1b-64cf-47af-bab8-060ee2f5be23",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 478,
+    "CarbohidratosConsumidos": 25,
+    "ProteinasConsumidas": 45,
+    "GrasasConsumidas": 22,
+    "Activo": true
+  },
+  {
+    "Id": "2bfde23f-924f-4d92-918b-db582441693c",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 720,
+    "CarbohidratosConsumidos": 85,
+    "ProteinasConsumidas": 59,
+    "GrasasConsumidas": 16,
+    "Activo": true
+  },
+  {
+    "Id": "1cc5b644-cc7d-4d1b-8674-6f1dde8a1848",
+    "UsuarioId": "e85236be-3b04-43f2-90c6-25ee80636638",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 706,
+    "CarbohidratosConsumidos": 37,
+    "ProteinasConsumidas": 72,
+    "GrasasConsumidas": 30,
+    "Activo": true
+  },
+  {
+    "Id": "647f124b-6f35-4fd2-87e4-67a60fb2bac5",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 382,
+    "CarbohidratosConsumidos": 6,
+    "ProteinasConsumidas": 13,
+    "GrasasConsumidas": 34,
+    "Activo": true
+  },
+  {
+    "Id": "afe905af-4d6c-474b-bd71-4ca7ef4ff5ea",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 425,
+    "CarbohidratosConsumidos": 72,
+    "ProteinasConsumidas": 14,
+    "GrasasConsumidas": 9,
+    "Activo": true
+  },
+  {
+    "Id": "02d442b6-5a93-4e65-802e-7dfea361d8ba",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 1362,
+    "CarbohidratosConsumidos": 218,
+    "ProteinasConsumidas": 55,
+    "GrasasConsumidas": 30,
+    "Activo": true
+  },
+  {
+    "Id": "b739c929-2682-47e5-85c2-4b87d1febdfe",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 647,
+    "CarbohidratosConsumidos": 122,
+    "ProteinasConsumidas": 15,
+    "GrasasConsumidas": 11,
+    "Activo": true
+  },
+  {
+    "Id": "d46d4b28-2743-4a4b-aecc-319a7e47cb34",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 543,
+    "CarbohidratosConsumidos": 53,
+    "ProteinasConsumidas": 40,
+    "GrasasConsumidas": 19,
+    "Activo": true
+  },
+  {
+    "Id": "d8ff38b9-5d59-41b9-8409-faeff3c02a1e",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 697,
+    "CarbohidratosConsumidos": 42,
+    "ProteinasConsumidas": 76,
+    "GrasasConsumidas": 25,
+    "Activo": true
+  },
+  {
+    "Id": "2d7a57b4-7e3c-49ae-b290-812b3a589b04",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 1135,
+    "CarbohidratosConsumidos": 67,
+    "ProteinasConsumidas": 39,
+    "GrasasConsumidas": 79,
+    "Activo": true
+  },
+  {
+    "Id": "641a0e09-fd44-4672-a0b2-20e7e6a7c706",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 199,
+    "CarbohidratosConsumidos": 20,
+    "ProteinasConsumidas": 14,
+    "GrasasConsumidas": 7,
+    "Activo": true
+  },
+  {
+    "Id": "fa1e8587-e367-4dab-adae-a0d13b421462",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 975,
+    "CarbohidratosConsumidos": 64,
+    "ProteinasConsumidas": 119,
+    "GrasasConsumidas": 27,
+    "Activo": true
+  },
+  {
+    "Id": "cf5e8cba-f26b-455d-bcad-92f034b471e5",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 922,
+    "CarbohidratosConsumidos": 89,
+    "ProteinasConsumidas": 101,
+    "GrasasConsumidas": 18,
+    "Activo": true
+  },
+  {
+    "Id": "d1b2f75e-7fcd-4819-bd90-baec22f80668",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 1446,
+    "CarbohidratosConsumidos": 174,
+    "ProteinasConsumidas": 111,
+    "GrasasConsumidas": 34,
+    "Activo": true
+  },
+  {
+    "Id": "4302007d-4c83-41a7-bf3e-59b364c15f5b",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 384,
+    "CarbohidratosConsumidos": 0,
+    "ProteinasConsumidas": 42,
+    "GrasasConsumidas": 24,
+    "Activo": true
+  },
+  {
+    "Id": "80c9ce2d-0069-47a1-848b-db699b1265b4",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 489,
+    "CarbohidratosConsumidos": 6,
+    "ProteinasConsumidas": 87,
+    "GrasasConsumidas": 13,
+    "Activo": true
+  },
+  {
+    "Id": "c0a0e66a-6079-4ab5-a130-7a03337f2020",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 723,
+    "CarbohidratosConsumidos": 72,
+    "ProteinasConsumidas": 75,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "169428aa-69a9-46ef-bce1-fd7c4abfd635",
+    "UsuarioId": "27cf6278-f5f2-437b-af30-9dd7c3f117c4",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 297,
+    "CarbohidratosConsumidos": 48,
+    "ProteinasConsumidas": 6,
+    "GrasasConsumidas": 9,
+    "Activo": true
+  },
+  {
+    "Id": "a361dbb3-c880-442d-818e-1142bdd65639",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 994,
+    "CarbohidratosConsumidos": 46,
+    "ProteinasConsumidas": 81,
+    "GrasasConsumidas": 54,
+    "Activo": true
+  },
+  {
+    "Id": "fa1b1b06-588e-4703-8733-c8dd4dfe6e56",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 607,
+    "CarbohidratosConsumidos": 51,
+    "ProteinasConsumidas": 49,
+    "GrasasConsumidas": 23,
+    "Activo": true
+  },
+  {
+    "Id": "b0fc449b-2b25-4df0-beb5-ac5ef81a7cb3",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 297,
+    "CarbohidratosConsumidos": 32,
+    "ProteinasConsumidas": 22,
+    "GrasasConsumidas": 9,
+    "Activo": true
+  },
+  {
+    "Id": "4a2b27bd-f6f4-4795-8ced-25cce22c46c4",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 1430,
+    "CarbohidratosConsumidos": 239,
+    "ProteinasConsumidas": 42,
+    "GrasasConsumidas": 34,
+    "Activo": true
+  },
+  {
+    "Id": "e9ac7335-6940-459b-8d80-ccd76c628f96",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 772,
+    "CarbohidratosConsumidos": 85,
+    "ProteinasConsumidas": 63,
+    "GrasasConsumidas": 20,
+    "Activo": true
+  },
+  {
+    "Id": "82d249e8-89a4-4e03-9a1a-14d763a88e58",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 132,
+    "CarbohidratosConsumidos": 5,
+    "ProteinasConsumidas": 10,
+    "GrasasConsumidas": 8,
+    "Activo": true
+  },
+  {
+    "Id": "35a9c38f-5468-4998-be2a-70c12912c86d",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 729,
+    "CarbohidratosConsumidos": 72,
+    "ProteinasConsumidas": 81,
+    "GrasasConsumidas": 13,
+    "Activo": true
+  },
+  {
+    "Id": "4fe83e85-7c3b-4edd-a752-0677562fd321",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 370,
+    "CarbohidratosConsumidos": 50,
+    "ProteinasConsumidas": 20,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "b32b62de-26c8-4653-a33e-4e6dd4fa9cab",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 469,
+    "CarbohidratosConsumidos": 50,
+    "ProteinasConsumidas": 38,
+    "GrasasConsumidas": 13,
+    "Activo": true
+  },
+  {
+    "Id": "19d07749-1c06-41fd-89f6-688ac125966b",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 1031,
+    "CarbohidratosConsumidos": 130,
+    "ProteinasConsumidas": 85,
+    "GrasasConsumidas": 19,
+    "Activo": true
+  },
+  {
+    "Id": "b9c67124-d458-431f-984a-72fa6fa11f79",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 1030,
+    "CarbohidratosConsumidos": 91,
+    "ProteinasConsumidas": 117,
+    "GrasasConsumidas": 22,
+    "Activo": true
+  },
+  {
+    "Id": "fc219ec6-d654-4e20-a155-2f190dea3bf9",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 638,
+    "CarbohidratosConsumidos": 14,
+    "ProteinasConsumidas": 123,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "9a7c8f03-9550-44ba-9663-bbcbc3b8de8a",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 683,
+    "CarbohidratosConsumidos": 118,
+    "ProteinasConsumidas": 19,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "522d1562-bfc2-4ed3-98c1-f954411d2bd2",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 451,
+    "CarbohidratosConsumidos": 10,
+    "ProteinasConsumidas": 51,
+    "GrasasConsumidas": 23,
+    "Activo": true
+  },
+  {
+    "Id": "8176e7b8-7c0b-412a-8c1d-bee0967764c4",
+    "UsuarioId": "e9f18a97-b6a0-402e-a8c1-615fc0dab695",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 421,
+    "CarbohidratosConsumidos": 7,
+    "ProteinasConsumidas": 42,
+    "GrasasConsumidas": 25,
+    "Activo": true
+  },
+  {
+    "Id": "42d7cfca-ab78-4f41-bb20-40f4f5917689",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 1312,
+    "CarbohidratosConsumidos": 158,
+    "ProteinasConsumidas": 53,
+    "GrasasConsumidas": 52,
+    "Activo": true
+  },
+  {
+    "Id": "de9d11ed-4835-4b3d-9f7f-827fe3b8f475",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 920,
+    "CarbohidratosConsumidos": 84,
+    "ProteinasConsumidas": 92,
+    "GrasasConsumidas": 24,
+    "Activo": true
+  },
+  {
+    "Id": "3c828104-8567-47f6-97cc-39d0736e916c",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 751,
+    "CarbohidratosConsumidos": 32,
+    "ProteinasConsumidas": 41,
+    "GrasasConsumidas": 51,
+    "Activo": true
+  },
+  {
+    "Id": "a772a06c-3687-43c3-bc58-9ca3a77afd31",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 633,
+    "CarbohidratosConsumidos": 76,
+    "ProteinasConsumidas": 35,
+    "GrasasConsumidas": 21,
+    "Activo": true
+  },
+  {
+    "Id": "e9e22230-6ce7-4d72-ae5c-7ed814d51c8a",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 835,
+    "CarbohidratosConsumidos": 42,
+    "ProteinasConsumidas": 106,
+    "GrasasConsumidas": 27,
+    "Activo": true
+  },
+  {
+    "Id": "9974fe0e-5ccf-4757-9341-b3ec70cd95b2",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 645,
+    "CarbohidratosConsumidos": 38,
+    "ProteinasConsumidas": 85,
+    "GrasasConsumidas": 17,
+    "Activo": true
+  },
+  {
+    "Id": "5ca93722-e2d2-4a6d-be3c-5829a0acdd68",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 237,
+    "CarbohidratosConsumidos": 3,
+    "ProteinasConsumidas": 18,
+    "GrasasConsumidas": 17,
+    "Activo": true
+  },
+  {
+    "Id": "7611594a-5891-4e4d-829d-ba12b52bfc28",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 559,
+    "CarbohidratosConsumidos": 52,
+    "ProteinasConsumidas": 72,
+    "GrasasConsumidas": 7,
+    "Activo": true
+  },
+  {
+    "Id": "125d7f03-3180-4224-b60d-410620cb726d",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 319,
+    "CarbohidratosConsumidos": 12,
+    "ProteinasConsumidas": 43,
+    "GrasasConsumidas": 11,
+    "Activo": true
+  },
+  {
+    "Id": "b3b69772-530f-48c1-8e0b-3ab527aeb69c",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 290,
+    "CarbohidratosConsumidos": 33,
+    "ProteinasConsumidas": 17,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "f9a277a1-0bb5-4af2-a950-931491a729d5",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 806,
+    "CarbohidratosConsumidos": 64,
+    "ProteinasConsumidas": 70,
+    "GrasasConsumidas": 30,
+    "Activo": true
+  },
+  {
+    "Id": "303f779b-10b2-40d9-aecc-64287962dbaf",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 374,
+    "CarbohidratosConsumidos": 37,
+    "ProteinasConsumidas": 34,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "70a1803b-20e5-4cde-b81b-f130663a35ca",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 895,
+    "CarbohidratosConsumidos": 138,
+    "ProteinasConsumidas": 43,
+    "GrasasConsumidas": 19,
+    "Activo": true
+  },
+  {
+    "Id": "eefe02b4-1f56-41ce-aee3-d23beee9bdf9",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 767,
+    "CarbohidratosConsumidos": 30,
+    "ProteinasConsumidas": 47,
+    "GrasasConsumidas": 51,
+    "Activo": true
+  },
+  {
+    "Id": "8004eae8-9721-4478-8440-25cf7ab949f6",
+    "UsuarioId": "a744b414-0afc-46cf-9325-d758ae4033fc",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 644,
+    "CarbohidratosConsumidos": 25,
+    "ProteinasConsumidas": 82,
+    "GrasasConsumidas": 24,
+    "Activo": true
+  },
+  {
+    "Id": "92565ae9-1bc4-41bd-86cf-d5ae8e734f63",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 1592,
+    "CarbohidratosConsumidos": 298,
+    "ProteinasConsumidas": 46,
+    "GrasasConsumidas": 24,
+    "Activo": true
+  },
+  {
+    "Id": "5fd9acfa-e704-4af5-8f19-cc27dc7eebb9",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 805,
+    "CarbohidratosConsumidos": 55,
+    "ProteinasConsumidas": 36,
+    "GrasasConsumidas": 49,
+    "Activo": true
+  },
+  {
+    "Id": "dd88507f-82e6-4bc4-88ba-4b4635f2a181",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 833,
+    "CarbohidratosConsumidos": 116,
+    "ProteinasConsumidas": 27,
+    "GrasasConsumidas": 29,
+    "Activo": true
+  },
+  {
+    "Id": "022cfe18-f54c-4d86-975e-ea859c1359ea",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 446,
+    "CarbohidratosConsumidos": 72,
+    "ProteinasConsumidas": 17,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "24a8da7e-6fa0-49b7-bd6c-525f3cf8ad04",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 522,
+    "CarbohidratosConsumidos": 23,
+    "ProteinasConsumidas": 76,
+    "GrasasConsumidas": 14,
+    "Activo": true
+  },
+  {
+    "Id": "641c6ce5-9456-4237-b0f2-f51b22489558",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 579,
+    "CarbohidratosConsumidos": 63,
+    "ProteinasConsumidas": 66,
+    "GrasasConsumidas": 7,
+    "Activo": true
+  },
+  {
+    "Id": "09b5b849-3875-4dd1-b833-5188d608607c",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 1345,
+    "CarbohidratosConsumidos": 138,
+    "ProteinasConsumidas": 133,
+    "GrasasConsumidas": 29,
+    "Activo": true
+  },
+  {
+    "Id": "ea513e03-9684-412d-b2c9-65e1e2860d49",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 714,
+    "CarbohidratosConsumidos": 78,
+    "ProteinasConsumidas": 33,
+    "GrasasConsumidas": 30,
+    "Activo": true
+  },
+  {
+    "Id": "3f4429e9-4b0e-4a5d-bfed-007edae3bdab",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 452,
+    "CarbohidratosConsumidos": 22,
+    "ProteinasConsumidas": 64,
+    "GrasasConsumidas": 12,
+    "Activo": true
+  },
+  {
+    "Id": "b8963de0-7439-4b1e-aee3-15c7156f1309",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 391,
+    "CarbohidratosConsumidos": 17,
+    "ProteinasConsumidas": 38,
+    "GrasasConsumidas": 19,
+    "Activo": true
+  },
+  {
+    "Id": "442d9168-bba2-4730-8324-282bfb677f17",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 442,
+    "CarbohidratosConsumidos": 42,
+    "ProteinasConsumidas": 28,
+    "GrasasConsumidas": 18,
+    "Activo": true
+  },
+  {
+    "Id": "37bc5f8d-8eb6-4a49-b025-11a92285ec43",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 597,
+    "CarbohidratosConsumidos": 41,
+    "ProteinasConsumidas": 43,
+    "GrasasConsumidas": 29,
+    "Activo": true
+  },
+  {
+    "Id": "609ca6ab-ce70-436a-b869-9c6031fb5161",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 900,
+    "CarbohidratosConsumidos": 127,
+    "ProteinasConsumidas": 53,
+    "GrasasConsumidas": 20,
+    "Activo": true
+  },
+  {
+    "Id": "50efcf41-8b7e-4de4-a738-a60a50c16527",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 902,
+    "CarbohidratosConsumidos": 37,
+    "ProteinasConsumidas": 121,
+    "GrasasConsumidas": 30,
+    "Activo": true
+  },
+  {
+    "Id": "fe49dcff-2253-42a6-b2e0-1a6d12a62a24",
+    "UsuarioId": "557ce599-112f-425b-925d-b617759d674e",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 891,
+    "CarbohidratosConsumidos": 153,
+    "ProteinasConsumidas": 54,
+    "GrasasConsumidas": 7,
+    "Activo": true
+  },
+  {
+    "Id": "0cfae12f-dbb5-4de3-ae03-b26a12bd4670",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 795,
+    "CarbohidratosConsumidos": 94,
+    "ProteinasConsumidas": 71,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "8e4a77aa-7fe5-4d6d-b0aa-f238f9087876",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 538,
+    "CarbohidratosConsumidos": 49,
+    "ProteinasConsumidas": 72,
+    "GrasasConsumidas": 6,
+    "Activo": true
+  },
+  {
+    "Id": "04e2244f-a3c4-4ab9-b3ed-040f2f156d9a",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 861,
+    "CarbohidratosConsumidos": 86,
+    "ProteinasConsumidas": 73,
+    "GrasasConsumidas": 25,
+    "Activo": true
+  },
+  {
+    "Id": "6b6e5731-cf36-4ba2-8464-299181389602",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 768,
+    "CarbohidratosConsumidos": 113,
+    "ProteinasConsumidas": 43,
+    "GrasasConsumidas": 16,
+    "Activo": true
+  },
+  {
+    "Id": "0b32f7ca-0412-492a-89c3-14e4e376628c",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 406,
+    "CarbohidratosConsumidos": 20,
+    "ProteinasConsumidas": 59,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "e5872f7e-6da4-4625-af85-cb3f8e06ce0b",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 599,
+    "CarbohidratosConsumidos": 45,
+    "ProteinasConsumidas": 53,
+    "GrasasConsumidas": 23,
+    "Activo": true
+  },
+  {
+    "Id": "25103e68-c69a-4d7f-b431-f3bc6768e24c",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 1452,
+    "CarbohidratosConsumidos": 143,
+    "ProteinasConsumidas": 103,
+    "GrasasConsumidas": 52,
+    "Activo": true
+  },
+  {
+    "Id": "a18f2d82-f410-4adf-aada-4ab8a4edb40e",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 556,
+    "CarbohidratosConsumidos": 27,
+    "ProteinasConsumidas": 67,
+    "GrasasConsumidas": 20,
+    "Activo": true
+  },
+  {
+    "Id": "08d455dd-cdb0-487e-b240-b68b3125c794",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 783,
+    "CarbohidratosConsumidos": 93,
+    "ProteinasConsumidas": 60,
+    "GrasasConsumidas": 19,
+    "Activo": true
+  },
+  {
+    "Id": "dea02004-e4c3-40f7-bb83-bb7f0a0bc8de",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 505,
+    "CarbohidratosConsumidos": 29,
+    "ProteinasConsumidas": 68,
+    "GrasasConsumidas": 13,
+    "Activo": true
+  },
+  {
+    "Id": "2c4b0d32-8f1f-47a3-8c1e-c86e9ad97537",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 585,
+    "CarbohidratosConsumidos": 50,
+    "ProteinasConsumidas": 76,
+    "GrasasConsumidas": 9,
+    "Activo": true
+  },
+  {
+    "Id": "ff06a16f-9f2a-4bc3-b44b-1b0c23dfedba",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 620,
+    "CarbohidratosConsumidos": 34,
+    "ProteinasConsumidas": 67,
+    "GrasasConsumidas": 24,
+    "Activo": true
+  },
+  {
+    "Id": "8814af7e-fba7-4b6d-994d-f08a2866f1f6",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 326,
+    "CarbohidratosConsumidos": 8,
+    "ProteinasConsumidas": 60,
+    "GrasasConsumidas": 6,
+    "Activo": true
+  },
+  {
+    "Id": "aea03615-5464-4a0f-a035-eb0bb6bc6270",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 934,
+    "CarbohidratosConsumidos": 53,
+    "ProteinasConsumidas": 149,
+    "GrasasConsumidas": 14,
+    "Activo": true
+  },
+  {
+    "Id": "9e1e0a0a-ffb2-4ed1-8743-7704772087f1",
+    "UsuarioId": "452084bb-7e58-4c35-9627-b73e5d7b180e",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 519,
+    "CarbohidratosConsumidos": 58,
+    "ProteinasConsumidas": 38,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "a7d83f33-6985-40c6-a300-88cc2fe64923",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 911,
+    "CarbohidratosConsumidos": 124,
+    "ProteinasConsumidas": 70,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "6bfbc0b4-13dd-49bb-ac4c-19885b257c40",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-30T00:00:00-06:00",
+    "CaloriasConsumidas": 290,
+    "CarbohidratosConsumidos": 23,
+    "ProteinasConsumidas": 18,
+    "GrasasConsumidas": 14,
+    "Activo": true
+  },
+  {
+    "Id": "fbd118b6-da44-4368-9049-6817691342c2",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 391,
+    "CarbohidratosConsumidos": 15,
+    "ProteinasConsumidas": 49,
+    "GrasasConsumidas": 15,
+    "Activo": true
+  },
+  {
+    "Id": "34812fc0-4d06-43f8-9e78-7a6883803d16",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-28T00:00:00-06:00",
+    "CaloriasConsumidas": 1209,
+    "CarbohidratosConsumidos": 74,
+    "ProteinasConsumidas": 136,
+    "GrasasConsumidas": 41,
+    "Activo": true
+  },
+  {
+    "Id": "bfcf4fa1-978b-4096-8508-7fda4d424efd",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-27T00:00:00-06:00",
+    "CaloriasConsumidas": 484,
+    "CarbohidratosConsumidos": 34,
+    "ProteinasConsumidas": 51,
+    "GrasasConsumidas": 16,
+    "Activo": true
+  },
+  {
+    "Id": "4c1a1b0a-3c5f-4923-b07e-7e9ca55bec47",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-26T00:00:00-06:00",
+    "CaloriasConsumidas": 250,
+    "CarbohidratosConsumidos": 16,
+    "ProteinasConsumidas": 24,
+    "GrasasConsumidas": 10,
+    "Activo": true
+  },
+  {
+    "Id": "5e52c81b-357f-4a8a-b340-5d794afbc759",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-25T00:00:00-06:00",
+    "CaloriasConsumidas": 916,
+    "CarbohidratosConsumidos": 63,
+    "ProteinasConsumidas": 112,
+    "GrasasConsumidas": 24,
+    "Activo": true
+  },
+  {
+    "Id": "d3f1878e-92c8-48c8-8dcc-014f63c7879f",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-24T00:00:00-06:00",
+    "CaloriasConsumidas": 829,
+    "CarbohidratosConsumidos": 75,
+    "ProteinasConsumidas": 67,
+    "GrasasConsumidas": 29,
+    "Activo": true
+  },
+  {
+    "Id": "8e19cfaa-9673-4c5c-a022-5bfb4d6d1a2d",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-23T00:00:00-06:00",
+    "CaloriasConsumidas": 890,
+    "CarbohidratosConsumidos": 162,
+    "ProteinasConsumidas": 47,
+    "GrasasConsumidas": 6,
+    "Activo": true
+  },
+  {
+    "Id": "ef99dd2d-a17d-4fe0-9868-fe2b5f0988eb",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-22T00:00:00-06:00",
+    "CaloriasConsumidas": 1292,
+    "CarbohidratosConsumidos": 112,
+    "ProteinasConsumidas": 139,
+    "GrasasConsumidas": 32,
+    "Activo": true
+  },
+  {
+    "Id": "f2738136-3e9c-475d-a942-8110cf9bb8c3",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-21T00:00:00-06:00",
+    "CaloriasConsumidas": 1136,
+    "CarbohidratosConsumidos": 24,
+    "ProteinasConsumidas": 80,
+    "GrasasConsumidas": 80,
+    "Activo": true
+  },
+  {
+    "Id": "23330d27-e9ef-41b4-90ab-ee69efa8eada",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-20T00:00:00-06:00",
+    "CaloriasConsumidas": 650,
+    "CarbohidratosConsumidos": 116,
+    "ProteinasConsumidas": 15,
+    "GrasasConsumidas": 14,
+    "Activo": true
+  },
+  {
+    "Id": "788f5052-8879-4486-96b7-86586f91ea43",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-19T00:00:00-06:00",
+    "CaloriasConsumidas": 460,
+    "CarbohidratosConsumidos": 26,
+    "ProteinasConsumidas": 35,
+    "GrasasConsumidas": 24,
+    "Activo": true
+  },
+  {
+    "Id": "fd40ed15-4ad0-472b-b90f-f13294509ef1",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-18T00:00:00-06:00",
+    "CaloriasConsumidas": 618,
+    "CarbohidratosConsumidos": 23,
+    "ProteinasConsumidas": 55,
+    "GrasasConsumidas": 34,
+    "Activo": true
+  },
+  {
+    "Id": "6fb986b2-3ccb-4972-9453-a28f2da32f62",
+    "UsuarioId": "fceeebe6-c69c-4fe9-92a9-ff97351a5f40",
+    "Fecha": "2026-03-17T00:00:00-06:00",
+    "CaloriasConsumidas": 843,
+    "CarbohidratosConsumidos": 106,
+    "ProteinasConsumidas": 35,
+    "GrasasConsumidas": 31,
+    "Activo": true
+  },
+  {
+    "Id": "72ce241f-1b08-484c-ade7-b7c1944f97ad",
+    "UsuarioId": "327a57a7-2a60-44a0-8f1b-cc8b6183d759",
+    "Fecha": "2026-03-31T00:00:00-06:00",
+    "CaloriasConsumidas": 2000,
+    "CarbohidratosConsumidos": 200,
+    "ProteinasConsumidas": 0,
+    "GrasasConsumidas": 0,
+    "Activo": true
+  },
+  {
+    "Id": "19fc857a-9f15-4a82-b746-8291a4abd4bc",
+    "UsuarioId": "327a57a7-2a60-44a0-8f1b-cc8b6183d759",
+    "Fecha": "2026-03-29T00:00:00-06:00",
+    "CaloriasConsumidas": 1000,
+    "CarbohidratosConsumidos": 100,
+    "ProteinasConsumidas": 0,
+    "GrasasConsumidas": 0,
+    "Activo": true
+  },
+  {
+    "Id": "1e876a93-eb14-406b-8de8-00b561b2bce3",
+    "UsuarioId": "327a57a7-2a60-44a0-8f1b-cc8b6183d759",
+    "Fecha": "2026-03-11T00:00:00-06:00",
+    "CaloriasConsumidas": 5000,
+    "CarbohidratosConsumidos": 500,
+    "ProteinasConsumidas": 0,
+    "GrasasConsumidas": 0,
+    "Activo": true
+  }
+]

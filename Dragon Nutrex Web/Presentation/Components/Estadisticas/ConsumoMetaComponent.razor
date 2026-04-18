@@ -1,0 +1,99 @@
+﻿@using Dragon_Nutrex_Web.Core.Models
+@using static Dragon_Nutrex_Web.Presentation.Pages.EstadisticasView
+
+<div class="card-panel">
+    <div class="card-header">
+        <h2>Consumo vs Meta</h2>
+    </div>
+
+    <div class="form-grid">
+        <div class="form-group">
+            <label for="cmbUsuarioConsumo">Usuario</label>
+            <InputSelect id="cmbUsuarioConsumo" class="form-control" @bind-Value="consulta.UsuarioId">
+                <option value="@Guid.Empty">Seleccione un usuario</option>
+                @foreach (var usuario in Usuarios)
+                {
+                    <option value="@usuario.Id">@usuario.Nombre</option>
+                }
+            </InputSelect>
+        </div>
+
+        <div class="form-group">
+            <label for="txtFechaConsumo">Fecha</label>
+            <InputDate id="txtFechaConsumo" class="form-control" @bind-Value="consulta.Fecha" />
+        </div>
+    </div>
+
+    <div class="button-row">
+        <button type="button" class="btn btn-primary" @onclick="HandleConsultar">
+            Consultar
+        </button>
+    </div>
+
+    <hr />
+
+    @if (ResumenDiario is null || !ResumenDiario.TieneRegistros)
+    {
+        <p>No hay registros para la consulta seleccionada.</p>
+    }
+    else
+    {
+        <div class="stats-grid">
+            <div class="stat-box">
+                <h3>Calorías consumidas</h3>
+                <p>@ResumenDiario.CaloriasConsumidas</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Meta calórica</h3>
+                <p>@ResumenDiario.MetaCalorias</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Diferencia</h3>
+                <p>@ResumenDiario.DiferenciaCalorias</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Proteínas</h3>
+                <p>@ResumenDiario.ProteinasConsumidas</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Carbohidratos</h3>
+                <p>@ResumenDiario.CarbohidratosConsumidos</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Grasas</h3>
+                <p>@ResumenDiario.GrasasConsumidas</p>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public List<Usuario> Usuarios { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<ConsultaConsumoMeta> OnConsultar { get; set; }
+
+    [Parameter]
+    public ResumenDiario ResumenDiario { get; set; } = new();
+
+    private ConsultaConsumoMeta consulta = new();
+
+    /// <summary>
+    /// Lanza la consulta de consumo frente a meta.
+    /// </summary>
+    private async Task HandleConsultar()
+    {
+        if (consulta.UsuarioId == Guid.Empty)
+        {
+            return;
+        }
+
+        await OnConsultar.InvokeAsync(consulta);
+    }
+}

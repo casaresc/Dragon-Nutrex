@@ -1,0 +1,85 @@
+﻿@using Dragon_Nutrex_Web.Core.Models
+
+<div class="card-panel">
+    <div class="card-header">
+        <h2>Menús registrados</h2>
+    </div>
+
+    @if (Menus is null || Menus.Count == 0)
+    {
+        <p>No hay menús registrados.</p>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="app-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Usuario</th>
+                        <th>Fecha</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var menu in Menus)
+                    {
+                        <tr>
+                            <td>@menu.Nombre</td>
+                            <td>@(ObtenerUsuario(menu.UsuarioId)?.Nombre ?? "Usuario no encontrado")</td>
+                            <td>@menu.Fecha.ToShortDateString()</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-primary" @onclick="() => HandleVerDetalle(menu)">
+                                        Ver / Editar
+                                    </button>
+                                    <button class="btn btn-danger" @onclick="() => HandleEliminar(menu.Id)">
+                                        Eliminar
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public List<MenuDiario> Menus { get; set; } = new();
+
+    [Parameter]
+    public List<Usuario> Usuarios { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<MenuDiario> OnVerDetalle { get; set; }
+
+    [Parameter]
+    public EventCallback<Guid> OnEliminarMenu { get; set; }
+
+    /// <summary>
+    /// Busca un usuario por su identificador.
+    /// </summary>
+    private Usuario? ObtenerUsuario(Guid usuarioId)
+    {
+        return Usuarios.FirstOrDefault(u => u.Id == usuarioId);
+    }
+
+    /// <summary>
+    /// Notifica al padre que debe cargar el menú.
+    /// </summary>
+    private async Task HandleVerDetalle(MenuDiario menu)
+    {
+        await OnVerDetalle.InvokeAsync(menu);
+    }
+
+    /// <summary>
+    /// Notifica al padre que debe eliminar el menú.
+    /// </summary>
+    private async Task HandleEliminar(Guid menuId)
+    {
+        await OnEliminarMenu.InvokeAsync(menuId);
+    }
+}

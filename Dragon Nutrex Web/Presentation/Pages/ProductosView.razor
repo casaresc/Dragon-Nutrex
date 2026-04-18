@@ -1,0 +1,118 @@
+﻿@page "/productos"
+@rendermode InteractiveServer
+@using Dragon_Nutrex_Web.Core.Models
+@using Dragon_Nutrex_Web.Core.Services
+@using Dragon_Nutrex_Web.Presentation.Components.Productos
+@inject ProductoService productoService
+
+<PageTitle>Productos</PageTitle>
+
+<section class="page-header">
+    <h1>Gestión de Productos</h1>
+    <p>Administra los productos alimenticios y su información nutricional.</p>
+</section>
+
+<section class="productos-container">
+    <div class="productos-form-panel">
+        <ProductoFormComponent ProductoEditando="productoSeleccionado"
+                               OnGuardar="HandleGuardarProducto"
+                               OnCancelar="HandleCancelarEdicion" />
+    </div>
+
+    <div class="productos-table-panel">
+        <ProductoTableComponent Productos="productos"
+                                OnEditar="HandleEditarProducto"
+                                OnEliminar="HandleEliminarProducto" />
+    </div>
+</section>
+
+@code {
+    private List<Producto> productos = new();
+    private Producto? productoSeleccionado;
+
+    /// <summary>
+    /// Inicializa la vista cargando los productos desde el servicio.
+    /// </summary>
+    protected override void OnInitialized()
+    {
+        CargarProductos();
+    }
+
+    /// <summary>
+    /// Obtiene los productos desde la capa de servicios.
+    /// </summary>
+    private void CargarProductos()
+    {
+        productos = productoService.ObtenerProductos();
+    }
+
+    /// <summary>
+    /// Guarda un producto nuevo o actualiza uno existente.
+    /// </summary>
+    /// <param name="producto">Producto recibido desde el formulario.</param>
+    private Task HandleGuardarProducto(Producto producto)
+    {
+        if (producto.Id == Guid.Empty)
+        {
+            productoService.CrearProducto(producto);
+        }
+        else
+        {
+            productoService.ActualizarProducto(producto);
+        }
+
+        CargarProductos();
+        productoSeleccionado = null;
+
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Selecciona un producto para edición.
+    /// </summary>
+    /// <param name="producto">Producto seleccionado en la tabla.</param>
+    private Task HandleEditarProducto(Producto producto)
+    {
+        productoSeleccionado = new Producto
+        {
+            Id = producto.Id,
+            Nombre = producto.Nombre,
+            Categoria = producto.Categoria,
+            Proteina = producto.Proteina,
+            Carbohidratos = producto.Carbohidratos,
+            Grasas = producto.Grasas,
+            PorcionGramos = producto.PorcionGramos,
+            Calorias = producto.Calorias,
+            Activo = producto.Activo
+        };
+
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Elimina un producto del sistema.
+    /// </summary>
+    /// <param name="productoId">Identificador del producto.</param>
+    private Task HandleEliminarProducto(Guid productoId)
+    {
+        productoService.EliminarProducto(productoId);
+
+        CargarProductos();
+
+        if (productoSeleccionado?.Id == productoId)
+        {
+            productoSeleccionado = null;
+        }
+
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Cancela la edición actual.
+    /// </summary>
+    private Task HandleCancelarEdicion()
+    {
+        productoSeleccionado = null;
+        return Task.CompletedTask;
+    }
+}

@@ -1,0 +1,72 @@
+﻿@using Dragon_Nutrex_Web.Core.Models
+
+<div class="card-panel">
+    <div class="card-header">
+        <h2>Productos agregados al menú</h2>
+    </div>
+
+    @if (Detalles is null || Detalles.Count == 0)
+    {
+        <p>No se han agregado productos al menú.</p>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="app-table">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Porción</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var detalle in Detalles)
+                    {
+                        var producto = ObtenerProducto(detalle.ProductoId);
+
+                        <tr>
+                            <td>@(producto?.Nombre ?? "Producto no encontrado")</td>
+                            <td>@detalle.Porcion g</td>
+                            <td>
+                                <button class="btn btn-danger" @onclick="() => HandleEliminar(detalle.Id)">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public List<MenuDetalle> Detalles { get; set; } = new();
+
+    [Parameter]
+    public List<Producto> Productos { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<Guid> OnEliminarDetalle { get; set; }
+
+    /// <summary>
+    /// Busca un producto por su identificador.
+    /// </summary>
+    /// <param name="productoId">Identificador del producto.</param>
+    /// <returns>Producto encontrado o null.</returns>
+    private Producto? ObtenerProducto(Guid productoId)
+    {
+        return Productos.FirstOrDefault(p => p.Id == productoId);
+    }
+
+    /// <summary>
+    /// Notifica al componente padre que debe eliminar un detalle.
+    /// </summary>
+    /// <param name="detalleId">Identificador del detalle.</param>
+    private async Task HandleEliminar(Guid detalleId)
+    {
+        await OnEliminarDetalle.InvokeAsync(detalleId);
+    }
+}

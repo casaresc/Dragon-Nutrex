@@ -1,0 +1,104 @@
+﻿@using Dragon_Nutrex_Web.Core.Models
+@using static Dragon_Nutrex_Web.Presentation.Pages.EstadisticasView
+
+<div class="card-panel">
+    <div class="card-header">
+        <h2>Estadísticas por Rango</h2>
+    </div>
+
+    <div class="form-grid">
+        <div class="form-group">
+            <label for="cmbUsuarioRango">Usuario</label>
+            <InputSelect id="cmbUsuarioRango" class="form-control" @bind-Value="consulta.UsuarioId">
+                <option value="@Guid.Empty">Seleccione un usuario</option>
+                @foreach (var usuario in Usuarios)
+                {
+                    <option value="@usuario.Id">@usuario.Nombre</option>
+                }
+            </InputSelect>
+        </div>
+
+        <div class="form-group">
+            <label for="txtFechaInicio">Fecha inicio</label>
+            <InputDate id="txtFechaInicio" class="form-control" @bind-Value="consulta.FechaInicio" />
+        </div>
+
+        <div class="form-group">
+            <label for="txtFechaFin">Fecha fin</label>
+            <InputDate id="txtFechaFin" class="form-control" @bind-Value="consulta.FechaFin" />
+        </div>
+    </div>
+
+    <div class="button-row">
+        <button type="button" class="btn btn-primary" @onclick="HandleConsultar">
+            Consultar
+        </button>
+    </div>
+
+    <hr />
+
+    @if (ResumenRango is null)
+    {
+        <p>No hay datos para mostrar.</p>
+    }
+    else
+    {
+        <div class="stats-grid">
+            <div class="stat-box">
+                <h3>Total calorías</h3>
+                <p>@ResumenRango.TotalCalorias</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Promedio diario</h3>
+                <p>@ResumenRango.PromedioCalorias</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Total proteínas</h3>
+                <p>@ResumenRango.TotalProteinas</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Total carbohidratos</h3>
+                <p>@ResumenRango.TotalCarbohidratos</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Total grasas</h3>
+                <p>@ResumenRango.TotalGrasas</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Días con registro</h3>
+                <p>@ResumenRango.DiasConRegistros</p>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public List<Usuario> Usuarios { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<ConsultaRango> OnConsultar { get; set; }
+
+    [Parameter]
+    public ResumenRango ResumenRango { get; set; } = new();
+
+    private ConsultaRango consulta = new();
+
+    /// <summary>
+    /// Lanza la consulta de estadísticas por rango.
+    /// </summary>
+    private async Task HandleConsultar()
+    {
+        if (consulta.UsuarioId == Guid.Empty || consulta.FechaInicio > consulta.FechaFin)
+        {
+            return;
+        }
+
+        await OnConsultar.InvokeAsync(consulta);
+    }
+}

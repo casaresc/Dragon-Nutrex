@@ -1,0 +1,229 @@
+﻿@page "/menus"
+
+@rendermode InteractiveServer
+@using Dragon_Nutrex_Web.Core.Models
+@using Dragon_Nutrex_Web.Core.Services
+@using Dragon_Nutrex_Web.Presentation.Components.Menus
+
+@inject MenuDiarioService menuDiarioService
+@inject MenuDetalleService menuDetalleService
+@inject ProductoService productoService
+@inject UsuarioService usuarioService
+
+<PageTitle>Menús</PageTitle>
+
+<section class="page-header">
+    <h1>Gestión de Menús</h1>
+    <p>Crea, consulta y elimina menús persistidos.</p>
+</section>
+
+<section class="menus-container">
+    <div class="menus-form-panel">
+        <MenuFormComponent MenuEditando="menuActual"
+                           Usuarios="usuarios"
+                           OnGuardar="HandleGuardarMenu"
+                           OnCancelar="HandleCancelarMenu" />
+
+        <ProductoSelectorComponent Productos="productos"
+                                   OnAgregarProducto="HandleAgregarProducto" />
+
+        <MenuDetalleTableComponent Detalles="detallesTemporales"
+                                   Productos="productos"
+                                   OnEliminarDetalle="HandleEliminarDetalle" />
+    </div>
+
+    <div class="menus-table-panel">
+        <MenusTableComponent Menus="menus"
+                             Usuarios="usuarios"
+                             OnVerDetalle="HandleVerDetalleMenu"
+                             OnEliminarMenu="HandleEliminarMenu" />
+    </div>
+</section>
+
+@code {
+    private List<Usuario> usuarios = new();
+    private List<Producto> productos = new();
+    private List<MenuDiario> menus = new();
+    private List<MenuDetalle> detallesTemporales = new();
+
+    private MenuDiario menuActual = CrearMenuVacio();
+    private bool modoEdicion;
+
+    /// <summary>
+    /// Carga datos persistidos al iniciar la vista.
+    /// </summary>
+    protected override void OnInitialized()
+    {
+        CargarDatos();
+    }
+
+    /// <summary>
+    /// Carga usuarios, productos y menús desde persistencia.
+    /// </summary>
+    private void CargarDatos()
+    {
+        usuarios = usuarioService.ObtenerTodos();
+        productos = productoService.ObtenerProductos();
+        menus = menuDiarioService.ObtenerMenus();
+    }
+
+    /// <summary>
+    /// Agrega un detalle temporal al menú actual.
+    /// </summary>
+    /// <param name="detalle">Detalle recibido desde el selector.</param>
+    private Task HandleAgregarProducto(MenuDetalle detalle)
+    {
+        detalle.Id = Guid.NewGuid();
+        detalle.MenuId = menuActual.Id == Guid.Empty ? Guid.NewGuid() : menuActual.Id;
+
+        detallesTemporales.Add(detalle);
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Elimina un detalle temporal del menú actual.
+    /// </summary>
+    /// <param name="detalleId">Identificador del detalle.</param>
+    private Task HandleEliminarDetalle(Guid detalleId)
+    {
+        var detalle = detallesTemporales.FirstOrDefault(d => d.Id == detalleId);
+
+        if (detalle is not null)
+        {
+            detallesTemporales.Remove(detalle);
+        }
+
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Guarda un menú nuevo con sus detalles.
+    /// </summary>
+    /// <param name="menu">Menú a persistir.</param>
+    private Task HandleGuardarMenu(MenuDiario menu)
+    {
+        if (modoEdicion)
+        {
+            menuDiarioService.ActualizarMenu(menu);
+
+            var detallesExistentes = menuDetalleService.ObtenerPorMenu(menu.Id);
+
+            foreach (var detalleExistente in detallesExistentes)
+            {
+                menuDetalleService.EliminarProducto(detalleExistente.Id);
+            }
+
+            foreach (var detalle in detallesTemporales)
+            {
+                detalle.Id = detalle.Id == Guid.Empty ? Guid.NewGuid() : detalle.Id;
+                detalle.MenuId = menu.Id;
+                menuDetalleService.AgregarProducto(detalle);
+            }
+        }
+        else
+        {
+            if (menu.Id == Guid.Empty)
+            {
+                menu.Id = Guid.NewGuid();
+            }
+
+            foreach (var detalle in detallesTemporales)
+            {
+                detalle.MenuId = menu.Id;
+            }
+
+            menuDiarioService.CrearMenu(menu, detallesTemporales);
+        }
+
+        ReiniciarVista();
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Carga un menú persistido para visualizar o editar.
+    /// </summary>
+    /// <param name="menu">Menú seleccionado.</param>
+    private Task HandleVerDetalleMenu(MenuDiario menu)
+    {
+        menuActual = new MenuDiario
+        {
+            Id = menu.Id,
+            UsuarioId = menu.UsuarioId,
+            Nombre = menu.Nombre,
+            Fecha = menu.Fecha
+        };
+
+        detallesTemporales = menuDetalleService.ObtenerPorMenu(menu.Id)
+            .Select(d => new MenuDetalle
+            {
+                Id = d.Id,
+                MenuId = d.MenuId,
+                ProductoId = d.ProductoId,
+                Porcion = d.Porcion
+            })
+            .ToList();
+
+        modoEdicion = true;
+
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Elimina un menú persistido y sus detalles asociados.
+    /// </summary>
+    /// <param name="menuId">Identificador del menú.</param>
+    private Task HandleEliminarMenu(Guid menuId)
+    {
+        var detalles = menuDetalleService.ObtenerPorMenu(menuId);
+
+        foreach (var detalle in detalles)
+        {
+            menuDetalleService.EliminarProducto(detalle.Id);
+        }
+
+        menuDiarioService.EliminarMenu(menuId);
+
+        if (menuActual.Id == menuId)
+        {
+            ReiniciarVista();
+        }
+        else
+        {
+            menus = menuDiarioService.ObtenerMenus();
+        }
+
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Cancela la operación actual y limpia el formulario.
+    /// </summary>
+    private Task HandleCancelarMenu()
+    {
+        ReiniciarVista();
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Reinicia el estado de la vista y recarga datos persistidos.
+    /// </summary>
+    private void ReiniciarVista()
+    {
+        menuActual = CrearMenuVacio();
+        detallesTemporales = new List<MenuDetalle>();
+        modoEdicion = false;
+        menus = menuDiarioService.ObtenerMenus();
+    }
+
+    /// <summary>
+    /// Crea una instancia vacía del menú.
+    /// </summary>
+    private static MenuDiario CrearMenuVacio() =>
+        new()
+        {
+            Id = Guid.Empty,
+            UsuarioId = Guid.Empty,
+            Nombre = string.Empty,
+            Fecha = DateTime.Today
+        };
+}

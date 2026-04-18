@@ -1,0 +1,81 @@
+﻿@using Dragon_Nutrex_Web.Core.Models
+<div class="card-panel">
+    <div class="card-header">
+        <h2>Listado de Usuarios</h2>
+    </div>
+
+    @if (Usuarios is null || Usuarios.Count == 0)
+    {
+        <p>No hay usuarios registrados.</p>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="app-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Peso</th>
+                        <th>Altura</th>
+                        <th>Edad</th>
+                        <th>Actividad</th>
+                        <th>Objetivo</th>
+                        <th>Dieta</th>
+                        <th>Activo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var usuario in Usuarios)
+                    {
+                        <tr>
+                            <td>@usuario.Nombre</td>
+                            <td>@usuario.Peso</td>
+                            <td>@usuario.Altura</td>
+                            <td>@usuario.Edad</td>
+                            <td>@usuario.NivelActividad</td>
+                            <td>@usuario.Objetivo</td>
+                            <td>@usuario.TipoDieta</td>
+                            <td>@(usuario.Activo ? "Sí" : "No")</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-warning" @onclick="() => HandleEditar(usuario)">Editar</button>
+                                    <button class="btn btn-danger" @onclick="() => HandleEliminar(usuario.Id)">Eliminar</button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public List<Usuario> Usuarios { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<Usuario> OnEditar { get; set; }
+
+    [Parameter]
+    public EventCallback<Guid> OnEliminar { get; set; }
+
+    /// <summary>
+    /// Notifica al padre que un usuario debe editarse.
+    /// </summary>
+    /// <param name="usuario">Usuario seleccionado.</param>
+    private async Task HandleEditar(Usuario usuario)
+    {
+        await OnEditar.InvokeAsync(usuario);
+    }
+
+    /// <summary>
+    /// Notifica al padre que un usuario debe eliminarse.
+    /// </summary>
+    /// <param name="usuarioId">Identificador del usuario.</param>
+    private async Task HandleEliminar(Guid usuarioId)
+    {
+        await OnEliminar.InvokeAsync(usuarioId);
+    }
+}

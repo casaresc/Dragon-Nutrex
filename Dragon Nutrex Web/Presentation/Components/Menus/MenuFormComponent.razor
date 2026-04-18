@@ -1,0 +1,107 @@
+﻿@using Dragon_Nutrex_Web.Core.Models
+
+<EditForm Model="menuModel" OnValidSubmit="HandleSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="card-panel">
+        <div class="card-header">
+            <h2>Crear Menú</h2>
+        </div>
+
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="cmbUsuario">Usuario</label>
+                <InputSelect id="cmbUsuario" class="form-control" @bind-Value="menuModel.UsuarioId">
+                    <option value="@Guid.Empty">Seleccione un usuario</option>
+                    @foreach (var usuario in Usuarios)
+                    {
+                        <option value="@usuario.Id">@usuario.Nombre</option>
+                    }
+                </InputSelect>
+            </div>
+
+            <div class="form-group">
+                <label for="txtNombre">Nombre del menú</label>
+                <InputText id="txtNombre" class="form-control" @bind-Value="menuModel.Nombre" />
+            </div>
+
+            <div class="form-group">
+                <label for="txtFecha">Fecha</label>
+                <InputDate id="txtFecha" class="form-control" @bind-Value="menuModel.Fecha" />
+            </div>
+        </div>
+
+        <div class="button-row">
+            <button type="submit" class="btn btn-primary">Guardar Menú</button>
+            <button type="button" class="btn btn-secondary" @onclick="HandleCancelar">Cancelar</button>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    [Parameter]
+    public MenuDiario? MenuEditando { get; set; }
+
+    [Parameter]
+    public List<Usuario> Usuarios { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<MenuDiario> OnGuardar { get; set; }
+
+    [Parameter]
+    public EventCallback OnCancelar { get; set; }
+
+    private MenuDiario menuModel = CrearMenuVacio();
+
+    /// <summary>
+    /// Actualiza el modelo local con los datos recibidos.
+    /// </summary>
+    protected override void OnParametersSet()
+    {
+        if (MenuEditando is null)
+        {
+            menuModel = CrearMenuVacio();
+            return;
+        }
+
+        menuModel = new MenuDiario
+        {
+            Id = MenuEditando.Id,
+            UsuarioId = MenuEditando.UsuarioId,
+            Nombre = MenuEditando.Nombre,
+            Fecha = MenuEditando.Fecha
+        };
+    }
+
+    /// <summary>
+    /// Envía el menú al componente padre.
+    /// </summary>
+    private async Task HandleSubmit()
+    {
+        await OnGuardar.InvokeAsync(menuModel);
+        menuModel = CrearMenuVacio();
+    }
+
+    /// <summary>
+    /// Cancela la edición actual.
+    /// </summary>
+    private async Task HandleCancelar()
+    {
+        menuModel = CrearMenuVacio();
+        await OnCancelar.InvokeAsync();
+    }
+
+    /// <summary>
+    /// Crea una instancia vacía del menú.
+    /// </summary>
+    /// <returns>Menú inicializado.</returns>
+    private static MenuDiario CrearMenuVacio() =>
+        new()
+        {
+            Id = Guid.Empty,
+            UsuarioId = Guid.Empty,
+            Nombre = string.Empty,
+            Fecha = DateTime.Today
+        };
+}

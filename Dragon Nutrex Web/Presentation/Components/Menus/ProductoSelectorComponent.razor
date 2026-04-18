@@ -1,0 +1,63 @@
+﻿@using Dragon_Nutrex_Web.Core.Models
+
+<div class="card-panel">
+    <div class="card-header">
+        <h2>Agregar Producto al Menú</h2>
+    </div>
+
+    <div class="form-grid">
+        <div class="form-group">
+            <label for="cmbProducto">Producto</label>
+            <InputSelect id="cmbProducto" class="form-control" @bind-Value="productoIdSeleccionado">
+                <option value="@Guid.Empty">Seleccione un producto</option>
+                @foreach (var producto in Productos)
+                {
+                    <option value="@producto.Id">@producto.Nombre</option>
+                }
+            </InputSelect>
+        </div>
+
+        <div class="form-group">
+            <label for="txtPorcion">Porción</label>
+            <InputNumber id="txtPorcion" class="form-control" @bind-Value="porcion" />
+        </div>
+    </div>
+
+    <div class="button-row">
+        <button type="button" class="btn btn-primary" @onclick="HandleAgregar">Agregar Producto</button>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public List<Producto> Productos { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<MenuDetalle> OnAgregarProducto { get; set; }
+
+    private Guid productoIdSeleccionado = Guid.Empty;
+    private decimal porcion = 100;
+
+    /// <summary>
+    /// Crea un detalle temporal y lo envía al padre.
+    /// </summary>
+    private async Task HandleAgregar()
+    {
+        if (productoIdSeleccionado == Guid.Empty || porcion <= 0)
+        {
+            return;
+        }
+
+        var detalle = new MenuDetalle
+        {
+            Id = Guid.Empty,
+            ProductoId = productoIdSeleccionado,
+            Porcion = porcion
+        };
+
+        await OnAgregarProducto.InvokeAsync(detalle);
+
+        productoIdSeleccionado = Guid.Empty;
+        porcion = 100;
+    }
+}

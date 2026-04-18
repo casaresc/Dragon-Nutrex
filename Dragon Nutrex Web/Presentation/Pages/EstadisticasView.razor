@@ -1,0 +1,91 @@
+﻿@page "/estadisticas"
+@rendermode InteractiveServer
+@using Dragon_Nutrex_Web.Core.Models
+@using Dragon_Nutrex_Web.Core.Services
+@using Dragon_Nutrex_Web.Core.Controllers
+@using Dragon_Nutrex_Web.Presentation.Components.Estadisticas
+
+@inject UsuarioService usuarioService
+@inject ConsumoController consumoController
+
+<PageTitle>Estadísticas</PageTitle>
+
+<section class="page-header">
+    <h1>Estadísticas Nutricionales</h1>
+    <p>Consulta el consumo diario frente a la meta y el resumen por rango de fechas.</p>
+</section>
+
+<section class="estadisticas-container">
+    <div class="estadisticas-panel">
+        <ConsumoMetaComponent Usuarios="usuarios"
+                              OnConsultar="HandleConsultarConsumoMeta"
+                              ResumenDiario="resumenDiario" />
+    </div>
+
+    <div class="estadisticas-panel">
+        <EstadisticasRangoComponent Usuarios="usuarios"
+                                    OnConsultar="HandleConsultarRango"
+                                    ResumenRango="resumenRango" />
+    </div>
+</section>
+
+@code {
+    private List<Usuario> usuarios = new();
+
+    private ResumenDiario resumenDiario = new();
+    private ResumenRango resumenRango = new();
+
+    /// <summary>
+    /// Carga la lista de usuarios disponibles para las consultas estadísticas.
+    /// </summary>
+    protected override void OnInitialized()
+    {
+        usuarios = usuarioService.ObtenerTodos();
+    }
+
+    /// <summary>
+    /// Consulta el resumen diario de consumo frente a la meta.
+    /// </summary>
+    /// <param name="parametros">Parámetros de consulta enviados por el componente.</param>
+    private Task HandleConsultarConsumoMeta(ConsultaConsumoMeta parametros)
+    {
+        resumenDiario = consumoController.ObtenerResumenParaUsuarioYFecha(
+            parametros.UsuarioId,
+            parametros.Fecha);
+
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Consulta estadísticas por rango de fechas para un usuario.
+    /// </summary>
+    /// <param name="parametros">Parámetros de consulta enviados por el componente.</param>
+    private Task HandleConsultarRango(ConsultaRango parametros)
+    {
+        resumenRango = consumoController.ObtenerEstadisticasRangoPorUsuario(
+            parametros.UsuarioId,
+            parametros.FechaInicio,
+            parametros.FechaFin);
+
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Modelo de apoyo para consultar consumo frente a meta.
+    /// </summary>
+    public class ConsultaConsumoMeta
+    {
+        public Guid UsuarioId { get; set; }
+        public DateTime Fecha { get; set; } = DateTime.Today;
+    }
+
+    /// <summary>
+    /// Modelo de apoyo para consultar estadísticas por rango.
+    /// </summary>
+    public class ConsultaRango
+    {
+        public Guid UsuarioId { get; set; }
+        public DateTime FechaInicio { get; set; } = DateTime.Today.AddDays(-7);
+        public DateTime FechaFin { get; set; } = DateTime.Today;
+    }
+}
