@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Components.Routing
+
+@inherits LayoutComponentBase
+
+<div class="app-container">
+
+    <aside class="sidebar">
+        <h2>Dragon Nutrex</h2>
+
+        <nav>
+            <NavLink href="/">Inicio</NavLink>
+            <NavLink href="/login">Login</NavLink>
+            <NavLink href="/usuarios">Usuarios</NavLink>
+            <NavLink href="/productos">Productos</NavLink>
+            <NavLink href="/menus">Menús</NavLink>
+            <NavLink href="/estadisticas">Estadísticas</NavLink>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        @Body
+    </main>
+
+</div>
