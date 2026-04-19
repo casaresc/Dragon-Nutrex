@@ -1,26 +1,34 @@
 ﻿@using Microsoft.AspNetCore.Components.Routing
-
 @inherits LayoutComponentBase
 
 <div class="app-container">
-
     <aside class="sidebar">
-        <h2>Dragon Nutrex</h2>
+        <div class="sidebar-brand">
+            <h2>Dragon Nutrex</h2>
+            <p>Gestión nutricional inteligente</p>
+        </div>
 
         <nav>
-            <NavLink href="/">Inicio</NavLink>
-            <NavLink href="/login">Login</NavLink>
-            <NavLink href="/usuarios">Usuarios</NavLink>
-            <NavLink href="/productos">Productos</NavLink>
-            <NavLink href="/menus">Menús</NavLink>
-            <NavLink href="/estadisticas">Estadísticas</NavLink>
-            <NavLink href="/imc">IMC</NavLink>
-            <NavLink href="/requerimientos">Requerimientos</NavLink>
+            <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">Inicio</NavLink>
+            <NavLink class="nav-link" href="/usuarios">Usuarios</NavLink>
+            <NavLink class="nav-link" href="/productos">Productos</NavLink>
+            <NavLink class="nav-link" href="/menus">Menús</NavLink>
+            <NavLink class="nav-link" href="/estadisticas">Estadísticas</NavLink>
+            <NavLink class="nav-link" href="/imc">IMC</NavLink>
+            <NavLink class="nav-link" href="/requerimientos">Requerimientos</NavLink>
         </nav>
     </aside>
 
     <main class="main-content">
-        @Body
-    </main>
+        <div class="main-shell">
+            <div class="topbar">
+                <div class="topbar-title">
+                    <h1>Dragon Nutrex Web</h1>
+                    <p>Panel principal del sistema</p>
+                </div>
+            </div>
 
+            @Body
+        </div>
+    </main>
 </div>
