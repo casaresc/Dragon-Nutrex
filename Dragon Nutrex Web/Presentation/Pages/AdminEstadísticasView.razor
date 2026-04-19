@@ -1,0 +1,247 @@
+﻿@page "/admin-estadisticas"
+@rendermode InteractiveServer
+@using Dragon_Nutrex_Web.Core.Models
+@using Dragon_Nutrex_Web.Core.Services
+@inject AdminEstadisticasService adminEstadisticasService
+@inject AuthService authService
+@inject NavigationManager navigationManager
+
+<PageTitle>Estadísticas Administrativas</PageTitle>
+
+<section class="page-header">
+    <h1>Estadísticas Administrativas</h1>
+    <p>Consulta indicadores globales del sistema para administración.</p>
+</section>
+
+@if (!string.IsNullOrEmpty(errorMensaje))
+{
+    <div class="error-box">
+        @errorMensaje
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(exitoMensaje))
+{
+    <div class="success-box">
+        @exitoMensaje
+    </div>
+}
+
+<section class="estadisticas-admin-grid">
+    <div class="card-panel">
+        <div class="card-header">
+            <h2>Producto más consumido</h2>
+        </div>
+
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="txtFechaInicioProducto">Fecha inicio</label>
+                <InputDate id="txtFechaInicioProducto" class="form-control" @bind-Value="fechaInicioProducto" />
+            </div>
+
+            <div class="form-group">
+                <label for="txtFechaFinProducto">Fecha fin</label>
+                <InputDate id="txtFechaFinProducto" class="form-control" @bind-Value="fechaFinProducto" />
+            </div>
+        </div>
+
+        <div class="button-row">
+            <button type="button" class="btn btn-primary" @onclick="HandleConsultarProductoMasConsumido">
+                Consultar
+            </button>
+        </div>
+
+        <hr />
+
+        @if (productoMasConsumido is null)
+        {
+            <p>No hay resultado disponible.</p>
+        }
+        else
+        {
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <h3>Producto</h3>
+                    <p>@productoMasConsumido.NombreProducto</p>
+                </div>
+
+                <div class="stat-box">
+                    <h3>Total porciones</h3>
+                    <p>@productoMasConsumido.TotalPorciones</p>
+                </div>
+
+                <div class="stat-box">
+                    <h3>Registros</h3>
+                    <p>@productoMasConsumido.TotalRegistros</p>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="card-panel">
+        <div class="card-header">
+            <h2>Porcentaje de tipos de dieta</h2>
+        </div>
+
+        <div class="button-row">
+            <button type="button" class="btn btn-primary" @onclick="HandleConsultarTiposDieta">
+                Consultar
+            </button>
+        </div>
+
+        <hr />
+
+        @if (!porcentajesDieta.Any())
+        {
+            <p>No hay datos disponibles.</p>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="app-table">
+                    <thead>
+                        <tr>
+                            <th>Tipo de dieta</th>
+                            <th>Cantidad usuarios</th>
+                            <th>Porcentaje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in porcentajesDieta)
+                        {
+                            <tr>
+                                <td>@item.TipoDieta</td>
+                                <td>@item.CantidadUsuarios</td>
+                                <td>@item.Porcentaje %</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+
+    <div class="card-panel">
+        <div class="card-header">
+            <h2>Usuarios con más menús ingresados</h2>
+        </div>
+
+        <div class="button-row">
+            <button type="button" class="btn btn-primary" @onclick="HandleConsultarUsuariosConMasMenus">
+                Consultar
+            </button>
+        </div>
+
+        <hr />
+
+        @if (!usuariosConMasMenus.Any())
+        {
+            <p>No hay datos disponibles.</p>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="app-table">
+                    <thead>
+                        <tr>
+                            <th>Usuario</th>
+                            <th>Cantidad de menús</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in usuariosConMasMenus)
+                        {
+                            <tr>
+                                <td>@item.NombreUsuario</td>
+                                <td>@item.CantidadMenus</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</section>
+
+@code {
+    private DateTime fechaInicioProducto = DateTime.Today.AddDays(-7);
+    private DateTime fechaFinProducto = DateTime.Today;
+
+    private ProductoMasConsumidoResultado? productoMasConsumido;
+    private List<PorcentajeTipoDietaResultado> porcentajesDieta = new();
+    private List<UsuarioMenusResultado> usuariosConMasMenus = new();
+
+    private string? errorMensaje;
+    private string? exitoMensaje;
+
+    protected override void OnInitialized()
+    {
+        if (!authService.EstaAutenticado())
+        {
+            navigationManager.NavigateTo("/login");
+            return;
+        }
+
+        if (authService.SesionActual?.EsAdmin != true)
+        {
+            navigationManager.NavigateTo("/");
+            return;
+        }
+    }
+
+    private Task HandleConsultarProductoMasConsumido()
+    {
+        try
+        {
+            productoMasConsumido = adminEstadisticasService.ObtenerProductoMasConsumido(
+                fechaInicioProducto,
+                fechaFinProducto);
+
+            exitoMensaje = "Consulta realizada correctamente.";
+            errorMensaje = null;
+        }
+        catch (Exception ex)
+        {
+            errorMensaje = $"Error al consultar producto más consumido: {ex.Message}";
+            exitoMensaje = null;
+        }
+
+        return Task.CompletedTask;
+    }
+
+    private Task HandleConsultarTiposDieta()
+    {
+        try
+        {
+            porcentajesDieta = adminEstadisticasService.ObtenerPorcentajeTiposDieta();
+
+            exitoMensaje = "Consulta realizada correctamente.";
+            errorMensaje = null;
+        }
+        catch (Exception ex)
+        {
+            errorMensaje = $"Error al consultar porcentaje de dietas: {ex.Message}";
+            exitoMensaje = null;
+        }
+
+        return Task.CompletedTask;
+    }
+
+    private Task HandleConsultarUsuariosConMasMenus()
+    {
+        try
+        {
+            usuariosConMasMenus = adminEstadisticasService.ObtenerUsuariosConMasMenus();
+
+            exitoMensaje = "Consulta realizada correctamente.";
+            errorMensaje = null;
+        }
+        catch (Exception ex)
+        {
+            errorMensaje = $"Error al consultar usuarios con más menús: {ex.Message}";
+            exitoMensaje = null;
+        }
+
+        return Task.CompletedTask;
+    }
+}
