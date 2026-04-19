@@ -11,6 +11,6 @@
         public string Rol { get; set; } = string.Empty;
 
         public bool EstaAutenticado => UsuarioId != Guid.Empty;
-        public bool EsAdmin => Rol == "Administrador";
+        public bool EsAdmin => Rol == "Admin";
     }
 }

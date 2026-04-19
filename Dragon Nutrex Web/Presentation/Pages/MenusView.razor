@@ -37,10 +37,6 @@
                 @estadoMenu
             </div>
         }
-        <MenuDetalleTableComponent @key="menuActual.Id"
-                                   Detalles="detallesTemporales"
-                                   Productos="productos"
-                                   OnEliminarDetalle="HandleEliminarDetalle" />
     </div>
 
     <div class="menus-table-panel">
@@ -48,6 +44,10 @@
                              Usuarios="usuarios"
                              OnVerDetalle="HandleVerDetalleMenu"
                              OnEliminarMenu="HandleEliminarMenu" />
+        <MenuDetalleTableComponent @key="menuActual.Id"
+                                   Detalles="detallesTemporales"
+                                   Productos="productos"
+                                   OnEliminarDetalle="HandleEliminarDetalle" />
     </div>
     @if (!string.IsNullOrEmpty(errorMensaje))
     {
@@ -106,19 +106,38 @@
         menus = ObtenerMenusSegunRol();
     }
 
-    /// <summary>
-    /// Agrega un detalle temporal al menú actual.
-    /// </summary>
-    /// <param name="detalle">Detalle recibido desde el selector.</param>
     private Task HandleAgregarProducto(MenuDetalle detalle)
     {
         try
         {
-            detalle.Id = Guid.NewGuid();
-            detalle.MenuId = menuActual.Id == Guid.Empty ? Guid.NewGuid() : menuActual.Id;
+            if (modoEdicion && menuActual.Id != Guid.Empty)
+            {
+                detalle.Id = Guid.NewGuid();
+                detalle.MenuId = menuActual.Id;
 
-            detallesTemporales.Add(detalle);
-            exitoMensaje = "Producto agregado al menú temporalmente.";
+                menuDetalleService.AgregarProducto(detalle);
+
+                detallesTemporales = menuDetalleService.ObtenerPorMenu(menuActual.Id)
+                    .Select(d => new MenuDetalle
+                    {
+                        Id = d.Id,
+                        MenuId = d.MenuId,
+                        ProductoId = d.ProductoId,
+                        Porcion = d.Porcion
+                    })
+                    .ToList();
+
+                exitoMensaje = "Producto agregado y guardado correctamente.";
+            }
+            else
+            {
+                detalle.Id = Guid.NewGuid();
+                detalle.MenuId = menuActual.Id == Guid.Empty ? Guid.NewGuid() : menuActual.Id;
+
+                detallesTemporales.Add(detalle);
+                exitoMensaje = "Producto agregado al menú temporalmente.";
+            }
+
             errorMensaje = null;
             return Task.CompletedTask;
         }
@@ -128,23 +147,55 @@
             exitoMensaje = null;
             return Task.CompletedTask;
         }
-
     }
-
     /// <summary>
     /// Elimina un detalle temporal del menú actual.
     /// </summary>
     /// <param name="detalleId">Identificador del detalle.</param>
     private Task HandleEliminarDetalle(Guid detalleId)
     {
-        var detalle = detallesTemporales.FirstOrDefault(d => d.Id == detalleId);
-
-        if (detalle is not null)
+        try
         {
-            detallesTemporales.Remove(detalle);
-        }
+            var detalle = detallesTemporales.FirstOrDefault(d => d.Id == detalleId);
 
-        return Task.CompletedTask;
+            if (detalle is null)
+            {
+                errorMensaje = "El detalle no existe.";
+                exitoMensaje = null;
+                return Task.CompletedTask;
+            }
+
+            if (modoEdicion && menuActual.Id != Guid.Empty)
+            {
+                menuDetalleService.EliminarProducto(detalleId);
+
+                detallesTemporales = menuDetalleService.ObtenerPorMenu(menuActual.Id)
+                    .Select(d => new MenuDetalle
+                    {
+                        Id = d.Id,
+                        MenuId = d.MenuId,
+                        ProductoId = d.ProductoId,
+                        Porcion = d.Porcion
+                    })
+                    .ToList();
+
+                exitoMensaje = "Detalle eliminado y guardado correctamente.";
+            }
+            else
+            {
+                detallesTemporales.Remove(detalle);
+                exitoMensaje = "Detalle eliminado temporalmente.";
+            }
+
+            errorMensaje = null;
+            return Task.CompletedTask;
+        }
+        catch (Exception ex)
+        {
+            errorMensaje = $"Error al eliminar detalle: {ex.Message}";
+            exitoMensaje = null;
+            return Task.CompletedTask;
+        }
     }
 
     /// <summary>
@@ -191,7 +242,10 @@
             menuDiarioService.CrearMenu(menu, detallesTemporales);
         }
 
-        return ReiniciarVistaAsync();
+        exitoMensaje = $"Menú guardado correctamente con {detallesTemporales.Count} detalle(s).";
+        errorMensaje = null;
+
+        return ReiniciarVistaAsync(menu.Fecha);
     }
     /// <summary>
     /// Carga un menú persistido para visualizar o editar.
@@ -278,15 +332,18 @@
     /// </summary>
     private Task HandleCancelarMenu()
     {
-        return ReiniciarVistaAsync();
+        return ReiniciarVistaAsync(menuActual.Fecha);
     }
 
     /// <summary>
     /// Reinicia el estado de la vista y recarga datos persistidos.
     /// </summary>
-    private async Task ReiniciarVistaAsync()
+    private async Task ReiniciarVistaAsync(DateTime? fecha = null)
     {
+        var fechaObjetivo = fecha ?? DateTime.Today;
+
         menuActual = CrearMenuVacio();
+        menuActual.Fecha = fechaObjetivo;
 
         if (!EsAdmin)
         {
@@ -300,7 +357,7 @@
 
         if (!EsAdmin)
         {
-            await CargarContextoMenuUsuarioActualAsync();
+            await CargarContextoMenuUsuarioActualAsync(fechaObjetivo);
         }
     }
 
@@ -358,7 +415,11 @@
         }
         else
         {
-            var nombreActual = string.IsNullOrWhiteSpace(menuBase.Nombre)
+            var nombreDebeAutogenerarse =
+                string.IsNullOrWhiteSpace(menuBase.Nombre) ||
+                menuBase.Nombre.StartsWith("Menú ");
+
+            var nombreActual = nombreDebeAutogenerarse
                 ? $"Menú {menuBase.Fecha:dd/MM/yyyy}"
                 : menuBase.Nombre;
 
@@ -394,7 +455,7 @@
             .ToList();
     }
 
-    private async Task CargarContextoMenuUsuarioActualAsync()
+    private async Task CargarContextoMenuUsuarioActualAsync(DateTime? fecha = null)
     {
         if (EsAdmin || UsuarioAutenticadoId == Guid.Empty)
         {
@@ -402,6 +463,8 @@
         }
 
         menuActual.UsuarioId = UsuarioAutenticadoId;
+        menuActual.Fecha = fecha ?? menuActual.Fecha;
+
         await HandleCambioMenuBase(menuActual);
     }
 }

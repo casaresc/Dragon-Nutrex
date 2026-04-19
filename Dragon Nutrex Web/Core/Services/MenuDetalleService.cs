@@ -1,60 +1,61 @@
-﻿using Dragon_Nutrex_Web.Core.Models;
-using Dragon_Nutrex_Web.Core.Interfaces;
-using System;
-using System.Collections.Generic;
+﻿using Dragon_Nutrex_Web.Core.Interfaces;
+using Dragon_Nutrex_Web.Core.Models;
 using Dragon_Nutrex_Web.Infrastructure.Repositories;
 
 namespace Dragon_Nutrex_Web.Core.Services
 {
     public class MenuDetalleService
     {
-        private readonly IRepository<MenuDetalle> _detalleRepository;
+        private readonly IRepository<MenuDetalle> detalleRepository;
 
-        public MenuDetalleService()
+        public MenuDetalleService(IRepository<MenuDetalle> detalleRepository)
         {
-            _detalleRepository = new MenuDetalleRepository();
+            this.detalleRepository = detalleRepository;
         }
 
-        public void GuardarDetalle(MenuDetalle detalle)
+        public List<MenuDetalle> ObtenerTodos()
         {
-            ValidarDetalle(detalle);
-            _detalleRepository.Create(detalle);
+            return detalleRepository.GetAll();
         }
 
         public List<MenuDetalle> ObtenerPorMenu(Guid menuId)
         {
-            if (menuId == Guid.Empty)
-                return new List<MenuDetalle>();
-
-            var repoConcreto = (MenuDetalleRepository)_detalleRepository;
-            return repoConcreto.GetByMenuId(menuId);
-        }
-
-        public void EliminarDetalle(Guid id)
-        {
-            _detalleRepository.Delete(id);
-        }
-
-        private static void ValidarDetalle(MenuDetalle detalle)
-        {
-            if (detalle == null)
-                throw new ArgumentNullException(nameof(detalle));
-
-            if (detalle.ProductoId == Guid.Empty)
-                throw new ArgumentException("El detalle debe estar asociado a un producto válido.", nameof(detalle));
-
-            if (detalle.Porcion <= 0)
-                throw new ArgumentException("La cantidad del alimento debe ser mayor a cero.", nameof(detalle));
+            return ((MenuDetalleRepository)detalleRepository).GetByMenu(menuId);
         }
 
         public void AgregarProducto(MenuDetalle detalle)
         {
-            GuardarDetalle(detalle);
+            ValidarDetalle(detalle);
+
+            if (detalle.Id == Guid.Empty)
+            {
+                detalle.Id = Guid.NewGuid();
+            }
+
+            detalleRepository.Create(detalle);
         }
 
-        public void EliminarProducto(Guid id)
+        public void ActualizarDetalle(MenuDetalle detalle)
         {
-            EliminarDetalle(id);
+            ValidarDetalle(detalle);
+            detalleRepository.Update(detalle);
+        }
+
+        public void EliminarProducto(Guid detalleId)
+        {
+            detalleRepository.Delete(detalleId);
+        }
+
+        private static void ValidarDetalle(MenuDetalle detalle)
+        {
+            if (detalle.MenuId == Guid.Empty)
+                throw new Exception("El detalle debe estar asociado a un menú.");
+
+            if (detalle.ProductoId == Guid.Empty)
+                throw new Exception("El detalle debe estar asociado a un producto.");
+
+            if (detalle.Porcion <= 0)
+                throw new Exception("La porción debe ser mayor a cero.");
         }
     }
 }
