@@ -1,4 +1,76 @@
 ﻿@page "/"
 
-<h1>Dashboard</h1>
-<p>Sistema Dragon Nutrex en ejecución.</p>
+<PageTitle>Inicio</PageTitle>
+
+<section class="page-header">
+    <h1>Bienvenido a Dragon Nutrex</h1>
+    <p>Gestiona usuarios, productos, menús y análisis nutricional desde un solo lugar.</p>
+</section>
+
+<section class="dashboard-grid">
+    <div class="dashboard-card">
+        <div class="dashboard-card-header">
+            <h2>Usuarios</h2>
+            <span class="dashboard-badge">Módulo activo</span>
+        </div>
+        <p>Administra perfiles con datos físicos, objetivos y tipo de dieta.</p>
+        <div class="dashboard-card-footer">
+            <a class="btn btn-primary" href="/usuarios">Ir a usuarios</a>
+        </div>
+    </div>
+
+    <div class="dashboard-card">
+        <div class="dashboard-card-header">
+            <h2>Productos</h2>
+            <span class="dashboard-badge">Módulo activo</span>
+        </div>
+        <p>Registra alimentos, porciones y macronutrientes para el sistema.</p>
+        <div class="dashboard-card-footer">
+            <a class="btn btn-primary" href="/productos">Ir a productos</a>
+        </div>
+    </div>
+
+    <div class="dashboard-card">
+        <div class="dashboard-card-header">
+            <h2>Menús</h2>
+            <span class="dashboard-badge">Módulo activo</span>
+        </div>
+        <p>Construye menús por usuario y fecha con persistencia de detalles.</p>
+        <div class="dashboard-card-footer">
+            <a class="btn btn-primary" href="/menus">Ir a menús</a>
+        </div>
+    </div>
+
+    <div class="dashboard-card">
+        <div class="dashboard-card-header">
+            <h2>Estadísticas</h2>
+            <span class="dashboard-badge">Módulo activo</span>
+        </div>
+        <p>Consulta consumo vs meta y resúmenes nutricionales por rango.</p>
+        <div class="dashboard-card-footer">
+            <a class="btn btn-primary" href="/estadisticas">Ir a estadísticas</a>
+        </div>
+    </div>
+
+    <div class="dashboard-card">
+        <div class="dashboard-card-header">
+            <h2>IMC</h2>
+            <span class="dashboard-badge">Herramienta</span>
+        </div>
+        <p>Calcula rápidamente el índice de masa corporal del usuario.</p>
+        <div class="dashboard-card-footer">
+            <a class="btn btn-secondary" href="/imc">Ir a IMC</a>
+        </div>
+    </div>
+
+    <div class="dashboard-card">
+        <div class="dashboard-card-header">
+            <h2>Requerimientos</h2>
+            <span class="dashboard-badge">Herramienta</span>
+        </div>
+        <p>Obtén calorías objetivo y distribución estimada de macronutrientes.</p>
+        <div class="dashboard-card-footer">
+            <a class="btn btn-secondary" href="/requerimientos">Ir a requerimientos</a>
+        </div>
+    </div>
+</section>
