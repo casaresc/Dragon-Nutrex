@@ -65,5 +65,38 @@ namespace Dragon_Nutrex_Web.Core.Services
             if (usuario.Edad <= 0)
                 throw new Exception("La edad debe ser válida");
         }
+
+        public void ResetearContrasena(Guid usuarioId)
+        {
+            var usuario = usuarioRepository.GetById(usuarioId);
+
+            if (usuario is null)
+                throw new Exception("Usuario no encontrado");
+
+            usuario.Contrasena = "1234";
+            usuarioRepository.Update(usuario);
+        }
+
+        public void DesactivarUsuario(Guid usuarioId)
+        {
+            var usuario = usuarioRepository.GetById(usuarioId);
+
+            if (usuario is null)
+                throw new Exception("Usuario no encontrado");
+
+            usuario.Activo = false;
+            usuarioRepository.Update(usuario);
+        }
+
+        public void ActivarUsuario(Guid usuarioId)
+        {
+            var usuario = usuarioRepository.GetById(usuarioId);
+
+            if (usuario is null)
+                throw new Exception("Usuario no encontrado");
+
+            usuario.Activo = true;
+            usuarioRepository.Update(usuario);
+        }
     }
 }

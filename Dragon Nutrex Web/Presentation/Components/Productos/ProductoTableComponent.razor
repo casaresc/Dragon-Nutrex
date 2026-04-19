@@ -12,7 +12,7 @@
     else
     {
         <div class="table-responsive">
-            <table class="app-table">
+            <table class="app-table productos-table">
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -20,7 +20,7 @@
                         <th>Proteína</th>
                         <th>Carbohidratos</th>
                         <th>Grasas</th>
-                        <th>Porción (g)</th>
+                        <th>Porción</th>
                         <th>Calorías</th>
                         <th>Activo</th>
                         <th>Acciones</th>
@@ -37,11 +37,30 @@
                             <td>@producto.Grasas</td>
                             <td>@producto.PorcionGramos</td>
                             <td>@producto.Calorias</td>
-                            <td>@(producto.Activo ? "Sí" : "No")</td>
                             <td>
-                                <div class="action-buttons">
-                                    <button class="btn btn-warning" @onclick="() => HandleEditar(producto)">Editar</button>
-                                    <button class="btn btn-danger" @onclick="() => HandleEliminar(producto.Id)">Eliminar</button>
+                                <span class="status-badge @(producto.Activo ? "status-active" : "status-inactive")">
+                                    @(producto.Activo ? "Activo" : "Inactivo")
+                                </span>
+                            </td>
+                            <td>
+                                <div class="action-buttons productos-actions">
+                                    <button type="button" class="btn btn-warning" @onclick="() => HandleEditar(producto)">
+                                        Editar
+                                    </button>
+
+                                    @if (producto.Activo)
+                                    {
+                                        <button type="button" class="btn btn-danger" @onclick="() => HandleDesactivar(producto.Id)">
+                                            Desactivar
+                                        </button>
+                                    }
+                                    else
+                                    {
+                                        <button type="button" class="btn btn-primary" @onclick="() => HandleActivar(producto.Id)">
+                                            Activar
+                                        </button>
+                                    }
+
                                 </div>
                             </td>
                         </tr>
@@ -62,21 +81,29 @@
     [Parameter]
     public EventCallback<Guid> OnEliminar { get; set; }
 
-    /// <summary>
-    /// Notifica al padre que un producto debe editarse.
-    /// </summary>
-    /// <param name="producto">Producto seleccionado.</param>
+    [Parameter]
+    public EventCallback<Guid> OnDesactivar { get; set; }
+
+    [Parameter]
+    public EventCallback<Guid> OnActivar { get; set; }
+
     private async Task HandleEditar(Producto producto)
     {
         await OnEditar.InvokeAsync(producto);
     }
 
-    /// <summary>
-    /// Notifica al padre que un producto debe eliminarse.
-    /// </summary>
-    /// <param name="productoId">Identificador del producto.</param>
     private async Task HandleEliminar(Guid productoId)
     {
         await OnEliminar.InvokeAsync(productoId);
+    }
+
+    private async Task HandleDesactivar(Guid productoId)
+    {
+        await OnDesactivar.InvokeAsync(productoId);
+    }
+
+    private async Task HandleActivar(Guid productoId)
+    {
+        await OnActivar.InvokeAsync(productoId);
     }
 }

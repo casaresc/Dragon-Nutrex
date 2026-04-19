@@ -26,7 +26,10 @@
     <div class="usuarios-table-panel">
         <UsuarioTableComponent Usuarios="usuarios"
                                OnEditar="HandleEditarUsuario"
-                               OnEliminar="HandleEliminarUsuario" />
+                               OnEliminar="HandleEliminarUsuario"
+                               OnResetearContrasena="HandleResetearContrasena"
+                               OnDesactivar="HandleDesactivarUsuario"
+                               OnActivar="HandleActivarUsuario" />
     </div>
 </section>
 
@@ -145,6 +148,62 @@
     private Task HandleCancelarEdicion()
     {
         usuarioSeleccionado = null;
+        return Task.CompletedTask;
+    }
+    private Task HandleResetearContrasena(Guid usuarioId)
+    {
+        try
+        {
+            usuarioService.ResetearContrasena(usuarioId);
+            CargarUsuarios();
+
+            exitoMensaje = "La contraseña fue restablecida correctamente.";
+            errorMensaje = null;
+        }
+        catch (Exception ex)
+        {
+            errorMensaje = $"Error al resetear contraseña: {ex.Message}";
+            exitoMensaje = null;
+        }
+
+        return Task.CompletedTask;
+    }
+
+    private Task HandleDesactivarUsuario(Guid usuarioId)
+    {
+        try
+        {
+            usuarioService.DesactivarUsuario(usuarioId);
+            CargarUsuarios();
+
+            exitoMensaje = "El usuario fue desactivado correctamente.";
+            errorMensaje = null;
+        }
+        catch (Exception ex)
+        {
+            errorMensaje = $"Error al desactivar usuario: {ex.Message}";
+            exitoMensaje = null;
+        }
+
+        return Task.CompletedTask;
+    }
+
+    private Task HandleActivarUsuario(Guid usuarioId)
+    {
+        try
+        {
+            usuarioService.ActivarUsuario(usuarioId);
+            CargarUsuarios();
+
+            exitoMensaje = "El usuario fue activado correctamente.";
+            errorMensaje = null;
+        }
+        catch (Exception ex)
+        {
+            errorMensaje = $"Error al activar usuario: {ex.Message}";
+            exitoMensaje = null;
+        }
+
         return Task.CompletedTask;
     }
 }
