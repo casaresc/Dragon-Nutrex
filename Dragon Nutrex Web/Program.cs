@@ -19,6 +19,7 @@ builder.Services.AddScoped<MenuDetalleService>();
 builder.Services.AddScoped<ConsumoController>();
 builder.Services.AddScoped<ConsumoService>();
 builder.Services.AddScoped<NutricionService>();
+builder.Services.AddScoped<AuthService>();
 
 var app = builder.Build();
 

@@ -7,16 +7,23 @@
     </div>
 
     <div class="form-grid">
-        <div class="form-group">
-            <label for="cmbUsuarioRango">Usuario</label>
-            <InputSelect id="cmbUsuarioRango" class="form-control" @bind-Value="consulta.UsuarioId">
-                <option value="@Guid.Empty">Seleccione un usuario</option>
-                @foreach (var usuario in Usuarios)
-                {
-                    <option value="@usuario.Id">@usuario.Nombre</option>
-                }
-            </InputSelect>
-        </div>
+        @if (MostrarSelectorUsuario)
+        {
+            <div class="form-group">
+                <label for="cmbUsuarioRango">Usuario</label>
+                <InputSelect id="cmbUsuarioRango" class="form-control" @bind-Value="consulta.UsuarioId">
+                    <option value="@Guid.Empty">Seleccione un usuario</option>
+                    @foreach (var usuario in Usuarios)
+                    {
+                        <option value="@usuario.Id">@usuario.Nombre</option>
+                    }
+                </InputSelect>
+            </div>
+        }
+        else
+        {
+            <input type="hidden" value="@consulta.UsuarioId" />
+        }
 
         <div class="form-group">
             <label for="txtFechaInicio">Fecha inicio</label>
@@ -86,9 +93,19 @@
 
     [Parameter]
     public ResumenRango ResumenRango { get; set; } = new();
+    [Parameter]
+    public bool MostrarSelectorUsuario { get; set; } = true;
 
+    [Parameter]
+    public Guid? UsuarioFijoId { get; set; }
     private ConsultaRango consulta = new();
-
+    protected override void OnParametersSet()
+    {
+        if (!MostrarSelectorUsuario && UsuarioFijoId.HasValue)
+        {
+            consulta.UsuarioId = UsuarioFijoId.Value;
+        }
+    }
     /// <summary>
     /// Lanza la consulta de estadísticas por rango.
     /// </summary>

@@ -4,6 +4,8 @@
 @using Dragon_Nutrex_Web.Core.Services
 @using Dragon_Nutrex_Web.Presentation.Components.Productos
 @inject ProductoService productoService
+@inject AuthService authService
+@inject NavigationManager navigationManager
 
 <PageTitle>Productos</PageTitle>
 
@@ -47,6 +49,16 @@
     /// </summary>
     protected override void OnInitialized()
     {
+        if (!authService.EstaAutenticado())
+        {
+            navigationManager.NavigateTo("/login");
+            return;
+        }
+        if (authService.SesionActual?.EsAdmin != true)
+        {
+            navigationManager.NavigateTo("/");
+            return;
+        }
         CargarProductos();
     }
 

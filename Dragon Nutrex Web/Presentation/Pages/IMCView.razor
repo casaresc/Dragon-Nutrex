@@ -1,7 +1,11 @@
 ﻿@page "/imc"
 @rendermode InteractiveServer
 @using Dragon_Nutrex_Web.Core.Services
+@using Dragon_Nutrex_Web.Core.Models
 @using Dragon_Nutrex_Web.Presentation.Components.Nutricion
+@inject AuthService authService
+@inject UsuarioService usuarioService
+@inject NavigationManager navigationManager
 
 <PageTitle>IMC</PageTitle>
 
@@ -12,7 +16,8 @@
 
 <section class="nutricion-container">
     <div class="nutricion-panel">
-        <IMCFormComponent OnCalcular="HandleCalcularImc"
+        <IMCFormComponent ConsultaInicial="consultaInicial"
+                          OnCalcular="HandleCalcularImc"
                           ResultadoImc="resultadoImc"
                           Clasificacion="@clasificacion" />
     </div>
@@ -21,6 +26,28 @@
 @code {
     private decimal resultadoImc;
     private string clasificacion = "Sin cálculo";
+    private ConsultaImc consultaInicial = new();
+    private Usuario? usuarioActual;
+
+    protected override void OnInitialized()
+    {
+        if (!authService.EstaAutenticado())
+        {
+            navigationManager.NavigateTo("/login");
+            return;
+        }
+
+        usuarioActual = usuarioService.ObtenerPorId(authService.SesionActual!.UsuarioId);
+
+        if (usuarioActual is not null)
+        {
+            consultaInicial = new ConsultaImc
+            {
+                Peso = usuarioActual.Peso,
+                Altura = usuarioActual.Altura
+            };
+        }
+    }
 
     private Task HandleCalcularImc(ConsultaImc consulta)
     {

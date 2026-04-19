@@ -6,6 +6,8 @@
 @using Microsoft.AspNetCore.Components.Web
 @using Dragon_Nutrex_Web.Core.Services
 @inject UsuarioService usuarioService
+@inject AuthService authService
+@inject NavigationManager navigationManager
 
 <PageTitle>Usuarios</PageTitle>
 
@@ -53,6 +55,16 @@
     /// </summary>
     protected override void OnInitialized()
     {
+        if (!authService.EstaAutenticado())
+        {
+            navigationManager.NavigateTo("/login");
+            return;
+        }
+        if (authService.SesionActual?.EsAdmin != true)
+        {
+            navigationManager.NavigateTo("/");
+            return;
+        }
         CargarUsuarios();
     }
 
