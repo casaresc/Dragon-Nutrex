@@ -83,5 +83,27 @@ namespace Dragon_Nutrex_Web.Core.Services
                                 (producto.Carbohidratos * 4) +
                                 (producto.Grasas * 9);
         }
+
+        public void DesactivarProducto(Guid productoId)
+        {
+            var producto = productoRepository.GetById(productoId);
+
+            if (producto is null)
+                throw new Exception("Producto no encontrado");
+
+            producto.Activo = false;
+            productoRepository.Update(producto);
+        }
+
+        public void ActivarProducto(Guid productoId)
+        {
+            var producto = productoRepository.GetById(productoId);
+
+            if (producto is null)
+                throw new Exception("Producto no encontrado");
+
+            producto.Activo = true;
+            productoRepository.Update(producto);
+        }
     }
 }

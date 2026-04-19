@@ -1,4 +1,5 @@
 ﻿@using Dragon_Nutrex_Web.Core.Models
+
 <div class="card-panel">
     <div class="card-header">
         <h2>Listado de Usuarios</h2>
@@ -11,16 +12,12 @@
     else
     {
         <div class="table-responsive">
-            <table class="app-table">
+            <table class="app-table usuarios-table">
                 <thead>
                     <tr>
                         <th>Nombre</th>
-                        <th>Peso</th>
-                        <th>Altura</th>
-                        <th>Edad</th>
-                        <th>Actividad</th>
-                        <th>Objetivo</th>
-                        <th>Dieta</th>
+                        <th>Correo</th>
+                        <th>Rol</th>
                         <th>Activo</th>
                         <th>Acciones</th>
                     </tr>
@@ -30,17 +27,42 @@
                     {
                         <tr>
                             <td>@usuario.Nombre</td>
-                            <td>@usuario.Peso</td>
-                            <td>@usuario.Altura</td>
-                            <td>@usuario.Edad</td>
-                            <td>@usuario.NivelActividad</td>
-                            <td>@usuario.Objetivo</td>
-                            <td>@usuario.TipoDieta</td>
-                            <td>@(usuario.Activo ? "Sí" : "No")</td>
+                            <td>@usuario.Correo</td>
+                            <td>@usuario.Rol</td>
                             <td>
-                                <div class="action-buttons">
-                                    <button class="btn btn-warning" @onclick="() => HandleEditar(usuario)">Editar</button>
-                                    <button class="btn btn-danger" @onclick="() => HandleEliminar(usuario.Id)">Eliminar</button>
+                                <span class="status-badge @(usuario.Activo ? "status-active" : "status-inactive")">
+                                    @(usuario.Activo ? "Activo" : "Inactivo")
+                                </span>
+                            </td>
+                            <td>
+                                <div class="action-buttons usuarios-actions">
+                                    <button type="button" class="btn btn-warning" @onclick="() => HandleEditar(usuario)">
+                                        Editar
+                                    </button>
+
+                                    <button type="button" class="btn btn-secondary" @onclick="() => HandleResetearContrasena(usuario.Id)">
+                                        Reset Pass
+                                    </button>
+
+                                    @if (usuario.Rol != "Admin")
+                                    {
+                                        @if (usuario.Activo)
+                                        {
+                                            <button type="button" class="btn btn-danger" @onclick="() => HandleDesactivar(usuario.Id)">
+                                                Desactivar
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <button type="button" class="btn btn-primary" @onclick="() => HandleActivar(usuario.Id)">
+                                                Activar
+                                            </button>
+                                        }
+                                    }
+
+                                    <button type="button" class="btn btn-danger" @onclick="() => HandleEliminar(usuario.Id)">
+                                        Eliminar
+                                    </button>
                                 </div>
                             </td>
                         </tr>
@@ -61,21 +83,37 @@
     [Parameter]
     public EventCallback<Guid> OnEliminar { get; set; }
 
-    /// <summary>
-    /// Notifica al padre que un usuario debe editarse.
-    /// </summary>
-    /// <param name="usuario">Usuario seleccionado.</param>
+    [Parameter]
+    public EventCallback<Guid> OnResetearContrasena { get; set; }
+
+    [Parameter]
+    public EventCallback<Guid> OnDesactivar { get; set; }
+
+    [Parameter]
+    public EventCallback<Guid> OnActivar { get; set; }
+
     private async Task HandleEditar(Usuario usuario)
     {
         await OnEditar.InvokeAsync(usuario);
     }
 
-    /// <summary>
-    /// Notifica al padre que un usuario debe eliminarse.
-    /// </summary>
-    /// <param name="usuarioId">Identificador del usuario.</param>
     private async Task HandleEliminar(Guid usuarioId)
     {
         await OnEliminar.InvokeAsync(usuarioId);
+    }
+
+    private async Task HandleResetearContrasena(Guid usuarioId)
+    {
+        await OnResetearContrasena.InvokeAsync(usuarioId);
+    }
+
+    private async Task HandleDesactivar(Guid usuarioId)
+    {
+        await OnDesactivar.InvokeAsync(usuarioId);
+    }
+
+    private async Task HandleActivar(Guid usuarioId)
+    {
+        await OnActivar.InvokeAsync(usuarioId);
     }
 }

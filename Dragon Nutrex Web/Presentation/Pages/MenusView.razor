@@ -29,7 +29,7 @@
                            OnCancelar="HandleCancelarMenu"
                            OnCambioMenuBase="HandleCambioMenuBase" />
 
-        <ProductoSelectorComponent Productos="productos"
+        <ProductoSelectorComponent Productos="productosActivos"
                                    OnAgregarProducto="HandleAgregarProducto" />
         @if (!string.IsNullOrWhiteSpace(estadoMenu))
         {
@@ -66,6 +66,7 @@
 @code {
     private List<Usuario> usuarios = new();
     private List<Producto> productos = new();
+    private List<Producto> productosActivos = new();
     private List<MenuDiario> menus = new();
     private List<MenuDetalle> detallesTemporales = new();
     private string estadoMenu = "Nuevo menú";
@@ -103,6 +104,10 @@
     {
         usuarios = usuarioService.ObtenerTodos();
         productos = productoService.ObtenerProductos();
+        productosActivos = productos
+            .Where(p => p.Activo)
+            .ToList();
+
         menus = ObtenerMenusSegunRol();
     }
 

@@ -24,7 +24,8 @@
     <div class="productos-table-panel">
         <ProductoTableComponent Productos="productos"
                                 OnEditar="HandleEditarProducto"
-                                OnEliminar="HandleEliminarProducto" />
+                                OnDesactivar="HandleDesactivarProducto"
+                                OnActivar="HandleActivarProducto" />
     </div>
 </section>
 @if (!string.IsNullOrEmpty(errorMensaje))
@@ -125,13 +126,24 @@
     /// <param name="productoId">Identificador del producto.</param>
     private Task HandleEliminarProducto(Guid productoId)
     {
-        productoService.EliminarProducto(productoId);
-
-        CargarProductos();
-
-        if (productoSeleccionado?.Id == productoId)
+        try
         {
-            productoSeleccionado = null;
+            productoService.EliminarProducto(productoId);
+
+            CargarProductos();
+
+            if (productoSeleccionado?.Id == productoId)
+            {
+                productoSeleccionado = null;
+            }
+
+            exitoMensaje = "Producto eliminado correctamente.";
+            errorMensaje = null;
+        }
+        catch (Exception ex)
+        {
+            errorMensaje = $"Error al eliminar producto: {ex.Message}";
+            exitoMensaje = null;
         }
 
         return Task.CompletedTask;
@@ -143,6 +155,44 @@
     private Task HandleCancelarEdicion()
     {
         productoSeleccionado = null;
+        return Task.CompletedTask;
+    }
+
+    private Task HandleDesactivarProducto(Guid productoId)
+    {
+        try
+        {
+            productoService.DesactivarProducto(productoId);
+            CargarProductos();
+
+            exitoMensaje = "Producto desactivado correctamente.";
+            errorMensaje = null;
+        }
+        catch (Exception ex)
+        {
+            errorMensaje = $"Error al desactivar producto: {ex.Message}";
+            exitoMensaje = null;
+        }
+
+        return Task.CompletedTask;
+    }
+
+    private Task HandleActivarProducto(Guid productoId)
+    {
+        try
+        {
+            productoService.ActivarProducto(productoId);
+            CargarProductos();
+
+            exitoMensaje = "Producto activado correctamente.";
+            errorMensaje = null;
+        }
+        catch (Exception ex)
+        {
+            errorMensaje = $"Error al activar producto: {ex.Message}";
+            exitoMensaje = null;
+        }
+
         return Task.CompletedTask;
     }
 }
