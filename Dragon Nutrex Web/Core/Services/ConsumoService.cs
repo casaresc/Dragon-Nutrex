@@ -143,10 +143,10 @@ namespace Dragon_Nutrex_Web.Core.Services
                 TotalCarbohidratos = totalCarbohidratos,
                 TotalGrasas = totalGrasas,
                 TotalProteinas = totalProteinas,
-                PromedioCalorias = totalCalorias / (dias == 0 ? 1 : dias),
-                PromedioCarbohidratos = totalCarbohidratos / (dias == 0 ? 1 : dias),
-                PromedioGrasas = totalGrasas / (dias == 0 ? 1 : dias),
-                PromedioProteinas = totalProteinas / (dias == 0 ? 1 : dias),
+                PromedioCalorias = Math.Round(totalCalorias / (dias == 0 ? 1 : dias), 2),
+                PromedioCarbohidratos = Math.Round(totalCarbohidratos / (dias == 0 ? 1 : dias), 2),
+                PromedioGrasas = Math.Round(totalGrasas / (dias == 0 ? 1 : dias), 2),
+                PromedioProteinas = Math.Round(totalProteinas / (dias == 0 ? 1 : dias), 2),
                 DiasConRegistros = dias
             };
         }

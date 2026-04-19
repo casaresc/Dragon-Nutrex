@@ -31,6 +31,7 @@ builder.Services.AddScoped<MenuDetalleRepository>();
 builder.Services.AddScoped<MenuDiarioService>();
 builder.Services.AddScoped<MenuDetalleService>();
 builder.Services.AddScoped<ConsumoService>();
+builder.Services.AddScoped<ReportExportService>();
 
 builder.Services.AddScoped<ConsumoController>();
 builder.Services.AddScoped<NutricionService>();
