@@ -1,5 +1,8 @@
 using Dragon_Nutrex_Web.Core.Controllers;
+using Dragon_Nutrex_Web.Core.Interfaces;
+using Dragon_Nutrex_Web.Core.Models;
 using Dragon_Nutrex_Web.Core.Services;
+using Dragon_Nutrex_Web.Infrastructure.Data;
 using Dragon_Nutrex_Web.Infrastructure.Repositories;
 using Dragon_Nutrex_Web.Presentation.Components;
 
@@ -9,15 +12,27 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+var connectionString = builder.Configuration.GetConnectionString("DragonNutrexDb")
+    ?? throw new InvalidOperationException("No se encontró la cadena de conexión DragonNutrexDb.");
+
+builder.Services.AddSingleton(new SqlConnectionFactory(connectionString));
+
+builder.Services.AddScoped<IRepository<Usuario>, UsuarioRepository>();
 builder.Services.AddScoped<UsuarioService>();
-builder.Services.AddScoped<UsuarioRepository>();
-builder.Services.AddScoped<ProductoRepository>();
+
+builder.Services.AddScoped<IRepository<Producto>, ProductoRepository>();
 builder.Services.AddScoped<ProductoService>();
+
+builder.Services.AddScoped<IRepository<MenuDiario>, MenuDiarioRepository>();
+builder.Services.AddScoped<IRepository<MenuDetalle>, MenuDetalleRepository>();
+builder.Services.AddScoped<IRepository<ConsumoDiario>, ConsumoDiarioRepository>();
+
+builder.Services.AddScoped<MenuDetalleRepository>();
 builder.Services.AddScoped<MenuDiarioService>();
-builder.Services.AddScoped<ProductoService>();
 builder.Services.AddScoped<MenuDetalleService>();
-builder.Services.AddScoped<ConsumoController>();
 builder.Services.AddScoped<ConsumoService>();
+
+builder.Services.AddScoped<ConsumoController>();
 builder.Services.AddScoped<NutricionService>();
 builder.Services.AddScoped<AuthService>();
 
@@ -27,12 +42,11 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
 app.UseStatusCodePagesWithReExecute("/not-found", createScopeForStatusCodePages: true);
 app.UseHttpsRedirection();
-
 app.UseAntiforgery();
 
 app.MapStaticAssets();

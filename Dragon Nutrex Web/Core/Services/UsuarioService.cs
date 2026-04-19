@@ -1,48 +1,60 @@
 ﻿using Dragon_Nutrex_Web.Core.Interfaces;
 using Dragon_Nutrex_Web.Core.Models;
-using Dragon_Nutrex_Web.Infrastructure.Repositories;
 
 namespace Dragon_Nutrex_Web.Core.Services
 {
     public class UsuarioService
     {
-        private readonly IRepository<Usuario> _usuarioRepository = new UsuarioRepository();
+        private readonly IRepository<Usuario> usuarioRepository;
+
+        public UsuarioService(IRepository<Usuario> usuarioRepository)
+        {
+            this.usuarioRepository = usuarioRepository;
+        }
 
         public List<Usuario> ObtenerTodos()
         {
-            return _usuarioRepository.GetAll();
+            return usuarioRepository.GetAll();
         }
 
         public void CrearUsuario(Usuario usuario)
         {
             ValidarUsuario(usuario);
+
             if (usuario.Id == Guid.Empty)
             {
                 usuario.Id = Guid.NewGuid();
             }
-            _usuarioRepository.Create(usuario);
+
+            usuarioRepository.Create(usuario);
         }
 
         public void ActualizarUsuario(Usuario usuario)
         {
             ValidarUsuario(usuario);
-            _usuarioRepository.Update(usuario);
+            usuarioRepository.Update(usuario);
         }
 
         public void EliminarUsuario(Guid id)
         {
-            _usuarioRepository.Delete(id);
+            usuarioRepository.Delete(id);
         }
 
         public Usuario? ObtenerPorId(Guid id)
         {
-            return _usuarioRepository.GetById(id);
+            return usuarioRepository.GetById(id);
         }
 
         private static void ValidarUsuario(Usuario usuario)
         {
             if (string.IsNullOrWhiteSpace(usuario.Nombre))
                 throw new Exception("El nombre del usuario es obligatorio");
+
+            if (string.IsNullOrWhiteSpace(usuario.Correo))
+                throw new Exception("El correo del usuario es obligatorio");
+
+            if (string.IsNullOrWhiteSpace(usuario.Contrasena))
+                throw new Exception("La contraseña del usuario es obligatoria");
 
             if (usuario.Peso <= 0)
                 throw new Exception("El peso debe ser mayor a 0");

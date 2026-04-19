@@ -6,42 +6,54 @@ namespace Dragon_Nutrex_Web.Core.Services
 {
     public class ConsumoService
     {
-        private readonly IRepository<ConsumoDiario> _repository;
+        private readonly IRepository<ConsumoDiario> repository;
 
-        public ConsumoService()
+        public ConsumoService(IRepository<ConsumoDiario> repository)
         {
-            _repository = new ConsumoDiarioRepository();
+            this.repository = repository;
         }
 
         public void RegistrarConsumosMasivos(List<ConsumoDiario> lista)
         {
             foreach (var item in lista)
             {
-                _repository.Create(item);
+                if (item.Id == Guid.Empty)
+                {
+                    item.Id = Guid.NewGuid();
+                }
+
+                repository.Create(item);
             }
         }
+
         public void RegistrarConsumo(ConsumoDiario consumo)
         {
             if (consumo.CaloriasConsumidas < 0)
                 throw new ArgumentException("Las calorías consumidas no pueden ser valores negativos.", nameof(consumo));
 
-            _repository.Create(consumo);
+            if (consumo.Id == Guid.Empty)
+            {
+                consumo.Id = Guid.NewGuid();
+            }
+
+            repository.Create(consumo);
         }
 
         public void EliminarConsumo(Guid id)
         {
-            _repository.Delete(id);
+            repository.Delete(id);
         }
 
         public ResumenDiario ObtenerResumenDiario(DateTime fecha, decimal metaCalorias)
         {
-            var repoConcreto = (ConsumoDiarioRepository)_repository;
+            var repoConcreto = (ConsumoDiarioRepository)repository;
             var registros = repoConcreto.GetByDate(fecha);
 
             if (registros == null || !registros.Any())
             {
                 return new ResumenDiario
                 {
+                    MetaCalorias = metaCalorias,
                     CaloriasConsumidas = 0,
                     CarbohidratosConsumidos = 0,
                     GrasasConsumidas = 0,
@@ -55,8 +67,10 @@ namespace Dragon_Nutrex_Web.Core.Services
             var carbohidratos = registros.Sum(r => r.CarbohidratosConsumidos);
             var proteinas = registros.Sum(r => r.ProteinasConsumidas);
             var grasas = registros.Sum(r => r.GrasasConsumidas);
+
             return new ResumenDiario
             {
+                MetaCalorias = metaCalorias,
                 CaloriasConsumidas = calorias,
                 CarbohidratosConsumidos = carbohidratos,
                 GrasasConsumidas = grasas,
@@ -68,7 +82,7 @@ namespace Dragon_Nutrex_Web.Core.Services
 
         public ResumenDiario ObtenerResumenDiario(Guid usuarioId, DateTime fecha, decimal metaCalorias)
         {
-            var registros = _repository.GetAll()
+            var registros = repository.GetAll()
                 .Where(r => r.UsuarioId == usuarioId && r.Fecha.Date == fecha.Date)
                 .ToList();
 
@@ -79,6 +93,8 @@ namespace Dragon_Nutrex_Web.Core.Services
                     MetaCalorias = metaCalorias,
                     CaloriasConsumidas = 0,
                     CarbohidratosConsumidos = 0,
+                    ProteinasConsumidas = 0,
+                    GrasasConsumidas = 0,
                     DiferenciaCalorias = metaCalorias,
                     TieneRegistros = false
                 };
@@ -106,8 +122,10 @@ namespace Dragon_Nutrex_Web.Core.Services
             if (fechaInicio > fechaFin)
                 throw new ArgumentException("La fecha inicio no puede ser mayor que la fecha fin");
 
-            var registros = _repository.GetAll()
-                .Where(r => r.UsuarioId == usuarioId && r.Fecha.Date >= fechaInicio.Date && r.Fecha.Date <= fechaFin.Date)
+            var registros = repository.GetAll()
+                .Where(r => r.UsuarioId == usuarioId &&
+                            r.Fecha.Date >= fechaInicio.Date &&
+                            r.Fecha.Date <= fechaFin.Date)
                 .ToList();
 
             if (!registros.Any())
@@ -132,12 +150,13 @@ namespace Dragon_Nutrex_Web.Core.Services
                 DiasConRegistros = dias
             };
         }
+
         public ResumenRango ObtenerResumenPorRango(DateTime fechaInicio, DateTime fechaFin)
         {
             if (fechaInicio > fechaFin)
                 throw new ArgumentException("La fecha inicio no puede ser mayor que la fecha fin");
 
-            var repoConcreto = (ConsumoDiarioRepository)_repository;
+            var repoConcreto = (ConsumoDiarioRepository)repository;
             var registros = repoConcreto.GetByRange(fechaInicio, fechaFin);
 
             if (registros == null || !registros.Any())
@@ -155,17 +174,17 @@ namespace Dragon_Nutrex_Web.Core.Services
                 TotalCarbohidratos = totalCarbohidratos,
                 TotalGrasas = totalGrasas,
                 TotalProteinas = totalProteinas,
-                PromedioCalorias = totalCalorias / dias,
-                PromedioCarbohidratos = totalCarbohidratos / dias,
-                PromedioGrasas = totalGrasas / dias,
-                PromedioProteinas = totalProteinas / dias,
+                PromedioCalorias = totalCalorias / (dias == 0 ? 1 : dias),
+                PromedioCarbohidratos = totalCarbohidratos / (dias == 0 ? 1 : dias),
+                PromedioGrasas = totalGrasas / (dias == 0 ? 1 : dias),
+                PromedioProteinas = totalProteinas / (dias == 0 ? 1 : dias),
                 DiasConRegistros = dias
             };
         }
 
         public List<ConsumoDiario> ObtenerTodos()
         {
-            return _repository.GetAll().ToList();
+            return repository.GetAll();
         }
     }
 }

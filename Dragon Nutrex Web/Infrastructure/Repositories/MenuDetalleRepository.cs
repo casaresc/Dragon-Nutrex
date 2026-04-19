@@ -1,62 +1,180 @@
-﻿using Dragon_Nutrex_Web.Core.Models;
-using Dragon_Nutrex_Web.Utils.FileStorage;
-using Dragon_Nutrex_Web.Core.Interfaces;
-using Dragon_Nutrex_Web.Common.DataConfig;
+﻿using Dragon_Nutrex_Web.Core.Interfaces;
+using Dragon_Nutrex_Web.Core.Models;
+using Dragon_Nutrex_Web.Infrastructure.Data;
+using Microsoft.Data.SqlClient;
 
 namespace Dragon_Nutrex_Web.Infrastructure.Repositories
 {
+    /// <summary>
+    /// Repositorio SQL Server para detalles de menú.
+    /// </summary>
     public class MenuDetalleRepository : IRepository<MenuDetalle>
     {
-        private readonly string _filePath = DataConfig.GetStoragePath("menu_detalles.json");
+        private readonly SqlConnectionFactory connectionFactory;
+
+        public MenuDetalleRepository(SqlConnectionFactory connectionFactory)
+        {
+            this.connectionFactory = connectionFactory;
+        }
+
         public List<MenuDetalle> GetAll()
         {
-            return FileStorage.Load<MenuDetalle>(_filePath)
-                              .Where(d => d.Activo)
-                              .ToList();
+            var detalles = new List<MenuDetalle>();
+
+            using var connection = connectionFactory.CreateConnection();
+            connection.Open();
+
+            const string query = @"
+                SELECT
+                    Id,
+                    MenuId,
+                    ProductoId,
+                    Porcion
+                FROM MenuDetalles;";
+
+            using var command = new SqlCommand(query, connection);
+            using var reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                detalles.Add(MapDetalle(reader));
+            }
+
+            return detalles;
         }
 
         public MenuDetalle? GetById(Guid id)
         {
-            return GetAll().FirstOrDefault(d => d.Id == id);
-        }
+            using var connection = connectionFactory.CreateConnection();
+            connection.Open();
 
-        public void Create(MenuDetalle entity)
-        {
-            var detalles = FileStorage.Load<MenuDetalle>(_filePath);
+            const string query = @"
+                SELECT
+                    Id,
+                    MenuId,
+                    ProductoId,
+                    Porcion
+                FROM MenuDetalles
+                WHERE Id = @Id;";
 
-            entity.Id = Guid.NewGuid();
-            entity.Activo = true;
+            using var command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@Id", id);
 
-            detalles.Add(entity);
-            FileStorage.Save(_filePath, detalles);
-        }
+            using var reader = command.ExecuteReader();
 
-        public void Update(MenuDetalle entity)
-        {
-            var detalles = FileStorage.Load<MenuDetalle>(_filePath);
-            var index = detalles.FindIndex(d => d.Id == entity.Id);
-            if (index != -1)
+            if (reader.Read())
             {
-                detalles[index] = entity;
-                FileStorage.Save(_filePath, detalles);
+                return MapDetalle(reader);
             }
+
+            return null;
+        }
+
+        public void Create(MenuDetalle detalle)
+        {
+            using var connection = connectionFactory.CreateConnection();
+            connection.Open();
+
+            const string query = @"
+                INSERT INTO MenuDetalles (
+                    Id,
+                    MenuId,
+                    ProductoId,
+                    Porcion,
+                    FechaCreacion
+                )
+                VALUES (
+                    @Id,
+                    @MenuId,
+                    @ProductoId,
+                    @Porcion,
+                    SYSDATETIME()
+                );";
+
+            using var command = new SqlCommand(query, connection);
+            AddCommonParameters(command, detalle);
+
+            command.ExecuteNonQuery();
+        }
+
+        public void Update(MenuDetalle detalle)
+        {
+            using var connection = connectionFactory.CreateConnection();
+            connection.Open();
+
+            const string query = @"
+                UPDATE MenuDetalles
+                SET
+                    MenuId = @MenuId,
+                    ProductoId = @ProductoId,
+                    Porcion = @Porcion
+                WHERE Id = @Id;";
+
+            using var command = new SqlCommand(query, connection);
+            AddCommonParameters(command, detalle);
+
+            command.ExecuteNonQuery();
         }
 
         public void Delete(Guid id)
         {
-            var detalles = FileStorage.Load<MenuDetalle>(_filePath);
-            var detalle = detalles.FirstOrDefault(d => d.Id == id);
-            if (detalle != null)
-            {
-                detalle.Activo = false;
-                FileStorage.Save(_filePath, detalles);
-            }
+            using var connection = connectionFactory.CreateConnection();
+            connection.Open();
+
+            const string query = @"DELETE FROM MenuDetalles WHERE Id = @Id;";
+
+            using var command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@Id", id);
+
+            command.ExecuteNonQuery();
         }
 
-        public List<MenuDetalle> GetByMenuId(Guid menuId)
+        public List<MenuDetalle> GetByMenu(Guid menuId)
         {
-            return GetAll().Where(d => d.MenuId == menuId).ToList();
+            var detalles = new List<MenuDetalle>();
+
+            using var connection = connectionFactory.CreateConnection();
+            connection.Open();
+
+            const string query = @"
+                SELECT
+                    Id,
+                    MenuId,
+                    ProductoId,
+                    Porcion
+                FROM MenuDetalles
+                WHERE MenuId = @MenuId;";
+
+            using var command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@MenuId", menuId);
+
+            using var reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                detalles.Add(MapDetalle(reader));
+            }
+
+            return detalles;
         }
 
+        private static void AddCommonParameters(SqlCommand command, MenuDetalle detalle)
+        {
+            command.Parameters.AddWithValue("@Id", detalle.Id);
+            command.Parameters.AddWithValue("@MenuId", detalle.MenuId);
+            command.Parameters.AddWithValue("@ProductoId", detalle.ProductoId);
+            command.Parameters.AddWithValue("@Porcion", detalle.Porcion);
+        }
+
+        private static MenuDetalle MapDetalle(SqlDataReader reader)
+        {
+            return new MenuDetalle
+            {
+                Id = reader.GetGuid(reader.GetOrdinal("Id")),
+                MenuId = reader.GetGuid(reader.GetOrdinal("MenuId")),
+                ProductoId = reader.GetGuid(reader.GetOrdinal("ProductoId")),
+                Porcion = Convert.ToDecimal(reader["Porcion"])
+            };
+        }
     }
 }

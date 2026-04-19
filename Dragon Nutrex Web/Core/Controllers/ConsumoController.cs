@@ -1,28 +1,39 @@
-﻿
-
-using Dragon_Nutrex_Web.Common;
+﻿using Dragon_Nutrex_Web.Common;
 using Dragon_Nutrex_Web.Core.Models;
 using Dragon_Nutrex_Web.Core.Services;
 
 namespace Dragon_Nutrex_Web.Core.Controllers
 {
-    public partial class ConsumoController
+    public class ConsumoController
     {
-        private readonly ConsumoService _consumoService = new ConsumoService();
-        private readonly UsuarioService _usuarioService = new UsuarioService();
-        private readonly NutricionService _nutricionService = new NutricionService();
+        private readonly ConsumoService consumoService;
+        private readonly UsuarioService usuarioService;
+        private readonly NutricionService nutricionService;
+
+        public ConsumoController(
+            ConsumoService consumoService,
+            UsuarioService usuarioService,
+            NutricionService nutricionService)
+        {
+            this.consumoService = consumoService;
+            this.usuarioService = usuarioService;
+            this.nutricionService = nutricionService;
+        }
 
         public ResumenDiario ObtenerResumenParaFecha(DateTime fecha)
         {
             try
             {
-                var usuario = _usuarioService.ObtenerTodos().FirstOrDefault();
+                var usuario = usuarioService.ObtenerTodos().FirstOrDefault();
 
-                if (usuario == null) return new ResumenDiario { TieneRegistros = false };
+                if (usuario == null)
+                {
+                    return new ResumenDiario { TieneRegistros = false };
+                }
 
-                var requerimientos = _nutricionService.CalcularRequerimientos(usuario);
+                var requerimientos = nutricionService.CalcularRequerimientos(usuario);
 
-                return _consumoService.ObtenerResumenDiario(fecha, requerimientos.CaloriasObjetivo);
+                return consumoService.ObtenerResumenDiario(fecha, requerimientos.CaloriasObjetivo);
             }
             catch (Exception ex)
             {
@@ -35,13 +46,16 @@ namespace Dragon_Nutrex_Web.Core.Controllers
         {
             try
             {
-                var usuario = _usuarioService.ObtenerTodos().FirstOrDefault(u => u.Id == usuarioId);
+                var usuario = usuarioService.ObtenerTodos().FirstOrDefault(u => u.Id == usuarioId);
 
-                if (usuario == null) return new ResumenDiario { TieneRegistros = false };
+                if (usuario == null)
+                {
+                    return new ResumenDiario { TieneRegistros = false };
+                }
 
-                var requerimientos = _nutricionService.CalcularRequerimientos(usuario);
+                var requerimientos = nutricionService.CalcularRequerimientos(usuario);
 
-                return _consumoService.ObtenerResumenDiario(usuarioId, fecha, requerimientos.CaloriasObjetivo);
+                return consumoService.ObtenerResumenDiario(usuarioId, fecha, requerimientos.CaloriasObjetivo);
             }
             catch (Exception ex)
             {
@@ -54,7 +68,7 @@ namespace Dragon_Nutrex_Web.Core.Controllers
         {
             try
             {
-                return _consumoService.ObtenerResumenPorRango(usuarioId, inicio, fin);
+                return consumoService.ObtenerResumenPorRango(usuarioId, inicio, fin);
             }
             catch (Exception ex)
             {
@@ -65,20 +79,26 @@ namespace Dragon_Nutrex_Web.Core.Controllers
 
         public void RegistrarNuevoConsumo(ConsumoDiario consumo)
         {
-            try { _consumoService.RegistrarConsumo(consumo); }
-            catch (Exception ex) { GlobalExceptionHandler.Handle(ex); }
+            try
+            {
+                consumoService.RegistrarConsumo(consumo);
+            }
+            catch (Exception ex)
+            {
+                GlobalExceptionHandler.Handle(ex);
+            }
         }
 
         public ResumenRango ObtenerEstadisticasRango(DateTime inicio, DateTime fin)
         {
             try
             {
-                return _consumoService.ObtenerResumenPorRango(inicio, fin);
+                return consumoService.ObtenerResumenPorRango(inicio, fin);
             }
             catch (Exception ex)
             {
                 GlobalExceptionHandler.Handle(ex);
-                return new ResumenRango(); // Devuelve un objeto vacío en caso de error
+                return new ResumenRango();
             }
         }
     }

@@ -2,49 +2,39 @@
 using Dragon_Nutrex_Web.Core.Models;
 using Dragon_Nutrex_Web.Infrastructure.Repositories;
 
-
 namespace Dragon_Nutrex_Web.Core.Services
 {
     public class MenuDiarioService
     {
-        private readonly IRepository<MenuDiario> _menuRepository;
-        private readonly MenuDetalleRepository _menuDetalleRepository;
-        private readonly MenuDetalleService _detalleService;
+        private readonly IRepository<MenuDiario> menuRepository;
+        private readonly MenuDetalleRepository menuDetalleRepository;
 
-        public MenuDiarioService()
+        public MenuDiarioService(
+            IRepository<MenuDiario> menuRepository,
+            MenuDetalleRepository menuDetalleRepository)
         {
-            _menuRepository = new MenuDiarioRepository();
-            _menuDetalleRepository = new MenuDetalleRepository();
-            _detalleService = new MenuDetalleService();
+            this.menuRepository = menuRepository;
+            this.menuDetalleRepository = menuDetalleRepository;
+        }
+
+        public List<MenuDiario> ObtenerMenus()
+        {
+            return menuRepository.GetAll();
         }
 
         public List<MenuDiario> ObtenerTodos()
         {
-            return _menuRepository.GetAll();
+            return menuRepository.GetAll();
         }
 
-        public void CrearMenu(MenuDiario menu, List<MenuDetalle> detalles)
+        public MenuDiario? ObtenerPorId(Guid id)
         {
-            var menusExistentes = _menuRepository.GetAll();
-            bool yaExisteParaEsteUsuario = menusExistentes.Any(m =>
-                m.Fecha.Date == menu.Fecha.Date &&
-                m.UsuarioId == menu.UsuarioId);
+            return menuRepository.GetById(id);
+        }
 
-            if (yaExisteParaEsteUsuario)
-            {
-                throw new InvalidOperationException($"El usuario ya tiene un plan nutricional para la fecha {menu.Fecha.ToShortDateString()}.");
-            }
-
-            _menuRepository.Create(menu);
-
-            if (detalles != null && detalles.Count > 0)
-            {
-                foreach (var detalle in detalles)
-                {
-                    detalle.MenuId = menu.Id;
-                    _detalleService.GuardarDetalle(detalle);
-                }
-            }
+        public MenuDiario? ObtenerPorUsuarioYFecha(Guid usuarioId, DateTime fecha)
+        {
+            return ((MenuDiarioRepository)menuRepository).GetByUsuarioYFecha(usuarioId, fecha);
         }
 
         public void CrearMenu(MenuDiario menu)
@@ -52,55 +42,47 @@ namespace Dragon_Nutrex_Web.Core.Services
             CrearMenu(menu, new List<MenuDetalle>());
         }
 
-        public void EliminarMenu(Guid id)
+        public void CrearMenu(MenuDiario menu, List<MenuDetalle> detalles)
         {
-            _menuRepository.Delete(id);
-        }
-
-        public MenuDiario? ObtenerPorId(Guid id)
-        {
-            return _menuRepository.GetById(id);
-        }
-
-        public List<MenuDiario> ObtenerMenus()
-        {
-            return ObtenerTodos();
-        }
-        public void ActualizarMenu(MenuDiario menu)
-        {
-            var existeDuplicado = _menuRepository.GetAll().Any(m =>
-                m.Id != menu.Id &&
-                m.UsuarioId == menu.UsuarioId &&
-                m.Fecha.Date == menu.Fecha.Date);
-
-            if (existeDuplicado)
+            if (menu.Id == Guid.Empty)
             {
-                throw new InvalidOperationException($"No se puede cambiar a esta fecha porque el usuario ya tiene un plan nutricional para el {menu.Fecha.ToShortDateString()}.");
+                menu.Id = Guid.NewGuid();
             }
 
-            _menuRepository.Update(menu);
+            ValidarMenu(menu);
+
+            menuRepository.Create(menu);
+
+            foreach (var detalle in detalles)
+            {
+                if (detalle.Id == Guid.Empty)
+                {
+                    detalle.Id = Guid.NewGuid();
+                }
+
+                detalle.MenuId = menu.Id;
+                menuDetalleRepository.Create(detalle);
+            }
         }
 
-        public List<MenuDetalle> ObtenerDetallesDelMenu(Guid menuId)
+        public void ActualizarMenu(MenuDiario menu)
         {
-            return _menuDetalleRepository
-                .GetAll()
-                .Where(d => d.MenuId == menuId)
-                .ToList();
+            ValidarMenu(menu);
+            menuRepository.Update(menu);
         }
 
-        /// <summary>
-        /// Busca un menú por usuario y fecha.
-        /// </summary>
-        /// <param name="usuarioId">Identificador del usuario.</param>
-        /// <param name="fecha">Fecha del menú.</param>
-        /// <returns>Menú encontrado o null.</returns>
-        public MenuDiario? ObtenerPorUsuarioYFecha(Guid usuarioId, DateTime fecha)
+        public void EliminarMenu(Guid id)
         {
-            return _menuRepository.GetAll()
-                .FirstOrDefault(menu =>
-                    menu.UsuarioId == usuarioId &&
-                    menu.Fecha.Date == fecha.Date);
+            menuRepository.Delete(id);
+        }
+
+        private static void ValidarMenu(MenuDiario menu)
+        {
+            if (menu.UsuarioId == Guid.Empty)
+                throw new Exception("El menú debe estar asociado a un usuario.");
+
+            if (string.IsNullOrWhiteSpace(menu.Nombre))
+                throw new Exception("El nombre del menú es obligatorio.");
         }
     }
 }
