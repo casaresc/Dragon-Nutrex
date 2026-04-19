@@ -579,3 +579,7 @@ textarea {
     grid-template-columns: 1fr;
     gap: 1.5rem;
 }
+
+.estadisticas-panel .button-row {
+    margin-top: 1rem;
+}

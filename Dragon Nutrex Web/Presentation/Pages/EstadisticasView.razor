@@ -9,6 +9,8 @@
 @inject ConsumoController consumoController
 @inject AuthService authService
 @inject NavigationManager navigationManager
+@inject ReportExportService reportExportService
+@inject IJSRuntime jsRuntime
 
 <PageTitle>Estadísticas</PageTitle>
 
@@ -17,6 +19,20 @@
     <p>Consulta el consumo diario frente a la meta y el resumen por rango de fechas.</p>
 </section>
 
+@if (!string.IsNullOrEmpty(errorMensaje))
+{
+    <div class="error-box">
+        @errorMensaje
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(exitoMensaje))
+{
+    <div class="success-box">
+        @exitoMensaje
+    </div>
+}
+
 <section class="estadisticas-container">
     <div class="estadisticas-panel">
         <ConsumoMetaComponent Usuarios="usuarios"
@@ -24,6 +40,15 @@
                               UsuarioFijoId="EsAdmin ? (Guid?)null : UsuarioAutenticadoId"
                               OnConsultar="HandleConsultarConsumoMeta"
                               ResumenDiario="resumenDiario" />
+
+        <div class="button-row">
+            <button type="button" class="btn btn-secondary" @onclick="ExportarConsumoMetaCsv">
+                Exportar CSV
+            </button>
+            <button type="button" class="btn btn-secondary" @onclick="ExportarConsumoMetaTxt">
+                Exportar TXT
+            </button>
+        </div>
     </div>
 
     <div class="estadisticas-panel">
@@ -32,6 +57,15 @@
                                     UsuarioFijoId="EsAdmin ? (Guid?)null : UsuarioAutenticadoId"
                                     OnConsultar="HandleConsultarRango"
                                     ResumenRango="resumenRango" />
+
+        <div class="button-row">
+            <button type="button" class="btn btn-secondary" @onclick="ExportarResumenRangoCsv">
+                Exportar CSV
+            </button>
+            <button type="button" class="btn btn-secondary" @onclick="ExportarResumenRangoTxt">
+                Exportar TXT
+            </button>
+        </div>
     </div>
 </section>
 
@@ -41,6 +75,8 @@
     private Guid UsuarioAutenticadoId => authService.SesionActual?.UsuarioId ?? Guid.Empty;
     private ResumenDiario resumenDiario = new();
     private ResumenRango resumenRango = new();
+    private string? errorMensaje;
+    private string? exitoMensaje;
 
     /// <summary>
     /// Carga la lista de usuarios disponibles para las consultas estadísticas.
@@ -78,6 +114,9 @@
             usuarioId,
             parametros.Fecha);
 
+        errorMensaje = null;
+        exitoMensaje = "Consulta de consumo vs meta realizada correctamente.";
+
         return Task.CompletedTask;
     }
 
@@ -98,6 +137,9 @@
             usuarioId,
             parametros.FechaInicio,
             parametros.FechaFin);
+
+        errorMensaje = null;
+        exitoMensaje = "Consulta de estadísticas por rango realizada correctamente.";
 
         return Task.CompletedTask;
     }
@@ -138,5 +180,85 @@
 
         await HandleConsultarConsumoMeta(consultaConsumo);
         await HandleConsultarRango(consultaRango);
+    }
+
+    private async Task ExportarConsumoMetaCsv()
+    {
+        if (!resumenDiario.TieneRegistros)
+        {
+            errorMensaje = "No hay datos de consumo vs meta para exportar.";
+            exitoMensaje = null;
+            return;
+        }
+
+        var contenido = reportExportService.ExportarConsumoMetaCsv(resumenDiario);
+        await jsRuntime.InvokeVoidAsync(
+            "downloadFileFromText",
+            "consumo_vs_meta.csv",
+            contenido,
+            "text/csv");
+
+        exitoMensaje = "Reporte CSV de consumo vs meta exportado correctamente.";
+        errorMensaje = null;
+    }
+
+    private async Task ExportarConsumoMetaTxt()
+    {
+        if (!resumenDiario.TieneRegistros)
+        {
+            errorMensaje = "No hay datos de consumo vs meta para exportar.";
+            exitoMensaje = null;
+            return;
+        }
+
+        var contenido = reportExportService.ExportarConsumoMetaTxt(resumenDiario);
+        await jsRuntime.InvokeVoidAsync(
+            "downloadFileFromText",
+            "consumo_vs_meta.txt",
+            contenido,
+            "text/plain");
+
+        exitoMensaje = "Reporte TXT de consumo vs meta exportado correctamente.";
+        errorMensaje = null;
+    }
+
+    private async Task ExportarResumenRangoCsv()
+    {
+        if (resumenRango.DiasConRegistros == 0)
+        {
+            errorMensaje = "No hay datos de estadísticas por rango para exportar.";
+            exitoMensaje = null;
+            return;
+        }
+
+        var contenido = reportExportService.ExportarResumenRangoCsv(resumenRango);
+        await jsRuntime.InvokeVoidAsync(
+            "downloadFileFromText",
+            "estadisticas_rango.csv",
+            contenido,
+            "text/csv");
+
+        exitoMensaje = "Reporte CSV de estadísticas por rango exportado correctamente.";
+        errorMensaje = null;
+    }
+
+    private async Task ExportarResumenRangoTxt()
+    {
+        if (resumenRango.DiasConRegistros == 0)
+        {
+            errorMensaje = "No hay datos de estadísticas por rango para exportar.";
+            exitoMensaje = null;
+            return;
+        }
+
+        var contenido = reportExportService.ExportarResumenRangoTxt(resumenRango);
+        await jsRuntime.InvokeVoidAsync(
+            "downloadFileFromText",
+            "estadisticas_rango.txt",
+            contenido,
+            "text/plain");
+
+        exitoMensaje = "Reporte TXT de estadísticas por rango exportado correctamente.";
+        errorMensaje = null;
     }
 }

@@ -5,6 +5,8 @@
 @inject AdminEstadisticasService adminEstadisticasService
 @inject AuthService authService
 @inject NavigationManager navigationManager
+@inject ReportExportService reportExportService
+@inject IJSRuntime jsRuntime
 
 <PageTitle>Estadísticas Administrativas</PageTitle>
 
@@ -49,6 +51,12 @@
             <button type="button" class="btn btn-primary" @onclick="HandleConsultarProductoMasConsumido">
                 Consultar
             </button>
+            <button type="button" class="btn btn-secondary" @onclick="ExportarProductoMasConsumidoCsv">
+                Exportar CSV
+            </button>
+            <button type="button" class="btn btn-secondary" @onclick="ExportarProductoMasConsumidoTxt">
+                Exportar TXT
+            </button>
         </div>
 
         <hr />
@@ -86,6 +94,12 @@
         <div class="button-row">
             <button type="button" class="btn btn-primary" @onclick="HandleConsultarTiposDieta">
                 Consultar
+            </button>
+            <button type="button" class="btn btn-secondary" @onclick="ExportarDietasCsv">
+                Exportar CSV
+            </button>
+            <button type="button" class="btn btn-secondary" @onclick="ExportarDietasTxt">
+                Exportar TXT
             </button>
         </div>
 
@@ -129,6 +143,12 @@
         <div class="button-row">
             <button type="button" class="btn btn-primary" @onclick="HandleConsultarUsuariosConMasMenus">
                 Consultar
+            </button>
+            <button type="button" class="btn btn-secondary" @onclick="ExportarUsuariosMenusCsv">
+                Exportar CSV
+            </button>
+            <button type="button" class="btn btn-secondary" @onclick="ExportarUsuariosMenusTxt">
+                Exportar TXT
             </button>
         </div>
 
@@ -187,12 +207,22 @@
             navigationManager.NavigateTo("/");
             return;
         }
+        
+        porcentajesDieta = adminEstadisticasService.ObtenerPorcentajeTiposDieta();
+        usuariosConMasMenus = adminEstadisticasService.ObtenerUsuariosConMasMenus();
     }
 
     private Task HandleConsultarProductoMasConsumido()
     {
         try
         {
+            if (fechaInicioProducto.Date > fechaFinProducto.Date)
+            {
+                errorMensaje = "La fecha inicio no puede ser mayor que la fecha fin.";
+                exitoMensaje = null;
+                return Task.CompletedTask;
+            }
+
             productoMasConsumido = adminEstadisticasService.ObtenerProductoMasConsumido(
                 fechaInicioProducto,
                 fechaFinProducto);
@@ -243,5 +273,80 @@
         }
 
         return Task.CompletedTask;
+    }
+    private async Task ExportarProductoMasConsumidoCsv()
+    {
+        if (productoMasConsumido is null)
+        {
+            errorMensaje = "No hay datos de producto más consumido para exportar.";
+            exitoMensaje = null;
+            return;
+        }
+
+        var contenido = reportExportService.ExportarProductoMasConsumidoCsv(productoMasConsumido);
+        await jsRuntime.InvokeVoidAsync("downloadFileFromText", "producto_mas_consumido.csv", contenido, "text/csv");
+    }
+
+    private async Task ExportarProductoMasConsumidoTxt()
+    {
+        if (productoMasConsumido is null)
+        {
+            errorMensaje = "No hay datos de producto más consumido para exportar.";
+            exitoMensaje = null;
+            return;
+        }
+        var contenido = reportExportService.ExportarProductoMasConsumidoTxt(productoMasConsumido);
+        await jsRuntime.InvokeVoidAsync("downloadFileFromText", "producto_mas_consumido.txt", contenido, "text/plain");
+    }
+
+    private async Task ExportarDietasCsv()
+    {
+        if (porcentajesDieta is null)
+        {
+            errorMensaje = "No hay datos de porcentaje de dietas para exportar.";
+            exitoMensaje = null;
+            return;
+        }
+
+        var contenido = reportExportService.ExportarPorcentajeDietasCsv(porcentajesDieta);
+        await jsRuntime.InvokeVoidAsync("downloadFileFromText", "porcentaje_tipos_dieta.csv", contenido, "text/csv");
+    }
+
+    private async Task ExportarDietasTxt()
+    {
+        if (porcentajesDieta is null)
+        {
+            errorMensaje = "No hay datos de porcentaje de dietas para exportar.";
+            exitoMensaje = null;
+            return;
+        }
+
+        var contenido = reportExportService.ExportarPorcentajeDietasTxt(porcentajesDieta);
+        await jsRuntime.InvokeVoidAsync("downloadFileFromText", "porcentaje_tipos_dieta.txt", contenido, "text/plain");
+    }
+
+    private async Task ExportarUsuariosMenusCsv()
+    {
+        if (usuariosConMasMenus is null)
+        {
+            errorMensaje = "No hay datos de usuarios con más menús para exportar.";
+            exitoMensaje = null;
+            return;
+        }
+
+        var contenido = reportExportService.ExportarUsuariosConMasMenusCsv(usuariosConMasMenus);
+        await jsRuntime.InvokeVoidAsync("downloadFileFromText", "usuarios_con_mas_menus.csv", contenido, "text/csv");
+    }
+
+    private async Task ExportarUsuariosMenusTxt()
+    {
+        if (usuariosConMasMenus is null)
+        {
+            errorMensaje = "No hay datos de usuarios con más menús para exportar.";
+            exitoMensaje = null;
+            return;
+        }
+        var contenido = reportExportService.ExportarUsuariosConMasMenusTxt(usuariosConMasMenus);
+        await jsRuntime.InvokeVoidAsync("downloadFileFromText", "usuarios_con_mas_menus.txt", contenido, "text/plain");
     }
 }
