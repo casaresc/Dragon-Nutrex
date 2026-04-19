@@ -1,5 +1,9 @@
-﻿@using Microsoft.AspNetCore.Components.Routing
-@inherits LayoutComponentBase
+﻿@inherits LayoutComponentBase
+@using Dragon_Nutrex_Web.Core.Services
+@using Microsoft.AspNetCore.Components.Routing
+@inject AuthService authService
+@inject NavigationManager navigationManager
+
 
 <div class="app-container">
     <aside class="sidebar">
@@ -9,13 +13,28 @@
         </div>
 
         <nav>
-            <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">Inicio</NavLink>
-            <NavLink class="nav-link" href="/usuarios">Usuarios</NavLink>
-            <NavLink class="nav-link" href="/productos">Productos</NavLink>
-            <NavLink class="nav-link" href="/menus">Menús</NavLink>
-            <NavLink class="nav-link" href="/estadisticas">Estadísticas</NavLink>
-            <NavLink class="nav-link" href="/imc">IMC</NavLink>
-            <NavLink class="nav-link" href="/requerimientos">Requerimientos</NavLink>
+            @if (!authService.EstaAutenticado())
+            {
+                <NavLink class="nav-link" href="/login">Login</NavLink>
+            }
+            else if (authService.SesionActual?.EsAdmin == true)
+            {
+                <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">Inicio</NavLink>
+                <NavLink class="nav-link" href="/usuarios">Usuarios</NavLink>
+                <NavLink class="nav-link" href="/productos">Productos</NavLink>
+                <NavLink class="nav-link" href="/menus">Menús</NavLink>
+                <NavLink class="nav-link" href="/estadisticas">Estadísticas</NavLink>
+                <NavLink class="nav-link" href="/imc">IMC</NavLink>
+                <NavLink class="nav-link" href="/requerimientos">Requerimientos</NavLink>
+            }
+            else
+            {
+                <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">Inicio</NavLink>
+                <NavLink class="nav-link" href="/menus">Menús</NavLink>
+                <NavLink class="nav-link" href="/estadisticas">Estadísticas</NavLink>
+                <NavLink class="nav-link" href="/imc">IMC</NavLink>
+                <NavLink class="nav-link" href="/requerimientos">Requerimientos</NavLink>
+            }
         </nav>
     </aside>
 
@@ -25,6 +44,23 @@
                 <div class="topbar-title">
                     <h1>Dragon Nutrex Web</h1>
                     <p>Panel principal del sistema</p>
+                </div>
+
+                <div class="topbar-actions">
+                    @if (authService.EstaAutenticado())
+                    {
+                        <span class="user-chip">
+                            @authService.SesionActual?.Nombre (@authService.SesionActual?.Rol)
+                        </span>
+
+                        <a class="btn btn-secondary" href="/logout">
+                            Cerrar sesión
+                        </a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-primary" href="/login">Iniciar sesión</a>
+                    }
                 </div>
             </div>
 

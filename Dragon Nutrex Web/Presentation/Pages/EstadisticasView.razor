@@ -7,6 +7,8 @@
 
 @inject UsuarioService usuarioService
 @inject ConsumoController consumoController
+@inject AuthService authService
+@inject NavigationManager navigationManager
 
 <PageTitle>Estadísticas</PageTitle>
 
@@ -18,12 +20,16 @@
 <section class="estadisticas-container">
     <div class="estadisticas-panel">
         <ConsumoMetaComponent Usuarios="usuarios"
+                              MostrarSelectorUsuario="EsAdmin"
+                              UsuarioFijoId="EsAdmin ? (Guid?)null : UsuarioAutenticadoId"
                               OnConsultar="HandleConsultarConsumoMeta"
                               ResumenDiario="resumenDiario" />
     </div>
 
     <div class="estadisticas-panel">
         <EstadisticasRangoComponent Usuarios="usuarios"
+                                    MostrarSelectorUsuario="EsAdmin"
+                                    UsuarioFijoId="EsAdmin ? (Guid?)null : UsuarioAutenticadoId"
                                     OnConsultar="HandleConsultarRango"
                                     ResumenRango="resumenRango" />
     </div>
@@ -31,16 +37,28 @@
 
 @code {
     private List<Usuario> usuarios = new();
-
+    private bool EsAdmin => authService.SesionActual?.EsAdmin == true;
+    private Guid UsuarioAutenticadoId => authService.SesionActual?.UsuarioId ?? Guid.Empty;
     private ResumenDiario resumenDiario = new();
     private ResumenRango resumenRango = new();
 
     /// <summary>
     /// Carga la lista de usuarios disponibles para las consultas estadísticas.
     /// </summary>
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
+        if (!authService.EstaAutenticado())
+        {
+            navigationManager.NavigateTo("/login");
+            return;
+        }
+
         usuarios = usuarioService.ObtenerTodos();
+
+        if (!EsAdmin && UsuarioAutenticadoId != Guid.Empty)
+        {
+            await CargarConsultasUsuarioActualAsync();
+        }
     }
 
     /// <summary>
@@ -49,8 +67,15 @@
     /// <param name="parametros">Parámetros de consulta enviados por el componente.</param>
     private Task HandleConsultarConsumoMeta(ConsultaConsumoMeta parametros)
     {
+        var usuarioId = EsAdmin ? parametros.UsuarioId : UsuarioAutenticadoId;
+
+        if (usuarioId == Guid.Empty)
+        {
+            return Task.CompletedTask;
+        }
+
         resumenDiario = consumoController.ObtenerResumenParaUsuarioYFecha(
-            parametros.UsuarioId,
+            usuarioId,
             parametros.Fecha);
 
         return Task.CompletedTask;
@@ -62,8 +87,15 @@
     /// <param name="parametros">Parámetros de consulta enviados por el componente.</param>
     private Task HandleConsultarRango(ConsultaRango parametros)
     {
+        var usuarioId = EsAdmin ? parametros.UsuarioId : UsuarioAutenticadoId;
+
+        if (usuarioId == Guid.Empty)
+        {
+            return Task.CompletedTask;
+        }
+
         resumenRango = consumoController.ObtenerEstadisticasRangoPorUsuario(
-            parametros.UsuarioId,
+            usuarioId,
             parametros.FechaInicio,
             parametros.FechaFin);
 
@@ -87,5 +119,24 @@
         public Guid UsuarioId { get; set; }
         public DateTime FechaInicio { get; set; } = DateTime.Today.AddDays(-7);
         public DateTime FechaFin { get; set; } = DateTime.Today;
+    }
+
+    private async Task CargarConsultasUsuarioActualAsync()
+    {
+        var consultaConsumo = new ConsultaConsumoMeta
+        {
+            UsuarioId = UsuarioAutenticadoId,
+            Fecha = DateTime.Today
+        };
+
+        var consultaRango = new ConsultaRango
+        {
+            UsuarioId = UsuarioAutenticadoId,
+            FechaInicio = DateTime.Today.AddDays(-7),
+            FechaFin = DateTime.Today
+        };
+
+        await HandleConsultarConsumoMeta(consultaConsumo);
+        await HandleConsultarRango(consultaRango);
     }
 }

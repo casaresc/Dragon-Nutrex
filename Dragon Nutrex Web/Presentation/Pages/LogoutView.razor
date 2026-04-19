@@ -1,0 +1,18 @@
+﻿@page "/logout"
+@using Dragon_Nutrex_Web.Core.Services
+@inject AuthService authService
+@inject NavigationManager navigationManager
+
+<PageTitle>Cerrar sesión</PageTitle>
+
+<div class="card-panel">
+    <p>Cerrando sesión...</p>
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        authService.CerrarSesion();
+        navigationManager.NavigateTo("/login");
+    }
+}

@@ -3382,5 +3382,14 @@
     "Detalles": [],
     "FechaCreacion": "2026-04-18T03:30:23.5501652-06:00",
     "Activo": true
+  },
+  {
+    "Id": "7b7809f8-f1cc-45e5-90a3-2dfb923b722a",
+    "UsuarioId": "62e50d44-1530-45f9-82f2-2ac967c01f29",
+    "Fecha": "2026-04-19T00:00:00-06:00",
+    "Nombre": "Men\u00FA 19/04/2026",
+    "Detalles": [],
+    "FechaCreacion": "2026-04-19T00:44:28.5868285-06:00",
+    "Activo": true
   }
 ]

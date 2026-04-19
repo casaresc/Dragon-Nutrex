@@ -1,0 +1,91 @@
+﻿@page "/login"
+@rendermode InteractiveServer
+@using Dragon_Nutrex_Web.Core.Services
+@inject AuthService authService
+@inject NavigationManager navigationManager
+
+<PageTitle>Login</PageTitle>
+
+<section class="login-page">
+    <div class="login-card">
+        <div class="login-header">
+            <h1>Iniciar sesión</h1>
+            <p>Accede a Dragon Nutrex Web</p>
+        </div>
+
+        @if (!string.IsNullOrWhiteSpace(errorMensaje))
+        {
+            <div class="error-box">
+                @errorMensaje
+            </div>
+        }
+
+        <EditForm Model="loginModel" OnValidSubmit="HandleLogin" FormName="loginForm">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="txtCorreo">Correo</label>
+                    <InputText id="txtCorreo" class="form-control" @bind-Value="loginModel.Correo" />
+                </div>
+
+                <div class="form-group">
+                    <label for="txtContrasena">Contraseña</label>
+                    <InputText id="txtContrasena" type="password" class="form-control" @bind-Value="loginModel.Contrasena" />
+                </div>
+            </div>
+
+            <div class="button-row">
+                <button type="submit" class="btn btn-primary login-button">
+                    Entrar
+                </button>
+            </div>
+        </EditForm>
+    </div>
+</section>
+
+@code {
+    private LoginModel loginModel = new();
+    private string? errorMensaje;
+
+    protected override void OnInitialized()
+    {
+        if (authService.EstaAutenticado())
+        {
+            RedirigirSegunRol();
+        }
+    }
+
+    private void HandleLogin()
+    {
+        var autenticado = authService.IniciarSesion(loginModel.Correo, loginModel.Contrasena);
+
+        if (!autenticado)
+        {
+            errorMensaje = "Correo o contraseña incorrectos.";
+            return;
+        }
+
+        errorMensaje = null;
+        RedirigirSegunRol();
+    }
+
+    private void RedirigirSegunRol()
+    {
+        if (authService.SesionActual?.EsAdmin == true)
+        {
+            navigationManager.NavigateTo("/usuarios");
+        }
+        else
+        {
+            navigationManager.NavigateTo("/menus");
+        }
+    }
+
+    public class LoginModel
+    {
+        public string Correo { get; set; } = string.Empty;
+        public string Contrasena { get; set; } = string.Empty;
+    }
+}

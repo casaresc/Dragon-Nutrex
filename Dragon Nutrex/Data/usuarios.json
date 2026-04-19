@@ -276,13 +276,30 @@
   },
   {
     "Id": "8f8fa106-a9ca-4cca-b96d-9a859ae09f3c",
-    "Nombre": "asdasd",
+    "Nombre": "Usuario administrador",
     "Peso": 1,
     "Altura": 1,
     "Edad": 1,
     "Objetivo": "MantenerPeso",
     "NivelActividad": "Sedentario",
     "TipoDieta": "Balanceada",
+    "Correo": "Admin@ejemplo.com",
+    "Contrasena": "123",
+    "Rol": "Administrador",
+    "Activo": true
+  },
+  {
+    "Id": "62e50d44-1530-45f9-82f2-2ac967c01f29",
+    "Nombre": "Usuario regular",
+    "Peso": 1,
+    "Altura": 1,
+    "Edad": 1,
+    "Objetivo": "MantenerPeso",
+    "NivelActividad": "Sedentario",
+    "TipoDieta": "Balanceada",
+    "Correo": "User@ejemplo.com",
+    "Contrasena": "123",
+    "Rol": "Usuario",
     "Activo": true
   }
 ]

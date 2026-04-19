@@ -1,11 +1,13 @@
 ﻿@page "/requerimientos"
 @rendermode InteractiveServer
-@using Dragon_Nutrex_Web.Core.Controllers
-@using Dragon_Nutrex_Web.Core.Enums
 @using Dragon_Nutrex_Web.Core.Models
 @using Dragon_Nutrex_Web.Core.Services
+@using Dragon_Nutrex_Web.Core.Enums
 @using Dragon_Nutrex_Web.Presentation.Components.Nutricion
+@inject AuthService authService
+@inject UsuarioService usuarioService
 @inject NutricionService nutricionService
+@inject NavigationManager navigationManager
 
 <PageTitle>Requerimientos Nutricionales</PageTitle>
 
@@ -16,18 +18,50 @@
 
 <section class="nutricion-container">
     <div class="nutricion-panel">
-        <RequerimientosFormComponent OnCalcular="HandleCalcularRequerimientos"
+        <RequerimientosFormComponent ConsultaInicial="consultaInicial"
+                                     OnCalcular="HandleCalcularRequerimientos"
                                      Resultado="resultado" />
     </div>
 </section>
 
 @code {
     private RequerimientoNutricional? resultado;
+    private ConsultaRequerimientos consultaInicial = new();
+    private Usuario? usuarioActual;
 
-    /// <summary>
-    /// Calcula requerimientos nutricionales a partir de los datos ingresados.
-    /// </summary>
-    /// <param name="consulta">Parámetros de cálculo.</param>
+    protected override void OnInitialized()
+    {
+        if (!authService.EstaAutenticado())
+        {
+            navigationManager.NavigateTo("/login");
+            return;
+        }
+
+        usuarioActual = usuarioService.ObtenerPorId(authService.SesionActual!.UsuarioId);
+
+        if (usuarioActual is not null)
+        {
+            consultaInicial = new ConsultaRequerimientos
+            {
+                Peso = usuarioActual.Peso,
+                Altura = usuarioActual.Altura,
+                Edad = usuarioActual.Edad,
+                NivelActividad = usuarioActual.NivelActividad,
+                Objetivo = usuarioActual.Objetivo,
+                TipoDieta = usuarioActual.TipoDieta
+            };
+        }
+        else
+        {
+            consultaInicial = new ConsultaRequerimientos
+            {
+                NivelActividad = NivelActividad.Sedentario,
+                Objetivo = ObjetivoNutricional.MantenerPeso,
+                TipoDieta = TipoDieta.Balanceada
+            };
+        }
+    }
+
     private Task HandleCalcularRequerimientos(ConsultaRequerimientos consulta)
     {
         resultado = nutricionService.CalcularRequerimiento(
@@ -41,9 +75,6 @@
         return Task.CompletedTask;
     }
 
-    /// <summary>
-    /// Modelo de apoyo para cálculo nutricional.
-    /// </summary>
     public class ConsultaRequerimientos
     {
         public decimal Peso { get; set; }

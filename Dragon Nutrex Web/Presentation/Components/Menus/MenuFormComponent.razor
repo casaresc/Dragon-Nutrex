@@ -10,18 +10,26 @@
         </div>
 
         <div class="form-grid">
-            <div class="form-group">
-                <label for="cmbUsuario">Usuario</label>
-                <InputSelect id="cmbUsuario" class="form-control"
-                             @bind-Value="menuModel.UsuarioId"
-                             @bind-Value:after="HandleCambioMenuBase">
-                    <option value="@Guid.Empty">Seleccione un usuario</option>
-                    @foreach (var usuario in Usuarios)
-                    {
-                        <option value="@usuario.Id">@usuario.Nombre</option>
-                    }
-                </InputSelect>
-            </div>
+            @if (MostrarSelectorUsuario)
+            {
+                <div class="form-group">
+                    <label for="cmbUsuario">Usuario</label>
+                    <InputSelect id="cmbUsuario"
+                                 class="form-control"
+                                 @bind-Value="menuModel.UsuarioId"
+                                 @bind-Value:after="HandleCambioMenuBase">
+                        <option value="@Guid.Empty">Seleccione un usuario</option>
+                        @foreach (var usuario in Usuarios)
+                        {
+                            <option value="@usuario.Id">@usuario.Nombre</option>
+                        }
+                    </InputSelect>
+                </div>
+            }
+            else
+            {
+                <input type="hidden" value="@menuModel.UsuarioId" />
+            }
 
             <div class="form-group">
                 <label for="txtNombre">Nombre del menú</label>
@@ -56,6 +64,11 @@
 
     [Parameter]
     public EventCallback<MenuDiario> OnCambioMenuBase { get; set; }
+    [Parameter]
+    public bool MostrarSelectorUsuario { get; set; } = true;
+
+    [Parameter]
+    public Guid? UsuarioFijoId { get; set; }
 
     private MenuDiario menuModel = CrearMenuVacio();
 
@@ -67,16 +80,22 @@
         if (MenuEditando is null)
         {
             menuModel = CrearMenuVacio();
-            return;
+        }
+        else
+        {
+            menuModel = new MenuDiario
+            {
+                Id = MenuEditando.Id,
+                UsuarioId = MenuEditando.UsuarioId,
+                Nombre = MenuEditando.Nombre,
+                Fecha = MenuEditando.Fecha
+            };
         }
 
-        menuModel = new MenuDiario
+        if (!MostrarSelectorUsuario && UsuarioFijoId.HasValue)
         {
-            Id = MenuEditando.Id,
-            UsuarioId = MenuEditando.UsuarioId,
-            Nombre = MenuEditando.Nombre,
-            Fecha = MenuEditando.Fecha
-        };
+            menuModel.UsuarioId = UsuarioFijoId.Value;
+        }
     }
 
     /// <summary>

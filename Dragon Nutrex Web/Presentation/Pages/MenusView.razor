@@ -9,6 +9,8 @@
 @inject MenuDetalleService menuDetalleService
 @inject ProductoService productoService
 @inject UsuarioService usuarioService
+@inject AuthService authService
+@inject NavigationManager navigationManager
 
 <PageTitle>Menús</PageTitle>
 
@@ -21,6 +23,8 @@
     <div class="menus-form-panel">
         <MenuFormComponent MenuEditando="menuActual"
                            Usuarios="usuarios"
+                           MostrarSelectorUsuario="EsAdmin"
+                           UsuarioFijoId="EsAdmin ? (Guid?)null : UsuarioAutenticadoId"
                            OnGuardar="HandleGuardarMenu"
                            OnCancelar="HandleCancelarMenu"
                            OnCambioMenuBase="HandleCambioMenuBase" />
@@ -69,12 +73,27 @@
     private bool modoEdicion;
     private string? errorMensaje;
     private string? exitoMensaje;
+    private bool EsAdmin => authService.SesionActual?.EsAdmin == true;
+    private Guid UsuarioAutenticadoId => authService.SesionActual?.UsuarioId ?? Guid.Empty;
+    
     /// <summary>
     /// Carga datos persistidos al iniciar la vista.
     /// </summary>
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
+        if (!authService.EstaAutenticado())
+        {
+            navigationManager.NavigateTo("/login");
+            return;
+        }
+
         CargarDatos();
+
+        if (!EsAdmin)
+        {
+            menuActual.UsuarioId = UsuarioAutenticadoId;
+            await CargarContextoMenuUsuarioActualAsync();
+        }
     }
 
     /// <summary>
@@ -84,7 +103,7 @@
     {
         usuarios = usuarioService.ObtenerTodos();
         productos = productoService.ObtenerProductos();
-        menus = menuDiarioService.ObtenerMenus();
+        menus = ObtenerMenusSegunRol();
     }
 
     /// <summary>
@@ -134,6 +153,11 @@
     /// <param name="menu">Menú a persistir.</param>
     private Task HandleGuardarMenu(MenuDiario menu)
     {
+        if (!EsAdmin)
+        {
+            menu.UsuarioId = UsuarioAutenticadoId;
+        }
+
         if (modoEdicion)
         {
             menuDiarioService.ActualizarMenu(menu);
@@ -167,16 +191,21 @@
             menuDiarioService.CrearMenu(menu, detallesTemporales);
         }
 
-        ReiniciarVista();
-        return Task.CompletedTask;
+        return ReiniciarVistaAsync();
     }
-
     /// <summary>
     /// Carga un menú persistido para visualizar o editar.
     /// </summary>
     /// <param name="menu">Menú seleccionado.</param>
     private Task HandleVerDetalleMenu(MenuDiario menu)
     {
+        if (!EsAdmin && menu.UsuarioId != UsuarioAutenticadoId)
+        {
+            errorMensaje = "No tienes permiso para visualizar ese menú.";
+            exitoMensaje = null;
+            return Task.CompletedTask;
+        }
+
         menuActual = new MenuDiario
         {
             Id = menu.Id,
@@ -196,6 +225,8 @@
             .ToList();
 
         modoEdicion = true;
+        estadoMenu = "Menú existente cargado";
+        errorMensaje = null;
 
         return Task.CompletedTask;
     }
@@ -206,6 +237,22 @@
     /// <param name="menuId">Identificador del menú.</param>
     private Task HandleEliminarMenu(Guid menuId)
     {
+        var menu = menuDiarioService.ObtenerMenus().FirstOrDefault(m => m.Id == menuId);
+
+        if (menu is null)
+        {
+            errorMensaje = "El menú no existe.";
+            exitoMensaje = null;
+            return Task.CompletedTask;
+        }
+
+        if (!EsAdmin && menu.UsuarioId != UsuarioAutenticadoId)
+        {
+            errorMensaje = "No tienes permiso para eliminar ese menú.";
+            exitoMensaje = null;
+            return Task.CompletedTask;
+        }
+
         var detalles = menuDetalleService.ObtenerPorMenu(menuId);
 
         foreach (var detalle in detalles)
@@ -217,14 +264,13 @@
 
         if (menuActual.Id == menuId)
         {
-            ReiniciarVista();
+            return ReiniciarVistaAsync();
         }
         else
         {
-            menus = menuDiarioService.ObtenerMenus();
+            menus = ObtenerMenusSegunRol();
+            return Task.CompletedTask;
         }
-
-        return Task.CompletedTask;
     }
 
     /// <summary>
@@ -232,19 +278,30 @@
     /// </summary>
     private Task HandleCancelarMenu()
     {
-        ReiniciarVista();
-        return Task.CompletedTask;
+        return ReiniciarVistaAsync();
     }
 
     /// <summary>
     /// Reinicia el estado de la vista y recarga datos persistidos.
     /// </summary>
-    private void ReiniciarVista()
+    private async Task ReiniciarVistaAsync()
     {
         menuActual = CrearMenuVacio();
+
+        if (!EsAdmin)
+        {
+            menuActual.UsuarioId = UsuarioAutenticadoId;
+        }
+
         detallesTemporales = new List<MenuDetalle>();
         modoEdicion = false;
-        menus = menuDiarioService.ObtenerMenus();
+        estadoMenu = string.Empty;
+        menus = ObtenerMenusSegunRol();
+
+        if (!EsAdmin)
+        {
+            await CargarContextoMenuUsuarioActualAsync();
+        }
     }
 
     /// <summary>
@@ -267,28 +324,14 @@
     /// <param name="menuBase">Menú base con usuario y fecha.</param>
     private Task HandleCambioMenuBase(MenuDiario menuBase)
     {
-        if (menuBase.UsuarioId == Guid.Empty)
+        var usuarioId = EsAdmin ? menuBase.UsuarioId : UsuarioAutenticadoId;
+
+        if (usuarioId == Guid.Empty)
         {
-            detallesTemporales = new List<MenuDetalle>();
-            menuActual = new MenuDiario
-            {
-                Id = Guid.Empty,
-                UsuarioId = Guid.Empty,
-                Nombre = string.Empty,
-                Fecha = menuBase.Fecha
-            };
-            modoEdicion = false;
-            estadoMenu = "Seleccione un usuario";
-            StateHasChanged();
             return Task.CompletedTask;
         }
 
-        detallesTemporales = new List<MenuDetalle>();
-        modoEdicion = false;
-
-        var menuExistente = menuDiarioService.ObtenerPorUsuarioYFecha(
-            menuBase.UsuarioId,
-            menuBase.Fecha);
+        var menuExistente = menuDiarioService.ObtenerPorUsuarioYFecha(usuarioId, menuBase.Fecha);
 
         if (menuExistente is not null)
         {
@@ -315,13 +358,15 @@
         }
         else
         {
+            var nombreActual = string.IsNullOrWhiteSpace(menuBase.Nombre)
+                ? $"Menú {menuBase.Fecha:dd/MM/yyyy}"
+                : menuBase.Nombre;
+
             menuActual = new MenuDiario
             {
                 Id = Guid.Empty,
-                UsuarioId = menuBase.UsuarioId,
-                Nombre = string.IsNullOrWhiteSpace(menuBase.Nombre)
-                    ? $"Menú {menuBase.Fecha:dd/MM/yyyy}"
-                    : menuBase.Nombre,
+                UsuarioId = usuarioId,
+                Nombre = nombreActual,
                 Fecha = menuBase.Fecha
             };
 
@@ -330,7 +375,33 @@
             estadoMenu = "No existe menú para esa fecha. Se creará uno nuevo";
         }
 
-        StateHasChanged();
+        menus = ObtenerMenusSegunRol();
+        errorMensaje = null;
+
         return Task.CompletedTask;
+    }
+    private List<MenuDiario> ObtenerMenusSegunRol()
+    {
+        var todosLosMenus = menuDiarioService.ObtenerMenus();
+
+        if (EsAdmin)
+        {
+            return todosLosMenus;
+        }
+
+        return todosLosMenus
+            .Where(menu => menu.UsuarioId == UsuarioAutenticadoId)
+            .ToList();
+    }
+
+    private async Task CargarContextoMenuUsuarioActualAsync()
+    {
+        if (EsAdmin || UsuarioAutenticadoId == Guid.Empty)
+        {
+            return;
+        }
+
+        menuActual.UsuarioId = UsuarioAutenticadoId;
+        await HandleCambioMenuBase(menuActual);
     }
 }

@@ -1,4 +1,7 @@
 ﻿@page "/"
+@using Dragon_Nutrex_Web.Core.Services
+@inject AuthService authService
+@inject NavigationManager navigationManager
 
 <PageTitle>Inicio</PageTitle>
 
@@ -74,3 +77,19 @@
         </div>
     </div>
 </section>
+@code{
+    protected override void OnInitialized()
+    {
+        if (authService.EstaAutenticado())
+        {
+            if (authService.SesionActual?.EsAdmin == true)
+            {
+                navigationManager.NavigateTo("/usuarios");
+            }
+            else
+            {
+                navigationManager.NavigateTo("/menus");
+            }
+        }
+    }
+}

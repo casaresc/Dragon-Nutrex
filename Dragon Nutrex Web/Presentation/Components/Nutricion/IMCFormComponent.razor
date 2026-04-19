@@ -28,7 +28,7 @@
     <div class="stats-grid">
         <div class="stat-box">
             <h3>IMC</h3>
-            <p>@(ResultadoImc > 0 ? ResultadoImc.ToString("0.00") : "0.00")</p>
+            <p>@ResultadoImc.ToString("0.00")</p>
         </div>
 
         <div class="stat-box">
@@ -40,6 +40,9 @@
 
 @code {
     [Parameter]
+    public ConsultaImc? ConsultaInicial { get; set; }
+
+    [Parameter]
     public EventCallback<ConsultaImc> OnCalcular { get; set; }
 
     [Parameter]
@@ -50,9 +53,18 @@
 
     private ConsultaImc consulta = new();
 
-    /// <summary>
-    /// Ejecuta la consulta del IMC.
-    /// </summary>
+    protected override void OnParametersSet()
+    {
+        if (ConsultaInicial is not null)
+        {
+            consulta = new ConsultaImc
+            {
+                Peso = ConsultaInicial.Peso,
+                Altura = ConsultaInicial.Altura
+            };
+        }
+    }
+
     private async Task HandleCalcular()
     {
         if (consulta.Peso <= 0 || consulta.Altura <= 0)
@@ -61,6 +73,5 @@
         }
 
         await OnCalcular.InvokeAsync(consulta);
-        await InvokeAsync(StateHasChanged);
     }
 }

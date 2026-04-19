@@ -19,6 +19,9 @@ namespace Dragon_Nutrex_Web.Core.Models
         public required ObjetivoNutricional Objetivo { get; set; }
         public required NivelActividad NivelActividad { get; set; }
         public required TipoDieta TipoDieta { get; set; }
+        public string Correo { get; set; } = string.Empty;
+        public string Contrasena { get; set; } = string.Empty;
+        public string Rol { get; set; } = "Usuario";
         public bool Activo { get; set; } = true;
 
     }

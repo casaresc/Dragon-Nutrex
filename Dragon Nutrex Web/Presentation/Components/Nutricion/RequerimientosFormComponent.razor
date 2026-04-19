@@ -1,5 +1,5 @@
-﻿@using Dragon_Nutrex_Web.Core.Enums
-@using Dragon_Nutrex_Web.Core.Models
+﻿@using Dragon_Nutrex_Web.Core.Models
+@using Dragon_Nutrex_Web.Core.Enums
 @using static Dragon_Nutrex_Web.Presentation.Pages.RequerimientosView
 
 <div class="card-panel">
@@ -94,6 +94,9 @@
 
 @code {
     [Parameter]
+    public ConsultaRequerimientos? ConsultaInicial { get; set; }
+
+    [Parameter]
     public EventCallback<ConsultaRequerimientos> OnCalcular { get; set; }
 
     [Parameter]
@@ -106,9 +109,22 @@
         TipoDieta = TipoDieta.Balanceada
     };
 
-    /// <summary>
-    /// Ejecuta el cálculo nutricional.
-    /// </summary>
+    protected override void OnParametersSet()
+    {
+        if (ConsultaInicial is not null)
+        {
+            consulta = new ConsultaRequerimientos
+            {
+                Peso = ConsultaInicial.Peso,
+                Altura = ConsultaInicial.Altura,
+                Edad = ConsultaInicial.Edad,
+                NivelActividad = ConsultaInicial.NivelActividad,
+                Objetivo = ConsultaInicial.Objetivo,
+                TipoDieta = ConsultaInicial.TipoDieta
+            };
+        }
+    }
+
     private async Task HandleCalcular()
     {
         if (consulta.Peso <= 0 || consulta.Altura <= 0 || consulta.Edad <= 0)
