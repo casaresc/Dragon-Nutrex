@@ -574,3 +574,8 @@ textarea {
         font-size: 0.8rem;
         border-radius: 10px;
     }
+.estadisticas-admin-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}

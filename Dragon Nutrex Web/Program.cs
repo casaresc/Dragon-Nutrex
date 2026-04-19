@@ -35,7 +35,12 @@ builder.Services.AddScoped<ConsumoService>();
 builder.Services.AddScoped<ConsumoController>();
 builder.Services.AddScoped<NutricionService>();
 builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<UsuarioRepository>();
+builder.Services.AddScoped<ProductoRepository>();
+builder.Services.AddScoped<MenuDiarioRepository>();
+builder.Services.AddScoped<MenuDetalleRepository>();
 
+builder.Services.AddScoped<AdminEstadisticasService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
