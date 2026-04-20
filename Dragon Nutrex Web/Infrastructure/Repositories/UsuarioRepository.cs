@@ -7,17 +7,41 @@ using Microsoft.Data.SqlClient;
 namespace Dragon_Nutrex_Web.Infrastructure.Repositories
 {
     /// <summary>
-    /// Repositorio SQL Server para usuarios.
+    /// Repositorio SQL Server para la persistencia de usuarios.
     /// </summary>
     public class UsuarioRepository : IRepository<Usuario>
     {
+        private const string SelectUsuariosQuery = @"
+            SELECT
+                Id,
+                Nombre,
+                Correo,
+                Contrasena,
+                Rol,
+                Peso,
+                Altura,
+                Edad,
+                NivelActividad,
+                Objetivo,
+                TipoDieta,
+                Activo
+            FROM Usuarios";
+
         private readonly SqlConnectionFactory connectionFactory;
 
+        /// <summary>
+        /// Inicializa una nueva instancia de <see cref="UsuarioRepository"/>.
+        /// </summary>
+        /// <param name="connectionFactory">Fábrica de conexiones SQL.</param>
         public UsuarioRepository(SqlConnectionFactory connectionFactory)
         {
             this.connectionFactory = connectionFactory;
         }
 
+        /// <summary>
+        /// Obtiene todos los usuarios registrados.
+        /// </summary>
+        /// <returns>Lista de usuarios.</returns>
         public List<Usuario> GetAll()
         {
             var usuarios = new List<Usuario>();
@@ -25,23 +49,7 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
             using var connection = connectionFactory.CreateConnection();
             connection.Open();
 
-            const string query = @"
-                SELECT
-                    Id,
-                    Nombre,
-                    Correo,
-                    Contrasena,
-                    Rol,
-                    Peso,
-                    Altura,
-                    Edad,
-                    NivelActividad,
-                    Objetivo,
-                    TipoDieta,
-                    Activo
-                FROM Usuarios;";
-
-            using var command = new SqlCommand(query, connection);
+            using var command = new SqlCommand(SelectUsuariosQuery + ";", connection);
             using var reader = command.ExecuteReader();
 
             while (reader.Read())
@@ -52,41 +60,31 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
             return usuarios;
         }
 
-        public Usuario? GetById(Guid id)
+        /// <summary>
+        /// Obtiene un usuario por su identificador.
+        /// </summary>
+        /// <param name="usuarioId">Identificador del usuario.</param>
+        /// <returns>Usuario encontrado o null.</returns>
+        public Usuario? GetById(Guid usuarioId)
         {
             using var connection = connectionFactory.CreateConnection();
             connection.Open();
 
-            const string query = @"
-                SELECT
-                    Id,
-                    Nombre,
-                    Correo,
-                    Contrasena,
-                    Rol,
-                    Peso,
-                    Altura,
-                    Edad,
-                    NivelActividad,
-                    Objetivo,
-                    TipoDieta,
-                    Activo
-                FROM Usuarios
+            const string query = SelectUsuariosQuery + @"
                 WHERE Id = @Id;";
 
             using var command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Id", id);
+            command.Parameters.AddWithValue("@Id", usuarioId);
 
             using var reader = command.ExecuteReader();
 
-            if (reader.Read())
-            {
-                return MapUsuario(reader);
-            }
-
-            return null;
+            return reader.Read() ? MapUsuario(reader) : null;
         }
 
+        /// <summary>
+        /// Crea un nuevo usuario en la base de datos.
+        /// </summary>
+        /// <param name="usuario">Usuario a registrar.</param>
         public void Create(Usuario usuario)
         {
             using var connection = connectionFactory.CreateConnection();
@@ -130,6 +128,10 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
             command.ExecuteNonQuery();
         }
 
+        /// <summary>
+        /// Actualiza un usuario existente en la base de datos.
+        /// </summary>
+        /// <param name="usuario">Usuario a actualizar.</param>
         public void Update(Usuario usuario)
         {
             using var connection = connectionFactory.CreateConnection();
@@ -158,7 +160,11 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
             command.ExecuteNonQuery();
         }
 
-        public void Delete(Guid id)
+        /// <summary>
+        /// Elimina un usuario por su identificador.
+        /// </summary>
+        /// <param name="usuarioId">Identificador del usuario.</param>
+        public void Delete(Guid usuarioId)
         {
             using var connection = connectionFactory.CreateConnection();
             connection.Open();
@@ -166,11 +172,16 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
             const string query = @"DELETE FROM Usuarios WHERE Id = @Id;";
 
             using var command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Id", id);
+            command.Parameters.AddWithValue("@Id", usuarioId);
 
             command.ExecuteNonQuery();
         }
 
+        /// <summary>
+        /// Agrega al comando SQL los parámetros comunes de usuario.
+        /// </summary>
+        /// <param name="command">Comando SQL a completar.</param>
+        /// <param name="usuario">Usuario fuente de datos.</param>
         private static void AddCommonParameters(SqlCommand command, Usuario usuario)
         {
             command.Parameters.AddWithValue("@Id", usuario.Id);
@@ -187,6 +198,11 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
             command.Parameters.AddWithValue("@Activo", usuario.Activo);
         }
 
+        /// <summary>
+        /// Mapea un registro de base de datos a una instancia de <see cref="Usuario"/>.
+        /// </summary>
+        /// <param name="reader">Lector de datos SQL posicionado sobre un registro válido.</param>
+        /// <returns>Instancia mapeada de usuario.</returns>
         private static Usuario MapUsuario(SqlDataReader reader)
         {
             return new Usuario

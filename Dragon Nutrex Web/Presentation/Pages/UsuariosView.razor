@@ -1,10 +1,9 @@
 ﻿@page "/usuarios"
 @rendermode InteractiveServer
-@using Dragon_Nutrex_Web.Core.Enums
 @using Dragon_Nutrex_Web.Core.Models
-@using Dragon_Nutrex_Web.Presentation.Components.Usuarios
-@using Microsoft.AspNetCore.Components.Web
 @using Dragon_Nutrex_Web.Core.Services
+@using Dragon_Nutrex_Web.Presentation.Components.Usuarios
+
 @inject UsuarioService usuarioService
 @inject AuthService authService
 @inject NavigationManager navigationManager
@@ -54,7 +53,7 @@
     private string? exitoMensaje;
 
     /// <summary>
-    /// Inicializa la vista cargando los usuarios desde el servicio.
+    /// Inicializa la vista y valida acceso administrativo.
     /// </summary>
     protected override void OnInitialized()
     {
@@ -63,11 +62,13 @@
             navigationManager.NavigateTo("/login");
             return;
         }
+
         if (authService.SesionActual?.EsAdmin != true)
         {
             navigationManager.NavigateTo("/");
             return;
         }
+
         CargarUsuarios();
     }
 
@@ -83,25 +84,29 @@
     /// Guarda un usuario nuevo o actualiza uno existente.
     /// </summary>
     /// <param name="usuario">Usuario recibido desde el formulario.</param>
-    private async Task HandleGuardarUsuario(Usuario usuario)
+    private Task HandleGuardarUsuario(Usuario usuario)
     {
         try
         {
             if (usuario.Id == Guid.Empty)
+            {
                 usuarioService.CrearUsuario(usuario);
+            }
             else
+            {
                 usuarioService.ActualizarUsuario(usuario);
+            }
 
             CargarUsuarios();
-            usuarioSeleccionado = null;
-            errorMensaje = null;
-            exitoMensaje = "Usuario guardado exitosamente.";
+            LimpiarSeleccion();
+            MostrarExito("Usuario guardado exitosamente.");
         }
         catch (Exception ex)
         {
-            errorMensaje = ex.Message;
-            exitoMensaje = null;
+            MostrarError(ex.Message);
         }
+
+        return Task.CompletedTask;
     }
 
     /// <summary>
@@ -110,10 +115,126 @@
     /// <param name="usuario">Usuario seleccionado en la tabla.</param>
     private Task HandleEditarUsuario(Usuario usuario)
     {
-        usuarioSeleccionado = new Usuario
+        usuarioSeleccionado = ClonarUsuario(usuario);
+        LimpiarMensajes();
+
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Elimina un usuario del sistema.
+    /// </summary>
+    /// <param name="usuarioId">Identificador del usuario a eliminar.</param>
+    private Task HandleEliminarUsuario(Guid usuarioId)
+    {
+        try
+        {
+            usuarioService.EliminarUsuario(usuarioId);
+            CargarUsuarios();
+
+            if (usuarioSeleccionado?.Id == usuarioId)
+            {
+                LimpiarSeleccion();
+            }
+
+            MostrarExito("Usuario eliminado correctamente.");
+        }
+        catch (Exception ex)
+        {
+            MostrarError($"Error al eliminar usuario: {ex.Message}");
+        }
+
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Cancela la edición actual.
+    /// </summary>
+    private Task HandleCancelarEdicion()
+    {
+        LimpiarSeleccion();
+        LimpiarMensajes();
+
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Restablece la contraseña de un usuario.
+    /// </summary>
+    /// <param name="usuarioId">Identificador del usuario.</param>
+    private Task HandleResetearContrasena(Guid usuarioId)
+    {
+        try
+        {
+            usuarioService.ResetearContrasena(usuarioId);
+            CargarUsuarios();
+
+            MostrarExito("La contraseña fue restablecida correctamente.");
+        }
+        catch (Exception ex)
+        {
+            MostrarError($"Error al resetear contraseña: {ex.Message}");
+        }
+
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Desactiva un usuario del sistema.
+    /// </summary>
+    /// <param name="usuarioId">Identificador del usuario.</param>
+    private Task HandleDesactivarUsuario(Guid usuarioId)
+    {
+        try
+        {
+            usuarioService.DesactivarUsuario(usuarioId);
+            CargarUsuarios();
+
+            MostrarExito("El usuario fue desactivado correctamente.");
+        }
+        catch (Exception ex)
+        {
+            MostrarError($"Error al desactivar usuario: {ex.Message}");
+        }
+
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Activa un usuario del sistema.
+    /// </summary>
+    /// <param name="usuarioId">Identificador del usuario.</param>
+    private Task HandleActivarUsuario(Guid usuarioId)
+    {
+        try
+        {
+            usuarioService.ActivarUsuario(usuarioId);
+            CargarUsuarios();
+
+            MostrarExito("El usuario fue activado correctamente.");
+        }
+        catch (Exception ex)
+        {
+            MostrarError($"Error al activar usuario: {ex.Message}");
+        }
+
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Crea una copia del usuario para edición.
+    /// </summary>
+    /// <param name="usuario">Usuario origen.</param>
+    /// <returns>Usuario clonado.</returns>
+    private static Usuario ClonarUsuario(Usuario usuario)
+    {
+        return new Usuario
         {
             Id = usuario.Id,
             Nombre = usuario.Nombre,
+            Correo = usuario.Correo,
+            Contrasena = usuario.Contrasena,
+            Rol = usuario.Rol,
             Peso = usuario.Peso,
             Altura = usuario.Altura,
             Edad = usuario.Edad,
@@ -122,88 +243,42 @@
             TipoDieta = usuario.TipoDieta,
             Activo = usuario.Activo
         };
-
-        return Task.CompletedTask;
     }
+
     /// <summary>
-    /// Elimina un usuario del sistema.
+    /// Limpia la selección actual del formulario.
     /// </summary>
-    /// <param name="usuarioId">Identificador del usuario a eliminar.</param>
-    private Task HandleEliminarUsuario(Guid usuarioId)
-    {
-        usuarioService.EliminarUsuario(usuarioId);
-
-        CargarUsuarios();
-
-        if (usuarioSeleccionado?.Id == usuarioId)
-        {
-            usuarioSeleccionado = null;
-        }
-
-        return Task.CompletedTask;
-    }
-    /// <summary>
-    /// Cancela la edición actual.
-    /// </summary>
-    private Task HandleCancelarEdicion()
+    private void LimpiarSeleccion()
     {
         usuarioSeleccionado = null;
-        return Task.CompletedTask;
-    }
-    private Task HandleResetearContrasena(Guid usuarioId)
-    {
-        try
-        {
-            usuarioService.ResetearContrasena(usuarioId);
-            CargarUsuarios();
-
-            exitoMensaje = "La contraseña fue restablecida correctamente.";
-            errorMensaje = null;
-        }
-        catch (Exception ex)
-        {
-            errorMensaje = $"Error al resetear contraseña: {ex.Message}";
-            exitoMensaje = null;
-        }
-
-        return Task.CompletedTask;
     }
 
-    private Task HandleDesactivarUsuario(Guid usuarioId)
+    /// <summary>
+    /// Limpia los mensajes de éxito y error.
+    /// </summary>
+    private void LimpiarMensajes()
     {
-        try
-        {
-            usuarioService.DesactivarUsuario(usuarioId);
-            CargarUsuarios();
-
-            exitoMensaje = "El usuario fue desactivado correctamente.";
-            errorMensaje = null;
-        }
-        catch (Exception ex)
-        {
-            errorMensaje = $"Error al desactivar usuario: {ex.Message}";
-            exitoMensaje = null;
-        }
-
-        return Task.CompletedTask;
+        errorMensaje = null;
+        exitoMensaje = null;
     }
 
-    private Task HandleActivarUsuario(Guid usuarioId)
+    /// <summary>
+    /// Muestra un mensaje de éxito.
+    /// </summary>
+    /// <param name="mensaje">Mensaje a mostrar.</param>
+    private void MostrarExito(string mensaje)
     {
-        try
-        {
-            usuarioService.ActivarUsuario(usuarioId);
-            CargarUsuarios();
+        exitoMensaje = mensaje;
+        errorMensaje = null;
+    }
 
-            exitoMensaje = "El usuario fue activado correctamente.";
-            errorMensaje = null;
-        }
-        catch (Exception ex)
-        {
-            errorMensaje = $"Error al activar usuario: {ex.Message}";
-            exitoMensaje = null;
-        }
-
-        return Task.CompletedTask;
+    /// <summary>
+    /// Muestra un mensaje de error.
+    /// </summary>
+    /// <param name="mensaje">Mensaje a mostrar.</param>
+    private void MostrarError(string mensaje)
+    {
+        errorMensaje = mensaje;
+        exitoMensaje = null;
     }
 }

@@ -1,8 +1,9 @@
 ﻿@page "/imc"
 @rendermode InteractiveServer
-@using Dragon_Nutrex_Web.Core.Services
 @using Dragon_Nutrex_Web.Core.Models
+@using Dragon_Nutrex_Web.Core.Services
 @using Dragon_Nutrex_Web.Presentation.Components.Nutricion
+
 @inject AuthService authService
 @inject UsuarioService usuarioService
 @inject NavigationManager navigationManager
@@ -29,6 +30,9 @@
     private ConsultaImc consultaInicial = new();
     private Usuario? usuarioActual;
 
+    /// <summary>
+    /// Inicializa la vista y carga la información base del usuario autenticado.
+    /// </summary>
     protected override void OnInitialized()
     {
         if (!authService.EstaAutenticado())
@@ -37,18 +41,13 @@
             return;
         }
 
-        usuarioActual = usuarioService.ObtenerPorId(authService.SesionActual!.UsuarioId);
-
-        if (usuarioActual is not null)
-        {
-            consultaInicial = new ConsultaImc
-            {
-                Peso = usuarioActual.Peso,
-                Altura = usuarioActual.Altura
-            };
-        }
+        CargarConsultaInicial();
     }
 
+    /// <summary>
+    /// Calcula el IMC a partir de la consulta enviada por el formulario.
+    /// </summary>
+    /// <param name="consulta">Datos ingresados en el formulario.</param>
     private Task HandleCalcularImc(ConsultaImc consulta)
     {
         resultadoImc = SaludService.CalcularIMC(consulta.Peso, consulta.Altura);
@@ -57,18 +56,69 @@
         return Task.CompletedTask;
     }
 
+    /// <summary>
+    /// Carga la consulta inicial con datos del usuario autenticado.
+    /// </summary>
+    private void CargarConsultaInicial()
+    {
+        usuarioActual = usuarioService.ObtenerPorId(authService.SesionActual!.UsuarioId);
+
+        if (usuarioActual is null)
+        {
+            consultaInicial = new ConsultaImc();
+            return;
+        }
+
+        consultaInicial = new ConsultaImc
+        {
+            Peso = usuarioActual.Peso,
+            Altura = usuarioActual.Altura
+        };
+    }
+
+    /// <summary>
+    /// Obtiene la clasificación correspondiente al valor de IMC calculado.
+    /// </summary>
+    /// <param name="imc">Índice de masa corporal calculado.</param>
+    /// <returns>Clasificación del IMC.</returns>
     private static string ObtenerClasificacionImc(decimal imc)
     {
-        if (imc <= 0) return "Sin cálculo";
-        if (imc < 18.5m) return "Bajo peso";
-        if (imc < 25m) return "Peso normal";
-        if (imc < 30m) return "Sobrepeso";
+        if (imc <= 0)
+        {
+            return "Sin cálculo";
+        }
+
+        if (imc < 18.5m)
+        {
+            return "Bajo peso";
+        }
+
+        if (imc < 25m)
+        {
+            return "Peso normal";
+        }
+
+        if (imc < 30m)
+        {
+            return "Sobrepeso";
+        }
+
         return "Obesidad";
     }
 
+    /// <summary>
+    /// Modelo de apoyo para calcular el índice de masa corporal.
+    /// </summary>
     public class ConsultaImc
     {
+        /// <summary>
+        /// Peso corporal en kilogramos.
+        /// </summary>
         public decimal Peso { get; set; }
+
+        /// <summary>
+        /// Altura en metros.
+        /// </summary>
         public decimal Altura { get; set; }
     }
 }

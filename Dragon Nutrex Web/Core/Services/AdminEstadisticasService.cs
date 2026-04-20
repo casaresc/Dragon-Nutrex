@@ -1,20 +1,30 @@
-﻿using Dragon_Nutrex_Web.Core.Models;
-using Dragon_Nutrex_Web.Infrastructure.Repositories;
+﻿using Dragon_Nutrex_Web.Core.Interfaces;
+using Dragon_Nutrex_Web.Core.Models;
 
 namespace Dragon_Nutrex_Web.Core.Services
 {
+    /// <summary>
+    /// Gestiona la generación de estadísticas administrativas globales del sistema.
+    /// </summary>
     public class AdminEstadisticasService
     {
-        private readonly UsuarioRepository usuarioRepository;
-        private readonly ProductoRepository productoRepository;
-        private readonly MenuDiarioRepository menuDiarioRepository;
-        private readonly MenuDetalleRepository menuDetalleRepository;
+        private readonly IRepository<Usuario> usuarioRepository;
+        private readonly IRepository<Producto> productoRepository;
+        private readonly IRepository<MenuDiario> menuDiarioRepository;
+        private readonly IRepository<MenuDetalle> menuDetalleRepository;
 
+        /// <summary>
+        /// Inicializa una nueva instancia de <see cref="AdminEstadisticasService"/>.
+        /// </summary>
+        /// <param name="usuarioRepository">Repositorio de usuarios.</param>
+        /// <param name="productoRepository">Repositorio de productos.</param>
+        /// <param name="menuDiarioRepository">Repositorio de menús diarios.</param>
+        /// <param name="menuDetalleRepository">Repositorio de detalles de menú.</param>
         public AdminEstadisticasService(
-            UsuarioRepository usuarioRepository,
-            ProductoRepository productoRepository,
-            MenuDiarioRepository menuDiarioRepository,
-            MenuDetalleRepository menuDetalleRepository)
+            IRepository<Usuario> usuarioRepository,
+            IRepository<Producto> productoRepository,
+            IRepository<MenuDiario> menuDiarioRepository,
+            IRepository<MenuDetalle> menuDetalleRepository)
         {
             this.usuarioRepository = usuarioRepository;
             this.productoRepository = productoRepository;
@@ -22,95 +32,127 @@ namespace Dragon_Nutrex_Web.Core.Services
             this.menuDetalleRepository = menuDetalleRepository;
         }
 
+        /// <summary>
+        /// Obtiene el producto más consumido dentro de un rango de fechas.
+        /// </summary>
+        /// <param name="fechaInicio">Fecha inicial del rango.</param>
+        /// <param name="fechaFin">Fecha final del rango.</param>
+        /// <returns>Resultado del producto más consumido o null si no hay datos.</returns>
         public ProductoMasConsumidoResultado? ObtenerProductoMasConsumido(DateTime fechaInicio, DateTime fechaFin)
         {
-            if (fechaInicio.Date > fechaFin.Date)
-                throw new Exception("La fecha inicio no puede ser mayor que la fecha fin.");
+            ValidarRangoFechas(fechaInicio, fechaFin);
 
             var menus = menuDiarioRepository.GetAll()
-                .Where(m => m.Fecha.Date >= fechaInicio.Date && m.Fecha.Date <= fechaFin.Date)
+                .Where(menu => menu.Fecha.Date >= fechaInicio.Date && menu.Fecha.Date <= fechaFin.Date)
                 .ToList();
 
             if (!menus.Any())
+            {
                 return null;
+            }
 
-            var menuIds = menus.Select(m => m.Id).ToHashSet();
+            var menuIds = menus.Select(menu => menu.Id).ToHashSet();
 
             var detalles = menuDetalleRepository.GetAll()
-                .Where(d => menuIds.Contains(d.MenuId))
+                .Where(detalle => menuIds.Contains(detalle.MenuId))
                 .ToList();
 
             if (!detalles.Any())
+            {
                 return null;
+            }
 
             var productos = productoRepository.GetAll();
 
-            var resultado = detalles
-                .GroupBy(d => d.ProductoId)
-                .Select(g =>
+            return detalles
+                .GroupBy(detalle => detalle.ProductoId)
+                .Select(grupo =>
                 {
-                    var producto = productos.FirstOrDefault(p => p.Id == g.Key);
+                    var producto = productos.FirstOrDefault(item => item.Id == grupo.Key);
 
                     return new ProductoMasConsumidoResultado
                     {
-                        ProductoId = g.Key,
+                        ProductoId = grupo.Key,
                         NombreProducto = producto?.Nombre ?? "Producto desconocido",
-                        TotalPorciones = g.Sum(x => x.Porcion),
-                        TotalRegistros = g.Count()
+                        TotalPorciones = grupo.Sum(item => item.Porcion),
+                        TotalRegistros = grupo.Count()
                     };
                 })
-                .OrderByDescending(x => x.TotalPorciones)
-                .ThenByDescending(x => x.TotalRegistros)
+                .OrderByDescending(resultado => resultado.TotalPorciones)
+                .ThenByDescending(resultado => resultado.TotalRegistros)
                 .FirstOrDefault();
-
-            return resultado;
         }
 
+        /// <summary>
+        /// Obtiene el porcentaje de usuarios por tipo de dieta.
+        /// </summary>
+        /// <returns>Lista de porcentajes por tipo de dieta.</returns>
         public List<PorcentajeTipoDietaResultado> ObtenerPorcentajeTiposDieta()
         {
             var usuarios = usuarioRepository.GetAll();
 
             if (!usuarios.Any())
+            {
                 return new List<PorcentajeTipoDietaResultado>();
+            }
 
             var totalUsuarios = usuarios.Count;
 
             return usuarios
-                .GroupBy(u => u.TipoDieta.ToString())
-                .Select(g => new PorcentajeTipoDietaResultado
+                .GroupBy(usuario => usuario.TipoDieta.ToString())
+                .Select(grupo => new PorcentajeTipoDietaResultado
                 {
-                    TipoDieta = g.Key,
-                    CantidadUsuarios = g.Count(),
-                    Porcentaje = Math.Round((decimal)g.Count() * 100 / totalUsuarios, 2)
+                    TipoDieta = grupo.Key,
+                    CantidadUsuarios = grupo.Count(),
+                    Porcentaje = Math.Round((decimal)grupo.Count() * 100 / totalUsuarios, 2)
                 })
-                .OrderByDescending(x => x.CantidadUsuarios)
+                .OrderByDescending(resultado => resultado.CantidadUsuarios)
                 .ToList();
         }
 
+        /// <summary>
+        /// Obtiene los usuarios ordenados por cantidad de menús registrados.
+        /// </summary>
+        /// <returns>Lista de usuarios con su cantidad de menús.</returns>
         public List<UsuarioMenusResultado> ObtenerUsuariosConMasMenus()
         {
             var usuarios = usuarioRepository.GetAll();
             var menus = menuDiarioRepository.GetAll();
 
             if (!menus.Any())
+            {
                 return new List<UsuarioMenusResultado>();
+            }
 
             return menus
-                .GroupBy(m => m.UsuarioId)
-                .Select(g =>
+                .GroupBy(menu => menu.UsuarioId)
+                .Select(grupo =>
                 {
-                    var usuario = usuarios.FirstOrDefault(u => u.Id == g.Key);
+                    var usuario = usuarios.FirstOrDefault(item => item.Id == grupo.Key);
 
                     return new UsuarioMenusResultado
                     {
-                        UsuarioId = g.Key,
+                        UsuarioId = grupo.Key,
                         NombreUsuario = usuario?.Nombre ?? "Usuario desconocido",
-                        CantidadMenus = g.Count()
+                        CantidadMenus = grupo.Count()
                     };
                 })
-                .OrderByDescending(x => x.CantidadMenus)
-                .ThenBy(x => x.NombreUsuario)
+                .OrderByDescending(resultado => resultado.CantidadMenus)
+                .ThenBy(resultado => resultado.NombreUsuario)
                 .ToList();
+        }
+
+        /// <summary>
+        /// Valida que el rango de fechas sea correcto.
+        /// </summary>
+        /// <param name="fechaInicio">Fecha inicial.</param>
+        /// <param name="fechaFin">Fecha final.</param>
+        private static void ValidarRangoFechas(DateTime fechaInicio, DateTime fechaFin)
+        {
+            if (fechaInicio.Date > fechaFin.Date)
+            {
+                throw new Exception("La fecha inicio no puede ser mayor que la fecha fin.");
+            }
         }
     }
 }

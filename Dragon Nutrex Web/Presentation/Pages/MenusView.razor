@@ -1,5 +1,4 @@
 ﻿@page "/menus"
-
 @rendermode InteractiveServer
 @using Dragon_Nutrex_Web.Core.Models
 @using Dragon_Nutrex_Web.Core.Services
@@ -31,6 +30,7 @@
 
         <ProductoSelectorComponent Productos="productosActivos"
                                    OnAgregarProducto="HandleAgregarProducto" />
+
         @if (!string.IsNullOrWhiteSpace(estadoMenu))
         {
             <div class="info-box">
@@ -44,17 +44,20 @@
                              Usuarios="usuarios"
                              OnVerDetalle="HandleVerDetalleMenu"
                              OnEliminarMenu="HandleEliminarMenu" />
+
         <MenuDetalleTableComponent @key="menuActual.Id"
                                    Detalles="detallesTemporales"
                                    Productos="productos"
                                    OnEliminarDetalle="HandleEliminarDetalle" />
     </div>
+
     @if (!string.IsNullOrEmpty(errorMensaje))
     {
         <div class="error-box">
             @errorMensaje
         </div>
     }
+
     @if (!string.IsNullOrEmpty(exitoMensaje))
     {
         <div class="success-box">
@@ -69,14 +72,16 @@
     private List<Producto> productosActivos = new();
     private List<MenuDiario> menus = new();
     private List<MenuDetalle> detallesTemporales = new();
+
     private string estadoMenu = "Nuevo menú";
     private MenuDiario menuActual = CrearMenuVacio();
     private bool modoEdicion;
     private string? errorMensaje;
     private string? exitoMensaje;
+
     private bool EsAdmin => authService.SesionActual?.EsAdmin == true;
     private Guid UsuarioAutenticadoId => authService.SesionActual?.UsuarioId ?? Guid.Empty;
-    
+
     /// <summary>
     /// Carga datos persistidos al iniciar la vista.
     /// </summary>
@@ -104,13 +109,14 @@
     {
         usuarios = usuarioService.ObtenerTodos();
         productos = productoService.ObtenerProductos();
-        productosActivos = productos
-            .Where(p => p.Activo)
-            .ToList();
-
+        productosActivos = productos.Where(producto => producto.Activo).ToList();
         menus = ObtenerMenusSegunRol();
     }
 
+    /// <summary>
+    /// Agrega un producto al menú actual.
+    /// </summary>
+    /// <param name="detalle">Detalle recibido desde el selector.</param>
     private Task HandleAgregarProducto(MenuDetalle detalle)
     {
         try
@@ -121,18 +127,9 @@
                 detalle.MenuId = menuActual.Id;
 
                 menuDetalleService.AgregarProducto(detalle);
+                RecargarDetallesMenuActual();
 
-                detallesTemporales = menuDetalleService.ObtenerPorMenu(menuActual.Id)
-                    .Select(d => new MenuDetalle
-                    {
-                        Id = d.Id,
-                        MenuId = d.MenuId,
-                        ProductoId = d.ProductoId,
-                        Porcion = d.Porcion
-                    })
-                    .ToList();
-
-                exitoMensaje = "Producto agregado y guardado correctamente.";
+                MostrarExito("Producto agregado y guardado correctamente.");
             }
             else
             {
@@ -140,118 +137,110 @@
                 detalle.MenuId = menuActual.Id == Guid.Empty ? Guid.NewGuid() : menuActual.Id;
 
                 detallesTemporales.Add(detalle);
-                exitoMensaje = "Producto agregado al menú temporalmente.";
+                MostrarExito("Producto agregado al menú temporalmente.");
             }
-
-            errorMensaje = null;
-            return Task.CompletedTask;
         }
         catch (Exception ex)
         {
-            errorMensaje = $"Error al agregar producto: {ex.Message}";
-            exitoMensaje = null;
-            return Task.CompletedTask;
+            MostrarError($"Error al agregar producto: {ex.Message}");
         }
+
+        return Task.CompletedTask;
     }
+
     /// <summary>
-    /// Elimina un detalle temporal del menú actual.
+    /// Elimina un detalle del menú actual.
     /// </summary>
     /// <param name="detalleId">Identificador del detalle.</param>
     private Task HandleEliminarDetalle(Guid detalleId)
     {
         try
         {
-            var detalle = detallesTemporales.FirstOrDefault(d => d.Id == detalleId);
+            var detalle = detallesTemporales.FirstOrDefault(item => item.Id == detalleId);
 
             if (detalle is null)
             {
-                errorMensaje = "El detalle no existe.";
-                exitoMensaje = null;
+                MostrarError("El detalle no existe.");
                 return Task.CompletedTask;
             }
 
             if (modoEdicion && menuActual.Id != Guid.Empty)
             {
                 menuDetalleService.EliminarProducto(detalleId);
+                RecargarDetallesMenuActual();
 
-                detallesTemporales = menuDetalleService.ObtenerPorMenu(menuActual.Id)
-                    .Select(d => new MenuDetalle
-                    {
-                        Id = d.Id,
-                        MenuId = d.MenuId,
-                        ProductoId = d.ProductoId,
-                        Porcion = d.Porcion
-                    })
-                    .ToList();
-
-                exitoMensaje = "Detalle eliminado y guardado correctamente.";
+                MostrarExito("Detalle eliminado y guardado correctamente.");
             }
             else
             {
                 detallesTemporales.Remove(detalle);
-                exitoMensaje = "Detalle eliminado temporalmente.";
+                MostrarExito("Detalle eliminado temporalmente.");
             }
-
-            errorMensaje = null;
-            return Task.CompletedTask;
         }
         catch (Exception ex)
         {
-            errorMensaje = $"Error al eliminar detalle: {ex.Message}";
-            exitoMensaje = null;
-            return Task.CompletedTask;
+            MostrarError($"Error al eliminar detalle: {ex.Message}");
         }
+
+        return Task.CompletedTask;
     }
 
     /// <summary>
-    /// Guarda un menú nuevo con sus detalles.
+    /// Guarda un menú nuevo o actualiza uno existente con sus detalles.
     /// </summary>
     /// <param name="menu">Menú a persistir.</param>
     private Task HandleGuardarMenu(MenuDiario menu)
     {
-        if (!EsAdmin)
+        try
         {
-            menu.UsuarioId = UsuarioAutenticadoId;
-        }
+            if (!EsAdmin)
+            {
+                menu.UsuarioId = UsuarioAutenticadoId;
+            }
 
-        if (modoEdicion)
+            if (modoEdicion)
+            {
+                menuDiarioService.ActualizarMenu(menu);
+
+                var detallesExistentes = menuDetalleService.ObtenerPorMenu(menu.Id);
+
+                foreach (var detalleExistente in detallesExistentes)
+                {
+                    menuDetalleService.EliminarProducto(detalleExistente.Id);
+                }
+
+                foreach (var detalle in detallesTemporales)
+                {
+                    detalle.Id = detalle.Id == Guid.Empty ? Guid.NewGuid() : detalle.Id;
+                    detalle.MenuId = menu.Id;
+                    menuDetalleService.AgregarProducto(detalle);
+                }
+            }
+            else
+            {
+                if (menu.Id == Guid.Empty)
+                {
+                    menu.Id = Guid.NewGuid();
+                }
+
+                foreach (var detalle in detallesTemporales)
+                {
+                    detalle.MenuId = menu.Id;
+                }
+
+                menuDiarioService.CrearMenu(menu, detallesTemporales);
+            }
+
+            MostrarExito($"Menú guardado correctamente con {detallesTemporales.Count} detalle(s).");
+            return ReiniciarVistaAsync(menu.Fecha);
+        }
+        catch (Exception ex)
         {
-            menuDiarioService.ActualizarMenu(menu);
-
-            var detallesExistentes = menuDetalleService.ObtenerPorMenu(menu.Id);
-
-            foreach (var detalleExistente in detallesExistentes)
-            {
-                menuDetalleService.EliminarProducto(detalleExistente.Id);
-            }
-
-            foreach (var detalle in detallesTemporales)
-            {
-                detalle.Id = detalle.Id == Guid.Empty ? Guid.NewGuid() : detalle.Id;
-                detalle.MenuId = menu.Id;
-                menuDetalleService.AgregarProducto(detalle);
-            }
+            MostrarError($"Error al guardar menú: {ex.Message}");
+            return Task.CompletedTask;
         }
-        else
-        {
-            if (menu.Id == Guid.Empty)
-            {
-                menu.Id = Guid.NewGuid();
-            }
-
-            foreach (var detalle in detallesTemporales)
-            {
-                detalle.MenuId = menu.Id;
-            }
-
-            menuDiarioService.CrearMenu(menu, detallesTemporales);
-        }
-
-        exitoMensaje = $"Menú guardado correctamente con {detallesTemporales.Count} detalle(s).";
-        errorMensaje = null;
-
-        return ReiniciarVistaAsync(menu.Fecha);
     }
+
     /// <summary>
     /// Carga un menú persistido para visualizar o editar.
     /// </summary>
@@ -260,32 +249,16 @@
     {
         if (!EsAdmin && menu.UsuarioId != UsuarioAutenticadoId)
         {
-            errorMensaje = "No tienes permiso para visualizar ese menú.";
-            exitoMensaje = null;
+            MostrarError("No tienes permiso para visualizar ese menú.");
             return Task.CompletedTask;
         }
 
-        menuActual = new MenuDiario
-        {
-            Id = menu.Id,
-            UsuarioId = menu.UsuarioId,
-            Nombre = menu.Nombre,
-            Fecha = menu.Fecha
-        };
-
-        detallesTemporales = menuDetalleService.ObtenerPorMenu(menu.Id)
-            .Select(d => new MenuDetalle
-            {
-                Id = d.Id,
-                MenuId = d.MenuId,
-                ProductoId = d.ProductoId,
-                Porcion = d.Porcion
-            })
-            .ToList();
+        AsignarMenuActual(menu);
+        RecargarDetallesMenuActual();
 
         modoEdicion = true;
         estadoMenu = "Menú existente cargado";
-        errorMensaje = null;
+        LimpiarMensajes();
 
         return Task.CompletedTask;
     }
@@ -296,40 +269,46 @@
     /// <param name="menuId">Identificador del menú.</param>
     private Task HandleEliminarMenu(Guid menuId)
     {
-        var menu = menuDiarioService.ObtenerMenus().FirstOrDefault(m => m.Id == menuId);
-
-        if (menu is null)
+        try
         {
-            errorMensaje = "El menú no existe.";
-            exitoMensaje = null;
-            return Task.CompletedTask;
-        }
+            var menu = menuDiarioService.ObtenerMenus().FirstOrDefault(item => item.Id == menuId);
 
-        if (!EsAdmin && menu.UsuarioId != UsuarioAutenticadoId)
-        {
-            errorMensaje = "No tienes permiso para eliminar ese menú.";
-            exitoMensaje = null;
-            return Task.CompletedTask;
-        }
+            if (menu is null)
+            {
+                MostrarError("El menú no existe.");
+                return Task.CompletedTask;
+            }
 
-        var detalles = menuDetalleService.ObtenerPorMenu(menuId);
+            if (!EsAdmin && menu.UsuarioId != UsuarioAutenticadoId)
+            {
+                MostrarError("No tienes permiso para eliminar ese menú.");
+                return Task.CompletedTask;
+            }
 
-        foreach (var detalle in detalles)
-        {
-            menuDetalleService.EliminarProducto(detalle.Id);
-        }
+            var detalles = menuDetalleService.ObtenerPorMenu(menuId);
 
-        menuDiarioService.EliminarMenu(menuId);
+            foreach (var detalle in detalles)
+            {
+                menuDetalleService.EliminarProducto(detalle.Id);
+            }
 
-        if (menuActual.Id == menuId)
-        {
-            return ReiniciarVistaAsync();
-        }
-        else
-        {
+            menuDiarioService.EliminarMenu(menuId);
+
+            if (menuActual.Id == menuId)
+            {
+                MostrarExito("Menú eliminado correctamente.");
+                return ReiniciarVistaAsync();
+            }
+
             menus = ObtenerMenusSegunRol();
-            return Task.CompletedTask;
+            MostrarExito("Menú eliminado correctamente.");
         }
+        catch (Exception ex)
+        {
+            MostrarError($"Error al eliminar menú: {ex.Message}");
+        }
+
+        return Task.CompletedTask;
     }
 
     /// <summary>
@@ -343,6 +322,7 @@
     /// <summary>
     /// Reinicia el estado de la vista y recarga datos persistidos.
     /// </summary>
+    /// <param name="fecha">Fecha objetivo opcional.</param>
     private async Task ReiniciarVistaAsync(DateTime? fecha = null)
     {
         var fechaObjetivo = fecha ?? DateTime.Today;
@@ -367,18 +347,6 @@
     }
 
     /// <summary>
-    /// Crea una instancia vacía del menú.
-    /// </summary>
-    private static MenuDiario CrearMenuVacio() =>
-        new()
-        {
-            Id = Guid.Empty,
-            UsuarioId = Guid.Empty,
-            Nombre = string.Empty,
-            Fecha = DateTime.Today
-        };
-
-    /// <summary>
     /// Revisa si ya existe un menú para el usuario y la fecha seleccionados.
     /// Si existe, carga el menú y sus detalles.
     /// Si no existe, prepara un menú nuevo.
@@ -397,23 +365,8 @@
 
         if (menuExistente is not null)
         {
-            menuActual = new MenuDiario
-            {
-                Id = menuExistente.Id,
-                UsuarioId = menuExistente.UsuarioId,
-                Nombre = menuExistente.Nombre,
-                Fecha = menuExistente.Fecha
-            };
-
-            detallesTemporales = menuDetalleService.ObtenerPorMenu(menuExistente.Id)
-                .Select(detalle => new MenuDetalle
-                {
-                    Id = detalle.Id,
-                    MenuId = detalle.MenuId,
-                    ProductoId = detalle.ProductoId,
-                    Porcion = detalle.Porcion
-                })
-                .ToList();
+            AsignarMenuActual(menuExistente);
+            RecargarDetallesMenuActual();
 
             modoEdicion = true;
             estadoMenu = "Menú existente cargado";
@@ -446,6 +399,11 @@
 
         return Task.CompletedTask;
     }
+
+    /// <summary>
+    /// Obtiene la lista de menús según el rol del usuario autenticado.
+    /// </summary>
+    /// <returns>Lista de menús visibles.</returns>
     private List<MenuDiario> ObtenerMenusSegunRol()
     {
         var todosLosMenus = menuDiarioService.ObtenerMenus();
@@ -460,6 +418,10 @@
             .ToList();
     }
 
+    /// <summary>
+    /// Carga el contexto de menú del usuario autenticado.
+    /// </summary>
+    /// <param name="fecha">Fecha objetivo opcional.</param>
     private async Task CargarContextoMenuUsuarioActualAsync(DateTime? fecha = null)
     {
         if (EsAdmin || UsuarioAutenticadoId == Guid.Empty)
@@ -471,5 +433,96 @@
         menuActual.Fecha = fecha ?? menuActual.Fecha;
 
         await HandleCambioMenuBase(menuActual);
+    }
+
+    /// <summary>
+    /// Asigna el menú actual en modo edición.
+    /// </summary>
+    /// <param name="menu">Menú origen.</param>
+    private void AsignarMenuActual(MenuDiario menu)
+    {
+        menuActual = new MenuDiario
+        {
+            Id = menu.Id,
+            UsuarioId = menu.UsuarioId,
+            Nombre = menu.Nombre,
+            Fecha = menu.Fecha
+        };
+    }
+
+    /// <summary>
+    /// Recarga los detalles del menú actual desde persistencia.
+    /// </summary>
+    private void RecargarDetallesMenuActual()
+    {
+        if (menuActual.Id == Guid.Empty)
+        {
+            detallesTemporales = new List<MenuDetalle>();
+            return;
+        }
+
+        detallesTemporales = menuDetalleService.ObtenerPorMenu(menuActual.Id)
+            .Select(ClonarDetalle)
+            .ToList();
+    }
+
+    /// <summary>
+    /// Crea una instancia vacía del menú.
+    /// </summary>
+    /// <returns>Instancia vacía de menú.</returns>
+    private static MenuDiario CrearMenuVacio()
+    {
+        return new MenuDiario
+        {
+            Id = Guid.Empty,
+            UsuarioId = Guid.Empty,
+            Nombre = string.Empty,
+            Fecha = DateTime.Today
+        };
+    }
+
+    /// <summary>
+    /// Crea una copia de un detalle de menú.
+    /// </summary>
+    /// <param name="detalle">Detalle origen.</param>
+    /// <returns>Detalle clonado.</returns>
+    private static MenuDetalle ClonarDetalle(MenuDetalle detalle)
+    {
+        return new MenuDetalle
+        {
+            Id = detalle.Id,
+            MenuId = detalle.MenuId,
+            ProductoId = detalle.ProductoId,
+            Porcion = detalle.Porcion
+        };
+    }
+
+    /// <summary>
+    /// Limpia los mensajes de éxito y error.
+    /// </summary>
+    private void LimpiarMensajes()
+    {
+        errorMensaje = null;
+        exitoMensaje = null;
+    }
+
+    /// <summary>
+    /// Muestra un mensaje de éxito.
+    /// </summary>
+    /// <param name="mensaje">Mensaje a mostrar.</param>
+    private void MostrarExito(string mensaje)
+    {
+        exitoMensaje = mensaje;
+        errorMensaje = null;
+    }
+
+    /// <summary>
+    /// Muestra un mensaje de error.
+    /// </summary>
+    /// <param name="mensaje">Mensaje a mostrar.</param>
+    private void MostrarError(string mensaje)
+    {
+        errorMensaje = mensaje;
+        exitoMensaje = null;
     }
 }

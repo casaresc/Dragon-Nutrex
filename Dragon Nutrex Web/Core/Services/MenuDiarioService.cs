@@ -1,47 +1,72 @@
 ﻿using Dragon_Nutrex_Web.Core.Interfaces;
 using Dragon_Nutrex_Web.Core.Models;
-using Dragon_Nutrex_Web.Infrastructure.Repositories;
 
 namespace Dragon_Nutrex_Web.Core.Services
 {
+    /// <summary>
+    /// Gestiona la lógica de negocio relacionada con menús diarios.
+    /// </summary>
     public class MenuDiarioService
     {
-        private readonly IRepository<MenuDiario> menuRepository;
-        private readonly MenuDetalleRepository menuDetalleRepository;
+        private readonly IMenuDiarioRepository menuRepository;
+        private readonly IRepository<MenuDetalle> menuDetalleRepository;
 
+        /// <summary>
+        /// Inicializa una nueva instancia de <see cref="MenuDiarioService"/>.
+        /// </summary>
+        /// <param name="menuRepository">Repositorio de menús diarios.</param>
+        /// <param name="menuDetalleRepository">Repositorio de detalles de menú.</param>
         public MenuDiarioService(
-            IRepository<MenuDiario> menuRepository,
-            MenuDetalleRepository menuDetalleRepository)
+            IMenuDiarioRepository menuRepository,
+            IRepository<MenuDetalle> menuDetalleRepository)
         {
             this.menuRepository = menuRepository;
             this.menuDetalleRepository = menuDetalleRepository;
         }
 
+        /// <summary>
+        /// Obtiene todos los menús registrados.
+        /// </summary>
         public List<MenuDiario> ObtenerMenus()
         {
             return menuRepository.GetAll();
         }
 
+        /// <summary>
+        /// Obtiene todos los menús registrados.
+        /// </summary>
         public List<MenuDiario> ObtenerTodos()
         {
             return menuRepository.GetAll();
         }
 
-        public MenuDiario? ObtenerPorId(Guid id)
+        /// <summary>
+        /// Obtiene un menú por su identificador.
+        /// </summary>
+        public MenuDiario? ObtenerPorId(Guid menuId)
         {
-            return menuRepository.GetById(id);
+            return menuRepository.GetById(menuId);
         }
 
+        /// <summary>
+        /// Obtiene un menú por usuario y fecha.
+        /// </summary>
         public MenuDiario? ObtenerPorUsuarioYFecha(Guid usuarioId, DateTime fecha)
         {
-            return ((MenuDiarioRepository)menuRepository).GetByUsuarioYFecha(usuarioId, fecha);
+            return menuRepository.GetByUsuarioYFecha(usuarioId, fecha);
         }
 
+        /// <summary>
+        /// Crea un menú sin detalles asociados.
+        /// </summary>
         public void CrearMenu(MenuDiario menu)
         {
             CrearMenu(menu, new List<MenuDetalle>());
         }
 
+        /// <summary>
+        /// Crea un menú con sus detalles asociados.
+        /// </summary>
         public void CrearMenu(MenuDiario menu, List<MenuDetalle> detalles)
         {
             if (menu.Id == Guid.Empty)
@@ -65,17 +90,26 @@ namespace Dragon_Nutrex_Web.Core.Services
             }
         }
 
+        /// <summary>
+        /// Actualiza un menú existente.
+        /// </summary>
         public void ActualizarMenu(MenuDiario menu)
         {
             ValidarMenu(menu);
             menuRepository.Update(menu);
         }
 
-        public void EliminarMenu(Guid id)
+        /// <summary>
+        /// Elimina un menú por su identificador.
+        /// </summary>
+        public void EliminarMenu(Guid menuId)
         {
-            menuRepository.Delete(id);
+            menuRepository.Delete(menuId);
         }
 
+        /// <summary>
+        /// Valida las reglas de negocio del menú.
+        /// </summary>
         private static void ValidarMenu(MenuDiario menu)
         {
             if (menu.UsuarioId == Guid.Empty)

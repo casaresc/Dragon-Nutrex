@@ -8,43 +8,54 @@ using Dragon_Nutrex_Web.Presentation.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// ==========================================
+// 1. CONFIGURACIÓN BASE
+// ==========================================
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+// ==========================================
+// 2. ACCESO A DATOS (Infrastructure)
+// ==========================================
 var connectionString = builder.Configuration.GetConnectionString("DragonNutrexDb")
     ?? throw new InvalidOperationException("No se encontró la cadena de conexión DragonNutrexDb.");
 
 builder.Services.AddSingleton(new SqlConnectionFactory(connectionString));
 
+// ==========================================
+// 3. REPOSITORIES
+// ==========================================
 builder.Services.AddScoped<IRepository<Usuario>, UsuarioRepository>();
-builder.Services.AddScoped<UsuarioService>();
-
 builder.Services.AddScoped<IRepository<Producto>, ProductoRepository>();
-builder.Services.AddScoped<ProductoService>();
-
 builder.Services.AddScoped<IRepository<MenuDiario>, MenuDiarioRepository>();
 builder.Services.AddScoped<IRepository<MenuDetalle>, MenuDetalleRepository>();
 builder.Services.AddScoped<IRepository<ConsumoDiario>, ConsumoDiarioRepository>();
 
-builder.Services.AddScoped<MenuDetalleRepository>();
+builder.Services.AddScoped<IMenuDiarioRepository, MenuDiarioRepository>();
+builder.Services.AddScoped<IMenuDetalleRepository, MenuDetalleRepository>();
+builder.Services.AddScoped<IConsumoDiarioRepository, ConsumoDiarioRepository>();
+
+// ==========================================
+// 4. SERVICES & CONTROLLERS
+// ==========================================
+builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<UsuarioService>();
+builder.Services.AddScoped<ProductoService>();
 builder.Services.AddScoped<MenuDiarioService>();
 builder.Services.AddScoped<MenuDetalleService>();
 builder.Services.AddScoped<ConsumoService>();
-builder.Services.AddScoped<ReportExportService>();
-
-builder.Services.AddScoped<ConsumoController>();
 builder.Services.AddScoped<NutricionService>();
-builder.Services.AddScoped<AuthService>();
-builder.Services.AddScoped<UsuarioRepository>();
-builder.Services.AddScoped<ProductoRepository>();
-builder.Services.AddScoped<MenuDiarioRepository>();
-builder.Services.AddScoped<MenuDetalleRepository>();
-
+builder.Services.AddScoped<ReportExportService>();
 builder.Services.AddScoped<AdminEstadisticasService>();
+
+// Controllers
+builder.Services.AddScoped<ConsumoController>();
+
+// ==========================================
+// 5. APP PIPELINE (Middleware)
+// ==========================================
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
@@ -54,8 +65,8 @@ if (!app.Environment.IsDevelopment())
 app.UseStatusCodePagesWithReExecute("/not-found", createScopeForStatusCodePages: true);
 app.UseHttpsRedirection();
 app.UseAntiforgery();
-
 app.MapStaticAssets();
+
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 

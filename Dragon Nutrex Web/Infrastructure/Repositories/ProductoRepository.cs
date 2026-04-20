@@ -7,17 +7,38 @@ using Microsoft.Data.SqlClient;
 namespace Dragon_Nutrex_Web.Infrastructure.Repositories
 {
     /// <summary>
-    /// Repositorio SQL Server para productos.
+    /// Repositorio SQL Server para la persistencia de productos.
     /// </summary>
     public class ProductoRepository : IRepository<Producto>
     {
+        private const string SelectProductosQuery = @"
+            SELECT
+                Id,
+                Nombre,
+                Categoria,
+                Proteina,
+                Carbohidratos,
+                Grasas,
+                PorcionGramos,
+                Calorias,
+                Activo
+            FROM Productos";
+
         private readonly SqlConnectionFactory connectionFactory;
 
+        /// <summary>
+        /// Inicializa una nueva instancia de <see cref="ProductoRepository"/>.
+        /// </summary>
+        /// <param name="connectionFactory">Fábrica de conexiones SQL.</param>
         public ProductoRepository(SqlConnectionFactory connectionFactory)
         {
             this.connectionFactory = connectionFactory;
         }
 
+        /// <summary>
+        /// Obtiene todos los productos registrados.
+        /// </summary>
+        /// <returns>Lista de productos.</returns>
         public List<Producto> GetAll()
         {
             var productos = new List<Producto>();
@@ -25,20 +46,7 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
             using var connection = connectionFactory.CreateConnection();
             connection.Open();
 
-            const string query = @"
-                SELECT
-                    Id,
-                    Nombre,
-                    Categoria,
-                    Proteina,
-                    Carbohidratos,
-                    Grasas,
-                    PorcionGramos,
-                    Calorias,
-                    Activo
-                FROM Productos;";
-
-            using var command = new SqlCommand(query, connection);
+            using var command = new SqlCommand(SelectProductosQuery + ";", connection);
             using var reader = command.ExecuteReader();
 
             while (reader.Read())
@@ -49,38 +57,31 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
             return productos;
         }
 
-        public Producto? GetById(Guid id)
+        /// <summary>
+        /// Obtiene un producto por su identificador.
+        /// </summary>
+        /// <param name="productoId">Identificador del producto.</param>
+        /// <returns>Producto encontrado o null.</returns>
+        public Producto? GetById(Guid productoId)
         {
             using var connection = connectionFactory.CreateConnection();
             connection.Open();
 
-            const string query = @"
-                SELECT
-                    Id,
-                    Nombre,
-                    Categoria,
-                    Proteina,
-                    Carbohidratos,
-                    Grasas,
-                    PorcionGramos,
-                    Calorias,
-                    Activo
-                FROM Productos
+            const string query = SelectProductosQuery + @"
                 WHERE Id = @Id;";
 
             using var command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Id", id);
+            command.Parameters.AddWithValue("@Id", productoId);
 
             using var reader = command.ExecuteReader();
 
-            if (reader.Read())
-            {
-                return MapProducto(reader);
-            }
-
-            return null;
+            return reader.Read() ? MapProducto(reader) : null;
         }
 
+        /// <summary>
+        /// Crea un nuevo producto en la base de datos.
+        /// </summary>
+        /// <param name="producto">Producto a registrar.</param>
         public void Create(Producto producto)
         {
             using var connection = connectionFactory.CreateConnection();
@@ -118,6 +119,10 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
             command.ExecuteNonQuery();
         }
 
+        /// <summary>
+        /// Actualiza un producto existente en la base de datos.
+        /// </summary>
+        /// <param name="producto">Producto a actualizar.</param>
         public void Update(Producto producto)
         {
             using var connection = connectionFactory.CreateConnection();
@@ -143,7 +148,11 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
             command.ExecuteNonQuery();
         }
 
-        public void Delete(Guid id)
+        /// <summary>
+        /// Elimina un producto por su identificador.
+        /// </summary>
+        /// <param name="productoId">Identificador del producto.</param>
+        public void Delete(Guid productoId)
         {
             using var connection = connectionFactory.CreateConnection();
             connection.Open();
@@ -151,11 +160,16 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
             const string query = @"DELETE FROM Productos WHERE Id = @Id;";
 
             using var command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Id", id);
+            command.Parameters.AddWithValue("@Id", productoId);
 
             command.ExecuteNonQuery();
         }
 
+        /// <summary>
+        /// Agrega al comando SQL los parámetros comunes de producto.
+        /// </summary>
+        /// <param name="command">Comando SQL a completar.</param>
+        /// <param name="producto">Producto fuente de datos.</param>
         private static void AddCommonParameters(SqlCommand command, Producto producto)
         {
             command.Parameters.AddWithValue("@Id", producto.Id);
@@ -169,6 +183,11 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
             command.Parameters.AddWithValue("@Activo", producto.Activo);
         }
 
+        /// <summary>
+        /// Mapea un registro de base de datos a una instancia de <see cref="Producto"/>.
+        /// </summary>
+        /// <param name="reader">Lector de datos SQL posicionado sobre un registro válido.</param>
+        /// <returns>Instancia mapeada de producto.</returns>
         private static Producto MapProducto(SqlDataReader reader)
         {
             return new Producto

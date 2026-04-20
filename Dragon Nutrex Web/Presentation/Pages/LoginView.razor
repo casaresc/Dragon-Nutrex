@@ -1,6 +1,7 @@
 ﻿@page "/login"
 @rendermode InteractiveServer
 @using Dragon_Nutrex_Web.Core.Services
+
 @inject AuthService authService
 @inject NavigationManager navigationManager
 
@@ -49,6 +50,9 @@
     private LoginModel loginModel = new();
     private string? errorMensaje;
 
+    /// <summary>
+    /// Redirige automáticamente si ya existe una sesión activa.
+    /// </summary>
     protected override void OnInitialized()
     {
         if (authService.EstaAutenticado())
@@ -57,35 +61,67 @@
         }
     }
 
+    /// <summary>
+    /// Intenta iniciar sesión con las credenciales ingresadas.
+    /// </summary>
     private void HandleLogin()
     {
         var autenticado = authService.IniciarSesion(loginModel.Correo, loginModel.Contrasena);
 
         if (!autenticado)
         {
-            errorMensaje = "Correo o contraseña incorrectos.";
+            MostrarError("Correo o contraseña incorrectos.");
             return;
         }
 
-        errorMensaje = null;
+        LimpiarError();
         RedirigirSegunRol();
     }
 
+    /// <summary>
+    /// Redirige al usuario según su rol actual.
+    /// </summary>
     private void RedirigirSegunRol()
     {
         if (authService.SesionActual?.EsAdmin == true)
         {
             navigationManager.NavigateTo("/usuarios");
+            return;
         }
-        else
-        {
-            navigationManager.NavigateTo("/menus");
-        }
+
+        navigationManager.NavigateTo("/menus");
     }
 
+    /// <summary>
+    /// Muestra un mensaje de error en la vista.
+    /// </summary>
+    /// <param name="mensaje">Mensaje a mostrar.</param>
+    private void MostrarError(string mensaje)
+    {
+        errorMensaje = mensaje;
+    }
+
+    /// <summary>
+    /// Limpia el mensaje de error actual.
+    /// </summary>
+    private void LimpiarError()
+    {
+        errorMensaje = null;
+    }
+
+    /// <summary>
+    /// Modelo de apoyo para el formulario de inicio de sesión.
+    /// </summary>
     public class LoginModel
     {
+        /// <summary>
+        /// Correo del usuario.
+        /// </summary>
         public string Correo { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Contraseña del usuario.
+        /// </summary>
         public string Contrasena { get; set; } = string.Empty;
     }
 }
