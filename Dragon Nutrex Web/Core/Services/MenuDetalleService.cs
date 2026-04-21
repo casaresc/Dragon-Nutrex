@@ -80,13 +80,19 @@ namespace Dragon_Nutrex_Web.Core.Services
         private static void ValidarDetalle(MenuDetalle detalle)
         {
             if (detalle.MenuId == Guid.Empty)
-                throw new Exception("El detalle debe estar asociado a un menú.");
+            {
+                throw new ArgumentException("El detalle debe estar asociado a un menú.", nameof(detalle));
+            }
 
             if (detalle.ProductoId == Guid.Empty)
-                throw new Exception("El detalle debe estar asociado a un producto.");
+            {
+                throw new ArgumentException("El detalle debe estar asociado a un producto.", nameof(detalle));
+            }
 
             if (detalle.Porcion <= 0)
-                throw new Exception("La porción debe ser mayor a cero.");
+            {
+                throw new ArgumentOutOfRangeException(nameof(detalle), "La porción debe ser mayor a cero.");
+            }
         }
     }
 }

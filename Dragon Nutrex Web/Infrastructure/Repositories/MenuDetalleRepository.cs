@@ -54,9 +54,9 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
         /// <summary>
         /// Obtiene un detalle de menú por su identificador.
         /// </summary>
-        /// <param name="detalleId">Identificador del detalle.</param>
+        /// <param name="id">Identificador del detalle.</param>
         /// <returns>Detalle encontrado o null.</returns>
-        public MenuDetalle? GetById(Guid detalleId)
+        public MenuDetalle? GetById(Guid id)
         {
             using var connection = connectionFactory.CreateConnection();
             connection.Open();
@@ -65,7 +65,7 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
                 WHERE Id = @Id;";
 
             using var command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Id", detalleId);
+            command.Parameters.AddWithValue("@Id", id);
 
             using var reader = command.ExecuteReader();
 
@@ -129,8 +129,8 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
         /// <summary>
         /// Elimina un detalle de menú por su identificador.
         /// </summary>
-        /// <param name="detalleId">Identificador del detalle.</param>
-        public void Delete(Guid detalleId)
+        /// <param name="id">Identificador del detalle.</param>
+        public void Delete(Guid id)
         {
             using var connection = connectionFactory.CreateConnection();
             connection.Open();
@@ -138,7 +138,7 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
             const string query = @"DELETE FROM MenuDetalles WHERE Id = @Id;";
 
             using var command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Id", detalleId);
+            command.Parameters.AddWithValue("@Id", id);
 
             command.ExecuteNonQuery();
         }

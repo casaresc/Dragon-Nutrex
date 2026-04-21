@@ -98,7 +98,7 @@
 
     [Parameter]
     public Guid? UsuarioFijoId { get; set; }
-    private ConsultaRango consulta = new();
+    private readonly ConsultaRango consulta = new();
     protected override void OnParametersSet()
     {
         if (!MostrarSelectorUsuario && UsuarioFijoId.HasValue)

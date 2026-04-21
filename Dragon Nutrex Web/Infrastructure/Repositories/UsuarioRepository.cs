@@ -63,9 +63,9 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
         /// <summary>
         /// Obtiene un usuario por su identificador.
         /// </summary>
-        /// <param name="usuarioId">Identificador del usuario.</param>
+        /// <param name="id">Identificador del usuario.</param>
         /// <returns>Usuario encontrado o null.</returns>
-        public Usuario? GetById(Guid usuarioId)
+        public Usuario? GetById(Guid id)
         {
             using var connection = connectionFactory.CreateConnection();
             connection.Open();
@@ -74,7 +74,7 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
                 WHERE Id = @Id;";
 
             using var command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Id", usuarioId);
+            command.Parameters.AddWithValue("@Id", id);
 
             using var reader = command.ExecuteReader();
 
@@ -163,8 +163,8 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
         /// <summary>
         /// Elimina un usuario por su identificador.
         /// </summary>
-        /// <param name="usuarioId">Identificador del usuario.</param>
-        public void Delete(Guid usuarioId)
+        /// <param name="id">Identificador del usuario.</param>
+        public void Delete(Guid id)
         {
             using var connection = connectionFactory.CreateConnection();
             connection.Open();
@@ -172,7 +172,7 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
             const string query = @"DELETE FROM Usuarios WHERE Id = @Id;";
 
             using var command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Id", usuarioId);
+            command.Parameters.AddWithValue("@Id", id);
 
             command.ExecuteNonQuery();
         }

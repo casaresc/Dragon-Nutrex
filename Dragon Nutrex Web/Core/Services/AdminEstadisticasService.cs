@@ -151,7 +151,7 @@ namespace Dragon_Nutrex_Web.Core.Services
         {
             if (fechaInicio.Date > fechaFin.Date)
             {
-                throw new Exception("La fecha inicio no puede ser mayor que la fecha fin.");
+                throw new ArgumentException("La fecha inicio no puede ser mayor que la fecha fin.");
             }
         }
     }

@@ -58,9 +58,9 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
         /// <summary>
         /// Obtiene un consumo diario por su identificador.
         /// </summary>
-        /// <param name="consumoId">Identificador del consumo.</param>
+        /// <param name="id">Identificador del consumo.</param>
         /// <returns>Consumo encontrado o null.</returns>
-        public ConsumoDiario? GetById(Guid consumoId)
+        public ConsumoDiario? GetById(Guid id)
         {
             using var connection = connectionFactory.CreateConnection();
             connection.Open();
@@ -69,7 +69,7 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
                 WHERE Id = @Id;";
 
             using var command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Id", consumoId);
+            command.Parameters.AddWithValue("@Id", id);
 
             using var reader = command.ExecuteReader();
 
@@ -145,8 +145,8 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
         /// <summary>
         /// Elimina un consumo diario por su identificador.
         /// </summary>
-        /// <param name="consumoId">Identificador del consumo.</param>
-        public void Delete(Guid consumoId)
+        /// <param name="id">Identificador del consumo.</param>
+        public void Delete(Guid id)
         {
             using var connection = connectionFactory.CreateConnection();
             connection.Open();
@@ -154,7 +154,7 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
             const string query = @"DELETE FROM ConsumosDiarios WHERE Id = @Id;";
 
             using var command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Id", consumoId);
+            command.Parameters.AddWithValue("@Id", id);
 
             command.ExecuteNonQuery();
         }
