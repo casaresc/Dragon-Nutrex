@@ -1,3 +1,4 @@
+using Dragon_Nutrex_Web.Common;
 using Dragon_Nutrex_Web.Core.Controllers;
 using Dragon_Nutrex_Web.Core.Interfaces;
 using Dragon_Nutrex_Web.Core.Models;
@@ -5,6 +6,7 @@ using Dragon_Nutrex_Web.Core.Services;
 using Dragon_Nutrex_Web.Infrastructure.Data;
 using Dragon_Nutrex_Web.Infrastructure.Repositories;
 using Dragon_Nutrex_Web.Presentation.Components;
+using Microsoft.AspNetCore.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -58,7 +60,24 @@ var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error", createScopeForErrors: true);
+    app.UseExceptionHandler(errorApp =>
+    {
+        errorApp.Run(context =>
+        {
+            var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerFeature>();
+
+            if (exceptionHandlerFeature?.Error is not null)
+            {
+                GlobalExceptionHandler.Handle(
+                    exceptionHandlerFeature.Error,
+                    "Program.UseExceptionHandler");
+            }
+
+            context.Response.Redirect("/Error");
+            return Task.CompletedTask;
+        });
+    });
+
     app.UseHsts();
 }
 

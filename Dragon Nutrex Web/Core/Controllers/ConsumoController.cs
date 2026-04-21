@@ -51,7 +51,7 @@ namespace Dragon_Nutrex_Web.Core.Controllers
             }
             catch (Exception ex)
             {
-                GlobalExceptionHandler.Handle(ex);
+                GlobalExceptionHandler.Handle(ex, "ConsumoController.ObtenerResumenParaFecha");
                 return CrearResumenDiarioVacio();
             }
         }
@@ -79,7 +79,7 @@ namespace Dragon_Nutrex_Web.Core.Controllers
             }
             catch (Exception ex)
             {
-                GlobalExceptionHandler.Handle(ex);
+                GlobalExceptionHandler.Handle(ex, "ConsumoController.ObtenerResumenParaUsuarioYFecha");
                 return CrearResumenDiarioVacio();
             }
         }
@@ -99,7 +99,7 @@ namespace Dragon_Nutrex_Web.Core.Controllers
             }
             catch (Exception ex)
             {
-                GlobalExceptionHandler.Handle(ex);
+                GlobalExceptionHandler.Handle(ex, "ConsumoController.ObtenerEstadisticasRangoPorUsuario");
                 return CrearResumenRangoVacio();
             }
         }
@@ -116,7 +116,7 @@ namespace Dragon_Nutrex_Web.Core.Controllers
             }
             catch (Exception ex)
             {
-                GlobalExceptionHandler.Handle(ex);
+                GlobalExceptionHandler.Handle(ex, "ConsumoController.RegistrarNuevoConsumo");
             }
         }
 
@@ -134,7 +134,7 @@ namespace Dragon_Nutrex_Web.Core.Controllers
             }
             catch (Exception ex)
             {
-                GlobalExceptionHandler.Handle(ex);
+                GlobalExceptionHandler.Handle(ex, "ConsumoController.ObtenerEstadisticasRango");
                 return CrearResumenRangoVacio();
             }
         }
