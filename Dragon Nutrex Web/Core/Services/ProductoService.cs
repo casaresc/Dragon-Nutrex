@@ -97,7 +97,7 @@ namespace Dragon_Nutrex_Web.Core.Services
         private Producto ObtenerProductoExistente(Guid productoId)
         {
             return productoRepository.GetById(productoId)
-                ?? throw new Exception("Producto no encontrado.");
+                ?? throw new KeyNotFoundException($"Producto con ID {productoId} no encontrado.");
         }
 
         /// <summary>
@@ -107,13 +107,19 @@ namespace Dragon_Nutrex_Web.Core.Services
         private static void ValidarProducto(Producto producto)
         {
             if (string.IsNullOrWhiteSpace(producto.Nombre))
-                throw new Exception("El nombre del producto es obligatorio.");
+            {
+                throw new ArgumentException("El nombre del producto es obligatorio.", nameof(producto));
+            }
 
             if (producto.Proteina < 0 || producto.Carbohidratos < 0 || producto.Grasas < 0)
-                throw new Exception("Los macronutrientes no pueden ser negativos.");
+            {
+                throw new ArgumentOutOfRangeException(nameof(producto), "Los macronutrientes no pueden ser negativos.");
+            }
 
             if (producto.PorcionGramos <= 0)
-                throw new Exception("La porción debe ser mayor a 0.");
+            {
+                throw new ArgumentOutOfRangeException(nameof(producto), "La porción debe ser mayor a 0.");
+            }
         }
 
         /// <summary>

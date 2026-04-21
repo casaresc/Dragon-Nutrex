@@ -113,10 +113,14 @@ namespace Dragon_Nutrex_Web.Core.Services
         private static void ValidarMenu(MenuDiario menu)
         {
             if (menu.UsuarioId == Guid.Empty)
-                throw new Exception("El menú debe estar asociado a un usuario.");
+            {
+                throw new ArgumentException("El menú debe estar asociado a un usuario.", nameof(menu));
+            }
 
             if (string.IsNullOrWhiteSpace(menu.Nombre))
-                throw new Exception("El nombre del menú es obligatorio.");
+            {
+                throw new ArgumentException("El nombre del menú es obligatorio.", nameof(menu));
+            }
         }
     }
 }

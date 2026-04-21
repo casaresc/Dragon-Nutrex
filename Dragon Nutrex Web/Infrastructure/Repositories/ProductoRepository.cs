@@ -60,9 +60,9 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
         /// <summary>
         /// Obtiene un producto por su identificador.
         /// </summary>
-        /// <param name="productoId">Identificador del producto.</param>
+        /// <param name="id">Identificador del producto.</param>
         /// <returns>Producto encontrado o null.</returns>
-        public Producto? GetById(Guid productoId)
+        public Producto? GetById(Guid id)
         {
             using var connection = connectionFactory.CreateConnection();
             connection.Open();
@@ -71,7 +71,7 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
                 WHERE Id = @Id;";
 
             using var command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Id", productoId);
+            command.Parameters.AddWithValue("@Id", id);
 
             using var reader = command.ExecuteReader();
 
@@ -151,8 +151,8 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
         /// <summary>
         /// Elimina un producto por su identificador.
         /// </summary>
-        /// <param name="productoId">Identificador del producto.</param>
-        public void Delete(Guid productoId)
+        /// <param name="id">Identificador del producto.</param>
+        public void Delete(Guid id)
         {
             using var connection = connectionFactory.CreateConnection();
             connection.Open();
@@ -160,7 +160,7 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
             const string query = @"DELETE FROM Productos WHERE Id = @Id;";
 
             using var command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Id", productoId);
+            command.Parameters.AddWithValue("@Id", id);
 
             command.ExecuteNonQuery();
         }

@@ -94,7 +94,7 @@
     [Parameter]
     public Guid? UsuarioFijoId { get; set; }
 
-    private ConsultaConsumoMeta consulta = new();
+    private readonly ConsultaConsumoMeta consulta = new();
 
     protected override void OnParametersSet()
     {

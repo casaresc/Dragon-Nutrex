@@ -55,9 +55,9 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
         /// <summary>
         /// Obtiene un menú diario por su identificador.
         /// </summary>
-        /// <param name="menuId">Identificador del menú.</param>
+        /// <param name="id">Identificador del menú.</param>
         /// <returns>Menú encontrado o null.</returns>
-        public MenuDiario? GetById(Guid menuId)
+        public MenuDiario? GetById(Guid id)
         {
             using var connection = connectionFactory.CreateConnection();
             connection.Open();
@@ -66,7 +66,7 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
                 WHERE Id = @Id;";
 
             using var command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Id", menuId);
+            command.Parameters.AddWithValue("@Id", id);
 
             using var reader = command.ExecuteReader();
 
@@ -134,8 +134,8 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
         /// <summary>
         /// Elimina un menú diario por su identificador.
         /// </summary>
-        /// <param name="menuId">Identificador del menú.</param>
-        public void Delete(Guid menuId)
+        /// <param name="id">Identificador del menú.</param>
+        public void Delete(Guid id)
         {
             using var connection = connectionFactory.CreateConnection();
             connection.Open();
@@ -143,7 +143,7 @@ namespace Dragon_Nutrex_Web.Infrastructure.Repositories
             const string query = @"DELETE FROM MenusDiarios WHERE Id = @Id;";
 
             using var command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Id", menuId);
+            command.Parameters.AddWithValue("@Id", id);
 
             command.ExecuteNonQuery();
         }

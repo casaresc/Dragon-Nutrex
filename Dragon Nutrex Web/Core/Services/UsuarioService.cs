@@ -119,7 +119,7 @@ namespace Dragon_Nutrex_Web.Core.Services
         private Usuario ObtenerUsuarioExistente(Guid usuarioId)
         {
             return usuarioRepository.GetById(usuarioId)
-                ?? throw new Exception("Usuario no encontrado");
+                ?? throw new KeyNotFoundException($"Usuario con ID {usuarioId} no encontrado.");
         }
 
         /// <summary>
@@ -129,22 +129,34 @@ namespace Dragon_Nutrex_Web.Core.Services
         private static void ValidarUsuario(Usuario usuario)
         {
             if (string.IsNullOrWhiteSpace(usuario.Nombre))
-                throw new Exception("El nombre del usuario es obligatorio.");
+            {
+                throw new ArgumentException("El nombre del usuario es obligatorio.", nameof(usuario));
+            }
 
             if (string.IsNullOrWhiteSpace(usuario.Correo))
-                throw new Exception("El correo del usuario es obligatorio.");
+            {
+                throw new ArgumentException("El correo del usuario es obligatorio.", nameof(usuario));
+            }
 
             if (string.IsNullOrWhiteSpace(usuario.Contrasena))
-                throw new Exception("La contraseña del usuario es obligatoria.");
+            {
+                throw new ArgumentException("La contraseña del usuario es obligatoria.", nameof(usuario));
+            }
 
             if (usuario.Peso <= 0)
-                throw new Exception("El peso debe ser mayor a 0.");
+            {
+                throw new ArgumentOutOfRangeException(nameof(usuario), "El peso debe ser mayor a 0.");
+            }
 
             if (usuario.Altura <= 0)
-                throw new Exception("La altura debe ser mayor a 0.");
+            {
+                throw new ArgumentOutOfRangeException(nameof(usuario), "La altura debe ser mayor a 0.");
+            }
 
             if (usuario.Edad <= 0)
-                throw new Exception("La edad debe ser válida.");
+            {
+                throw new ArgumentOutOfRangeException(nameof(usuario), "La edad debe ser válida.");
+            }
         }
     }
 }

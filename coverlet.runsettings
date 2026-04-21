@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="XPlat code coverage">
+        <Configuration>
+          <Format>cobertura</Format>
+          <Exclude>[Dragon_Nutrex_Web]Dragon_Nutrex_Web.Presentation.*,[Dragon_Nutrex_Web]Dragon_Nutrex_Web.Infrastructure.*,[Dragon_Nutrex_Web]Program,[Dragon_Nutrex_Web]Dragon_Nutrex_Web.Common.Logger,[Dragon_Nutrex_Web]Dragon_Nutrex_Web.Common.GlobalExceptionHandler</Exclude>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>
