@@ -2,6 +2,7 @@
 @rendermode InteractiveServer
 @using Dragon_Nutrex_Web.Core.Models
 @using Dragon_Nutrex_Web.Core.Services
+
 @inject AdminEstadisticasService adminEstadisticasService
 @inject AuthService authService
 @inject NavigationManager navigationManager
@@ -194,6 +195,9 @@
     private string? errorMensaje;
     private string? exitoMensaje;
 
+    /// <summary>
+    /// Inicializa la vista y valida acceso administrativo.
+    /// </summary>
     protected override void OnInitialized()
     {
         if (!authService.EstaAutenticado())
@@ -207,19 +211,21 @@
             navigationManager.NavigateTo("/");
             return;
         }
-        
+
         porcentajesDieta = adminEstadisticasService.ObtenerPorcentajeTiposDieta();
         usuariosConMasMenus = adminEstadisticasService.ObtenerUsuariosConMasMenus();
     }
 
+    /// <summary>
+    /// Consulta el producto más consumido dentro de un rango de fechas.
+    /// </summary>
     private Task HandleConsultarProductoMasConsumido()
     {
         try
         {
             if (fechaInicioProducto.Date > fechaFinProducto.Date)
             {
-                errorMensaje = "La fecha inicio no puede ser mayor que la fecha fin.";
-                exitoMensaje = null;
+                MostrarError("La fecha inicio no puede ser mayor que la fecha fin.");
                 return Task.CompletedTask;
             }
 
@@ -227,126 +233,201 @@
                 fechaInicioProducto,
                 fechaFinProducto);
 
-            exitoMensaje = "Consulta realizada correctamente.";
-            errorMensaje = null;
+            MostrarExito("Consulta realizada correctamente.");
         }
         catch (Exception ex)
         {
-            errorMensaje = $"Error al consultar producto más consumido: {ex.Message}";
-            exitoMensaje = null;
+            MostrarError($"Error al consultar producto más consumido: {ex.Message}");
         }
 
         return Task.CompletedTask;
     }
 
+    /// <summary>
+    /// Consulta el porcentaje de usuarios por tipo de dieta.
+    /// </summary>
     private Task HandleConsultarTiposDieta()
     {
         try
         {
             porcentajesDieta = adminEstadisticasService.ObtenerPorcentajeTiposDieta();
-
-            exitoMensaje = "Consulta realizada correctamente.";
-            errorMensaje = null;
+            MostrarExito("Consulta realizada correctamente.");
         }
         catch (Exception ex)
         {
-            errorMensaje = $"Error al consultar porcentaje de dietas: {ex.Message}";
-            exitoMensaje = null;
+            MostrarError($"Error al consultar porcentaje de dietas: {ex.Message}");
         }
 
         return Task.CompletedTask;
     }
 
+    /// <summary>
+    /// Consulta los usuarios con más menús ingresados.
+    /// </summary>
     private Task HandleConsultarUsuariosConMasMenus()
     {
         try
         {
             usuariosConMasMenus = adminEstadisticasService.ObtenerUsuariosConMasMenus();
-
-            exitoMensaje = "Consulta realizada correctamente.";
-            errorMensaje = null;
+            MostrarExito("Consulta realizada correctamente.");
         }
         catch (Exception ex)
         {
-            errorMensaje = $"Error al consultar usuarios con más menús: {ex.Message}";
-            exitoMensaje = null;
+            MostrarError($"Error al consultar usuarios con más menús: {ex.Message}");
         }
 
         return Task.CompletedTask;
     }
+
+    /// <summary>
+    /// Exporta el reporte de producto más consumido en formato CSV.
+    /// </summary>
     private async Task ExportarProductoMasConsumidoCsv()
     {
         if (productoMasConsumido is null)
         {
-            errorMensaje = "No hay datos de producto más consumido para exportar.";
-            exitoMensaje = null;
+            MostrarError("No hay datos de producto más consumido para exportar.");
             return;
         }
 
         var contenido = reportExportService.ExportarProductoMasConsumidoCsv(productoMasConsumido);
-        await jsRuntime.InvokeVoidAsync("downloadFileFromText", "producto_mas_consumido.csv", contenido, "text/csv");
+
+        await jsRuntime.InvokeVoidAsync(
+            "downloadFileFromText",
+            "producto_mas_consumido.csv",
+            contenido,
+            "text/csv");
+
+        MostrarExito("Reporte CSV de producto más consumido exportado correctamente.");
     }
 
+    /// <summary>
+    /// Exporta el reporte de producto más consumido en formato TXT.
+    /// </summary>
     private async Task ExportarProductoMasConsumidoTxt()
     {
         if (productoMasConsumido is null)
         {
-            errorMensaje = "No hay datos de producto más consumido para exportar.";
-            exitoMensaje = null;
+            MostrarError("No hay datos de producto más consumido para exportar.");
             return;
         }
+
         var contenido = reportExportService.ExportarProductoMasConsumidoTxt(productoMasConsumido);
-        await jsRuntime.InvokeVoidAsync("downloadFileFromText", "producto_mas_consumido.txt", contenido, "text/plain");
+
+        await jsRuntime.InvokeVoidAsync(
+            "downloadFileFromText",
+            "producto_mas_consumido.txt",
+            contenido,
+            "text/plain");
+
+        MostrarExito("Reporte TXT de producto más consumido exportado correctamente.");
     }
 
+    /// <summary>
+    /// Exporta el reporte de porcentaje de dietas en formato CSV.
+    /// </summary>
     private async Task ExportarDietasCsv()
     {
-        if (porcentajesDieta is null)
+        if (!porcentajesDieta.Any())
         {
-            errorMensaje = "No hay datos de porcentaje de dietas para exportar.";
-            exitoMensaje = null;
+            MostrarError("No hay datos de porcentaje de dietas para exportar.");
             return;
         }
 
         var contenido = reportExportService.ExportarPorcentajeDietasCsv(porcentajesDieta);
-        await jsRuntime.InvokeVoidAsync("downloadFileFromText", "porcentaje_tipos_dieta.csv", contenido, "text/csv");
+
+        await jsRuntime.InvokeVoidAsync(
+            "downloadFileFromText",
+            "porcentaje_tipos_dieta.csv",
+            contenido,
+            "text/csv");
+
+        MostrarExito("Reporte CSV de porcentaje de dietas exportado correctamente.");
     }
 
+    /// <summary>
+    /// Exporta el reporte de porcentaje de dietas en formato TXT.
+    /// </summary>
     private async Task ExportarDietasTxt()
     {
-        if (porcentajesDieta is null)
+        if (!porcentajesDieta.Any())
         {
-            errorMensaje = "No hay datos de porcentaje de dietas para exportar.";
-            exitoMensaje = null;
+            MostrarError("No hay datos de porcentaje de dietas para exportar.");
             return;
         }
 
         var contenido = reportExportService.ExportarPorcentajeDietasTxt(porcentajesDieta);
-        await jsRuntime.InvokeVoidAsync("downloadFileFromText", "porcentaje_tipos_dieta.txt", contenido, "text/plain");
+
+        await jsRuntime.InvokeVoidAsync(
+            "downloadFileFromText",
+            "porcentaje_tipos_dieta.txt",
+            contenido,
+            "text/plain");
+
+        MostrarExito("Reporte TXT de porcentaje de dietas exportado correctamente.");
     }
 
+    /// <summary>
+    /// Exporta el reporte de usuarios con más menús en formato CSV.
+    /// </summary>
     private async Task ExportarUsuariosMenusCsv()
     {
-        if (usuariosConMasMenus is null)
+        if (!usuariosConMasMenus.Any())
         {
-            errorMensaje = "No hay datos de usuarios con más menús para exportar.";
-            exitoMensaje = null;
+            MostrarError("No hay datos de usuarios con más menús para exportar.");
             return;
         }
 
         var contenido = reportExportService.ExportarUsuariosConMasMenusCsv(usuariosConMasMenus);
-        await jsRuntime.InvokeVoidAsync("downloadFileFromText", "usuarios_con_mas_menus.csv", contenido, "text/csv");
+
+        await jsRuntime.InvokeVoidAsync(
+            "downloadFileFromText",
+            "usuarios_con_mas_menus.csv",
+            contenido,
+            "text/csv");
+
+        MostrarExito("Reporte CSV de usuarios con más menús exportado correctamente.");
     }
 
+    /// <summary>
+    /// Exporta el reporte de usuarios con más menús en formato TXT.
+    /// </summary>
     private async Task ExportarUsuariosMenusTxt()
     {
-        if (usuariosConMasMenus is null)
+        if (!usuariosConMasMenus.Any())
         {
-            errorMensaje = "No hay datos de usuarios con más menús para exportar.";
-            exitoMensaje = null;
+            MostrarError("No hay datos de usuarios con más menús para exportar.");
             return;
         }
+
         var contenido = reportExportService.ExportarUsuariosConMasMenusTxt(usuariosConMasMenus);
-        await jsRuntime.InvokeVoidAsync("downloadFileFromText", "usuarios_con_mas_menus.txt", contenido, "text/plain");
+
+        await jsRuntime.InvokeVoidAsync(
+            "downloadFileFromText",
+            "usuarios_con_mas_menus.txt",
+            contenido,
+            "text/plain");
+
+        MostrarExito("Reporte TXT de usuarios con más menús exportado correctamente.");
+    }
+
+    /// <summary>
+    /// Muestra un mensaje de éxito.
+    /// </summary>
+    /// <param name="mensaje">Mensaje a mostrar.</param>
+    private void MostrarExito(string mensaje)
+    {
+        exitoMensaje = mensaje;
+        errorMensaje = null;
+    }
+
+    /// <summary>
+    /// Muestra un mensaje de error.
+    /// </summary>
+    /// <param name="mensaje">Mensaje a mostrar.</param>
+    private void MostrarError(string mensaje)
+    {
+        errorMensaje = mensaje;
+        exitoMensaje = null;
     }
 }

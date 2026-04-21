@@ -9,21 +9,13 @@
     <BlazorDisableThrowNavigationException>true</BlazorDisableThrowNavigationException>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Content Remove="Infrastructure\Data\consumo_diario.json" />
-    <Content Remove="Infrastructure\Data\menus.json" />
-    <Content Remove="Infrastructure\Data\menu_detalles.json" />
-    <Content Remove="Infrastructure\Data\productos.json" />
-    <Content Remove="Infrastructure\Data\usuarios.json" />
-  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
 
-  <ItemGroup>
-    <None Include="Infrastructure\Data\consumo_diario.json" />
-    <None Include="Infrastructure\Data\menus.json" />
-    <None Include="Infrastructure\Data\menu_detalles.json" />
-    <None Include="Infrastructure\Data\productos.json" />
-    <None Include="Infrastructure\Data\usuarios.json" />
-  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.0" />

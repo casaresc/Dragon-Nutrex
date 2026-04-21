@@ -3,6 +3,7 @@
 @using Dragon_Nutrex_Web.Core.Models
 @using Dragon_Nutrex_Web.Core.Services
 @using Dragon_Nutrex_Web.Presentation.Components.Productos
+
 @inject ProductoService productoService
 @inject AuthService authService
 @inject NavigationManager navigationManager
@@ -28,25 +29,29 @@
                                 OnActivar="HandleActivarProducto" />
     </div>
 </section>
+
 @if (!string.IsNullOrEmpty(errorMensaje))
 {
     <div class="error-box">
         @errorMensaje
     </div>
 }
+
 @if (!string.IsNullOrEmpty(exitoMensaje))
 {
     <div class="success-box">
         @exitoMensaje
     </div>
 }
+
 @code {
     private List<Producto> productos = new();
     private Producto? productoSeleccionado;
     private string? errorMensaje;
     private string? exitoMensaje;
+
     /// <summary>
-    /// Inicializa la vista cargando los productos desde el servicio.
+    /// Inicializa la vista y valida acceso administrativo.
     /// </summary>
     protected override void OnInitialized()
     {
@@ -55,11 +60,13 @@
             navigationManager.NavigateTo("/login");
             return;
         }
+
         if (authService.SesionActual?.EsAdmin != true)
         {
             navigationManager.NavigateTo("/");
             return;
         }
+
         CargarProductos();
     }
 
@@ -75,27 +82,29 @@
     /// Guarda un producto nuevo o actualiza uno existente.
     /// </summary>
     /// <param name="producto">Producto recibido desde el formulario.</param>
-    private async Task HandleGuardarProducto(Producto producto)
+    private Task HandleGuardarProducto(Producto producto)
     {
         try
         {
             if (producto.Id == Guid.Empty)
+            {
                 productoService.CrearProducto(producto);
+            }
             else
+            {
                 productoService.ActualizarProducto(producto);
-
+            }
 
             CargarProductos();
-            productoSeleccionado = null;
-            errorMensaje = null;
-            exitoMensaje = "Producto guardado exitosamente.";
+            LimpiarSeleccion();
+            MostrarExito("Producto guardado exitosamente.");
         }
         catch (Exception ex)
         {
-            errorMensaje = ex.Message;
-            exitoMensaje = null;
+            MostrarError(ex.Message);
         }
 
+        return Task.CompletedTask;
     }
 
     /// <summary>
@@ -104,7 +113,73 @@
     /// <param name="producto">Producto seleccionado en la tabla.</param>
     private Task HandleEditarProducto(Producto producto)
     {
-        productoSeleccionado = new Producto
+        productoSeleccionado = ClonarProducto(producto);
+        LimpiarMensajes();
+
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Cancela la edición actual.
+    /// </summary>
+    private Task HandleCancelarEdicion()
+    {
+        LimpiarSeleccion();
+        LimpiarMensajes();
+
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Desactiva un producto del sistema.
+    /// </summary>
+    /// <param name="productoId">Identificador del producto.</param>
+    private Task HandleDesactivarProducto(Guid productoId)
+    {
+        try
+        {
+            productoService.DesactivarProducto(productoId);
+            CargarProductos();
+
+            MostrarExito("Producto desactivado correctamente.");
+        }
+        catch (Exception ex)
+        {
+            MostrarError($"Error al desactivar producto: {ex.Message}");
+        }
+
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Activa un producto del sistema.
+    /// </summary>
+    /// <param name="productoId">Identificador del producto.</param>
+    private Task HandleActivarProducto(Guid productoId)
+    {
+        try
+        {
+            productoService.ActivarProducto(productoId);
+            CargarProductos();
+
+            MostrarExito("Producto activado correctamente.");
+        }
+        catch (Exception ex)
+        {
+            MostrarError($"Error al activar producto: {ex.Message}");
+        }
+
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// Crea una copia del producto para edición.
+    /// </summary>
+    /// <param name="producto">Producto origen.</param>
+    /// <returns>Producto clonado.</returns>
+    private static Producto ClonarProducto(Producto producto)
+    {
+        return new Producto
         {
             Id = producto.Id,
             Nombre = producto.Nombre,
@@ -116,83 +191,42 @@
             Calorias = producto.Calorias,
             Activo = producto.Activo
         };
-
-        return Task.CompletedTask;
     }
 
     /// <summary>
-    /// Elimina un producto del sistema.
+    /// Limpia la selección actual del formulario.
     /// </summary>
-    /// <param name="productoId">Identificador del producto.</param>
-    private Task HandleEliminarProducto(Guid productoId)
-    {
-        try
-        {
-            productoService.EliminarProducto(productoId);
-
-            CargarProductos();
-
-            if (productoSeleccionado?.Id == productoId)
-            {
-                productoSeleccionado = null;
-            }
-
-            exitoMensaje = "Producto eliminado correctamente.";
-            errorMensaje = null;
-        }
-        catch (Exception ex)
-        {
-            errorMensaje = $"Error al eliminar producto: {ex.Message}";
-            exitoMensaje = null;
-        }
-
-        return Task.CompletedTask;
-    }
-
-    /// <summary>
-    /// Cancela la edición actual.
-    /// </summary>
-    private Task HandleCancelarEdicion()
+    private void LimpiarSeleccion()
     {
         productoSeleccionado = null;
-        return Task.CompletedTask;
     }
 
-    private Task HandleDesactivarProducto(Guid productoId)
+    /// <summary>
+    /// Limpia los mensajes de éxito y error.
+    /// </summary>
+    private void LimpiarMensajes()
     {
-        try
-        {
-            productoService.DesactivarProducto(productoId);
-            CargarProductos();
-
-            exitoMensaje = "Producto desactivado correctamente.";
-            errorMensaje = null;
-        }
-        catch (Exception ex)
-        {
-            errorMensaje = $"Error al desactivar producto: {ex.Message}";
-            exitoMensaje = null;
-        }
-
-        return Task.CompletedTask;
+        errorMensaje = null;
+        exitoMensaje = null;
     }
 
-    private Task HandleActivarProducto(Guid productoId)
+    /// <summary>
+    /// Muestra un mensaje de éxito.
+    /// </summary>
+    /// <param name="mensaje">Mensaje a mostrar.</param>
+    private void MostrarExito(string mensaje)
     {
-        try
-        {
-            productoService.ActivarProducto(productoId);
-            CargarProductos();
+        exitoMensaje = mensaje;
+        errorMensaje = null;
+    }
 
-            exitoMensaje = "Producto activado correctamente.";
-            errorMensaje = null;
-        }
-        catch (Exception ex)
-        {
-            errorMensaje = $"Error al activar producto: {ex.Message}";
-            exitoMensaje = null;
-        }
-
-        return Task.CompletedTask;
+    /// <summary>
+    /// Muestra un mensaje de error.
+    /// </summary>
+    /// <param name="mensaje">Mensaje a mostrar.</param>
+    private void MostrarError(string mensaje)
+    {
+        errorMensaje = mensaje;
+        exitoMensaje = null;
     }
 }

@@ -1,8 +1,8 @@
 ﻿@page "/estadisticas"
 @rendermode InteractiveServer
+@using Dragon_Nutrex_Web.Core.Controllers
 @using Dragon_Nutrex_Web.Core.Models
 @using Dragon_Nutrex_Web.Core.Services
-@using Dragon_Nutrex_Web.Core.Controllers
 @using Dragon_Nutrex_Web.Presentation.Components.Estadisticas
 
 @inject UsuarioService usuarioService
@@ -71,12 +71,13 @@
 
 @code {
     private List<Usuario> usuarios = new();
-    private bool EsAdmin => authService.SesionActual?.EsAdmin == true;
-    private Guid UsuarioAutenticadoId => authService.SesionActual?.UsuarioId ?? Guid.Empty;
     private ResumenDiario resumenDiario = new();
     private ResumenRango resumenRango = new();
     private string? errorMensaje;
     private string? exitoMensaje;
+
+    private bool EsAdmin => authService.SesionActual?.EsAdmin == true;
+    private Guid UsuarioAutenticadoId => authService.SesionActual?.UsuarioId ?? Guid.Empty;
 
     /// <summary>
     /// Carga la lista de usuarios disponibles para las consultas estadísticas.
@@ -114,9 +115,7 @@
             usuarioId,
             parametros.Fecha);
 
-        errorMensaje = null;
-        exitoMensaje = "Consulta de consumo vs meta realizada correctamente.";
-
+        MostrarExito("Consulta de consumo vs meta realizada correctamente.");
         return Task.CompletedTask;
     }
 
@@ -138,31 +137,13 @@
             parametros.FechaInicio,
             parametros.FechaFin);
 
-        errorMensaje = null;
-        exitoMensaje = "Consulta de estadísticas por rango realizada correctamente.";
-
+        MostrarExito("Consulta de estadísticas por rango realizada correctamente.");
         return Task.CompletedTask;
     }
 
     /// <summary>
-    /// Modelo de apoyo para consultar consumo frente a meta.
+    /// Carga automáticamente las consultas del usuario autenticado.
     /// </summary>
-    public class ConsultaConsumoMeta
-    {
-        public Guid UsuarioId { get; set; }
-        public DateTime Fecha { get; set; } = DateTime.Today;
-    }
-
-    /// <summary>
-    /// Modelo de apoyo para consultar estadísticas por rango.
-    /// </summary>
-    public class ConsultaRango
-    {
-        public Guid UsuarioId { get; set; }
-        public DateTime FechaInicio { get; set; } = DateTime.Today.AddDays(-7);
-        public DateTime FechaFin { get; set; } = DateTime.Today;
-    }
-
     private async Task CargarConsultasUsuarioActualAsync()
     {
         var consultaConsumo = new ConsultaConsumoMeta
@@ -182,83 +163,148 @@
         await HandleConsultarRango(consultaRango);
     }
 
+    /// <summary>
+    /// Exporta el reporte de consumo vs meta en formato CSV.
+    /// </summary>
     private async Task ExportarConsumoMetaCsv()
     {
         if (!resumenDiario.TieneRegistros)
         {
-            errorMensaje = "No hay datos de consumo vs meta para exportar.";
-            exitoMensaje = null;
+            MostrarError("No hay datos de consumo vs meta para exportar.");
             return;
         }
 
         var contenido = reportExportService.ExportarConsumoMetaCsv(resumenDiario);
+
         await jsRuntime.InvokeVoidAsync(
             "downloadFileFromText",
             "consumo_vs_meta.csv",
             contenido,
             "text/csv");
 
-        exitoMensaje = "Reporte CSV de consumo vs meta exportado correctamente.";
-        errorMensaje = null;
+        MostrarExito("Reporte CSV de consumo vs meta exportado correctamente.");
     }
 
+    /// <summary>
+    /// Exporta el reporte de consumo vs meta en formato TXT.
+    /// </summary>
     private async Task ExportarConsumoMetaTxt()
     {
         if (!resumenDiario.TieneRegistros)
         {
-            errorMensaje = "No hay datos de consumo vs meta para exportar.";
-            exitoMensaje = null;
+            MostrarError("No hay datos de consumo vs meta para exportar.");
             return;
         }
 
         var contenido = reportExportService.ExportarConsumoMetaTxt(resumenDiario);
+
         await jsRuntime.InvokeVoidAsync(
             "downloadFileFromText",
             "consumo_vs_meta.txt",
             contenido,
             "text/plain");
 
-        exitoMensaje = "Reporte TXT de consumo vs meta exportado correctamente.";
-        errorMensaje = null;
+        MostrarExito("Reporte TXT de consumo vs meta exportado correctamente.");
     }
 
+    /// <summary>
+    /// Exporta el reporte de estadísticas por rango en formato CSV.
+    /// </summary>
     private async Task ExportarResumenRangoCsv()
     {
         if (resumenRango.DiasConRegistros == 0)
         {
-            errorMensaje = "No hay datos de estadísticas por rango para exportar.";
-            exitoMensaje = null;
+            MostrarError("No hay datos de estadísticas por rango para exportar.");
             return;
         }
 
         var contenido = reportExportService.ExportarResumenRangoCsv(resumenRango);
+
         await jsRuntime.InvokeVoidAsync(
             "downloadFileFromText",
             "estadisticas_rango.csv",
             contenido,
             "text/csv");
 
-        exitoMensaje = "Reporte CSV de estadísticas por rango exportado correctamente.";
-        errorMensaje = null;
+        MostrarExito("Reporte CSV de estadísticas por rango exportado correctamente.");
     }
 
+    /// <summary>
+    /// Exporta el reporte de estadísticas por rango en formato TXT.
+    /// </summary>
     private async Task ExportarResumenRangoTxt()
     {
         if (resumenRango.DiasConRegistros == 0)
         {
-            errorMensaje = "No hay datos de estadísticas por rango para exportar.";
-            exitoMensaje = null;
+            MostrarError("No hay datos de estadísticas por rango para exportar.");
             return;
         }
 
         var contenido = reportExportService.ExportarResumenRangoTxt(resumenRango);
+
         await jsRuntime.InvokeVoidAsync(
             "downloadFileFromText",
             "estadisticas_rango.txt",
             contenido,
             "text/plain");
 
-        exitoMensaje = "Reporte TXT de estadísticas por rango exportado correctamente.";
+        MostrarExito("Reporte TXT de estadísticas por rango exportado correctamente.");
+    }
+
+    /// <summary>
+    /// Muestra un mensaje de éxito.
+    /// </summary>
+    /// <param name="mensaje">Mensaje a mostrar.</param>
+    private void MostrarExito(string mensaje)
+    {
+        exitoMensaje = mensaje;
         errorMensaje = null;
+    }
+
+    /// <summary>
+    /// Muestra un mensaje de error.
+    /// </summary>
+    /// <param name="mensaje">Mensaje a mostrar.</param>
+    private void MostrarError(string mensaje)
+    {
+        errorMensaje = mensaje;
+        exitoMensaje = null;
+    }
+
+    /// <summary>
+    /// Modelo de apoyo para consultar consumo frente a meta.
+    /// </summary>
+    public class ConsultaConsumoMeta
+    {
+        /// <summary>
+        /// Identificador del usuario.
+        /// </summary>
+        public Guid UsuarioId { get; set; }
+
+        /// <summary>
+        /// Fecha de consulta.
+        /// </summary>
+        public DateTime Fecha { get; set; } = DateTime.Today;
+    }
+
+    /// <summary>
+    /// Modelo de apoyo para consultar estadísticas por rango.
+    /// </summary>
+    public class ConsultaRango
+    {
+        /// <summary>
+        /// Identificador del usuario.
+        /// </summary>
+        public Guid UsuarioId { get; set; }
+
+        /// <summary>
+        /// Fecha inicial del rango.
+        /// </summary>
+        public DateTime FechaInicio { get; set; } = DateTime.Today.AddDays(-7);
+
+        /// <summary>
+        /// Fecha final del rango.
+        /// </summary>
+        public DateTime FechaFin { get; set; } = DateTime.Today;
     }
 }

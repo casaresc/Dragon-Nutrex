@@ -1,9 +1,10 @@
 ﻿@page "/requerimientos"
 @rendermode InteractiveServer
+@using Dragon_Nutrex_Web.Core.Enums
 @using Dragon_Nutrex_Web.Core.Models
 @using Dragon_Nutrex_Web.Core.Services
-@using Dragon_Nutrex_Web.Core.Enums
 @using Dragon_Nutrex_Web.Presentation.Components.Nutricion
+
 @inject AuthService authService
 @inject UsuarioService usuarioService
 @inject NutricionService nutricionService
@@ -29,6 +30,9 @@
     private ConsultaRequerimientos consultaInicial = new();
     private Usuario? usuarioActual;
 
+    /// <summary>
+    /// Inicializa la vista y carga la información base del usuario autenticado.
+    /// </summary>
     protected override void OnInitialized()
     {
         if (!authService.EstaAutenticado())
@@ -37,31 +41,13 @@
             return;
         }
 
-        usuarioActual = usuarioService.ObtenerPorId(authService.SesionActual!.UsuarioId);
-
-        if (usuarioActual is not null)
-        {
-            consultaInicial = new ConsultaRequerimientos
-            {
-                Peso = usuarioActual.Peso,
-                Altura = usuarioActual.Altura,
-                Edad = usuarioActual.Edad,
-                NivelActividad = usuarioActual.NivelActividad,
-                Objetivo = usuarioActual.Objetivo,
-                TipoDieta = usuarioActual.TipoDieta
-            };
-        }
-        else
-        {
-            consultaInicial = new ConsultaRequerimientos
-            {
-                NivelActividad = NivelActividad.Sedentario,
-                Objetivo = ObjetivoNutricional.MantenerPeso,
-                TipoDieta = TipoDieta.Balanceada
-            };
-        }
+        CargarConsultaInicial();
     }
 
+    /// <summary>
+    /// Calcula los requerimientos nutricionales a partir de la consulta enviada por el formulario.
+    /// </summary>
+    /// <param name="consulta">Datos ingresados en el formulario.</param>
     private Task HandleCalcularRequerimientos(ConsultaRequerimientos consulta)
     {
         resultado = nutricionService.CalcularRequerimiento(
@@ -75,13 +61,83 @@
         return Task.CompletedTask;
     }
 
+    /// <summary>
+    /// Carga la consulta inicial con datos del usuario autenticado o con valores por defecto.
+    /// </summary>
+    private void CargarConsultaInicial()
+    {
+        usuarioActual = usuarioService.ObtenerPorId(authService.SesionActual!.UsuarioId);
+
+        consultaInicial = usuarioActual is not null
+            ? CrearConsultaDesdeUsuario(usuarioActual)
+            : CrearConsultaPorDefecto();
+    }
+
+    /// <summary>
+    /// Crea una consulta inicial a partir de un usuario existente.
+    /// </summary>
+    /// <param name="usuario">Usuario fuente de datos.</param>
+    /// <returns>Consulta inicial construida.</returns>
+    private static ConsultaRequerimientos CrearConsultaDesdeUsuario(Usuario usuario)
+    {
+        return new ConsultaRequerimientos
+        {
+            Peso = usuario.Peso,
+            Altura = usuario.Altura,
+            Edad = usuario.Edad,
+            NivelActividad = usuario.NivelActividad,
+            Objetivo = usuario.Objetivo,
+            TipoDieta = usuario.TipoDieta
+        };
+    }
+
+    /// <summary>
+    /// Crea una consulta inicial con valores por defecto.
+    /// </summary>
+    /// <returns>Consulta inicial por defecto.</returns>
+    private static ConsultaRequerimientos CrearConsultaPorDefecto()
+    {
+        return new ConsultaRequerimientos
+        {
+            NivelActividad = NivelActividad.Sedentario,
+            Objetivo = ObjetivoNutricional.MantenerPeso,
+            TipoDieta = TipoDieta.Balanceada
+        };
+    }
+
+    /// <summary>
+    /// Modelo de apoyo para calcular requerimientos nutricionales.
+    /// </summary>
     public class ConsultaRequerimientos
     {
+        /// <summary>
+        /// Peso corporal en kilogramos.
+        /// </summary>
         public decimal Peso { get; set; }
+
+        /// <summary>
+        /// Altura en metros.
+        /// </summary>
         public decimal Altura { get; set; }
+
+        /// <summary>
+        /// Edad en años.
+        /// </summary>
         public int Edad { get; set; }
+
+        /// <summary>
+        /// Nivel de actividad física.
+        /// </summary>
         public NivelActividad NivelActividad { get; set; }
+
+        /// <summary>
+        /// Objetivo nutricional.
+        /// </summary>
         public ObjetivoNutricional Objetivo { get; set; }
+
+        /// <summary>
+        /// Tipo de dieta.
+        /// </summary>
         public TipoDieta TipoDieta { get; set; }
     }
 }
