@@ -33,7 +33,7 @@ public class AdminEstadisticasServiceTests
     [InlineData(true)]
     public void ObtenerProductoMasConsumido_CuandoFechaInicioEsMayor_LanzaExcepcion(bool _)
     {
-        Assert.Throws<Exception>(() =>
+        Assert.Throws<ArgumentException>(() =>
             adminEstadisticasService.ObtenerProductoMasConsumido(
                 DateTime.Today,
                 DateTime.Today.AddDays(-1)));

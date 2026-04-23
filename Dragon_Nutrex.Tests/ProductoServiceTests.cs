@@ -69,9 +69,9 @@ public class ProductoServiceTests
         producto.Grasas = grasas;
         producto.PorcionGramos = porcionGramos;
 
-        var ex = Assert.Throws<Exception>(() => productoService.CrearProducto(producto));
+        var ex = Assert.Throws<ArgumentException>(() => productoService.CrearProducto(producto));
 
-        Assert.Equal(mensajeEsperado, ex.Message);
+        Assert.Contains(mensajeEsperado, ex.Message);
         productoRepositoryMock.Verify(repository => repository.Create(It.IsAny<Producto>()), Times.Never);
     }
 
@@ -92,9 +92,9 @@ public class ProductoServiceTests
         producto.Grasas = grasas;
         producto.PorcionGramos = porcionGramos;
 
-        var ex = Assert.Throws<Exception>(() => productoService.CrearProducto(producto));
+        var ex = Assert.Throws<ArgumentOutOfRangeException>(() => productoService.CrearProducto(producto));
 
-        Assert.Equal(mensajeEsperado, ex.Message);
+        Assert.Contains(mensajeEsperado, ex.Message);
         productoRepositoryMock.Verify(repository => repository.Create(It.IsAny<Producto>()), Times.Never);
     }
 
@@ -108,9 +108,9 @@ public class ProductoServiceTests
         var producto = CrearProductoValido();
         producto.PorcionGramos = porcionGramos;
 
-        var ex = Assert.Throws<Exception>(() => productoService.CrearProducto(producto));
+        var ex = Assert.Throws<ArgumentOutOfRangeException>(() => productoService.CrearProducto(producto));
 
-        Assert.Equal(mensajeEsperado, ex.Message);
+        Assert.Contains(mensajeEsperado, ex.Message);
         productoRepositoryMock.Verify(repository => repository.Create(It.IsAny<Producto>()), Times.Never);
     }
 
@@ -167,9 +167,9 @@ public class ProductoServiceTests
             .Setup(repository => repository.GetById(productoId))
             .Returns((Producto?)null);
 
-        var ex = Assert.Throws<Exception>(() => productoService.DesactivarProducto(productoId));
+        var ex = Assert.Throws<KeyNotFoundException>(() => productoService.DesactivarProducto(productoId));
 
-        Assert.Equal("Producto no encontrado.", ex.Message);
+        Assert.Contains("no encontrado", ex.Message);
     }
 
     [Theory]
@@ -199,9 +199,9 @@ public class ProductoServiceTests
             .Setup(repository => repository.GetById(productoId))
             .Returns((Producto?)null);
 
-        var ex = Assert.Throws<Exception>(() => productoService.ActivarProducto(productoId));
+        var ex = Assert.Throws<KeyNotFoundException>(() => productoService.ActivarProducto(productoId));
 
-        Assert.Equal("Producto no encontrado.", ex.Message);
+        Assert.Contains("no encontrado", ex.Message);
     }
 
     private static Producto CrearProductoValido()

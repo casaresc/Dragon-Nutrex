@@ -88,9 +88,9 @@ public class UsuarioServiceTests
         usuario.Altura = altura;
         usuario.Edad = edad;
 
-        var ex = Assert.Throws<Exception>(() => usuarioService.CrearUsuario(usuario));
+        var ex = Assert.Throws<ArgumentException>(() => usuarioService.CrearUsuario(usuario));
 
-        Assert.Equal(mensajeEsperado, ex.Message);
+        Assert.Contains(mensajeEsperado, ex.Message);
         usuarioRepositoryMock.Verify(repository => repository.Create(It.IsAny<Usuario>()), Times.Never);
     }
 
@@ -109,9 +109,9 @@ public class UsuarioServiceTests
         usuario.Altura = altura;
         usuario.Edad = edad;
 
-        var ex = Assert.Throws<Exception>(() => usuarioService.CrearUsuario(usuario));
+        var ex = Assert.Throws<ArgumentOutOfRangeException>(() => usuarioService.CrearUsuario(usuario));
 
-        Assert.Equal(mensajeEsperado, ex.Message);
+        Assert.Contains(mensajeEsperado, ex.Message);
         usuarioRepositoryMock.Verify(repository => repository.Create(It.IsAny<Usuario>()), Times.Never);
     }
 
@@ -163,9 +163,9 @@ public class UsuarioServiceTests
             .Setup(repository => repository.GetById(usuarioId))
             .Returns((Usuario?)null);
 
-        var ex = Assert.Throws<Exception>(() => usuarioService.ResetearContrasena(usuarioId));
+        var ex = Assert.Throws<KeyNotFoundException>(() => usuarioService.ResetearContrasena(usuarioId));
 
-        Assert.Equal("Usuario no encontrado", ex.Message);
+        Assert.Contains("no encontrado", ex.Message);
     }
 
     [Theory]

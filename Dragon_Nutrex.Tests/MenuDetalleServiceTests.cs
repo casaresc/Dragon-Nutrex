@@ -99,9 +99,9 @@ public class MenuDetalleServiceTests
         var detalle = CrearDetalleValido();
         detalle.MenuId = Guid.Empty;
 
-        var ex = Assert.Throws<Exception>(() => menuDetalleService.AgregarProducto(detalle));
+        var ex = Assert.Throws<ArgumentException>(() => menuDetalleService.AgregarProducto(detalle));
 
-        Assert.Equal(mensajeEsperado, ex.Message);
+        Assert.Contains(mensajeEsperado, ex.Message);
         detalleRepositoryMock.Verify(repository => repository.Create(It.IsAny<MenuDetalle>()), Times.Never);
     }
 
@@ -114,9 +114,9 @@ public class MenuDetalleServiceTests
         var detalle = CrearDetalleValido();
         detalle.ProductoId = Guid.Empty;
 
-        var ex = Assert.Throws<Exception>(() => menuDetalleService.AgregarProducto(detalle));
+        var ex = Assert.Throws<ArgumentException>(() => menuDetalleService.AgregarProducto(detalle));
 
-        Assert.Equal(mensajeEsperado, ex.Message);
+        Assert.Contains(mensajeEsperado, ex.Message);
         detalleRepositoryMock.Verify(repository => repository.Create(It.IsAny<MenuDetalle>()), Times.Never);
     }
 
@@ -130,9 +130,9 @@ public class MenuDetalleServiceTests
         var detalle = CrearDetalleValido();
         detalle.Porcion = porcion;
 
-        var ex = Assert.Throws<Exception>(() => menuDetalleService.AgregarProducto(detalle));
+        var ex = Assert.Throws<ArgumentOutOfRangeException>(() => menuDetalleService.AgregarProducto(detalle));
 
-        Assert.Equal(mensajeEsperado, ex.Message);
+        Assert.Contains(mensajeEsperado, ex.Message);
         detalleRepositoryMock.Verify(repository => repository.Create(It.IsAny<MenuDetalle>()), Times.Never);
     }
 

@@ -151,9 +151,9 @@ public class MenuDiarioServiceTests
         var menu = CrearMenuValido();
         menu.Nombre = nombre;
 
-        var ex = Assert.Throws<Exception>(() => menuDiarioService.CrearMenu(menu));
+        var ex = Assert.Throws<ArgumentException>(() => menuDiarioService.CrearMenu(menu));
 
-        Assert.Equal(mensajeEsperado, ex.Message);
+        Assert.Contains(mensajeEsperado, ex.Message);
         menuRepositoryMock.Verify(repository => repository.Create(It.IsAny<MenuDiario>()), Times.Never);
     }
 
@@ -166,9 +166,9 @@ public class MenuDiarioServiceTests
         var menu = CrearMenuValido();
         menu.UsuarioId = Guid.Empty;
 
-        var ex = Assert.Throws<Exception>(() => menuDiarioService.CrearMenu(menu));
+        var ex = Assert.Throws<ArgumentException>(() => menuDiarioService.CrearMenu(menu));
 
-        Assert.Equal(mensajeEsperado, ex.Message);
+        Assert.Contains(mensajeEsperado, ex.Message);
         menuRepositoryMock.Verify(repository => repository.Create(It.IsAny<MenuDiario>()), Times.Never);
     }
 
